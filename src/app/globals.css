@@ -2,32 +2,140 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+/* class formats in tailwind */
+/* width height position grid/flex flex/grid-properties margin padding bg radius border overflow font text duration */
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+* {
+  box-sizing: border-box;
+}
+.img-scale img {
+  transform: scale(1);
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
+}
+.img-scale:hover img {
+  transform: scale(1.2);
+}
+.bottom-row-container {
+  @apply w-full h-full relative flex py-10 pl-6 rounded-3xl overflow-hidden;
+}
+.button,
+.black-button {
+  @apply w-fit h-[50px] block py-[16px] px-[28px] rounded-xl text-sm text-center duration-300;
+}
+.black-button {
+  @apply bg-grey-500 text-white hover:bg-grey-300;
+}
+.chair-link {
+  @apply flex flex-row gap-2.5 font-sora font-normal text-lg text-khaki-500 hover:text-khaki-700 hover:fill-khaki-700 duration-300;
+}
+.chair-link:hover path {
+  @apply fill-khaki-700;
+}
+.chair-link path {
+  @apply fill-khaki-500 duration-300;
+}
+span.swiper-pagination-bullet {
+  @apply size-2 bg-white opacity-100;
+}
+span.swiper-pagination-bullet-active {
+  @apply size-2 bg-khaki-500;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.prev:hover > img,
+.next:hover > img {
+  transform: scale(1.1);
+}
+.prev > img,
+.next > img {
+  transform-origin: center;
+  transition: all ease-in-out 300ms;
+}
+.product-img {
+  box-shadow: 10px 11px 32px 0px #0000001a;
+  box-shadow: 38px 45px 59px 0px #00000017;
+  box-shadow: 86px 101px 79px 0px #0000000d;
+  box-shadow: 152px 180px 94px 0px #00000003;
+  box-shadow: 238px 281px 103px 0px #00000000;
+  object-fit: cover;
+  background-color: #fafafa;
+}
+.footer-link {
+  @apply size-[50px] p-4 bg-khaki-50 rounded-full duration-300;
+}
+.footer-link:hover {
+  @apply bg-khaki-500;
+}
+.footer-link > svg > path {
+  @apply fill-khaki-500;
+}
+.footer-link:hover > svg > path {
+  @apply fill-white duration-300;
+}
+.heart,
+.heart-active {
+  @apply size-[58px] p-[18px] bg-red-50 rounded-xl duration-300;
+}
+.heart:hover > svg > path {
+  @apply fill-red-500 duration-300;
+}
+.heart-active {
+  @apply bg-white;
+}
+.heart-active > svg > path {
+  @apply fill-red-500 duration-300;
+}
+.input {
+  @apply w-full h-[71px] p-5 rounded-xl outline-none border border-grey-100 focus:border-grey-500 placeholder:text-grey-100 duration-300;
+}
+select {
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* For IE10 */
+select::-ms-expand {
+  display: none;
+}
+input[type="checkbox"] {
+  @apply size-[22px] border border-grey-300 appearance-none duration-300;
+}
+input[type="checkbox"]:checked {
+  @apply size-[22px] border-none;
+  background-image: url(/images/checked.svg);
+}
+textarea {
+  resize: none;
+}
+input[type="range"] {
+  @apply w-full absolute top-0 bottom-0 m-auto outline-none appearance-none bg-transparent pointer-events-none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  @apply appearance-none h-1.5;
+}
+input[type="range"]::-moz-range-track {
+  @apply appearance-none h-1.5;
+}
+input[type="range"]::-ms-track {
+  @apply appearance-none h-1.5;
+}
+input[type="range"]::-webkit-slider-thumb {
+  @apply size-5 -mt-2 bg-white rounded-full border border-solid border-khaki-500 cursor-pointer pointer-events-auto appearance-none;
+  box-shadow: 2px 2px 24px 0px #0000003d;
+}
+input[type="range"]:active::-webkit-slider-thumb {
+  @apply bg-white border border-solid border-khaki-700;
+}
+input[type="range"]::-moz-range-thumb {
+  @apply size-5 -mt-2 bg-white rounded-full border border-solid border-khaki-500 cursor-pointer pointer-events-auto appearance-none;
+}
+input[type="range"]::-ms-thumb {
+  @apply size-5 -mt-2 bg-white rounded-full border border-solid border-khaki-500 cursor-pointer pointer-events-auto appearance-none;
 }

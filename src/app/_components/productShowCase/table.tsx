@@ -1,0 +1,24 @@
+import TableImage from "./images/table.png";
+import Image from "next/image";
+import SmallCard from "./smallCard";
+export default function Pillows() {
+  return (
+    <SmallCard
+      bgClass="bg-[#F3F3F3]"
+      heading="Table"
+      href="/products"
+      linkText="GET 20% PROMO"
+      content="Best quality crafted table available for your living room"
+    >
+      <div className="absolute w-full h-full top-0 right-0">
+        <Image
+          src={TableImage}
+          alt="table"
+          fill
+          sizes="100%"
+          className="w-full h-full bg-cover"
+        />
+      </div>
+    </SmallCard>
+  );
+}
