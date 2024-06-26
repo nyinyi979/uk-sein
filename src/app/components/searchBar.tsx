@@ -1,10 +1,13 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import SearchIcon from "../svg/search.svg"
-export default function SearchBar({width,onSearch}:{
-    width: string,
-    onSearch: (searchValue: string)=>void
+import SearchIcon from "../svg/search.svg";
+export default function SearchBar({
+  width,
+  onSearch,
+}: {
+  width: string;
+  onSearch: (searchValue: string) => void;
 }) {
   const [searchValue, setSearchValue] = React.useState("");
   const updateSearchValue = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -15,8 +18,8 @@ export default function SearchBar({width,onSearch}:{
       <input
         value={searchValue}
         onChange={(e) => updateSearchValue(e)}
-        onKeyUp={(ev)=>{
-            if(ev.key === "Enter") onSearch(searchValue);
+        onKeyUp={(ev) => {
+          if (ev.key === "Enter") onSearch(searchValue);
         }}
         className={`${width} h-[62px] pl-16 p-5 rounded-[15px] outline-none border border-gray-200 focus:border-gray-400 duration-300`}
         placeholder="Search products..."

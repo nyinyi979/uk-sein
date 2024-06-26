@@ -11,7 +11,7 @@ export default function OrderTitle() {
           </p>
         </div>
         <div className="w-[430px] ml-auto">
-          <SearchBar onSearch={(s)=>{}} width="w-full"/>
+          <SearchBar onSearch={(s) => {}} width="w-full" />
         </div>
       </div>
     </div>

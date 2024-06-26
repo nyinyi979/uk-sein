@@ -26,12 +26,12 @@ export default function Product({
         className="w-full relative"
       >
         <div
-          className={`product-img ${small ? "size-[274px]" : "w-[376px] h-[350px]"} bg-white-400 flex ${small ? "py-10" : "py-8"} align-middle justify-center rounded-3xl`}
+          className={`${small ? "size-[274px]" : "w-[376px] h-[350px]"} bg-white-400 flex ${small ? "py-10" : "py-8"} align-middle justify-center rounded-3xl`}
         >
           <img
             src={imageURL}
             alt={engName}
-            className={`${small ? "w-[231px] h-[206px]" : "w-[333px] h-[296px]"} bg-cover`}
+            className={`${small ? "w-[231px] h-[206px]" : "w-[333px] h-[296px]"} bg-cover shadow-product`}
           />
           <span className="absolute top-[18px] left-4 px-2 py-[10px] bg-red-50/30 rounded-[10px] text-red-500 text-center text-sm">
             {category}

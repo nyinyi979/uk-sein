@@ -20,7 +20,7 @@ export default function NavBar() {
   ]);
   const checkLinks = React.useRef([
     new Set([""]),
-    new Set(["products", "category"]),
+    new Set(["products", "category", "checkout"]),
     new Set(["portfolio"]),
     new Set(["about-us"]),
     new Set(["contact"]),

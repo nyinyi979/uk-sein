@@ -1,18 +1,32 @@
-import Link from "next/link";
 import Cart from "./cart";
 import World from "./world";
+import Login from "./login";
+import React from "react";
 
 export default function LoginSide() {
+  const [hidden, setHidden] = React.useState({
+    intrenational: true,
+    cart: true,
+    user: true,
+  });
+  const toggleLanguageDropdown = () => {
+    setHidden({
+      intrenational: !hidden.intrenational,
+      cart: true,
+      user: true,
+    });
+  };
+  const toggleCartDropdown = () => {
+    setHidden({ intrenational: true, cart: !hidden.cart, user: true });
+  };
+  const toggleUserDropdown = () => {
+    setHidden({ intrenational: true, cart: true, user: !hidden.user });
+  };
   return (
     <div className="flex flex-row gap-[18px] align-middle justify-center py-5">
-      <World />
-      <Cart />
-      <Link
-        href={"/login"}
-        className="w-[120px] h-[50px] px-5 py-3 bg-khaki-500 rounded-xl text-center text-white hover:bg-khaki-700 duration-300"
-      >
-        Login
-      </Link>
+      <World hidden={hidden.intrenational} toggle={toggleLanguageDropdown} />
+      <Cart hidden={hidden.cart} toggle={toggleCartDropdown} />
+      <Login hidden={hidden.user} toggle={toggleUserDropdown} />
     </div>
   );
 }

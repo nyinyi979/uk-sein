@@ -3,9 +3,9 @@ import React from "react";
 import Image from "next/image";
 import SIGNUP from "../images/signup.png";
 import FirstPage from "./firstPage";
+import SecondPage from "./secondPage";
 import { AnimatePresence } from "framer-motion";
 import { signUpInput, state } from "@/app/types/type";
-import SecondPage from "./secondPage";
 export default function Signup() {
   const [input, setInput] = React.useState<signUpInput>({
     file: null,
@@ -20,8 +20,8 @@ export default function Signup() {
     address: "",
   });
   const setFile = (f: File) => {
-    setInput({ ...input, file: f});
-  }
+    setInput({ ...input, file: f });
+  };
   const setName = (n: string) => {
     setInput({ ...input, name: n });
   };

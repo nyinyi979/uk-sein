@@ -1,6 +1,6 @@
-import StateInput from "./stateInput";
-import TownshipInput from "./townshipInput";
-import AddresssInput from "./addressInput";
+import StateInput from "../../components/stateInput";
+import TownshipInput from "../../components/townshipInput";
+import AddresssInput from "../../components/addressInput";
 import { addresses } from "../../types/addresses";
 import { motion } from "framer-motion";
 import { Dispatch, SetStateAction } from "react";

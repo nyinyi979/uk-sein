@@ -3,7 +3,7 @@ import Map from "../images/map.png";
 import JoinOurCommunity from "./joinOurCommunity";
 export default function Contact() {
   return (
-    <div className="px-[125px] pb-32">
+    <div className="px-[125px] pt-20 pb-32">
       <div className="flex flex-col gap-32 relative">
         <div className="flex flex-col gap-[50px]">
           <p className="font-sora font-bold text-5xl">Visit Our Shop</p>

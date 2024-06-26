@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Arrow from "../images/arrow.svg";
+import Arrow from "./images/arrow.svg";
 export default function GenderInput({
   gender,
   setGender,
@@ -19,8 +19,11 @@ export default function GenderInput({
         onChange={(e) =>
           setGender(e.target.value as "Male" | "Female" | "Other" | "")
         }
+        defaultValue={gender}
       >
-        <option value="">Select Gender</option>
+        <option value="" className="hidden">
+          Select Gender
+        </option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
         <option value="Other">Other</option>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import LoginSide from "./loginSide";
 import SearchBar from "../../components/searchBar";
@@ -13,7 +13,7 @@ export default function Banner() {
         height={72}
         className="h-fit py-2"
       />
-      <SearchBar width="w-[651px]" onSearch={(v)=>{}}/>
+      <SearchBar width="w-[651px]" onSearch={(v) => {}} />
       <LoginSide />
     </div>
   );

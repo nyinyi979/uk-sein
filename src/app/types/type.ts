@@ -22,7 +22,7 @@ export interface clientWord {
 }
 
 export interface signUpInput {
-  file: File|null
+  file: File | null;
   name: string;
   phoneNo: string;
   email: string;
@@ -32,6 +32,32 @@ export interface signUpInput {
   state: state;
   township: string;
   address: string;
+}
+export interface signUpInputInProfile {
+  file: File | null;
+  imgURL: string | undefined;
+  name: string;
+  phoneNo: string;
+  email: string;
+  gender: "Male" | "Female" | "Other" | "";
+  currentPassword: string;
+  newPassword: string;
+  newRePassword: string;
+  state: state;
+  township: string;
+  address: string;
+}
+export type payment = "" | "Kpay" | "WavePay" | "Aya" | "Credit" | "BBK";
+export interface checkOutData {
+  name: string;
+  phoneNo: string;
+  email: string;
+  state: state;
+  township: string;
+  address: string;
+  payment: payment;
+  image: File | null;
+  currency: "MMK" | "USD";
 }
 
 export type state =
@@ -147,4 +173,15 @@ export interface orderDetails extends order {
   customer: customerInOrder;
   address: addressInOrder;
   products: productInOrder[];
+}
+
+export interface productInCart {
+  itemID: string;
+  imgURL: string;
+  engName: string;
+  price: number;
+  quantity: number;
+  size?: string;
+  material?: string;
+  color?: string;
 }

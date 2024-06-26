@@ -211,3 +211,16 @@ input[type="range"]::-ms-thumb {
 .back-arr-text:hover path {
   @apply fill-khaki-700;
 }
+
+.cart-btn {
+  @apply size-10 py-2.5 bg-khaki-50 duration-300;
+}
+.cart-btn:hover {
+  @apply bg-khaki-300;
+}
+.cart-btn path {
+  @apply duration-300;
+}
+.cart-btn:hover path {
+  @apply fill-white;
+}

@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Arrow from "./images/arrow.svg";
+
 export default function TownshipInput({
   allTownships,
   township,
@@ -17,8 +20,9 @@ export default function TownshipInput({
         id="township"
         className={`input ${township == "" && "text-grey-100"}`}
         onChange={(e) => setTownship(e.target.value)}
+        defaultValue={township}
       >
-        <option defaultChecked value={""}>
+        <option defaultChecked value={""} className="hidden">
           Select Township
         </option>
         {allTownships.map((tw) => (
@@ -27,6 +31,15 @@ export default function TownshipInput({
           </option>
         ))}
       </select>
+      <span className="absolute right-6 top-[70px]">
+        <Image
+          src={Arrow}
+          alt="arrow"
+          width={18}
+          height={10}
+          className="w-auto h-auto"
+        />
+      </span>
     </div>
   );
 }

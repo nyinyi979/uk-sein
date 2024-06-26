@@ -1,9 +1,9 @@
-import ImageUpload from "./imgUpload";
-import NameInput from "./name";
-import PhoneNoInput from "./phoneNo";
-import MailInput from "./mail";
-import GenderInput from "./gender";
-import { PasswordInput, RePasswordInput } from "./password";
+import ImageUpload from "../../components/imgUpload";
+import NameInput from "../../components/nameInput";
+import PhoneNoInput from "../../components/phoneNoInput";
+import MailInput from "../../components/mailInput";
+import GenderInput from "../../components/gender";
+import PasswordInput from "../../components/password";
 import { motion } from "framer-motion";
 import { Dispatch, SetStateAction } from "react";
 
@@ -48,13 +48,23 @@ export default function FirstPage({
       className="flex flex-col gap-[50px]"
     >
       <p className="font-sora font-semibold text-2xl">Personal Information</p>
-      <ImageUpload setFile={setFile}/>
+      <ImageUpload setFile={setFile} />
       <NameInput name={name} setName={setName} />
       <PhoneNoInput phone={phoneNo} setPhone={setPhoneNo} />
       <MailInput mail={email} setMail={setEmail} />
       <GenderInput gender={gender} setGender={setGender} />
-      <PasswordInput password={password} setPassword={setPassword} />
-      <RePasswordInput password={rePassword} setPassword={setRePassword} />
+      <PasswordInput
+        id="password"
+        displayedLabel="Password"
+        password={password}
+        setPassword={setPassword}
+      />
+      <PasswordInput
+        id="repassword"
+        displayedLabel="Confirm Password"
+        password={rePassword}
+        setPassword={setRePassword}
+      />
       <button
         disabled={!firstPageNotEmpty}
         onClick={() => setFirstPage(false)}

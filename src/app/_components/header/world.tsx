@@ -6,12 +6,17 @@ import eng from "./images/eng.png";
 import WorldImage from "./images/world.svg";
 import { AnimatePresence, motion } from "framer-motion";
 
-export default function World() {
-  const [hidden, setHidden] = React.useState(true);
+export default function World({
+  hidden,
+  toggle,
+}: {
+  hidden: boolean;
+  toggle: () => void;
+}) {
   return (
     <div className="relative">
       <button
-        onClick={() => setHidden(!hidden)}
+        onClick={toggle}
         className="w-[58px] h-[50px] flex align-middle justify-items-center py-3 px-4 bg-white-400 rounded-xl hover:bg-grey-50 duration-300"
       >
         <span className="size-[22px] block relative">

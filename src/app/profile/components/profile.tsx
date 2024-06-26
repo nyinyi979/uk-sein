@@ -1,7 +1,125 @@
-export default function Profile(){
-    return(
-        <div>
-            
-        </div>
-    )
+"use client";
+import React from "react";
+import ProfileTitle from "./title";
+import ProfileTabs from "./tabs";
+import SecondPage from "./secondPage";
+import FirstPage from "./firstPage";
+import { AnimatePresence } from "framer-motion";
+import { signUpInputInProfile, state } from "@/app/types/type";
+
+export default function Signup() {
+  const [input, setInput] = React.useState<signUpInputInProfile>({
+    file: null,
+    imgURL: "/sampleDiscount.png",
+    name: "Ko Khant",
+    phoneNo: "0964647576",
+    email: "kokhant123@gmail.com",
+    gender: "Male",
+    newPassword: "",
+    newRePassword: "",
+    currentPassword: "",
+    state: "",
+    township: "",
+    address: "",
+  });
+  const setFile = (f: File) => {
+    setInput({ ...input, file: f, imgURL: undefined });
+  };
+  const setName = (n: string) => {
+    setInput({ ...input, name: n });
+  };
+  const setPhoneNo = (ph: string) => {
+    setInput({ ...input, phoneNo: ph });
+  };
+  const setEmail = (m: string) => {
+    setInput({ ...input, email: m });
+  };
+  const setGender = (g: "" | "Male" | "Female" | "Other") => {
+    setInput({ ...input, gender: g });
+  };
+  const setCurrentPassword = (pw: string) => {
+    setInput({ ...input, currentPassword: pw });
+  };
+  const setNewPassword = (pw: string) => {
+    setInput({ ...input, newPassword: pw });
+  };
+  const setReNewPassword = (pw: string) => {
+    setInput({ ...input, newRePassword: pw });
+  };
+  const setState = (s: state) => {
+    setInput({ ...input, state: s });
+  };
+  const setTownship = (t: string) => {
+    setInput({ ...input, township: t });
+  };
+  const setAddress = (add: string) => {
+    setInput({ ...input, address: add });
+  };
+  const firstPageNotEmpty =
+    input.name != "" &&
+    input.phoneNo != "" &&
+    input.email != "" &&
+    input.gender != "" &&
+    input.state != "" &&
+    input.township != "" &&
+    input.address != "";
+  const secondPageNotEmpty =
+    input.currentPassword !== "" &&
+    input.newPassword !== "" &&
+    input.newRePassword !== "" &&
+    input.newPassword !== input.newRePassword;
+  const [page, setPage] = React.useState(0);
+  const updatePage = (p: number) => {
+    setPage(p);
+  };
+  const validateInfo = () => {
+    if (page === 0) {
+    } else {
+    }
+  };
+  return (
+    <div className="flex flex-col gap-10 px-[125px] pt-10 pb-20">
+      <ProfileTitle />
+      <ProfileTabs page={page} updatePage={updatePage} />
+      <div className="w-[626px] h-fit flex flex-col gap-[50px]">
+        <AnimatePresence>
+          {page === 0 ? (
+            <FirstPage
+              imgURL={input.imgURL}
+              setFile={setFile}
+              name={input.name}
+              setName={setName}
+              phoneNo={input.phoneNo}
+              setPhoneNo={setPhoneNo}
+              email={input.email}
+              setEmail={setEmail}
+              gender={input.gender}
+              setGender={setGender}
+              state={input.state}
+              setState={setState}
+              township={input.township}
+              setTownship={setTownship}
+              address={input.address}
+              setAddress={setAddress}
+            />
+          ) : (
+            <SecondPage
+              currentPassword={input.currentPassword}
+              setCurrentPassword={setCurrentPassword}
+              newPassword={input.newPassword}
+              setNewPassword={setNewPassword}
+              reNewPassword={input.newRePassword}
+              setReNewPassword={setReNewPassword}
+            />
+          )}
+        </AnimatePresence>
+        <button
+          onClick={validateInfo}
+          className="button font-bold bg-khaki-500 text-white hover:bg-khaki-700 duration-300"
+        >
+          Save {page === 0 ? "Changes" : "Password"}
+        </button>
+      </div>
+    </div>
+  );
 }

@@ -1,20 +1,59 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import profile from "./images/profile.svg";
-import order from "./images/order.svg";
-import whishlist from "./images/whitelist.svg";
-import logout from "./images/logOut.svg";
 import CartImage from "./images/cart.svg";
-import { AnimatePresence, motion } from "framer-motion";
-import Link from "next/link";
+import { productInCart } from "@/app/types/type";
+import CartSlider from "./cart/cart";
 
-export default function Cart() {
-  const [hidden, setHidden] = React.useState(true);
+export default function Cart({
+  hidden,
+  toggle,
+}: {
+  hidden: boolean;
+  toggle: () => void;
+}) {
+  React.useEffect(() => {
+    if (!hidden) document.body.style.overflowY = "hidden";
+    else document.body.style.overflowY = "auto";
+  }, [hidden]);
+  const [cartItem, setCartItem] = React.useState<productInCart[]>([
+    {
+      itemID: "1234",
+      engName: "Sample item",
+      imgURL: "/sampleDiscount.png",
+      price: 360000,
+      quantity: 2,
+      size: "16x17x18",
+    },
+    {
+      itemID: "1235",
+      engName: "Sample item",
+      imgURL: "/sampleDiscount.png",
+      price: 180000,
+      quantity: 2,
+      size: "16x17x18",
+    },
+  ]);
+  const incrementQuantity = (ind: number) => {
+    let newCartItems = [...cartItem];
+    newCartItems[ind].quantity++;
+    setCartItem(newCartItems);
+  };
+  const decrementQuantity = (ind: number) => {
+    let newCartItems = [...cartItem];
+    newCartItems[ind].quantity--;
+    setCartItem(newCartItems);
+  };
+  const removeItem = (ind: number) => {
+    let newCartItems = [...cartItem];
+    newCartItems[ind].itemID = "";
+    let newItems = newCartItems.filter((x) => x.itemID !== "");
+    setCartItem(newItems);
+  };
   return (
     <div className="relative">
       <button
-        onClick={() => setHidden(!hidden)}
+        onClick={toggle}
         className="w-[58px] h-[50px] flex align-middle justify-items-center py-3 px-4 bg-white-400 rounded-xl hover:bg-grey-50 duration-300"
       >
         <span className="size-[22px] block relative">
@@ -27,73 +66,14 @@ export default function Cart() {
           />
         </span>
       </button>
-      <AnimatePresence>
-        {!hidden && (
-          <motion.div
-            animate={{ translateY: [20, 0], opacity: [0, 1] }}
-            exit={{ translateY: [0, 20], opacity: [1, 0] }}
-            className="w-[220px] absolute right-0 -bottom-[13.5rem] p-2.5 rounded-[15px] bg-white shadow-dropdown z-[40]"
-          >
-            <Link
-              href="/profile"
-              className="w-[200px] flex flex-row align-middle justify-items-center gap-3 py-3 px-2.5 rounded-[10px] hover:bg-grey-50 duration-300"
-            >
-              <div className="size-[18px] relative">
-                <Image
-                  src={profile}
-                  alt="my profile"
-                  fill
-                  sizes="100%"
-                  className="w-full h-full bg-cover"
-                />
-              </div>
-              <p className="font-semibold">My Profile</p>
-            </Link>
-            <Link
-              href="/orders"
-              className="w-[200px] flex flex-row align-middle justify-items-center gap-3 py-3 px-2.5 rounded-[10px] hover:bg-grey-50 duration-300"
-            >
-              <div className="size-[18px] relative">
-                <Image
-                  src={order}
-                  alt="my orders"
-                  fill
-                  sizes="100%"
-                  className="w-full h-full bg-cover"
-                />
-              </div>
-              <p className="font-semibold">My Orders</p>
-            </Link>
-            <Link
-              href="/wishlists"
-              className="w-[200px] flex flex-row align-middle justify-items-center gap-3 py-3 px-2.5 rounded-[10px] hover:bg-grey-50 duration-300"
-            >
-              <div className="size-[18px] relative">
-                <Image
-                  src={whishlist}
-                  alt="my wishlists"
-                  fill
-                  sizes="100%"
-                  className="w-full h-full bg-cover"
-                />
-              </div>
-              <p className="font-semibold">Wishlists</p>
-            </Link>
-            <button className="w-[200px] flex flex-row align-middle justify-items-center gap-3 py-3 px-2.5 rounded-[10px] hover:bg-grey-50 duration-300">
-              <div className="size-[18px] relative">
-                <Image
-                  src={logout}
-                  alt="logout"
-                  fill
-                  sizes="100%"
-                  className="w-full h-full bg-cover"
-                />
-              </div>
-              <p className="font-semibold">Logout</p>
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <CartSlider
+        hidden={hidden}
+        toggle={toggle}
+        decrementQuantity={decrementQuantity}
+        incrementQuantity={incrementQuantity}
+        products={cartItem}
+        removeItem={removeItem}
+      />
     </div>
   );
 }
