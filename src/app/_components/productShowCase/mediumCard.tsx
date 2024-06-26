@@ -13,7 +13,7 @@ export default function MediumCard({
   children?: React.ReactNode;
 }) {
   return (
-    <div className={`img-scale relative bottom-row-container bg-[#F3F3F3]`}>
+    <div className={`img-scale relative bottom-row-container bg-white-700`}>
       <div className="z-[2] w-[217px] flex flex-col gap-8">
         <div className="gap-1.5">
           <p className="font-sora font-bold text-[40px] text-khaki-500">

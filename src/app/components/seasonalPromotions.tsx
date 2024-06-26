@@ -1,5 +1,5 @@
 import Image from "next/image";
-import AboutUs9 from "../images/about-us-9.png";
+import AboutUs9 from "./images/sesonalPromotion.png";
 import Link from "next/link";
 export default function SeasonalPromotions() {
   return (
@@ -28,10 +28,7 @@ export default function SeasonalPromotions() {
           materials and timeless designs. From cozy sofas to chic dining sets,
           find everything you need to refresh your home.
         </p>
-        <Link
-          href={"/products"}
-          className="w-fit py-[18px] px-[28px] rounded-[15px] bg-grey-500 font-bold text-white "
-        >
+        <Link href={"/products"} className="black-button">
           EXPLORE NOW
         </Link>
       </div>

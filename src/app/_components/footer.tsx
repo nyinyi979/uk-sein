@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import QuickLinks from "./footer/quickLinks";
 import ContactUs from "./footer/contactUs";
 import SocialLinks from "./footer/social";

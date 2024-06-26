@@ -22,6 +22,7 @@ export interface clientWord {
 }
 
 export interface signUpInput {
+  file: File|null
   name: string;
   phoneNo: string;
   email: string;
@@ -63,7 +64,6 @@ export interface productFilter {
   };
 }
 export interface prodcutFilterWithSet {
-  categories: Set<string>;
   color: Set<string>;
   sizes: Set<string>;
   material: Set<string>;
@@ -113,4 +113,38 @@ export interface productDetails {
   materials: string[];
   whiteListed: boolean;
   reviews: review[];
+}
+
+export interface order {
+  orderID: string;
+  orderedDate: string;
+  paymentMethod: "Kpay" | "WavePay" | "AyaPay" | "Credit";
+  amount: number;
+  productCount: number;
+  status: "Pending" | "Confirmed" | "Reject";
+}
+export type orderStatus = "Pending" | "Confirmed" | "Reject" | "";
+export type customerInOrder = {
+  name: string;
+  email: string;
+  phoneNo: string;
+};
+export type addressInOrder = {
+  address: string;
+  township: string;
+  state: state;
+};
+export type productInOrder = {
+  productID: string;
+  imgURL: string;
+  engName: string;
+  myName: string;
+  category: string;
+  quantity: number;
+  price: number;
+};
+export interface orderDetails extends order {
+  customer: customerInOrder;
+  address: addressInOrder;
+  products: productInOrder[];
 }

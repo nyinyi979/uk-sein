@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { Dispatch, SetStateAction } from "react";
 
 export default function FirstPage({
+  setFile,
   name,
   setName,
   phoneNo,
@@ -23,6 +24,7 @@ export default function FirstPage({
   firstPageNotEmpty,
   setFirstPage,
 }: {
+  setFile: (f: File) => void;
   name: string;
   setName: (name: string) => void;
   phoneNo: string;
@@ -46,7 +48,7 @@ export default function FirstPage({
       className="flex flex-col gap-[50px]"
     >
       <p className="font-sora font-semibold text-2xl">Personal Information</p>
-      <ImageUpload />
+      <ImageUpload setFile={setFile}/>
       <NameInput name={name} setName={setName} />
       <PhoneNoInput phone={phoneNo} setPhone={setPhoneNo} />
       <MailInput mail={email} setMail={setEmail} />

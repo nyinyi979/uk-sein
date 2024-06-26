@@ -11,7 +11,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { product } from "@/app/types/type";
-import Product from "../product";
+import Product from "../../components/product";
 
 export default function TopProductsCarousel({
   similarProduct,
@@ -97,7 +97,7 @@ export default function TopProductsCarousel({
       <div className="flex flex-row py-4 font-sora font-bold text-[32px]">
         {similarProduct ? "Similar Products" : "Top products"}
         <div className="flex flex-row gap-5 ml-auto">
-          <span
+          <button
             onClick={decrementIndex}
             className={`productPrev size-[50px] p-4 rounded-full ${activeIndex == 0 ? "border border-khaki-200" : "bg-khaki-500 border border-khaki-100 hover:bg-khaki-700 duration-300"}`}
           >
@@ -118,8 +118,8 @@ export default function TopProductsCarousel({
                 className="w-auto h-auto"
               />
             )}
-          </span>
-          <span
+          </button>
+          <button
             onClick={incrementIndex}
             className={`productNext size-[50px] p-4 rounded-full ${activeIndex == products.length - 3 ? "border border-khaki-200" : "bg-khaki-500 border border-khaki-100 hover:bg-khaki-700 duration-300"}`}
           >
@@ -140,7 +140,7 @@ export default function TopProductsCarousel({
                 className="w-auto h-auto"
               />
             )}
-          </span>
+          </button>
         </div>
       </div>
       <Swiper

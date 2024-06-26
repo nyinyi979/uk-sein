@@ -50,9 +50,9 @@ export default function ClientWorkdsCarousel() {
       <div className="flex flex-row py-4 font-sora font-bold text-[32px]">
         Our Clients' Words
         <div className="flex flex-row gap-5 ml-auto">
-          <span
+          <button
             onClick={decrementIndex}
-            className={`reviewPrev size-[50px] rounded-full p-4 ${activeIndex == 0 ? "border border-khaki-200" : "bg-khaki-500 border border-khaki-100 hover:bg-khaki-700 duration-300"}`}
+            className={`reviewPrev size-[50px] rounded-full p-4 ${activeIndex == 0 ? "border border-khaki-200" : "bg-khaki-500 border border-khaki-100 hover:bg-khaki-700 cursor-pointer duration-300"}`}
           >
             {activeIndex == 0 ? (
               <Image
@@ -71,10 +71,10 @@ export default function ClientWorkdsCarousel() {
                 className="w-auto h-auto"
               />
             )}
-          </span>
-          <span
+          </button>
+          <button
             onClick={incrementIndex}
-            className={`reviewNext size-[50px] p-4 rounded-full ${activeIndex + 1 >= clientWords.length ? "bg-khaki-500 border border-khaki-200" : "border border-khaki-100 hover:bg-khaki-700 duration-300"}`}
+            className={`reviewNext size-[50px] p-4 rounded-full ${activeIndex + 1 >= clientWords.length ? "bg-white border border-khaki-200" : "border border-khaki-100 bg-khaki-500 hover:bg-khaki-700 cursor-pointer duration-300"}`}
           >
             {activeIndex + 1 >= clientWords.length ? (
               <Image
@@ -93,7 +93,7 @@ export default function ClientWorkdsCarousel() {
                 className="w-auto h-auto"
               />
             )}
-          </span>
+          </button>
         </div>
       </div>
       <Swiper

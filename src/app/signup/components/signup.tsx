@@ -8,6 +8,7 @@ import { signUpInput, state } from "@/app/types/type";
 import SecondPage from "./secondPage";
 export default function Signup() {
   const [input, setInput] = React.useState<signUpInput>({
+    file: null,
     name: "",
     phoneNo: "",
     email: "",
@@ -18,6 +19,9 @@ export default function Signup() {
     township: "",
     address: "",
   });
+  const setFile = (f: File) => {
+    setInput({ ...input, file: f});
+  }
   const setName = (n: string) => {
     setInput({ ...input, name: n });
   };
@@ -57,7 +61,6 @@ export default function Signup() {
     input.state != "" && input.township != "" && input.address != "";
   const [firstPage, setFirstPage] = React.useState(true);
   const validateInfo = () => {};
-  console.log(!firstPageNotEmpty, !secondPageNotEmpty);
   return (
     <div className="px-[125px] my-[100px] grid grid-cols-2 pt-20 pb-10">
       <div className="w-[500px] h-fit flex flex-col gap-10">
@@ -65,6 +68,7 @@ export default function Signup() {
         <AnimatePresence>
           {firstPage ? (
             <FirstPage
+              setFile={setFile}
               name={input.name}
               setName={setName}
               phoneNo={input.phoneNo}

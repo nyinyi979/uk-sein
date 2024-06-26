@@ -1,4 +1,4 @@
-import Toggle from "./toggle";
+import Toggle from "../../../components/toggle";
 
 export default function PriceFilter({
   maximum,

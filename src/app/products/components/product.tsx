@@ -1,4 +1,4 @@
-import PromotionBanner from "@/app/_components/promotionBanner";
+import PromotionBanner from "@/app/components/promotionBanner";
 import Categories from "./categories";
 import TopProductsCarousel from "@/app/_components/topProducts/productCarousel";
 

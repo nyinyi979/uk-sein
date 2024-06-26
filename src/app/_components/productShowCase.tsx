@@ -1,4 +1,3 @@
-import Image from "next/image";
 import FloorMat from "./productShowCase/floorMat";
 import Baskets from "./productShowCase/baskets";
 import Chairs from "./productShowCase/chairs";

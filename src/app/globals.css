@@ -15,7 +15,7 @@ body {
 }
 .img-scale img {
   transform: scale(1);
-  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1000ms;
 }
 .img-scale:hover img {
   transform: scale(1.2);
@@ -28,7 +28,7 @@ body {
   @apply w-fit h-[50px] block py-[16px] px-[28px] rounded-xl text-sm text-center duration-300;
 }
 .black-button {
-  @apply bg-grey-500 text-white hover:bg-grey-300;
+  @apply bg-grey-500 font-bold text-white hover:bg-grey-300;
 }
 .chair-link {
   @apply flex flex-row gap-2.5 font-sora font-normal text-lg text-khaki-500 hover:text-khaki-700 hover:fill-khaki-700 duration-300;
@@ -45,7 +45,40 @@ span.swiper-pagination-bullet {
 span.swiper-pagination-bullet-active {
   @apply size-2 bg-khaki-500;
 }
-
+.swiper-wrapper {
+  transition-timing-function: cubic-bezier(0.5, -0.06, 0.98, 0.35);
+}
+.main-arr circle,
+.pagination-arr-disabled circle {
+  @apply border border-khaki-100 fill-white stroke-khaki-100;
+}
+.pagination-arr-disabled path {
+  @apply fill-khaki-100;
+}
+.main-arr path {
+  @apply fill-khaki-500;
+}
+.pagination-arr circle,
+.pagniation-arr path,
+.main-arr circle,
+.main-arr path {
+  @apply duration-300;
+}
+.pagination-arr circle {
+  @apply border border-khaki-100 fill-khaki-500;
+}
+.pagination-arr path {
+  @apply fill-white;
+}
+.pagination-arr:hover circle {
+  @apply fill-khaki-700;
+}
+.main-arr:hover circle {
+  @apply fill-khaki-500 stroke-khaki-500;
+}
+.main-arr:hover path {
+  @apply fill-white;
+}
 .prev:hover > img,
 .next:hover > img {
   transform: scale(1.1);
@@ -138,4 +171,43 @@ input[type="range"]::-moz-range-thumb {
 }
 input[type="range"]::-ms-thumb {
   @apply size-5 -mt-2 bg-white rounded-full border border-solid border-khaki-500 cursor-pointer pointer-events-auto appearance-none;
+}
+
+.Pending-order,
+.Confirmed-order,
+.Reject-order {
+  @apply h-fit py-2 px-2.5 rounded-[10px] text-sm text-center;
+}
+.Pending-order {
+  @apply bg-pendingLight text-pending;
+}
+.Confirmed-order {
+  @apply bg-successLight text-success;
+}
+.Reject-order {
+  @apply bg-rejectLight text-reject;
+}
+.order-btn {
+  @apply w-[120px] flex flex-row gap-2.5 py-[14px] px-3 bg-khaki-50 rounded-[10px] font-bold text-sm text-khaki-500 duration-300;
+}
+.order-btn path {
+  @apply fill-khaki-500 duration-300;
+}
+.order-btn:hover {
+  @apply bg-khaki-500 text-white;
+}
+.order-btn:hover path {
+  @apply fill-white;
+}
+.back-arr-text {
+  @apply flex gap-2.5 mr-auto text-khaki-500 duration-300;
+}
+.back-arr-text path {
+  @apply fill-khaki-500 duration-300;
+}
+.back-arr-text:hover {
+  @apply text-khaki-700;
+}
+.back-arr-text:hover path {
+  @apply fill-khaki-700;
 }

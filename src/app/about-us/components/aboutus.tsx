@@ -1,8 +1,8 @@
-import DiscountBanner from "@/app/_components/discountBanner";
+import DiscountBanner from "@/app/components/discountBanner";
 import AboutUsCards from "./aboutUsCards";
-import FounderCard from "./founder";
-import SeasonalPromotions from "./seasonalPromotions";
 import WhatDoWeServe from "./whatDoWeServe";
+import FounderCard from "@/app/components/founder";
+import SeasonalPromotions from "@/app/components/seasonalPromotions";
 
 export default function AboutUS() {
   return (

@@ -1,18 +1,20 @@
 "use client";
 import React from "react";
 import Filter from "./filter";
-import { product } from "@/app/types/type";
-import Product from "@/app/_components/product";
-import { AnimatePresence } from "framer-motion";
-import DiscountBanner from "@/app/_components/discountBanner";
+import Product from "@/app/components/product";
+import DiscountBanner from "@/app/components/discountBanner";
 import Filters from "./filterList";
 import useFilters from "./useFilter";
+import Pagination from "@/app/components/pagination";
+import { product } from "@/app/types/type";
+import { AnimatePresence } from "framer-motion";
 export default function Category({
   params,
 }: {
   params: { categoryName: string };
 }) {
   const { categoryName } = params;
+  const [category, setCategory] = React.useState(categoryName[0]);
   const [products, setProducts] = React.useState<product[]>([
     {
       itemID: "sample id",
@@ -106,15 +108,18 @@ export default function Category({
     products: products,
     updateFilteredProducts: updateFilteredProducts,
   });
+  const [pages, setPage] = React.useState(1);
+  const updatePage = (ind: number) => setPage(ind);
+  const updateCategory = (cat: string) => setCategory(cat);
   return (
     <div className="w-fit flex flex-col gap-20 my-10 mx-auto px-[125px]">
       <div className="flex flex-row gap-8">
         <div className="flex flex-col gap-6">
           <div>
-            <p className="font-sora font-bold text-[48px]">{categoryName[0]}</p>
+            <p className="font-sora font-bold text-[48px]">{category}</p>
             <p>
               <span className="text-grey-100">Category - </span>
-              {categoryName[0]}
+              {category}
             </p>
           </div>
           <Filter
@@ -122,6 +127,8 @@ export default function Category({
             possibleFilters={filters.possibleFilters}
             filterApplied={filterApplied}
             resetFilter={resetFilter}
+            category={category}
+            updateCategory={updateCategory}
             toggleColor={toggleColor}
             toggleMaterial={toggleMaterial}
             toggleSize={toggleSize}
@@ -162,6 +169,11 @@ export default function Category({
               </AnimatePresence>
             )}
           </div>
+          <Pagination
+            activeIndex={pages}
+            totalIndex={5}
+            setIndex={updatePage}
+          />
         </div>
       </div>
       <DiscountBanner imgURL="/images/promotion3.png" percent="40" />

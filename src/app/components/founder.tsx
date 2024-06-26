@@ -1,5 +1,5 @@
 import Image from "next/image";
-import AboutUs8 from "../images/about-us-8.png";
+import AboutUs8 from "./images/founder.png";
 
 export default function FounderCard() {
   return (
@@ -7,13 +7,15 @@ export default function FounderCard() {
       <p className="w-[355px] font-sora font-bold text-[58px] leading-[58px]">
         WORDS FROM OUR FOUNDER
       </p>
-      <Image
-        src={AboutUs8}
-        alt="founder"
-        width={330}
-        height={400}
-        className="w-[330] h-[400] object-cover"
-      />
+      <div className="w-[330px] h-[400px] relative">
+        <Image
+          src={AboutUs8}
+          alt="founder"
+          fill
+          sizes="100%"
+          className="w-full h-full object-cover"
+        />
+      </div>
       <div className="w-[421px] flex flex-col gap-[42px] text-justify">
         <p className="font-[500] text-xl leading-[25px]">
           “Discover elegance and comfort with our innovative furniture

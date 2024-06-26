@@ -1,7 +1,7 @@
 import Image from "next/image";
 import AddToCartSvg from "@/app/svg/addToCart.svg";
 import ShareSvg from "@/app/svg/share.svg";
-import { WhiteList } from "@/app/_components/product";
+import { WhiteList } from "@/app/components/product";
 export default function ProductAddToCart({
   productID,
   whiteListed,

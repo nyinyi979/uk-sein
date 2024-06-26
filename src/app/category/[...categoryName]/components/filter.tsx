@@ -2,17 +2,20 @@
 
 import { prodcutFilterWithSet, productFilter } from "@/app/types/type";
 import React from "react";
-import Toggle from "./toggle";
+import Toggle from "../../../components/toggle";
 import ColorFilter from "./colorFilter";
 import SizeFilter from "./sizeFilter";
 import MaterialFilter from "./materialFilter";
 import PriceFilter from "./priceFilter";
+import CategoryFilter from "@/app/components/categoryFilter";
 
 export default function Filter({
   appliedFilters,
   filterApplied,
   possibleFilters,
   resetFilter,
+  category,
+  updateCategory,
   toggleColor,
   toggleSize,
   toggleMaterial,
@@ -29,6 +32,8 @@ export default function Filter({
   filterApplied: boolean;
   possibleFilters: productFilter;
   appliedFilters: prodcutFilterWithSet;
+  category: string;
+  updateCategory: (cat: string) => void;
   toggleColor: (clr: string) => void;
   toggleSize: (size: string) => void;
   toggleMaterial: (mat: string) => void;
@@ -49,6 +54,13 @@ export default function Filter({
       >
         Clear filters
       </button>
+      <Toggle name="Category">
+        <CategoryFilter
+          categories={possibleFilters.categories}
+          category={category}
+          updateCategory={updateCategory}
+        />
+      </Toggle>
       <Toggle name="Color">
         <ColorFilter
           colors={possibleFilters.color}

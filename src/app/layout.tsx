@@ -15,7 +15,7 @@ const sora = Sora({
   display: "swap",
   variable: "--font-sora",
 });
-const lexend = Sora({
+const lexend = Lexend({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-lexend",

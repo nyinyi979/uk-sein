@@ -16,7 +16,16 @@ export default function useFilters({
   // the filters will be dynamic
   const [filters, setFilters] = React.useState<productFilters>({
     possibleFilters: {
-      categories: [],
+      categories: [
+        {
+          img_url: "/sampleDiscount.png",
+          name: "Chair",
+        },
+        {
+          img_url: "/sampleDiscount.png",
+          name: "Baskets",
+        },
+      ],
       color: ["Black", "Red", "White"],
       material: ["aluminium", "steel"],
       sizes: [],
@@ -26,7 +35,6 @@ export default function useFilters({
       },
     },
     appliedFilters: {
-      categories: new Set(),
       color: new Set(),
       material: new Set(),
       sizes: new Set(),
@@ -37,16 +45,7 @@ export default function useFilters({
     },
   });
   // toggle the category filter
-  const toggleCategory = (cat: string) => {
-    const appliedFilters = { ...filters.appliedFilters };
-    if (appliedFilters.categories.has(cat)) {
-      appliedFilters.categories.delete(cat);
-    } else {
-      appliedFilters.categories.add(cat);
-    }
-    applyFilter(appliedFilters);
-    setFilters({ ...filters, appliedFilters: { ...appliedFilters } });
-  };
+  const toggleCategory = (cat: string) => {};
   // toggle the color filter
   const toggleColor = (clr: string) => {
     const appliedFilters = structuredClone(filters.appliedFilters);
@@ -150,10 +149,9 @@ export default function useFilters({
 
   // this will apply the filters to make changes to the product
   const applyFilter = (appliedFilters: prodcutFilterWithSet) => {
-    const { categories, color, material, pricePerItem, sizes } = appliedFilters;
+    const { color, material, pricePerItem, sizes } = appliedFilters;
     // if the conditions are just the start conidtions, it will reset all the filtering
     if (
-      categories.size === 0 &&
       color.size === 0 &&
       material.size === 0 &&
       pricePerItem.maximum === filters.possibleFilters.pricePerItem.maximum &&
@@ -166,7 +164,6 @@ export default function useFilters({
     const newProducts = structuredClone(products);
     for (let i = 0; i < newProducts.length; i++) {
       const product = newProducts[i];
-      if (categories.has(product.category)) continue;
       if (color.has(product.color)) continue;
       if (sizes.has(product.size)) continue;
       if (material.has(product.material)) continue;
@@ -186,7 +183,6 @@ export default function useFilters({
     setFilters({
       ...filters,
       appliedFilters: {
-        categories: new Set(),
         color: new Set(),
         material: new Set(),
         sizes: new Set(),
@@ -201,7 +197,6 @@ export default function useFilters({
 
   // if the filters are applied or not
   const filterApplied =
-    filters.appliedFilters.categories.size !== 0 ||
     filters.appliedFilters.color.size !== 0 ||
     filters.appliedFilters.material.size !== 0 ||
     filters.appliedFilters.pricePerItem.maximum !==
