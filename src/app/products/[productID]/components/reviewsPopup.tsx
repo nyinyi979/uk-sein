@@ -20,7 +20,7 @@ export default function ReviewPopUp({
       initial={{ opacity: 0, display: "none" }}
       animate={{ opacity: open ? 1 : 0, display: open ? "block" : "none" }}
       onClick={close}
-      className="w-full h-full fixed flex align-middle justify-items-center top-0 left-0 bg-popup-bg overscroll-y-contain z-[99999]"
+      className="w-full h-full fixed flex align-middle justify-items-center top-0 left-0 bg-popup-bg overscroll-y-contain z-[10000]"
     >
       <motion.div
         initial={{ translateY: -40, opacity: 0, display: "none" }}
@@ -30,7 +30,7 @@ export default function ReviewPopUp({
           display: open ? "block" : "none",
         }}
         onClick={(e) => e.preventDefault()}
-        className="w-[1088px] h-[70%] my-[8%] overflow-scroll bg-white flex flex-col gap-8 mx-auto p-8"
+        className="xl:w-[1088px] w-[680px] h-[70%] xl:my-[8%] my-[15%] overflow-scroll bg-white flex flex-col gap-8 mx-auto p-8 rounded-[15px]"
       >
         <ReviewTitle>
           <button className="ml-auto" onClick={close}>

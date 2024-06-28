@@ -14,7 +14,7 @@ export default function Filters({
   toggleMaterial: (mat: string) => void;
 }) {
   return (
-    <motion.div className="h-[34px] col-span-3 flex flex-row gap-[18px]" layout>
+    <motion.div className="h-fit col-span-3 flex flex-row gap-[18px]" layout>
       {filters[0].values.map((clr) => (
         <div
           key={clr}
@@ -26,7 +26,7 @@ export default function Filters({
             alt="cross"
             width={10}
             height={10}
-            className="pt-2"
+            className="pt-1"
             onClick={() => toggleColor(clr)}
           />
         </div>

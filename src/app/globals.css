@@ -13,6 +13,18 @@ body {
 * {
   box-sizing: border-box;
 }
+.star path {
+  @apply fill-grey-50 duration-300;
+}
+.star-n path {
+  @apply fill-grey-50;
+}
+.star path:hover {
+  @apply fill-[#FFC401];
+}
+.filled-star path {
+  @apply fill-[#FFC401] duration-300;
+}
 .img-scale img {
   transform: scale(1);
   transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1000ms;
@@ -21,14 +33,16 @@ body {
   transform: scale(1.2);
 }
 .bottom-row-container {
-  @apply w-full h-full relative flex py-10 pl-6 rounded-3xl overflow-hidden;
-}
-.button,
-.black-button {
-  @apply w-fit h-[50px] block py-[16px] px-[28px] rounded-xl text-sm text-center duration-300;
+  @apply w-full h-fit relative flex py-10 xl:pl-6 px-6 rounded-3xl overflow-hidden;
 }
 .black-button {
-  @apply bg-grey-500 font-bold text-white hover:bg-grey-300;
+  @apply w-fit h-[50px] py-[16px] px-[28px] rounded-xl bg-grey-500 font-bold text-white text-sm text-center hover:bg-grey-300 duration-300;
+}
+.button {
+  @apply xl:w-fit w-[160px] h-[50px] block py-[16px] px-[28px] rounded-xl text-sm text-center duration-300;
+}
+.showcase-button {
+  @apply w-fit xl:h-[50px] flex gap-2 xl:py-[16px] xl:px-[28px] xl:font-semibold font-[400] rounded-xl xl:font-quick font-lex text-center duration-300;
 }
 .chair-link {
   @apply flex flex-row gap-2.5 font-sora font-normal text-lg text-khaki-500 hover:text-khaki-700 hover:fill-khaki-700 duration-300;
@@ -98,7 +112,7 @@ span.swiper-pagination-bullet-active {
   background-color: #fafafa;
 }
 .footer-link {
-  @apply size-[50px] p-4 bg-khaki-50 rounded-full duration-300;
+  @apply xl:size-[50px] size-[41.67px] xl:p-4 p-3 bg-khaki-50 rounded-full duration-300;
 }
 .footer-link:hover {
   @apply bg-khaki-500;
@@ -111,7 +125,7 @@ span.swiper-pagination-bullet-active {
 }
 .heart,
 .heart-active {
-  @apply size-[58px] p-[18px] bg-red-50 rounded-xl duration-300;
+  @apply bg-red-50 rounded-xl duration-300;
 }
 .heart:hover > svg > path {
   @apply fill-red-500 duration-300;
@@ -176,7 +190,7 @@ input[type="range"]::-ms-thumb {
 .Pending-order,
 .Confirmed-order,
 .Reject-order {
-  @apply h-fit py-2 px-2.5 rounded-[10px] text-sm text-center;
+  @apply w-fit h-fit py-2 px-2.5 rounded-[10px] font-bold text-center;
 }
 .Pending-order {
   @apply bg-pendingLight text-pending;
@@ -188,7 +202,7 @@ input[type="range"]::-ms-thumb {
   @apply bg-rejectLight text-reject;
 }
 .order-btn {
-  @apply w-[120px] flex flex-row gap-2.5 py-[14px] px-3 bg-khaki-50 rounded-[10px] font-bold text-sm text-khaki-500 duration-300;
+  @apply xl:w-[120px] w-[80px] mx-auto flex flex-row xl:gap-2.5 gap-1 xl:py-[14px] py-2.5 xl:px-3 px-2 bg-khaki-50 rounded-[10px] font-bold xl:text-sm text-[8px] text-khaki-500 duration-300;
 }
 .order-btn path {
   @apply fill-khaki-500 duration-300;
@@ -223,4 +237,14 @@ input[type="range"]::-ms-thumb {
 }
 .cart-btn:hover path {
   @apply fill-white;
+}
+
+.carousel-btn {
+  @apply size-[50px] p-4 rounded-full bg-khaki-500 border border-khaki-100 disabled:bg-white disabled:border-khaki-200 hover:bg-khaki-700 duration-300;
+}
+.carousel-btn path {
+  @apply fill-white duration-300;
+}
+.carousel-btn:disabled path {
+  @apply fill-khaki-500;
 }

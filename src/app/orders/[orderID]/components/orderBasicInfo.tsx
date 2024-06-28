@@ -30,7 +30,7 @@ export default function OrderBasicInfo({
   return (
     <div className="flex flex-row gap-8">
       <OrderDetailCard heading={`Order ID - # ${orderID}`}>
-        <div className="flex flex-col gap-[18px]">
+        <div className="flex flex-col gap-[18px] font-bold xl:text-lg text-sm">
           <div className="flex flex-row justify-between">
             <div className="flex flex-row gap-3">
               <div className="w-[18px] h-5 relative">
@@ -42,9 +42,9 @@ export default function OrderBasicInfo({
                   className="w-full h-full object-cover"
                 />
               </div>
-              <p className="font-700 text-lg text-grey-100">Date Added</p>
+              <p className="text-grey-100">Date Added</p>
             </div>
-            <p className="font-700 text-lg">{orderedDate}</p>
+            <p>{orderedDate}</p>
           </div>
           <div className="flex flex-row justify-between">
             <div className="flex flex-row gap-3">
@@ -57,9 +57,9 @@ export default function OrderBasicInfo({
                   className="w-full h-full object-cover"
                 />
               </div>
-              <p className="font-700 text-lg text-grey-100">Payment Method</p>
+              <p className="text-grey-100">Payment Method</p>
             </div>
-            <div className="size-8 relative">
+            <div className="xl:size-8 size-10 relative">
               <Image
                 src={img}
                 alt="payment method"
@@ -80,7 +80,7 @@ export default function OrderBasicInfo({
                   className="w-full h-full object-cover"
                 />
               </div>
-              <p className="font-700 text-lg text-grey-100">Status</p>
+              <p className="text-grey-100">Status</p>
             </div>
             <p className={`${status}-order ml-auto`}>{status}</p>
           </div>

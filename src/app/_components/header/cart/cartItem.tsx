@@ -15,8 +15,8 @@ export default function CartItem({
   removeItem: (ind: number) => void;
 }) {
   return (
-    <div className="w-[550px] flex flex-row gap-[16px] py-[28px] px-[18px] border-b border-dotted border-grey-50">
-      <div className="size-[160px] bg-white-600">
+    <div className="xl:w-[550px] w-[500px] flex flex-row gap-[16px] py-[28px] px-[18px] border-b border-dotted border-grey-50">
+      <div className="size-[160px] bg-white-400">
         <div className="w-[125px] h-[117px] relative mx-[17.5px] my-[21.5px]">
           <Image
             src={imgURL}
@@ -104,7 +104,7 @@ function ItemButtons({
           />
         </svg>
       </button>
-      <div className="ml-20">
+      <div className="xl:ml-20 ">
         <button onClick={() => removeItem(index)} className="cart-btn px-2.5">
           <svg
             width="18"

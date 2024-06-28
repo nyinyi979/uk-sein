@@ -8,7 +8,7 @@ import ClientWorkdsCarousel from "./clientWords/clientWordsCarousel";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-20 pb-20 px-[125px]">
+    <div className="xl:w-[1190px] flex flex-col xl:gap-20 gap-10 pb-20 mx-auto xl:px-0 px-[52px]">
       <MainProductsCarousel />
       <QualityAssureRow />
       <ProductShowCase />

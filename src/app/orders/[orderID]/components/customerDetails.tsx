@@ -12,7 +12,7 @@ export default function CustomerDetails({
 }: customerInOrder) {
   return (
     <OrderDetailCard heading="Customer Details">
-      <div className="flex flex-col gap-[18px]">
+      <div className="flex flex-col gap-[18px] font-bold xl:text-lg text-sm">
         <div className="flex flex-row justify-between">
           <div className="flex flex-row gap-3">
             <div className="w-[18px] h-5 relative">
@@ -24,9 +24,9 @@ export default function CustomerDetails({
                 className="w-full h-full object-cover"
               />
             </div>
-            <p className="font-700 text-lg text-grey-100">Name</p>
+            <p className="text-grey-100">Name</p>
           </div>
-          <p className="font-700 text-lg">{name}</p>
+          <p>{name}</p>
         </div>
         <div className="flex flex-row justify-between">
           <div className="flex flex-row gap-3">
@@ -39,9 +39,9 @@ export default function CustomerDetails({
                 className="w-full h-full object-cover"
               />
             </div>
-            <p className="font-700 text-lg text-grey-100">Email</p>
+            <p className="text-grey-100">Email</p>
           </div>
-          <p className="font-700 text-lg">{email}</p>
+          <p>{email}</p>
         </div>
         <div className="flex flex-row justify-between">
           <div className="flex flex-row gap-3">
@@ -54,9 +54,9 @@ export default function CustomerDetails({
                 className="w-full h-full object-cover"
               />
             </div>
-            <p className="font-700 text-lg text-grey-100">Phone no</p>
+            <p className="text-grey-100">Phone no</p>
           </div>
-          <p className="font-700 text-lg">{phoneNo}</p>
+          <p>{phoneNo}</p>
         </div>
       </div>
     </OrderDetailCard>

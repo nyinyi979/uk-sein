@@ -44,6 +44,8 @@ export default function useFilters({
       },
     },
   });
+  const [filterJustApplied, setFilterJustApplied] = React.useState(false);
+  const filterJustAppliedOff = () => setFilterJustApplied(false);
   // toggle the category filter
   const toggleCategory = (cat: string) => {};
   // toggle the color filter
@@ -149,6 +151,7 @@ export default function useFilters({
 
   // this will apply the filters to make changes to the product
   const applyFilter = (appliedFilters: prodcutFilterWithSet) => {
+    setFilterJustApplied(true);
     const { color, material, pricePerItem, sizes } = appliedFilters;
     // if the conditions are just the start conidtions, it will reset all the filtering
     if (
@@ -234,5 +237,7 @@ export default function useFilters({
     setMinimumInPercent,
     setMaximum,
     setMinimum,
+    filterJustApplied,
+    filterJustAppliedOff,
   };
 }

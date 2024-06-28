@@ -12,9 +12,9 @@ export default function AboutUsCard({
   description: string;
 }) {
   return (
-    <div className="relative pb-[100px] pl-[60px] border-l border-khaki-500">
+    <div className="relative xl:pb-[100px] pb-[60px] xl:pl-[60px] pl-8 border-l border-khaki-500">
       <div className="py-[20px] px-10 bg-white rounded-[15px] shadow-aboutus">
-        <div className="w-[1010px] flex flex-col gap-[18px]">
+        <div className="xl:w-[1010px] w-full flex flex-col gap-[18px]">
           <p className="font-sora font-bold text-4xl">{year}</p>
           {children}
           <p className="font-sora font-bold text-2xl">{title}</p>
@@ -23,7 +23,7 @@ export default function AboutUsCard({
           </p>
         </div>
       </div>
-      <div className="size-[25px] absolute -left-[13px] top-[20px] rounded-[5px] bg-khaki-500" />
+      <div className="xl:size-[25px] size-[18px] absolute xl:-left-[13px] -left-[10px] xl:top-[20px] top-[40px] rounded-[5px] bg-khaki-500" />
     </div>
   );
 }

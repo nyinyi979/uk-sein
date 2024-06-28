@@ -20,25 +20,46 @@ export default function Categories() {
     "Cushion",
   ];
   return (
-    <div className="grid grid-cols-3 gap-[38px] flex-wrap">
-      {categories.map((c) => (
-        <div
-          key={c}
-          className="flex flex-row gap-[18px] py-5 px-[18px] w-[375px] bg-white-400 rounded-[18px] align-middle justify-center"
-        >
-          <img src={"/sampleProduct.png"} className="size-[110px] bg-cover" />
-          <div className="flex flex-col align-middle justify-center">
-            <p className="font-sora text-[32px]">{c}</p>
-            <Link
-              className="text-khaki-500 flex flex-row gap-2"
-              href={`/category/${c}`}
-            >
-              <Image src={Arrow} alt="arrow" width={16} height={16} />
-              Explore now
-            </Link>
+    <div className="flex flex-col gap-8 xl:gap-[50px]">
+      <p className="font-sora xl:text-5xl text-2xl font-bold">
+        Product Categories
+      </p>
+      <div className="w-full grid grid-cols-3 gap-[33px]">
+        {categories.map((c) => (
+          <div
+            key={c}
+            className="xl:w-[375px] w-fit flex flex-row gap-[16px] py-5 px-[18px] bg-white-400 rounded-[18px] align-middle justify-center"
+          >
+            <div className="xl:size-[110px] size-[50px] my-5 relative">
+              <Image
+                src={"/sampleDiscount.png"}
+                alt="img"
+                fill
+                sizes="100%"
+                className="w-full h-full bg-cover"
+              />
+            </div>
+            <div className="flex flex-col gap-2 align-middle justify-center">
+              <p className="font-sora font-bold xl:text-[32px] text-xl">{c}</p>
+              <Link
+                className="text-khaki-500 flex flex-row gap-2 xl:text-base text-xs"
+                href={`/category/${c}`}
+              >
+                <div className="xl:size-[16px] size-2.5 mt-1 relative">
+                  <Image
+                    src={Arrow}
+                    alt="arrow"
+                    fill
+                    sizes="100%"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                Explore now
+              </Link>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

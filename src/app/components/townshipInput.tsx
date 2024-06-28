@@ -31,13 +31,13 @@ export default function TownshipInput({
           </option>
         ))}
       </select>
-      <span className="absolute right-6 top-[70px]">
+      <span className="w-[18px] h-2.5 absolute right-6 top-[70px]">
         <Image
           src={Arrow}
           alt="arrow"
-          width={18}
-          height={10}
-          className="w-auto h-auto"
+          fill
+          sizes="100%"
+          className="w-full h-full bg-cover"
         />
       </span>
     </div>

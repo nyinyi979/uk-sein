@@ -84,7 +84,14 @@ export default function ProductDetails({
     color: "",
     size: "",
     material: "",
+    count: 0,
   });
+  const incrementCounts = () => {
+    setActiveDetails({ ...activeDetails, count: activeDetails.count + 1 });
+  };
+  const decrementCounts = () => {
+    setActiveDetails({ ...activeDetails, count: activeDetails.count - 1 });
+  };
   const setActiveColor = (clr: string) => {
     setActiveDetails({ ...activeDetails, color: clr });
   };
@@ -95,7 +102,7 @@ export default function ProductDetails({
     setActiveDetails({ ...activeDetails, material: mat });
   };
   return (
-    <div className="my-[50px] px-[125px] mx-auto">
+    <div className="xl:w-[1192px] xl:my-[50px] mx-auto xl:px-0 px-[52px]">
       <ProductTitle category={productDetails.category} />
       <div className="flex flex-col gap-20">
         <div className="grid grid-cols-2 gap-8">
@@ -106,7 +113,7 @@ export default function ProductDetails({
             />
             <ProductDescription description={productDetails.description} />
           </div>
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col xl:gap-8 gap-6">
             <ProductNamePrice
               engName={productDetails.engName}
               itemID={productDetails.itemID}
@@ -124,8 +131,10 @@ export default function ProductDetails({
               setActiveColor={setActiveColor}
               setActiveMaterial={setActiveMaterial}
               setActiveSize={setActiveSize}
+              count={activeDetails.count}
+              incrementCounts={incrementCounts}
+              decrementCounts={decrementCounts}
             />
-            <ProductQuantity />
             <ProductAddToCart
               productID={productDetails.itemID}
               whiteListed={productDetails.whiteListed}

@@ -27,18 +27,18 @@ export default function WhatDoWeCare() {
     },
   ];
   return (
-    <div className="flex flex-col gap-[65px] pb-8">
-      <p className="font-sora font-bold text-5xl text-center">
+    <div className="flex flex-col xl:gap-[65px] gap-8 pb-8">
+      <p className="font-sora font-bold xl:text-5xl text-2xl text-center">
         What Do We Care?
       </p>
-      <div className="flex flex-row gap-[28px]">
+      <div className="flex flex-row xl:gap-[28px] gap-[32px]">
         {arr.map((a) => (
           <div
             key={a.id}
-            className="flex flex-col gap-[30px] pt-6 px-7 pb-10 rounded-3xl bg-white shadow-portfolio"
+            className="flex flex-col xl:gap-[30px] gap-[18px] pt-6 px-7 pb-10 rounded-3xl bg-white shadow-portfolio"
           >
-            <div className="size-[120px] mx-auto rounded-full bg-khaki-50">
-              <div className="size-[80px] relative my-[20px] mx-auto">
+            <div className="xl:size-[120px] size-20 mx-auto rounded-full bg-khaki-50">
+              <div className="xl:size-[80px] size-[50px] relative my-[20px] mx-auto">
                 <Image
                   src={a.img}
                   alt={a.id}
@@ -48,11 +48,11 @@ export default function WhatDoWeCare() {
                 />
               </div>
             </div>
-            <div className="flex flex-col gap-[14px]">
-              <p className="font-sora font-semibold text-2xl text-center">
+            <div className="w-full flex flex-col xl:gap-[14px] gap-1.5">
+              <p className="font-sora font-semibold xl:text-2xl text-center">
                 {a.name}
               </p>
-              <p className="font-normal text-[#202020] leading-5 text-center">
+              <p className="font-normal text-[#202020] leading-5 text-center xl:text-base text-xs">
                 {a.description}
               </p>
             </div>

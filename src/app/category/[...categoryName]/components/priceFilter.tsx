@@ -1,5 +1,3 @@
-import Toggle from "../../../components/toggle";
-
 export default function PriceFilter({
   maximum,
   maximumPercent,
@@ -24,7 +22,7 @@ export default function PriceFilter({
   setMinimum: (min: string) => void;
 }) {
   return (
-    <div>
+    <div className="w-full">
       <div className="flex flex-row gap-2.5 text-grey-300">
         <div className="flex flex-col gap-1.5">
           <p className="font-semibold text-[10px]">Minimum</p>
@@ -34,7 +32,7 @@ export default function PriceFilter({
             min={possibleMinimum}
             max={possibleMaximum}
             onChange={(ev) => setMinimum(ev.target.value)}
-            className="p-2.5 rounded-[5px] outline-none border-[.5px] border-grey-300"
+            className="w-full p-2.5 rounded-[5px] outline-none border-[.5px] border-grey-300"
           />
         </div>
         <div className="flex flex-col gap-1.5">
@@ -45,7 +43,7 @@ export default function PriceFilter({
             min={possibleMinimum}
             max={possibleMaximum}
             onChange={(ev) => setMaximum(ev.target.value)}
-            className="p-2.5 rounded-[5px] outline-none border-[.5px] border-grey-300"
+            className="w-full p-2.5 rounded-[5px] outline-none border-[.5px] border-grey-300"
           />
         </div>
       </div>

@@ -31,7 +31,7 @@ export default function OurRecentProjects() {
       <p className="font-sora font-bold text-5xl text-center">
         Our Recent Projects
       </p>
-      <div className="w-fit grid grid-cols-3 gap-5 mx-auto">
+      <div className="xl:grid w-fit hidden grid-cols-3 gap-5 mx-auto">
         {arr.map((a) => (
           <div key={a.id} className="flex flex-col gap-6">
             <div className="size-[374px] relative rounded-[10px]">

@@ -11,10 +11,9 @@ export default function CartItem({
   removeItem: (ind: number) => void;
 }) {
   return (
-    <div
-      className="w-[457px] flex flex-row gap-[16px] py-[28px] px-[18px] border-b border-dotted border-grey-50">
-      <div className="size-[100px] bg-white-600">
-        <div className="w-[71px] h-[65px] relative mx-[17.5px] my-[21.5px]">
+    <div className="w-full flex flex-row gap-4 xl:py-7 py-6 px-[18px] border-b border-dotted border-grey-50">
+      <div className="size-[100px] bg-white-400">
+        <div className="xl:w-[71px] w-[51px] xl:h-[65px] h-[47px] relative mx-auto my-[21.5px]">
           <Image
             src={imgURL}
             alt={engName}
@@ -24,23 +23,25 @@ export default function CartItem({
           />
         </div>
       </div>
-      <div className="w-[284px] flex flex-col gap-[18px]">
+      <div className="xl:w-[284px] w-[406px] flex flex-col xl:gap-[18px] gap-2.5 xl:py-0 py-1">
         <div className="flex flex-row">
-          <div className="flex flex-col gap-1.5">
-            <p className="font-sora font-semibold">{engName}</p>
-            <div className="flex flex-row gap-1.5 text-[10px]">
+          <div className="flex flex-col xl:gap-1.5 gap-1">
+            <p className="font-sora font-semibold xl:text-base text-sm">
+              {engName}
+            </p>
+            <div className="flex flex-row gap-1.5 xl:text-[10px] text-[8px]">
               <p className="text-grey-200">({itemID})</p>
               {material && <p className="text-grey-200">({material})</p>}
               {size && <p className="text-grey-200">({size})</p>}
               {color && <p className="text-grey-200">({color})</p>}
             </div>
           </div>
-          <p className="ml-auto font-bold text-khaki-500 text-lg">
+          <p className="ml-auto font-bold text-khaki-500 xl:text-lg text-base">
             ({quantity}x)
           </p>
         </div>
         <div className="flex flex-row">
-          <p className="font-sora font-bold text-2xl">
+          <p className="font-sora font-bold xl:text-2xl text-xl">
             {(quantity * price).toLocaleString()} Ks
           </p>
           <button

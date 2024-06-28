@@ -1,14 +1,19 @@
 "use client";
-import { checkOutData, payment, productInCart, state } from "@/app/types/type";
 import React from "react";
 import FirstPage from "./firstPage";
 import CheckoutProgress from "./checkoutProgress";
 import PaymentPage from "./paymentPage";
-import { AnimatePresence } from "framer-motion";
 import OrderConfirmed from "./confirmed";
 import CartSummary from "./cartSummary";
+import useWindowSize from "@/app/components/useWindowSize";
+import CheckoutButtons from "./checkoutButtons";
+import CartHeader from "./cartHeader";
+import { useRouter } from "next/navigation";
+import { checkOutData, payment, productInCart, state } from "@/app/types/type";
+import { AnimatePresence } from "framer-motion";
 
 export default function Checkout() {
+  const router = useRouter();
   const [input, setInput] = React.useState<checkOutData>({
     name: "Ko Khant",
     phoneNo: "0964647576",
@@ -74,60 +79,83 @@ export default function Checkout() {
   const [page, setPage] = React.useState<"Shipping" | "Payment" | "Confirmed">(
     "Shipping",
   );
+  const [hidden, setHidden] = React.useState(true);
+  const size = useWindowSize();
+  const openCart = () => {
+    setHidden(false);
+    if (size[0] < 1440) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "auto";
+    }
+  };
+  const closeCart = () => {
+    setHidden(true);
+    if (size[0] <= 1440) {
+      document.body.style.overflowY = "auto";
+    } else {
+      document.body.style.overflowY = "hidden";
+    }
+  };
+  React.useEffect(() => {
+    if (size[0] >= 1440) {
+      openCart();
+    } else closeCart();
+  }, [size]);
   const updatePage = () => {
     if (page === "Shipping") setPage("Payment");
     else if (page === "Payment") setPage("Confirmed");
   };
+  const backPage = () => {
+    if (page === "Shipping") router.back();
+    else if (page === "Payment") setPage("Shipping");
+  };
   return (
-    <div className="w-[1190px] flex flex-row gap-40 mx-auto py-20">
-      <div className="w-[580px] flex flex-col gap-10">
-        <CheckoutProgress progress={page} />
-        <AnimatePresence>
-          {page === "Shipping" && (
-            <FirstPage
-              name={input.name}
-              setName={setName}
-              phoneNo={input.phoneNo}
-              setPhoneNo={setPhone}
-              email={input.email}
-              setEmail={setEmail}
-              state={input.state}
-              setState={setState}
-              township={input.township}
-              setTownship={setTownship}
-              address={input.address}
-              setAddress={setAddress}
-            />
-          )}
-          {page === "Payment" && (
-            <PaymentPage
-              payment={input.payment}
-              setPayment={setPayment}
-              setFile={setImage}
-              currency={input.currency}
-              setCurrency={setCurrency}
-            />
-          )}
-          {page === "Confirmed" && <OrderConfirmed />}
-        </AnimatePresence>
-        {page === "Shipping" && (
-          <button
-            onClick={updatePage}
-            className="button font-bold ml-auto bg-khaki-500 text-white hover:bg-khaki-700 duration-300"
-          >
-            Continue
-          </button>
-        )}
-        {page === "Payment" && (
-          <button
-            onClick={updatePage}
-            className="button font-bold ml-auto bg-khaki-500 text-white hover:bg-khaki-700 duration-300"
-          >
-            Continue
-          </button>
-        )}
+    <div className="xl:w-[1190px] flex flex-row gap-40 mx-auto py-20 xl:px-0 px-[51px]">
+      <div className="w-[580px] mx-auto flex flex-col gap-[50px]">
+        <CartHeader backPage={backPage} page={page} openCart={openCart} />
+        <div className="flex flex-col xl:gap-10 gap-8">
+          <CheckoutProgress progress={page} />
+          <AnimatePresence>
+            {page === "Shipping" && (
+              <FirstPage
+                name={input.name}
+                setName={setName}
+                phoneNo={input.phoneNo}
+                setPhoneNo={setPhone}
+                email={input.email}
+                setEmail={setEmail}
+                state={input.state}
+                setState={setState}
+                township={input.township}
+                setTownship={setTownship}
+                address={input.address}
+                setAddress={setAddress}
+              />
+            )}
+            {page === "Payment" && (
+              <PaymentPage
+                payment={input.payment}
+                setPayment={setPayment}
+                setFile={setImage}
+                currency={input.currency}
+                setCurrency={setCurrency}
+              />
+            )}
+            {page === "Confirmed" && <OrderConfirmed />}
+          </AnimatePresence>
+          <CheckoutButtons page={page} updatePage={updatePage} />
+        </div>
       </div>
-      <CartSummary products={cartItem} removeItem={removeItem} />
+      <AnimatePresence>
+        {!hidden && (
+          <CartSummary
+            closeCart={closeCart}
+            products={cartItem}
+            removeItem={removeItem}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }

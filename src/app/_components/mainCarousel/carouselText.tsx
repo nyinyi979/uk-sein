@@ -2,6 +2,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 
 export default function CarouselText({ slide }: { slide: number }) {
+  const textClass =
+    "w-full absolute font-bold xl:text-[80px] text-[56px] xl:leading-[120px] leading-[58px] text-center text-white";
   return (
     <>
       <AnimatePresence>
@@ -24,7 +26,7 @@ export default function CarouselText({ slide }: { slide: number }) {
               damping: 6.67,
               delay: 0.3,
             }}
-            className="w-full absolute top-[10%] font-quick font-bold text-[80px] text-center text-white z-20"
+            className={`xl:top-[10%] top-[20%] ${textClass} text-white z-20`}
           >
             Your Home <br />
             Your Style <br />
@@ -52,7 +54,7 @@ export default function CarouselText({ slide }: { slide: number }) {
               damping: 6.67,
               delay: 0.5,
             }}
-            className="w-full absolute top-[15%] flex flex-col gap-8 font-quick font-bold text-[80px] text-center text-white z-20"
+            className={`xl:top-[15%] top-[20%] flex flex-col gap-8 ${textClass} text-white z-20`}
           >
             Transform Spaces <br />
             with Local Flair
@@ -88,7 +90,7 @@ export default function CarouselText({ slide }: { slide: number }) {
               damping: 6.67,
               delay: 0.6,
             }}
-            className="w-full absolute top-[15%] flex flex-col gap-8 font-quick font-bold text-[80px] text-center text-white z-20"
+            className={`xl:top-[15%] top-[20%] flex flex-col gap-8 ${textClass} z-20`}
           >
             Elevate Your Home <br />
             with Local Flair

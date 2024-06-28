@@ -18,12 +18,16 @@ export default function Login({
   const [userInfo, setUserInfo] = React.useState({
     id: "123",
   });
+  const logOut = () => {
+    setUserInfo({ id: "" });
+    toggle();
+  };
   return (
-    <div className="relative">
+    <div className="xl:flex hidden flex-row relative">
       {userInfo.id === "" ? (
         <Link
           href={"/login"}
-          className="w-[120px] h-[50px] px-5 py-3 mt-3 bg-khaki-500 rounded-xl text-center text-white hover:bg-khaki-700 duration-300"
+          className="w-[120px] h-[50px] px-5 py-3 bg-khaki-500 rounded-xl text-center text-white hover:bg-khaki-700 duration-300"
         >
           Login
         </Link>
@@ -52,6 +56,7 @@ export default function Login({
           >
             <Link
               href="/profile"
+              onClick={toggle}
               className="w-[200px] flex flex-row align-middle justify-items-center gap-3 py-3 px-2.5 rounded-[10px] hover:bg-grey-50 duration-300"
             >
               <div className="size-[18px] relative">
@@ -67,6 +72,7 @@ export default function Login({
             </Link>
             <Link
               href="/orders"
+              onClick={toggle}
               className="w-[200px] flex flex-row align-middle justify-items-center gap-3 py-3 px-2.5 rounded-[10px] hover:bg-grey-50 duration-300"
             >
               <div className="size-[18px] relative">
@@ -82,6 +88,7 @@ export default function Login({
             </Link>
             <Link
               href="/wishlists"
+              onClick={toggle}
               className="w-[200px] flex flex-row align-middle justify-items-center gap-3 py-3 px-2.5 rounded-[10px] hover:bg-grey-50 duration-300"
             >
               <div className="size-[18px] relative">
@@ -95,7 +102,10 @@ export default function Login({
               </div>
               <p className="font-semibold">Wishlists</p>
             </Link>
-            <button className="w-[200px] flex flex-row align-middle justify-items-center gap-3 py-3 px-2.5 rounded-[10px] hover:bg-grey-50 duration-300">
+            <button
+              onClick={logOut}
+              className="w-[200px] flex flex-row align-middle justify-items-center gap-3 py-3 px-2.5 rounded-[10px] hover:bg-grey-50 duration-300"
+            >
               <div className="size-[18px] relative">
                 <Image
                   src={logout}

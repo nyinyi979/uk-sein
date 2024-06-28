@@ -8,6 +8,9 @@ export default function Pillows() {
       heading="Table"
       href="/products"
       linkText="GET 20% PROMO"
+      textClass="text-white xl:text-grey-500"
+      linkClass="text-white xl:text-grey-500"
+      pathClass="fill-white"
       content="Best quality crafted table available for your living room"
     >
       <div className="absolute w-full h-full top-0 right-0">
@@ -16,7 +19,7 @@ export default function Pillows() {
           alt="table"
           fill
           sizes="100%"
-          className="w-full h-full bg-cover"
+          className="w-full h-full bg-cover xl:brightness-100 brightness-50"
         />
       </div>
     </SmallCard>

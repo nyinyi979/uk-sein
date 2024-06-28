@@ -26,13 +26,16 @@ export default function OrderConfirmed() {
         Our team will review your payment and reply <br />
         to you as soon as possible.
       </p>
-      <div className="flex flex-row gap-6">
-        <Link href={"/products"} className="black-button font-bold">
+      <div className="flex xl:flex-row flex-col gap-6">
+        <Link
+          href={"/products"}
+          className="xl:w-fit w-[340px] mx-auto xl:h-[50px] h-[56px] xl:py-4 py-[18px] px-7 rounded-xl bg-grey-500 font-bold text-white text-sm text-center hover:bg-grey-300 duration-300"
+        >
           GO BACK
         </Link>
         <Link
           href={"/orders"}
-          className="button bg-khaki-500 font-bold text-white hover:bg-khaki-700 duration-300"
+          className="xl:w-fit w-[340px] mx-auto xl:h-[50px] h-[56px] block xl:py-4 py-[18px] px-7 rounded-xl bg-khaki-500 font-bold text-white text-sm text-center hover:bg-khaki-700 duration-300"
         >
           ORDER HISTORY
         </Link>

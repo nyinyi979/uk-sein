@@ -50,7 +50,6 @@ export default function CartSlider({
           <motion.div
             animate={{ translateX: [200, 0] }}
             exit={{
-              opacity: 0,
               translateX: 200,
               transition: {
                 stiffness: 19.75,
@@ -63,13 +62,13 @@ export default function CartSlider({
               mass: 1,
               damping: 6.67,
             }}
-            className="ml-auto w-[580px] flex flex-col bg-white"
+            className="ml-auto xl:w-[580px] w-[500px] flex flex-col bg-white origin-center"
           >
             <CartHeader count={products.length} toggle={toggle} />
             <p className="py-[16px] px-[30px] font-semibold text-lg border-b border-grey-50">
               You have ({products.length}) in your cart!
             </p>
-            <div className="h-[630px] flex flex-col gap-2.5 px-2.5 py-1.5 overflow-y-auto">
+            <div className="h-[630px] flex flex-col gap-2.5 px-2.5 py-1.5 overflow-y-auto overflow-x-hidden">
               {products.map((p, ind) => (
                 <CartItem
                   key={p.itemID}
@@ -81,7 +80,7 @@ export default function CartSlider({
                 />
               ))}
             </div>
-            <CartFooter totalPrice={totalPrice} />
+            <CartFooter totalPrice={totalPrice} toggle={toggle} />
           </motion.div>
         </motion.div>
       )}

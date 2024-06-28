@@ -13,10 +13,10 @@ export default function ProductAddToCart({
     <div className="h-[58px] flex flex-row gap-[18px]">
       <button className="w-fit h-full flex flex-row gap-3 p-[18px] bg-khaki-500 rounded-xl text-white hover:bg-khaki-700 duration-300">
         <Image src={AddToCartSvg} alt="add to cart" width={22} height={22} />
-        <p>Add to Cart</p>
+        <p className="font-semibold">Add to Cart</p>
       </button>
       <WhiteList whitelisted={whiteListed} productID={productID} />
-      <button className="w-fit h-full py-[14px] px-[18px] bg-white-600 rounded-xl">
+      <button className="size-[58px] py-[14px] px-[18px] bg-white-400 rounded-xl">
         <Image
           src={ShareSvg}
           alt="share icon"

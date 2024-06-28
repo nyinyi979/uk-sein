@@ -15,6 +15,7 @@ export default function CategoryFilter({
         <button
           disabled={category === c.name}
           onClick={() => updateCategory(c.name)}
+          key={c.name}
           className={`flex flex-row gap-3 px-2 py-2.5 rounded-[10px] ${category === c.name ? "bg-white-700" : "hover:bg-white-500 duration-300"}`}
         >
           <div className="size-8 relative">

@@ -7,15 +7,15 @@ import Pillows from "./productShowCase/pillows";
 
 export default function ProductShowCase() {
   return (
-    <div className="flex flex-col gap-[32px] font-sora">
-      <div className="h-fit grid grid-cols-2 gap-[33px]">
+    <div className="flex flex-col xl:gap-[32px] gap-4 font-sora">
+      <div className="h-fit grid grid-cols-2 xl:gap-[33px] gap-6">
         <FloorMat />
-        <div className="flex flex-col gap-[18px]">
+        <div className="flex flex-col xl:gap-[18px] gap-5">
           <Baskets />
           <Chairs />
         </div>
       </div>
-      <div className="flex flex-row gap-[33px] h-[290px]">
+      <div className="xl:h-[290px] flex flex-row xl:gap-[33px] gap-4">
         <Table />
         <Bags />
         <Pillows />

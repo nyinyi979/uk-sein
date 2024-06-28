@@ -38,10 +38,10 @@ export default function Order({ params }: { params: { orderID: string } }) {
     status: "Confirmed",
   });
   return (
-    <div className="px-[125px] py-20">
+    <div className="xl:w-[1192px] w-[664px] flex flex-col xl:gap-20 gap-10 mx-auto xl:py-20 py-10">
       <OrderTitle orderID={params.orderID} />
-      <div className="flex flex-col gap-20 py-10">
-        <div className="flex flex-row gap-8">
+      <div className="flex flex-col gap-20">
+        <div className="flex flex-row gap-8 flex-wrap">
           <OrderBasicInfo {...orderDetail} />
           <CustomerDetails {...orderDetail.customer} />
           <ShippingAddress {...orderDetail.address} />

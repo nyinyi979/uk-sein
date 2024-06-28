@@ -17,9 +17,12 @@ export default function QualityAssureRow() {
   ];
   return (
     <div>
-      <div className="flex flex-row justify-between px-[50px] py-[70px] rounded-3xl shadow-light">
+      <div className="flex flex-row justify-between xl:px-[50px] px-6 xl:py-[70px] py-[50px] rounded-3xl shadow-light">
         {texts.map((text) => (
-          <div key={text.heading} className="flex gap-4">
+          <div
+            key={text.heading}
+            className="w-full flex xl:flex-row flex-col gap-4 mx-auto"
+          >
             <div className="w-[60px] h-[56px] px-5 py-4 bg-khaki-500 rounded-xl">
               <Image src={CartWhite} alt="cartWhite" width={22} height={22} />
             </div>

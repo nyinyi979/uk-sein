@@ -5,12 +5,13 @@ export default function Bags() {
   return (
     <SmallCard
       bgClass="bg-khaki-200"
-      heading="Table"
+      heading="Bags"
       href="/products"
       linkText="GET 20% PROMO"
+      pathClass="fill-grey-500"
       content="Best quality crafted table available for your living room"
     >
-      <div className="w-[255px] h-[290px] absolute top-0 right-0">
+      <div className="xl:w-[255px] xl:h-[290px] w-[142px] h-[164px] absolute top-0 right-0">
         <Image
           src={BagsImage}
           alt="bags"

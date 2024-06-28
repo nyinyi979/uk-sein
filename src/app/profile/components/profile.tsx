@@ -78,10 +78,10 @@ export default function Signup() {
     }
   };
   return (
-    <div className="flex flex-col gap-10 px-[125px] pt-10 pb-20">
+    <div className="xl:w-[1192px] w-[492px] flex flex-col xl:gap-10 gap-8 xl:mx-auto ml-10 pt-10 pb-20">
       <ProfileTitle />
       <ProfileTabs page={page} updatePage={updatePage} />
-      <div className="w-[626px] h-fit flex flex-col gap-[50px]">
+      <div className="xl:w-[626px] h-fit flex flex-col gap-[50px]">
         <AnimatePresence>
           {page === 0 ? (
             <FirstPage

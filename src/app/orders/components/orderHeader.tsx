@@ -23,13 +23,13 @@ export default function OrderHeader({
     "Successful Orders",
   ]);
   return (
-    <div>
+    <div className="mx-auto font-bold xl:text-base text-sm">
       {status_arr.current.map((s, i) => (
         <button
           key={s}
           disabled={status === s}
           onClick={() => updateStatus(s)}
-          className="py-5 px-[72px] disabled:border-b-[1.5px] disabled:border-khaki-500 disabled:text-khaki-500 hover:bg-khaki-50 duration-300"
+          className="xl:py-5 py-4 xl:px-[72px] px-[20px] disabled:border-b-[1.5px] disabled:border-khaki-500 disabled:text-khaki-500 hover:bg-khaki-50 duration-300"
         >
           {status_txts.current[i]}
         </button>

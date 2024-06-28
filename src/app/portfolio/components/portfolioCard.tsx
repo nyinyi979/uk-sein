@@ -14,7 +14,7 @@ export default function PortfolioCard({
   children?: React.ReactNode;
 }) {
   const OneSection = (
-    <div className="w-[671px] relative rounded-3xl overflow-hidden">
+    <div className="xl:w-[671px] w-[664px] xl:h-auto h-[260px] relative rounded-3xl overflow-hidden">
       <Image
         src={imgs[0]}
         alt="a's thai spa 1"
@@ -25,8 +25,8 @@ export default function PortfolioCard({
     </div>
   );
   const TwoSection = (
-    <div className="w-[467px] flex flex-col justify-between">
-      <div className="h-[276px] relative rounded-3xl overflow-hidden">
+    <div className="xl:w-[467px] w-[664px] flex xl:flex-col xl:gap-0 gap-2.5 justify-between">
+      <div className="w-full xl:h-[276px] h-[240px] relative rounded-3xl overflow-hidden">
         <Image
           src={imgs[1]}
           alt="a's thai spa 2"
@@ -35,7 +35,7 @@ export default function PortfolioCard({
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="h-[276px] relative rounded-3xl overflow-hidden">
+      <div className="w-full xl:h-[276px] h-[240px] relative rounded-3xl overflow-hidden">
         <Image
           src={imgs[2]}
           alt="a's thai spa 3"
@@ -54,7 +54,7 @@ export default function PortfolioCard({
           {content}
         </p>
       </div>
-      <div className="h-[570px] flex flex-row justify-between">
+      <div className="xl:h-[570px] flex xl:flex-row flex-col xl:gap-0 gap-2.5 xl:justify-between">
         {leftIsBigger ? OneSection : TwoSection}
         {leftIsBigger ? TwoSection : OneSection}
       </div>

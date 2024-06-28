@@ -7,6 +7,11 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      sm: "393px",
+      md: "768px",
+      xl: "1440px",
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -15,6 +20,7 @@ const config: Config = {
       },
       gridTemplateColumns: {
         "131": ".8fr 4fr 1.5fr",
+        "121": "1fr 2fr 1fr",
       },
       colors: {
         khaki: {

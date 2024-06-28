@@ -54,7 +54,7 @@ export default function Cart({
     <div className="relative">
       <button
         onClick={toggle}
-        className="w-[58px] h-[50px] flex align-middle justify-items-center py-3 px-4 bg-white-400 rounded-xl hover:bg-grey-50 duration-300"
+        className="w-fit xl:h-[50px] h-[46px] flex flex-row gap-3 align-middle justify-items-center py-3 px-4 bg-white-400 rounded-xl hover:bg-grey-50 duration-300"
       >
         <span className="size-[22px] block relative">
           <Image
@@ -65,6 +65,9 @@ export default function Cart({
             className="size-auto"
           />
         </span>
+        <p className="size-4 rounded-full mt-1 bg-red-500 text-white text-[10px] text-center">
+          {cartItem.length}
+        </p>
       </button>
       <CartSlider
         hidden={hidden}

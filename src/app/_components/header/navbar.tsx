@@ -26,7 +26,7 @@ export default function NavBar() {
     new Set(["contact"]),
   ]);
   return (
-    <div className="flex align-middle justify-center gap-[56px] sticky top-0 left-0 py-[18px] px-[120px] z-[30] bg-white shadow-lightest">
+    <div className="xl:flex hidden align-middle justify-center gap-[56px] sticky top-0 left-0 py-[18px] px-[120px] z-[30] bg-white shadow-lightest">
       {links.current.map((link, index) => (
         <Link
           href={`/${actualLinks.current[index]}`}

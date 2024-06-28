@@ -6,8 +6,12 @@ import DiscountBanner from "@/app/components/discountBanner";
 import Filters from "./filterList";
 import useFilters from "./useFilter";
 import Pagination from "@/app/components/pagination";
+import NotFoundError from "./notFound";
+import CateogryHeading from "./heading";
 import { product } from "@/app/types/type";
 import { AnimatePresence } from "framer-motion";
+import useWindowSize from "@/app/components/useWindowSize";
+
 export default function Category({
   params,
 }: {
@@ -94,7 +98,6 @@ export default function Category({
     filters,
     filterApplied,
     resetFilter,
-    toggleCategory,
     toggleColor,
     toggleMaterial,
     toggleSize,
@@ -104,6 +107,8 @@ export default function Category({
     setMinimum,
     setMaximumInPercent,
     setMinimumInPercent,
+    filterJustApplied,
+    filterJustAppliedOff,
   } = useFilters({
     products: products,
     updateFilteredProducts: updateFilteredProducts,
@@ -111,56 +116,73 @@ export default function Category({
   const [pages, setPage] = React.useState(1);
   const updatePage = (ind: number) => setPage(ind);
   const updateCategory = (cat: string) => setCategory(cat);
+  const [hidden, setHidden] = React.useState(true);
+  const size = useWindowSize();
+  const showFilterDrawer = () => {
+    setHidden(false);
+    if (size[0] < 1440) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "auto";
+    }
+  };
+  const hideFilterDrawer = () => {
+    setHidden(true);
+    if (size[0] <= 1440) {
+      document.body.style.overflowY = "auto";
+    } else {
+      document.body.style.overflowY = "hidden";
+    }
+  };
+  React.useEffect(() => {
+    if (size[0] >= 1440) {
+      showFilterDrawer();
+    } else {
+      hideFilterDrawer();
+    }
+  }, [size]);
   return (
-    <div className="w-fit flex flex-col gap-20 my-10 mx-auto px-[125px]">
-      <div className="flex flex-row gap-8">
-        <div className="flex flex-col gap-6">
-          <div>
-            <p className="font-sora font-bold text-[48px]">{category}</p>
-            <p>
-              <span className="text-grey-100">Category - </span>
-              {category}
-            </p>
-          </div>
-          <Filter
-            appliedFilters={filters.appliedFilters}
-            possibleFilters={filters.possibleFilters}
-            filterApplied={filterApplied}
-            resetFilter={resetFilter}
-            category={category}
-            updateCategory={updateCategory}
-            toggleColor={toggleColor}
-            toggleMaterial={toggleMaterial}
-            toggleSize={toggleSize}
-            maximum={filters.appliedFilters.pricePerItem.maximum}
-            minimum={filters.appliedFilters.pricePerItem.minimum}
-            setMaximum={setMaximum}
-            setMinimum={setMinimum}
-            maximumPercent={maximumPercent}
-            minimumPercent={minimumPercent}
-            setMaximumInPercent={setMaximumInPercent}
-            setMinimumInPercent={setMinimumInPercent}
-          />
-        </div>
-        <div className="w-[886px] flex flex-col gap-10">
+    <div className="xl:w-[1190px] w-fit flex flex-col gap-10 xl:my-20 my-10 mx-auto xl:px-0 px-[52px]">
+      <CateogryHeading category={category} show={showFilterDrawer} />
+      <div className="flex xl:flex-row flex-col xl:gap-20 gap-10">
+        <AnimatePresence>
+          {!hidden && (
+            <Filter
+              appliedFilters={filters.appliedFilters}
+              possibleFilters={filters.possibleFilters}
+              filterApplied={filterApplied}
+              resetFilter={resetFilter}
+              category={category}
+              updateCategory={updateCategory}
+              toggleColor={toggleColor}
+              toggleMaterial={toggleMaterial}
+              toggleSize={toggleSize}
+              maximum={filters.appliedFilters.pricePerItem.maximum}
+              minimum={filters.appliedFilters.pricePerItem.minimum}
+              setMaximum={setMaximum}
+              setMinimum={setMinimum}
+              maximumPercent={maximumPercent}
+              minimumPercent={minimumPercent}
+              setMaximumInPercent={setMaximumInPercent}
+              setMinimumInPercent={setMinimumInPercent}
+              hidden={hidden}
+              hide={hideFilterDrawer}
+              show={showFilterDrawer}
+              filterJustApplied={filterJustApplied}
+              filterJustAppliedOff={filterJustAppliedOff}
+            />
+          )}
+        </AnimatePresence>
+        <div className="xl:w-[886px] w-full flex flex-col gap-10">
           <Filters
             filters={appliedFilters}
             toggleColor={toggleColor}
             toggleMaterial={toggleMaterial}
             toggleSize={toggleSize}
           />
-          <div className="grid grid-cols-3 gap-20">
+          <div className="grid grid-cols-3 xl:gap-10 gap-2.5">
             {filteredProducts.length === 0 ? (
-              <div className="col-span-3 w-1/2 mx-auto py-[120px]">
-                <img
-                  src={"/images/error.png"}
-                  className="size-[120px] mx-auto"
-                />
-                <p className="py-5 font-semibold text-center text-grey-200">
-                  Sorry! No Data Found from your filter search! <br /> Try to
-                  search something else.
-                </p>
-              </div>
+              <NotFoundError />
             ) : (
               <AnimatePresence>
                 {filteredProducts.map((p) => (

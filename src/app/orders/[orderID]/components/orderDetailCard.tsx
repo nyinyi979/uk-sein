@@ -8,8 +8,8 @@ export default function OrderDetailCard({
   children?: React.ReactNode;
 }) {
   return (
-    <div className="w-[376px] h-[243px] flex flex-col gap-8 p-6 rounded-[5px] shadow-orderDetail">
-      <p className="font-sora font-semibold text-2xl">{heading}</p>
+    <div className="xl:w-[376px] w-[316px] h-fit flex flex-col gap-8 p-6 rounded-[5px] shadow-orderDetail">
+      <p className="font-sora font-semibold xl:text-2xl text-lg">{heading}</p>
       {children}
     </div>
   );

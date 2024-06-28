@@ -12,14 +12,14 @@ export default function ProductReviews({ reviews }: { reviews: review[] }) {
     setOpen(true);
   };
   return (
-    <div className="flex flex-col gap-[32px] pb-8">
+    <div className="flex flex-col xl:gap-8 gap-6 pb-8">
       <div className="flex flex-row justify-between">
         <ReviewTitle />
         {reviews.length > 3 && (
           <>
             <ReviewPopUp close={closePopUp} open={open} reviews={reviews} />
             <button
-              className="flex flex-row gap-2 align-middle text-khaki-500"
+              className="flex flex-row gap-2 align-middle p-2 text-khaki-500"
               onClick={openPopUp}
             >
               See All Reviews
@@ -41,15 +41,17 @@ export default function ProductReviews({ reviews }: { reviews: review[] }) {
         )}
         {reviews.length === 0 && <ReviewError />}
       </div>
-      {reviews.length > 3 ? (
-        <>
-          <EachReview rv={reviews[0]} />
-          <EachReview rv={reviews[1]} />
-          <EachReview rv={reviews[2]} />
-        </>
-      ) : (
-        reviews.map((rv) => <EachReview key={rv.id} rv={rv} />)
-      )}
+      <div className="flex flex-col gap-[18px]">
+        {reviews.length > 3 ? (
+          <>
+            <EachReview rv={reviews[0]} />
+            <EachReview rv={reviews[1]} />
+            <EachReview rv={reviews[2]} />
+          </>
+        ) : (
+          reviews.map((rv) => <EachReview key={rv.id} rv={rv} />)
+        )}
+      </div>
       <WriteReview />
     </div>
   );

@@ -7,15 +7,13 @@ import FounderCard from "@/app/components/founder";
 
 export default function Portfolio() {
   return (
-    <div className="px-[125px] pb-10">
-      <div className="flex flex-col gap-20">
-        <HowWeWorks />
-        <WhatDoWeCare />
-        <OurRecentProjects />
-        <PortfolioCard1 />
-        <SeasonalPromotions />
-        <FounderCard />
-      </div>
+    <div className="xl:w-[1192px] flex flex-col gap-20 mx-auto xl:px-0 px-[52px] pb-10">
+      <HowWeWorks />
+      <WhatDoWeCare />
+      <OurRecentProjects />
+      <PortfolioCard1 />
+      <SeasonalPromotions />
+      <FounderCard />
     </div>
   );
 }

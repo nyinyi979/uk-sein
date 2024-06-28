@@ -15,7 +15,7 @@ export default function MainProductsCarousel() {
 
   return (
     <Swiper
-      className="w-full h-[520px] relative rounded-b-[32px]"
+      className="xl:w-full xl:h-[520px] w-full h-[350px] relative mx-auto xl:px-0 rounded-b-[32px]"
       pagination={{ clickable: true }}
       navigation={{ nextEl: ".main-next", prevEl: ".main-prev" }}
       spaceBetween={30}
