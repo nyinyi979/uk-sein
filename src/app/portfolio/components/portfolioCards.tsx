@@ -1,4 +1,3 @@
-import Image from "next/image";
 import PortfolioCard from "./portfolioCard";
 import Portfolio8 from "../images/portfolio-8.png";
 import Portfolio9 from "../images/portfolio-9.png";
@@ -9,7 +8,7 @@ import Portfolio13 from "../images/portfolio-13.png";
 import Portfolio14 from "../images/portfolio-14.png";
 import Portfolio15 from "../images/portfolio-15.png";
 import Portfolio16 from "../images/portfolio-16.png";
-export function PortfolioCard1() {
+export default function PortfolioCards() {
   return (
     <>
       <PortfolioCard

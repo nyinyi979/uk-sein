@@ -1,16 +1,16 @@
 "use client";
 import React from "react";
 import Filter from "./filter";
-import Product from "@/app/components/product";
-import DiscountBanner from "@/app/components/discountBanner";
+import Product from "@/app/_components/product";
+import DiscountBanner from "@/app/_components/discountBanner";
+import useWindowSize from "@/app/_components/useWindowSize";
+import Pagination from "@/app/_components/pagination";
 import Filters from "./filterList";
 import useFilters from "./useFilter";
-import Pagination from "@/app/components/pagination";
 import NotFoundError from "./notFound";
 import CateogryHeading from "./heading";
 import { product } from "@/app/types/type";
 import { AnimatePresence } from "framer-motion";
-import useWindowSize from "@/app/components/useWindowSize";
 
 export default function Category({
   params,
@@ -142,7 +142,7 @@ export default function Category({
     }
   }, [size]);
   return (
-    <div className="xl:w-[1190px] w-fit flex flex-col gap-10 xl:my-20 my-10 mx-auto xl:px-0 px-[52px]">
+    <div className="xl:w-[1190px] md:w-[668px] w-[393px] flex flex-col gap-10 xl:my-20 my-10 md:px-0 px-5 mx-auto">
       <CateogryHeading category={category} show={showFilterDrawer} />
       <div className="flex xl:flex-row flex-col xl:gap-20 gap-10">
         <AnimatePresence>
@@ -180,7 +180,7 @@ export default function Category({
             toggleMaterial={toggleMaterial}
             toggleSize={toggleSize}
           />
-          <div className="grid grid-cols-3 xl:gap-10 gap-2.5">
+          <div className="grid md:grid-cols-3 grid-cols-2 xl:gap-10 md:gap-2.5 gap-5">
             {filteredProducts.length === 0 ? (
               <NotFoundError />
             ) : (
@@ -191,11 +191,13 @@ export default function Category({
               </AnimatePresence>
             )}
           </div>
-          <Pagination
-            activeIndex={pages}
-            totalIndex={5}
-            setIndex={updatePage}
-          />
+          {filteredProducts.length !== 0 && (
+            <Pagination
+              activeIndex={pages}
+              totalIndex={5}
+              setIndex={updatePage}
+            />
+          )}
         </div>
       </div>
       <DiscountBanner imgURL="/images/promotion3.png" percent="40" />

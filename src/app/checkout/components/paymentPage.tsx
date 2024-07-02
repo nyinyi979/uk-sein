@@ -1,8 +1,9 @@
-import { payment } from "@/app/types/type";
 import PaymentMethods from "./payment";
 import PaymentNumbers from "./paymentNumbers";
 import PaymentImageUpload from "./paymentImageUpload";
 import { motion } from "framer-motion";
+import { payment } from "@/app/types/type";
+
 export default function PaymentPage({
   payment,
   setPayment,
@@ -24,14 +25,18 @@ export default function PaymentPage({
       layout
       className="flex flex-col gap-[50px] pt-[18px]"
     >
-      <div className="flex flex-col gap-6">
-        <p className="font-sora font-semibold text-2xl">Payment Method</p>
+      <div className="flex flex-col md:gap-6 gap-[18px]">
+        <p className="font-sora font-semibold md:text-2xl text-xl">
+          Payment Method
+        </p>
         <PaymentMethods payment={payment} setPayment={setPayment} />
-        <PaymentNumbers
-          currency={currency}
-          payment={payment}
-          setCurrency={setCurrency}
-        />
+        {payment !== "" && (
+          <PaymentNumbers
+            currency={currency}
+            payment={payment}
+            setCurrency={setCurrency}
+          />
+        )}
         <PaymentImageUpload setFile={setFile} />
       </div>
     </motion.div>

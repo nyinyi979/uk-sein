@@ -4,9 +4,14 @@ import Image from "next/image";
 import SIGNUP from "../images/signup.png";
 import FirstPage from "./firstPage";
 import SecondPage from "./secondPage";
+import Link from "next/link";
+import SignUpBack from "./signupBack";
+import { useRouter } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
 import { signUpInput, state } from "@/app/types/type";
+
 export default function Signup() {
+  const router = useRouter();
   const [input, setInput] = React.useState<signUpInput>({
     file: null,
     name: "",
@@ -59,12 +64,16 @@ export default function Signup() {
     input.password == input.rePassword;
   const secondPageNotEmpty =
     input.state != "" && input.township != "" && input.address != "";
-  const [firstPage, setFirstPage] = React.useState(true);
+  const [firstPage, setFirstPage] = React.useState(false);
   const validateInfo = () => {};
+  const backOnClick = () => {
+    if(firstPage) router.replace("/");
+    else setFirstPage(true);
+  }
   return (
-    <div className="px-[125px] my-[100px] grid grid-cols-2 pt-20 pb-10">
-      <div className="w-[500px] h-fit flex flex-col gap-10">
-        <p className="font-sora font-bold text-[42px]">Create New Account👋</p>
+    <div className="xl:w-[1190px] md:w-[668px] w-full mx-auto xl:my-20 my-10 grid md:grid-cols-2 grid-cols-1 gap-10">
+      <div className="xl:w-[500px] md:w-[400px] w-[340px] mx-auto h-fit flex flex-col gap-10">
+        <SignUpBack onClick={backOnClick} firstPage={firstPage}/>
         <AnimatePresence>
           {firstPage ? (
             <FirstPage
@@ -97,13 +106,26 @@ export default function Signup() {
             />
           )}
         </AnimatePresence>
+        <p className="font-semibold text-center">
+          Already have an account?{" "}
+          <Link
+            href="/login"
+            className="font-bold text-khaki-500 hover:text-khaki-700 duration-300"
+          >
+            {" "}
+            Sign In{" "}
+          </Link>
+        </p>
       </div>
-      <Image
-        src={SIGNUP}
-        alt="signup"
-        width={300}
-        className="w-full h-auto object-top object-contain"
-      />
+      <div className="xl:w-[601px] xl:h-[282px] w-[361px] h-[317px] md:block hidden relative xl:mt-0 mt-40">
+        <Image
+          src={SIGNUP}
+          alt="signup"
+          fill
+          sizes="100%"
+          className="w-full h-full object-top object-cover"
+        />
+      </div>
     </div>
   );
 }

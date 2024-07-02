@@ -1,7 +1,8 @@
+import React from "react";
 import { review } from "@/app/types/type";
 import { EachReview, ReviewTitle } from "./reviewComponents";
 import { motion } from "framer-motion";
-import React from "react";
+
 export default function ReviewPopUp({
   reviews,
   close,
@@ -30,7 +31,7 @@ export default function ReviewPopUp({
           display: open ? "block" : "none",
         }}
         onClick={(e) => e.preventDefault()}
-        className="xl:w-[1088px] w-[680px] h-[70%] xl:my-[8%] my-[15%] overflow-scroll bg-white flex flex-col gap-8 mx-auto p-8 rounded-[15px]"
+        className="xl:w-[1088px] md:w-[680px] w-[330px] h-[70%] xl:mt-[8%] md:mt-[15%] mt-[20%] overflow-scroll bg-white flex flex-col md:gap-8 gap-[18px] mx-auto md:p-8 p-6 rounded-[15px]"
       >
         <ReviewTitle>
           <button className="ml-auto" onClick={close}>
@@ -48,7 +49,7 @@ export default function ReviewPopUp({
             </svg>
           </button>
         </ReviewTitle>
-        <div className="pt-8 pb-8">
+        <div className="flex flex-col gap-[18px] pt-8 pb-8">
           {reviews.map((rv) => (
             <EachReview key={rv.id} rv={rv} />
           ))}

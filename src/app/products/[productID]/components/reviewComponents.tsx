@@ -1,6 +1,6 @@
-import { review } from "@/app/types/type";
 import Image from "next/image";
 import React from "react";
+import { review } from "@/app/types/type";
 
 export function EachReview({ rv }: { rv: review }) {
   return (
@@ -10,7 +10,7 @@ export function EachReview({ rv }: { rv: review }) {
     >
       <div className="flex flex-row justify-between py-2.5">
         <div className="flex flex-row gap-3">
-          <div className="size-[44px] rounded-full relative">
+          <div className="md:size-[44px] size-[38px] rounded-full relative">
             <Image
               src={rv.user.imgURL}
               alt="user image"
@@ -20,8 +20,10 @@ export function EachReview({ rv }: { rv: review }) {
             />
           </div>
           <div className="flex flex-col gap-0.5">
-            <p className="font-bold text-xl">{rv.user.username}</p>
-            <p className="font-[500] text-sm text-grey-200">{} days ago</p>
+            <p className="font-bold md:text-xl">{rv.user.username}</p>
+            <p className="font-medium md:text-sm text-[10px] text-grey-200">
+              {} days ago
+            </p>
           </div>
         </div>
         <div className="flex flex-row xl:gap-1 gap-2 align-middle">
@@ -39,7 +41,7 @@ export function EachReview({ rv }: { rv: review }) {
           </p>
         </div>
       </div>
-      <div className="font-normal xl:text-lg text-justify xl:leading-[32px] leading-5">
+      <div className="font-normal xl:text-lg md:text-base text-sm text-justify xl:leading-[32px] md:leading-5 leading-[17.5px]">
         {rv.review}
       </div>
     </div>
@@ -47,7 +49,7 @@ export function EachReview({ rv }: { rv: review }) {
 }
 export function ReviewTitle({ children }: { children?: React.ReactNode }) {
   return (
-    <p className="flex flex-row font-sora font-semibold xl:text-[32px] text-2xl">
+    <p className="flex flex-row font-sora font-semibold xl:text-[32px] md:text-2xl text-lg">
       Our Customers' Reviews
       {children}
     </p>

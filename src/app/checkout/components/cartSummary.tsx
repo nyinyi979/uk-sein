@@ -1,8 +1,9 @@
-import { productInCart } from "@/app/types/type";
 import React from "react";
 import CartItem from "./cartItems";
 import { motion } from "framer-motion";
 import { CartSummaryHeader, CartFooter } from "./cartSummaryComponents";
+import { productInCart } from "@/app/types/type";
+
 export default function CartSummary({
   products,
   removeItem,
@@ -37,13 +38,12 @@ export default function CartSummary({
         mass: 1,
         damping: 6.67,
       }}
-      className="w-full h-full flex align-middle justify-items-center xl:relative fixed top-0 left-0 xl:bg-transparent bg-popup-bg xl:rounded-none rounded-[15px] overflow-hidden shadow-rating"
+      className="w-full h-full flex align-middle justify-items-center xl:relative fixed top-0 left-0 xl:bg-transparent bg-popup-bg xl:rounded-none shadow-rating md:z-[1] z-[1000]"
     >
       <motion.div
         animate={{ scale: [0, 1] }}
         exit={{
           scale: 0,
-          translateX: 200,
           transition: {
             stiffness: 19.75,
             mass: 1,
@@ -56,7 +56,7 @@ export default function CartSummary({
           damping: 6.67,
         }}
         onClick={(ev) => ev.stopPropagation()}
-        className="xl:w-[478px] w-[578px] h-fit xl:my-0 my-[30%] mx-auto flex flex-col gap-1.5 pt-2.5 bg-white origin-center"
+        className="xl:w-[478px] md:w-[578px] w-[360px] md:max-h-max max-h-[500px] overflow-scroll xl:my-0 mt-[10%] mx-auto flex flex-col gap-1.5 pt-2.5 rounded-[15px] bg-white origin-center"
       >
         <CartSummaryHeader closeCart={closeCart} count={products.length} />
         <div className="px-2.5 pb-6">

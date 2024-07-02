@@ -1,5 +1,5 @@
-import { productInCart } from "@/app/types/type";
 import Image from "next/image";
+import { productInCart } from "@/app/types/type";
 
 export default function CartItem({
   product: { engName, imgURL, itemID, price, quantity, color, material, size },
@@ -12,14 +12,14 @@ export default function CartItem({
 }) {
   return (
     <div className="w-full flex flex-row gap-4 xl:py-7 py-6 px-[18px] border-b border-dotted border-grey-50">
-      <div className="size-[100px] bg-white-400">
+      <div className="md:size-[100px] size-[72px] bg-white-400">
         <div className="xl:w-[71px] w-[51px] xl:h-[65px] h-[47px] relative mx-auto my-[21.5px]">
           <Image
             src={imgURL}
             alt={engName}
             sizes="100%"
             fill
-            className="w-full h-full bg-cover shadow-product"
+            className="w-full h-full object-cover shadow-product"
           />
         </div>
       </div>

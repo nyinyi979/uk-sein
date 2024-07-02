@@ -11,7 +11,7 @@ export default function CartHeader({
     <div className="xl:hidden flex flex-row">
       <button
         onClick={backPage}
-        className="back-arr-text flex flex-row gap-2.5"
+        className="back-arr-text flex-row gap-2.5"
       >
         <svg
           width="25"

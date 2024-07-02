@@ -17,17 +17,19 @@ export default function WhatDoWeServe() {
     },
   ];
   return (
-    <div className="flex flex-col gap-[65px] pb-8">
-      <p className="font-sora font-semibold text-5xl">What Do We Serve?</p>
-      <div className="flex flex-row gap-[28px]">
+    <div className="flex flex-col xl:gap-[65px] gap-8 pb-8">
+      <p className="font-sora font-semibold xl:text-5xl text-2xl">
+        What Do We Serve?
+      </p>
+      <div className="flex md:flex-row flex-col xl:gap-[28px] md:gap-[18px] gap-[28px]">
         {whatdoWeServe.map((s) => (
           <div
             key={s.heading}
             className="flex flex-col gap-[30px] py-6 px-[28px] rounded-3xl bg-white shadow-rating"
           >
-            <div className="size-20 flex justify-center rounded-[18px] bg-khaki-500">
+            <div className="xl:size-20 md:size-[60px] size-20 flex justify-center rounded-[18px] bg-khaki-500">
               <svg
-                className="my-6"
+                className="xl:my-6 md:my-3.5 my-6"
                 width="29"
                 height="28"
                 viewBox="0 0 29 28"
@@ -41,8 +43,10 @@ export default function WhatDoWeServe() {
               </svg>
             </div>
             <div className="flex flex-col gap-[14px]">
-              <p className="font-sora font-semibold text-2xl">{s.heading}</p>
-              <p className="font-normal text-[#202020] leading-5">
+              <p className="font-sora font-semibold xl:text-2xl md:text-xl text-2xl">
+                {s.heading}
+              </p>
+              <p className="font-normal text-[#202020] xl:text-base md:text-xs xl:leading-5 md:leading-[15px] leading-5">
                 {s.description}
               </p>
             </div>

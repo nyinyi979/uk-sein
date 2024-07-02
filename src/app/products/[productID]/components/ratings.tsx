@@ -1,4 +1,4 @@
-import { Stars } from "@/app/components/product";
+import RatingStars from "@/app/_components/rating";
 
 export default function ProductRatings({
   rating,
@@ -10,13 +10,15 @@ export default function ProductRatings({
   const ratingCount =
     ratings[1] + ratings[2] + ratings[3] + ratings[4] + ratings[5];
   return (
-    <div className="w-full flex xl:justify-between xl:gap-0 gap-[60px] xl:py-[42px] py-6 xl:px-[72px] px-[50px] bg-white shadow-rating">
+    <div className="w-full flex md:flex-row flex-col xl:justify-between xl:gap-0 gap-[60px] xl:py-[42px] py-6 xl:px-[72px] md:px-[50px] px-2 rounded-[15px] bg-white shadow-rating">
       <div className="text-center">
         <p className="font-sora font-bold xl:text-[70px] text-[56px]">
           {rating}
         </p>
         <div className="flex flex-col gap-[18px]">
-          <Stars count={Math.floor(rating)} />
+          <div className="w-fit mx-auto">
+            <RatingStars count={Math.floor(rating)} />
+          </div>
           Total ({ratingCount}) rating{ratingCount >= 1 && "s"}
         </div>
       </div>
@@ -40,7 +42,7 @@ function Rating({
   number: number;
 }) {
   return (
-    <div className="xl:w-[530px] w-[348px] flex flex-row justify-between align-middle">
+    <div className="xl:w-[530px] md:w-[348px] w-[320px] flex flex-row justify-between align-middle">
       <div className="flex flex-row gap-1">
         <svg
           className="filled-star"
@@ -61,7 +63,7 @@ function Rating({
         ></div>
       </div>
       <div>
-        <p className="font-[500] text-lg">
+        <p className="font-medium text-lg">
           {ratings} rating{ratings >= 1 && "s"}
         </p>
       </div>

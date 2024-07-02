@@ -1,10 +1,11 @@
-import StateInput from "../../components/stateInput";
-import TownshipInput from "../../components/townshipInput";
-import AddresssInput from "../../components/addressInput";
+import StateInput from "../../_components/input/stateInput";
+import TownshipInput from "../../_components/input/townshipInput";
+import AddresssInput from "../../_components/input/addressInput";
 import { addresses } from "../../types/addresses";
 import { motion } from "framer-motion";
 import { Dispatch, SetStateAction } from "react";
 import { state } from "@/app/types/type";
+
 export default function SecondPage({
   setFirstPage,
   state,
@@ -29,11 +30,19 @@ export default function SecondPage({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col gap-[50px]"
+      className="flex flex-col xl:gap-[50px] gap-[18px]"
     >
+      <div className="flex flex-col gap-2.5 md:mt-10">
+        <p className="font-sora font-bold xl:text-[42px] md:text-[32px] text-2xl">
+          Create New Account👋
+        </p>
+        <p className="text-grey-200 md:text-base text-sm">
+          Please enter your personal information to start.
+        </p>
+      </div>
       <button
         onClick={() => setFirstPage(true)}
-        className="back-arr-text mx-auto"
+        className="back-arr-text md:flex hidden mr-auto xl:my-0 md:my-5"
       >
         <svg
           width="25"
@@ -57,7 +66,7 @@ export default function SecondPage({
       <button
         disabled={!secondPageNotEmpty}
         onClick={() => {}}
-        className={`w-full h-[78px] mt-5 text-2xl font-semibold font-sora rounded-[18px] text-white bg-khaki-600 hover:bg-khaki-700 disabled:bg-white-700 duration-300`}
+        className={`w-full mt-5 py-[18px] xl:text-2xl font-semibold font-sora rounded-[18px] text-white bg-khaki-600 hover:bg-khaki-700 disabled:bg-white-700 duration-300`}
       >
         Continue
       </button>

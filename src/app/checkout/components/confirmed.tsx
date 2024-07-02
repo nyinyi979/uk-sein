@@ -1,7 +1,8 @@
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Confirmed from "../images/confirmed.png";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
 export default function OrderConfirmed() {
   return (
     <motion.div
@@ -18,10 +19,10 @@ export default function OrderConfirmed() {
           alt="confirmed"
           fill
           sizes="100%"
-          className="w-full h-full bg-cover"
+          className="w-full h-full object-cover"
         />
       </div>
-      <p className="font-[500] text-center text-lg leading-[22.5px] text-grey-400">
+      <p className="font-medium text-center md:text-lg text-sm leading-[22.5px] text-grey-400">
         Your order has been registered successfully! <br />
         Our team will review your payment and reply <br />
         to you as soon as possible.

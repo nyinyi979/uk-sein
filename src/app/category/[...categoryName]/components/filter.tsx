@@ -1,11 +1,10 @@
 "use client";
-import React from "react";
-import Toggle from "../../../components/toggle";
+import CategoryFilter from "@/app/_components/categoryFilter";
 import ColorFilter from "./colorFilter";
 import SizeFilter from "./sizeFilter";
 import MaterialFilter from "./materialFilter";
 import PriceFilter from "./priceFilter";
-import CategoryFilter from "@/app/components/categoryFilter";
+import Toggle from "../../../_components/toggle";
 import { prodcutFilterWithSet, productFilter } from "@/app/types/type";
 import { motion } from "framer-motion";
 
@@ -93,11 +92,11 @@ export default function Filter({
         onClick={(e) => e.stopPropagation()}
         className="xl:w-fit w-full xl:h-fit h-[616px] overflow-y-auto xl:pt-0 pt-6 xl:pb-0 pb-[50px] bg-white xl:relative fixed bottom-0 left-0 xl:rounded-none rounded-t-3xl"
       >
-        <div className="xl:w-[274px] w-[663px] xl:h-auto mx-auto flex flex-col xl:gap-6 gap-8">
+        <div className="xl:w-[274px] md:w-[663px] w-full xl:h-auto mx-auto flex flex-col xl:gap-6 gap-8 md:px-0 px-5">
           <div className="xl:block flex flex-row justify-between">
             <button
               onClick={resetFilter}
-              className={`xl:w-full w-fit h-[56px] xl:p-0 p-2.5 ${filterApplied ? "xl:bg-red-500 text-red-500 xl:text-white" : "xl:bg-grey-50 text-grey-100 xl:text-white"} rounded-[10px] duration-300`}
+              className={`xl:w-full w-fit h-[56px] xl:p-0 p-2.5 ${filterApplied ? "xl:bg-red-500 text-red-500 xl:text-white" : "xl:bg-grey-50 text-grey-100 xl:text-white"} md:text-base text-sm rounded-[10px] duration-300`}
             >
               Clear filters
             </button>
@@ -106,7 +105,7 @@ export default function Filter({
             </p>
             <button
               onClick={hide}
-              className={`xl:hidden w-fit h-[56px] py-2.5 px-[16px] ${filterJustApplied ? "bg-success hover:bg-sucessHover" : "bg-grey-50"} rounded-[10px] text-white`}
+              className={`xl:hidden w-fit h-[56px] py-2.5 px-[16px] ${filterJustApplied ? "bg-success hover:bg-sucessHover" : "bg-grey-50"} md:text-base text-sm rounded-[10px] text-white`}
             >
               Save
             </button>

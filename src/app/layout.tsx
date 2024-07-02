@@ -1,8 +1,8 @@
+import Header from "./components/header";
+import Footer from "./components/footer";
+import "./globals.css";
 import type { Metadata } from "next";
 import { Quicksand, Sora, Lexend } from "next/font/google";
-import "./globals.css";
-import Header from "./_components/header";
-import Footer from "./_components/footer";
 
 const quicksand = Quicksand({
   subsets: ["latin"],

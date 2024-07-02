@@ -14,7 +14,7 @@ export default function PortfolioCard({
   children?: React.ReactNode;
 }) {
   const OneSection = (
-    <div className="xl:w-[671px] w-[664px] xl:h-auto h-[260px] relative rounded-3xl overflow-hidden">
+    <div className="xl:w-[671px] md:w-[664px] w-[340px] xl:h-auto md:h-[260px] h-[200px] relative rounded-3xl overflow-hidden">
       <Image
         src={imgs[0]}
         alt="a's thai spa 1"
@@ -25,8 +25,8 @@ export default function PortfolioCard({
     </div>
   );
   const TwoSection = (
-    <div className="xl:w-[467px] w-[664px] flex xl:flex-col xl:gap-0 gap-2.5 justify-between">
-      <div className="w-full xl:h-[276px] h-[240px] relative rounded-3xl overflow-hidden">
+    <div className="xl:w-[467px] md:w-[664px] w-[340px] flex xl:flex-col xl:gap-0 gap-2.5 justify-between">
+      <div className="w-full xl:h-[276px] md:h-[240px] h-[170px] relative rounded-3xl overflow-hidden">
         <Image
           src={imgs[1]}
           alt="a's thai spa 2"
@@ -35,7 +35,7 @@ export default function PortfolioCard({
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="w-full xl:h-[276px] h-[240px] relative rounded-3xl overflow-hidden">
+      <div className="w-full xl:h-[276px] md:h-[240px] h-[170px] relative rounded-3xl overflow-hidden">
         <Image
           src={imgs[2]}
           alt="a's thai spa 3"
@@ -49,8 +49,8 @@ export default function PortfolioCard({
   return (
     <div className="flex flex-col gap-[50px] pb-[60px] border-b border-dotted border-[#BABABA]">
       <div className="flex flex-col gap-[18px]">
-        <p className="font-bold font-sora text-5xl">{heading}</p>
-        <p className="font-[500] text-lg leading-[22.5px] text-justify">
+        <p className="font-bold font-sora xl:text-5xl text-2xl">{heading}</p>
+        <p className="font-medium xl:text-lg text-sm xl:leading-[22.5px] leading-[17.5px] text-justify">
           {content}
         </p>
       </div>

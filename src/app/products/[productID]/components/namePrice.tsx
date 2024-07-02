@@ -1,4 +1,4 @@
-import { Stars } from "@/app/components/product";
+import RatingStars from "@/app/_components/rating";
 
 export default function ProductNamePrice({
   engName,
@@ -14,7 +14,7 @@ export default function ProductNamePrice({
   price: number;
 }) {
   return (
-    <div className="flex flex-col xl:gap-6 gap-4 pb-12 border-b border-dotted border-grey-100">
+    <div className="flex flex-col xl:gap-6 md:gap-4 gap-[18px] pb-12 border-b border-dotted border-grey-100">
       <div className="flex flex-col gap-1.5">
         <p className="font-sora font-semibold xl:text-[38px] text-2xl">
           {engName}
@@ -23,7 +23,7 @@ export default function ProductNamePrice({
           {myName} <span className="px-2 text-grey-200">({itemID})</span>
         </p>
       </div>
-      <Stars count={rating} />
+      <RatingStars count={rating} />
       <p className="xl:text-5xl text-[32px] font-bold font-sora">
         {price.toLocaleString()} Ks
       </p>

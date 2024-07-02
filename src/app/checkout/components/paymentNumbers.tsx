@@ -4,6 +4,7 @@ import mm from "../images/mm.png";
 import usd from "../images/usd.png";
 import { payment } from "@/app/types/type";
 import { AnimatePresence, motion } from "framer-motion";
+
 export default function PaymentNumbers({
   currency,
   payment,
@@ -14,8 +15,8 @@ export default function PaymentNumbers({
   setCurrency: (cur: "MMK" | "USD") => void;
 }) {
   return (
-    <div className="flex flex-col gap-6 pb-7">
-      <div className="flex flex-col gap-[16px]">
+    <div className="flex flex-col md:gap-6 gap-[18px] pb-7">
+      <div className="flex flex-col md:gap-4 gap-3">
         <div className="flex flex-row gap-3">
           <p className="font-semibold text-grey-400">Payment Number : </p>
           <p className="font-bold">0887822121</p>
@@ -31,14 +32,14 @@ export default function PaymentNumbers({
             animate={{ opacity: [0, 1] }}
             exit={{ opacity: 0 }}
             layout
-            className="flex flex-col gap-[18px] py-[18px]"
+            className="flex flex-col gap-[18px] md:py-[18px] py-3"
           >
             <p className="font-sora font-semibold text-xl">Choose currency :</p>
             <div className="flex flex-row gap-6">
               <button
                 onClick={() => setCurrency("MMK")}
                 disabled={currency === "MMK"}
-                className="flex flex-row gap-2.5 py-[18px] px-8 rounded-[15px] border border-grey-100 disabled:border-grey-500 duration-300"
+                className="flex flex-row gap-2.5 py-[18px] md:px-8 px-6 rounded-[15px] border border-grey-100 disabled:border-grey-500 duration-300"
               >
                 <div className="size-7 relative">
                   <Image
@@ -46,7 +47,7 @@ export default function PaymentNumbers({
                     alt="MM"
                     fill
                     sizes="100%"
-                    className="w-full h-full bg-cover"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <p className="font-semibold text-lg text-grey-400">MMK</p>
@@ -54,7 +55,7 @@ export default function PaymentNumbers({
               <button
                 onClick={() => setCurrency("USD")}
                 disabled={currency === "USD"}
-                className="flex flex-row gap-2.5 py-[18px] px-8 rounded-[15px] border border-grey-100 disabled:border-grey-500 duration-300"
+                className="flex flex-row gap-2.5 py-[18px] md:px-8 px-6 rounded-[15px] border border-grey-100 disabled:border-grey-500 duration-300"
               >
                 <div className="size-7 relative">
                   <Image
@@ -62,7 +63,7 @@ export default function PaymentNumbers({
                     alt="uds"
                     fill
                     sizes="100%"
-                    className="w-full h-full bg-cover"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <p className="font-semibold text-lg text-grey-400">USD</p>
@@ -71,16 +72,16 @@ export default function PaymentNumbers({
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="size-[120px] relative">
+      <div className="md:size-[120px] size-[100px] relative">
         <Image
           src={QR}
           alt="qr"
           fill
           sizes="100%"
-          className="w-full h-full bg-cover"
+          className="w-full h-full object-cover"
         />
       </div>
-      <p className="w-fit p-[18px] rounded-[10px] bg-red-50 font-semibold text-red-500">
+      <p className="w-fit py-3 md:p-[18px] px-2 rounded-[10px] bg-red-50 font-semibold xl:text-base md:text-sm text-xs text-red-500">
         *Drop the screenshot here after you make the payment!
       </p>
     </div>

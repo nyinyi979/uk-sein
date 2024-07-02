@@ -1,9 +1,9 @@
-import ImageUpload from "../../components/imgUpload";
-import NameInput from "../../components/nameInput";
-import PhoneNoInput from "../../components/phoneNoInput";
-import MailInput from "../../components/mailInput";
-import GenderInput from "../../components/gender";
-import PasswordInput from "../../components/password";
+import ImageUpload from "../../_components/input/imgUpload";
+import NameInput from "../../_components/input/nameInput";
+import PhoneNoInput from "../../_components/input/phoneNoInput";
+import MailInput from "../../_components/input/mailInput";
+import GenderInput from "../../_components/input/genderInput";
+import PasswordInput from "../../_components/input/passwordInput";
 import { motion } from "framer-motion";
 import { Dispatch, SetStateAction } from "react";
 
@@ -45,9 +45,17 @@ export default function FirstPage({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col gap-[50px]"
+      className="flex flex-col xl:gap-[50px] gap-[18px]"
     >
-      <p className="font-sora font-semibold text-2xl">Personal Information</p>
+      <div className="flex flex-col gap-2.5 md:mt-10">
+        <p className="font-sora font-bold xl:text-[42px] md:text-[32px] text-2xl">
+          Create New Account👋
+        </p>
+        <p className="text-grey-200 md:text-base text-sm">
+          Please enter your personal information to start.
+        </p>
+      </div>
+      <p className="font-sora font-semibold text-2xl mt-10">Personal Information</p>
       <ImageUpload setFile={setFile} />
       <NameInput name={name} setName={setName} />
       <PhoneNoInput phone={phoneNo} setPhone={setPhoneNo} />
@@ -68,7 +76,7 @@ export default function FirstPage({
       <button
         disabled={!firstPageNotEmpty}
         onClick={() => setFirstPage(false)}
-        className={`w-full h-[78px] mt-5 text-2xl font-semibold font-sora rounded-[18px] text-white bg-khaki-600 hover:bg-khaki-700 disabled:bg-white-700 duration-300`}
+        className={`w-full py-[18px] mt-5 xl:text-2xl font-semibold font-sora rounded-[18px] text-white bg-khaki-600 hover:bg-khaki-700 disabled:bg-white-700 duration-300`}
       >
         Continue
       </button>

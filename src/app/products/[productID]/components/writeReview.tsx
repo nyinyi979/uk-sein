@@ -5,9 +5,11 @@ export default function WriteReview() {
   const updateCount = (c: number) => setCount(c);
   const [review, setReview] = React.useState("");
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col md:gap-6 gap-4">
       <div className="flex flex-col gap-3">
-        <p className="font-semibold font-sora text-2xl">Write Your Review</p>
+        <p className="font-semibold font-sora md:text-2xl text-lg">
+          Write Your Review
+        </p>
         <Stars count={count} updateCount={updateCount} />
         <textarea
           value={review}
@@ -19,7 +21,7 @@ export default function WriteReview() {
         />
       </div>
       <button
-        className={`ml-auto py-[18px] px-8 ${review == "" ? "bg-grey-50" : "bg-khaki-500"} rounded-[15px] font-semibold text-lg text-white duration-300`}
+        className={`ml-auto py-[18px] md:px-8 px-6 ${review == "" ? "bg-grey-50" : "bg-khaki-500"} rounded-[15px] font-semibold text-lg text-white duration-300`}
       >
         Write Review
       </button>

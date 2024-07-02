@@ -2,6 +2,7 @@ import Image from "next/image";
 import Portfolio5 from "../images/portfolio-5.png";
 import Portfolio6 from "../images/portfolio-6.png";
 import Portfolio7 from "../images/portfolio-7.png";
+
 export default function OurRecentProjects() {
   const arr = [
     {
@@ -27,8 +28,8 @@ export default function OurRecentProjects() {
     },
   ];
   return (
-    <div className="flex flex-col gap-[50px]">
-      <p className="font-sora font-bold text-5xl text-center">
+    <div className="xl:flex hidden flex-col gap-[50px]">
+      <p className="font-sora font-bold xl:text-5xl md:text-2xl text-[28px] text-center">
         Our Recent Projects
       </p>
       <div className="xl:grid w-fit hidden grid-cols-3 gap-5 mx-auto">
@@ -40,7 +41,7 @@ export default function OurRecentProjects() {
                 alt={a.name}
                 fill
                 sizes="100%"
-                className="w-full h-full bg-cover"
+                className="w-full h-full object-cover"
               />
             </div>
             <div className="flex flex-col gap-6">

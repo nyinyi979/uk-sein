@@ -20,7 +20,7 @@ export default function ProductQuantity({
         >
           -
         </button>
-        <p className="xl:w-40 w-[141px] h-full py-4 bg-white-400 font-semibold text-center text-2xl rounded-[15px]">
+        <p className="xl:w-40 md:w-[141px] w-40 h-full py-4 bg-white-400 font-semibold text-center text-2xl rounded-[15px]">
           {count}
         </p>
         <button

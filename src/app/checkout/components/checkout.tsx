@@ -5,10 +5,10 @@ import CheckoutProgress from "./checkoutProgress";
 import PaymentPage from "./paymentPage";
 import OrderConfirmed from "./confirmed";
 import CartSummary from "./cartSummary";
-import useWindowSize from "@/app/components/useWindowSize";
 import CheckoutButtons from "./checkoutButtons";
 import CartHeader from "./cartHeader";
 import { useRouter } from "next/navigation";
+import useWindowSize from "@/app/_components/useWindowSize";
 import { checkOutData, payment, productInCart, state } from "@/app/types/type";
 import { AnimatePresence } from "framer-motion";
 
@@ -111,8 +111,8 @@ export default function Checkout() {
     else if (page === "Payment") setPage("Shipping");
   };
   return (
-    <div className="xl:w-[1190px] flex flex-row gap-40 mx-auto py-20 xl:px-0 px-[51px]">
-      <div className="w-[580px] mx-auto flex flex-col gap-[50px]">
+    <div className="xl:w-[1190px] flex flex-row gap-40 mx-auto py-20 xl:px-0 md:px-[51px]">
+      <div className="md:w-[580px] w-[343px] mx-auto flex flex-col gap-[50px]">
         <CartHeader backPage={backPage} page={page} openCart={openCart} />
         <div className="flex flex-col xl:gap-10 gap-8">
           <CheckoutProgress progress={page} />

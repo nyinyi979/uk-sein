@@ -78,10 +78,10 @@ export default function Signup() {
     }
   };
   return (
-    <div className="xl:w-[1192px] w-[492px] flex flex-col xl:gap-10 gap-8 xl:mx-auto ml-10 pt-10 pb-20">
+    <div className="xl:w-[1192px] md:w-[492px] w-[340px] flex flex-col xl:gap-10 md:gap-8 gap-6 xl:mx-auto md:ml-10 mx-auto pt-10 pb-20">
       <ProfileTitle />
       <ProfileTabs page={page} updatePage={updatePage} />
-      <div className="xl:w-[626px] h-fit flex flex-col gap-[50px]">
+      <div className="xl:w-[626px] w-full h-fit flex flex-col md:gap-[50px] gap-0">
         <AnimatePresence>
           {page === 0 ? (
             <FirstPage
@@ -115,7 +115,7 @@ export default function Signup() {
         </AnimatePresence>
         <button
           onClick={validateInfo}
-          className="button font-bold bg-khaki-500 text-white hover:bg-khaki-700 duration-300"
+          className="md:w-fit w-full h-[50px] block py-[16px] px-[28px] rounded-xl text-sm text-center font-bold bg-khaki-500 text-white hover:bg-khaki-700 duration-300"
         >
           Save {page === 0 ? "Changes" : "Password"}
         </button>

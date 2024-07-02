@@ -33,19 +33,19 @@ body {
   transform: scale(1.2);
 }
 .bottom-row-container {
-  @apply w-full h-fit relative flex py-10 xl:pl-6 px-6 rounded-3xl overflow-hidden;
+  @apply w-full h-fit relative flex py-10 xl:pl-8 px-6 rounded-3xl overflow-hidden;
 }
 .black-button {
   @apply w-fit h-[50px] py-[16px] px-[28px] rounded-xl bg-grey-500 font-bold text-white text-sm text-center hover:bg-grey-300 duration-300;
 }
 .button {
-  @apply xl:w-fit w-[160px] h-[50px] block py-[16px] px-[28px] rounded-xl text-sm text-center duration-300;
+  @apply w-fit h-[50px] block py-[16px] px-[28px] rounded-xl text-sm text-center duration-300;
 }
 .showcase-button {
-  @apply w-fit xl:h-[50px] flex gap-2 xl:py-[16px] xl:px-[28px] xl:font-semibold font-[400] rounded-xl xl:font-quick font-lex text-center duration-300;
+  @apply w-fit xl:h-[50px] flex gap-2 xl:py-[16px] xl:px-[28px] xl:font-semibold font-normal rounded-xl xl:font-quick font-lex text-center duration-300;
 }
 .chair-link {
-  @apply flex flex-row gap-2.5 font-sora font-normal text-lg text-khaki-500 hover:text-khaki-700 hover:fill-khaki-700 duration-300;
+  @apply flex flex-row gap-2.5 xl:font-sora font-lex font-normal md:text-lg text-base text-khaki-500 hover:text-khaki-700 hover:fill-khaki-700 duration-300;
 }
 .chair-link:hover path {
   @apply fill-khaki-700;
@@ -72,11 +72,18 @@ span.swiper-pagination-bullet-active {
 .main-arr path {
   @apply fill-khaki-500;
 }
-.pagination-arr circle,
-.pagniation-arr path,
-.main-arr circle,
-.main-arr path {
-  @apply duration-300;
+.pagination {
+  @apply md:w-fit md:h-fit size-10 md:py-3 py-[3.5px] md:px-[18px] px-[8.5px] md:rounded-[10px] rounded-[30px] bg-white text-grey-500 hover:text-white hover:bg-grey-400 font-semibold duration-300;
+}
+.disabled-pagination {
+  @apply md:w-fit md:h-fit size-10 md:py-3 py-[3.5px] md:px-[18px] px-[8.5px] md:rounded-[10px] rounded-[30px] text-grey-500 font-semibold duration-300;
+}
+.active-pagination {
+  @apply md:w-fit md:h-fit size-10 md:py-3 py-[3.5px] md:px-[18px] px-[8.5px] md:rounded-[10px] rounded-[30px] text-white bg-grey-500 font-semibold duration-300;
+}
+.pagination-arr,
+.pagination-arr-disabled {
+  @apply md:size-[50px] size-[46px];
 }
 .pagination-arr circle {
   @apply border border-khaki-100 fill-khaki-500;
@@ -86,6 +93,12 @@ span.swiper-pagination-bullet-active {
 }
 .pagination-arr:hover circle {
   @apply fill-khaki-700;
+}
+.pagination-arr circle,
+.pagniation-arr path,
+.main-arr circle,
+.main-arr path {
+  @apply duration-300;
 }
 .main-arr:hover circle {
   @apply fill-khaki-500 stroke-khaki-500;
@@ -202,7 +215,7 @@ input[type="range"]::-ms-thumb {
   @apply bg-rejectLight text-reject;
 }
 .order-btn {
-  @apply xl:w-[120px] w-[80px] mx-auto flex flex-row xl:gap-2.5 gap-1 xl:py-[14px] py-2.5 xl:px-3 px-2 bg-khaki-50 rounded-[10px] font-bold xl:text-sm text-[8px] text-khaki-500 duration-300;
+  @apply xl:w-[120px] md:w-[80px] w-[90px] mx-auto flex flex-row xl:gap-2.5 md:gap-1 gap-1.5 xl:py-[14px] md:py-2.5 xl:px-3 md:px-2 p-2 bg-khaki-50 md:rounded-[10px] rounded-[5px] font-bold xl:text-sm md:text-[8px] text-[10px] text-khaki-500 duration-300;
 }
 .order-btn path {
   @apply fill-khaki-500 duration-300;
@@ -214,7 +227,7 @@ input[type="range"]::-ms-thumb {
   @apply fill-white;
 }
 .back-arr-text {
-  @apply flex gap-2.5 mr-auto text-khaki-500 duration-300;
+  @apply gap-2.5 mr-auto text-khaki-500 duration-300;
 }
 .back-arr-text path {
   @apply fill-khaki-500 duration-300;
@@ -227,7 +240,7 @@ input[type="range"]::-ms-thumb {
 }
 
 .cart-btn {
-  @apply size-10 py-2.5 bg-khaki-50 duration-300;
+  @apply md:size-10 size-8 md:py-2.5 py-1.5 bg-khaki-50 duration-300;
 }
 .cart-btn:hover {
   @apply bg-khaki-300;
@@ -240,7 +253,7 @@ input[type="range"]::-ms-thumb {
 }
 
 .carousel-btn {
-  @apply size-[50px] p-4 rounded-full bg-khaki-500 border border-khaki-100 disabled:bg-white disabled:border-khaki-200 hover:bg-khaki-700 duration-300;
+  @apply md:size-[50px] size-[46px] md:p-4 p-3 rounded-full bg-khaki-500 border border-khaki-100 disabled:bg-white disabled:border-khaki-200 hover:bg-khaki-700 duration-300;
 }
 .carousel-btn path {
   @apply fill-white duration-300;

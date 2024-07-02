@@ -1,0 +1,18 @@
+import OrderDetailCard from "./orderDetailCard";
+import { addressInOrder } from "@/app/types/type";
+
+export default function ShippingAddress({
+  address,
+  state,
+  township,
+}: addressInOrder) {
+  return (
+    <OrderDetailCard heading="Shipping Address">
+      <div className="flex flex-col gap-5 font-semibold xl:text-lg">
+        <p>{address}</p>
+        <p>{township}</p>
+        <p>{state}</p>
+      </div>
+    </OrderDetailCard>
+  );
+}

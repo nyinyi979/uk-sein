@@ -23,7 +23,7 @@ export default function PriceFilter({
 }) {
   return (
     <div className="w-full">
-      <div className="flex flex-row gap-2.5 text-grey-300">
+      <div className="grid grid-cols-2 gap-2.5 text-grey-300">
         <div className="flex flex-col gap-1.5">
           <p className="font-semibold text-[10px]">Minimum</p>
           <input

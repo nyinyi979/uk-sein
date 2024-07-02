@@ -29,42 +29,48 @@ export default function ProductDetail({
 }) {
   return (
     <div className="flex flex-col xl:gap-[38px] gap-6 xl:pb-8 pb-6">
-      <div className="flex flex-col xl:gap-[18px] gap-[14px]">
-        <p className="font-sora font-semibold xl:text-base text-sm">Size</p>
+      <div className="flex flex-col xl:gap-[18px] md:gap-[14px] gap-3">
+        <p className="font-sora font-semibold xl:text-base md:text-sm text-xs">
+          Size
+        </p>
         <div className="flex flex-row xl:gap-[23px] gap-[16px]">
           {sizes.map((size) => (
             <div
               key={size}
               onClick={() => setActiveSize(size)}
-              className={`w-fit py-4 px-6 rounded-[15px] ${activeSize === size ? "bg-grey-500 text-white" : "border border-grey-200"} xl:text-base text-xs cursor-pointer duration-300`}
+              className={`w-fit py-4 md:px-6 px-4 rounded-[15px] ${activeSize === size ? "bg-grey-500 text-white" : "border border-grey-200"} xl:text-base text-xs cursor-pointer duration-300`}
             >
               {size}
             </div>
           ))}
         </div>
       </div>
-      <div className="flex flex-col xl:gap-[18px] gap-[14px]">
-        <p className="font-sora font-semibold xl:text-base text-sm">Color</p>
+      <div className="flex flex-col xl:gap-[18px] md:gap-[14px] gap-3">
+        <p className="font-sora font-semibold xl:text-base md:text-sm text-xs">
+          Color
+        </p>
         <div className="flex flex-row xl:gap-[23px] gap-[16px]">
           {colors.map((clr) => (
             <div
               key={clr}
               onClick={() => setActiveColor(clr)}
-              className={`w-fit py-4 px-6 rounded-[15px] ${activeColor === clr ? "bg-grey-500 text-white" : "border border-grey-200"} xl:text-base text-xs cursor-pointer duration-300`}
+              className={`w-fit py-4 md:px-6 px-4 rounded-[15px] ${activeColor === clr ? "bg-grey-500 text-white" : "border border-grey-200"} xl:text-base text-xs cursor-pointer duration-300`}
             >
               {clr}
             </div>
           ))}
         </div>
       </div>
-      <div className="flex flex-col xl:gap-[18px] gap-[14px]">
-        <p className="font-sora font-semibold xl:text-base text-sm">Material</p>
+      <div className="flex flex-col xl:gap-[18px] md:gap-[14px] gap-3">
+        <p className="font-sora font-semibold xl:text-base md:text-sm text-xs">
+          Material
+        </p>
         <div className="flex flex-row xl:gap-[23px] gap-[16px]">
           {materials.map((mat) => (
             <div
               key={mat}
               onClick={() => setActiveMaterial(mat)}
-              className={`w-fit py-4 px-6 rounded-[15px] ${activeMaterial === mat ? "bg-grey-500 text-white" : "border border-grey-200"} xl:text-base text-xs cursor-pointer duration-300`}
+              className={`w-fit py-4 md:px-6 px-4 rounded-[15px] ${activeMaterial === mat ? "bg-grey-500 text-white" : "border border-grey-200"} xl:text-base text-xs cursor-pointer duration-300`}
             >
               {mat}
             </div>

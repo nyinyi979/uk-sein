@@ -1,5 +1,5 @@
+import PasswordInput from "@/app/_components/input/passwordInput";
 import { motion } from "framer-motion";
-import PasswordInput from "@/app/components/password";
 
 export default function SecondPage({
   currentPassword,
@@ -24,7 +24,7 @@ export default function SecondPage({
       className="flex flex-col gap-[50px]"
       layout
     >
-      <div className="flex flex-col gap-6 pb-[55px] border-b border-grey-100 border-dotted">
+      <div className="flex flex-col gap-6 pb-[55px] md:border-b border-grey-100 border-dotted">
         <p className="font-sora font-semibold text-2xl">Personal Information</p>
         <PasswordInput
           displayedLabel="Current Password"

@@ -1,5 +1,4 @@
 "use client";
-import { productDetails } from "@/app/types/type";
 import React from "react";
 import ProductTitle from "./title";
 import ProductImages from "./image";
@@ -9,8 +8,9 @@ import ProductNamePrice from "./namePrice";
 import ProductAddToCart from "./addToCart";
 import ProductRatings from "./ratings";
 import ProductReviews from "./reviews";
-import TopProductsCarousel from "@/app/_components/topProducts/productCarousel";
-import ProductQuantity from "./quantity";
+import TopProductsCarousel from "@/app/components/topProducts/productCarousel";
+import { productDetails } from "@/app/types/type";
+
 export default function ProductDetails({
   params,
 }: {
@@ -102,18 +102,18 @@ export default function ProductDetails({
     setActiveDetails({ ...activeDetails, material: mat });
   };
   return (
-    <div className="xl:w-[1192px] xl:my-[50px] mx-auto xl:px-0 px-[52px]">
+    <div className="xl:w-[1192px] md:w-[664px] w-[393px] xl:my-[50px] mx-auto md:px-0 px-5">
       <ProductTitle category={productDetails.category} />
-      <div className="flex flex-col gap-20">
-        <div className="grid grid-cols-2 gap-8">
-          <div className="flex flex-col gap-[62px]">
+      <div className="w-full flex flex-col gap-20">
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="flex flex-col md:gap-[62px] gap-8">
             <ProductImages
               category={productDetails.category}
               imgURLs={productDetails.imageURLs}
             />
             <ProductDescription description={productDetails.description} />
           </div>
-          <div className="flex flex-col xl:gap-8 gap-6">
+          <div className="flex flex-col xl:gap-8 md:gap-6 gap-[18px]">
             <ProductNamePrice
               engName={productDetails.engName}
               itemID={productDetails.itemID}

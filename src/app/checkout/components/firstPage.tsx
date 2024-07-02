@@ -1,9 +1,9 @@
-import TownshipInput from "@/app/components/townshipInput";
-import AddresssInput from "@/app/components/addressInput";
-import NameInput from "@/app/components/nameInput";
-import PhoneNoInput from "@/app/components/phoneNoInput";
-import MailInput from "@/app/components/mailInput";
-import StateInput from "@/app/components/stateInput";
+import TownshipInput from "@/app/_components/input/townshipInput";
+import AddresssInput from "@/app/_components/input/addressInput";
+import NameInput from "@/app/_components/input/nameInput";
+import PhoneNoInput from "@/app/_components/input/phoneNoInput";
+import MailInput from "@/app/_components/input/mailInput";
+import StateInput from "@/app/_components/input/stateInput";
 import { state } from "@/app/types/type";
 import { addresses } from "@/app/types/addresses";
 import { motion } from "framer-motion";
@@ -44,14 +44,16 @@ export default function FirstPage({
       layout
     >
       <div className="flex flex-col gap-6 pb-[55px] border-b border-grey-100 border-dotted">
-        <p className="font-sora font-semibold text-2xl">Personal Information</p>
+        <p className="font-sora font-semibold md:text-2xl text-lg">
+          Personal Information
+        </p>
         <NameInput name={name} setName={setName} />
         <PhoneNoInput phone={phoneNo} setPhone={setPhoneNo} />
         <MailInput mail={email} setMail={setEmail} />
       </div>
       <div className="flex flex-col gap-6 pb-[55px]">
         <p className="font-sora font-semibold text-2xl">Shopping Information</p>
-        <div className="grid grid-cols-2 gap-[26px]">
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-[26px]">
           <StateInput state={state} setState={setState} />
           <TownshipInput
             allTownships={addresses[state]}

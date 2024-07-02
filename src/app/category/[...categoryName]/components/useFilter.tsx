@@ -1,10 +1,10 @@
+import React from "react";
 import {
   filter,
   prodcutFilterWithSet,
   product,
   productFilters,
 } from "@/app/types/type";
-import React from "react";
 
 export default function useFilters({
   products,

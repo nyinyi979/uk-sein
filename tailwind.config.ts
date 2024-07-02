@@ -19,7 +19,7 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       gridTemplateColumns: {
-        "131": ".8fr 4fr 1.5fr",
+        "13.5": "1fr 3fr .5fr",
         "121": "1fr 2fr 1fr",
       },
       colors: {
@@ -77,7 +77,7 @@ const config: Config = {
       boxShadow: {
         lightest: "0 2px 30px 0 rgba(0, 0, 0, 0.06)",
         light: "2px 4px 60px 0px rgba(0, 0, 0, 0.07)",
-        client: "2px 2px 40px 0 rgba(0, 0, 0, 0.05)",
+        client: "2px 2px 40px 0px #0000000D",
         footer: "0 -4px 40px rgba(0, 0, 0, 0.05)",
         rating: "2px 4px 50px 0px #0000000D",
         aboutus: "2px 2px 40px 0px #0000000D",
@@ -87,6 +87,7 @@ const config: Config = {
         orderDetail: "2px 2px 40px 0px #0000000D",
         product: `10px 11px 32px 0px #0000001a, 38px 45px 59px 0px #00000017, 86px 101px 79px 0px #0000000d, 152px 180px 94px 0px #00000003, 238px 281px 103px 0px #00000000;`,
         cartFooter: "0px -3px 30px 0px #0000000D",
+        drawer: "4px 4px 50px 0px #00000033",
       },
     },
   },

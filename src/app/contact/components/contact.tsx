@@ -1,20 +1,39 @@
 import Image from "next/image";
-import Map from "../images/map.png";
 import JoinOurCommunity from "./joinOurCommunity";
+import Contact1 from "../images/contact1.png";
+import Contact2 from "../images/contact2.png";
+import Contact3 from "../images/contact3.png";
+import Contact4 from "../images/contact4.png";
+
 export default function Contact() {
+  const arr = [Contact1, Contact2, Contact3, Contact4];
   return (
-    <div className="px-[125px] pt-20 pb-32">
-      <div className="flex flex-col gap-32 relative">
-        <div className="flex flex-col gap-[50px]">
-          <p className="font-sora font-bold text-5xl">Visit Our Shop</p>
-          <div className="h-[660px] relative">
-            <Image
-              src={Map}
-              alt="map"
-              fill
-              sizes="100%"
-              className="w-full h-full object-cover"
-            />
+    <div className="xl:w-[1190px] md:w-[668px] w-[340px] mx-auto xl:pt-20 pt-10 pb-32">
+      <div className="flex flex-col xl:gap-32 gap-8 relative">
+        <div className="flex flex-col xl:gap-[50px] gap-8">
+          <p className="font-sora font-bold xl:text-5xl text-[32px] md:text-left text-center">
+            Contact Us
+          </p>
+          <div className="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8 h-fit relative rounded-[15px]">
+            {arr.map((a, ind) => (
+              <div key={ind} className="flex flex-col gap-[18px]">
+                <div className="w-full xl:h-[274px] h-[250px] relative rounded-[15px] overflow-hidden">
+                  <Image
+                    src={a}
+                    alt={`contact ${ind}`}
+                    fill
+                    sizes="100%"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex flex-col gap-[14px] xl:text-lg">
+                  <span className="font-bold">
+                    Innovate & No.63, Bo Yar Nyunt Road, Dagon, Yangon
+                  </span>
+                  <span className="font-medium">09-887822121</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
         <JoinOurCommunity />

@@ -8,14 +8,21 @@ export default function CateogryHeading({
   return (
     <div className="flex flex-row">
       <div className="flex flex-col">
-        <p className="font-sora font-bold text-[48px] leading-10">{category}</p>
-        <p className="leading-8">
-          <span className="text-grey-100">Category - </span>
+        <p className="font-sora font-bold md:text-[48px] text-lg leading-10">
+          {category}
+        </p>
+        <p className="md:leading-8 leading-4">
+          <span className="text-grey-100 md:text-base text-sm">
+            Category -{" "}
+          </span>
           {category}
         </p>
       </div>
       <div className="xl:hidden flex flex-row gap-2.5 ml-auto">
-        <button onClick={show} className="black-button flex flex-row gap-2">
+        <button
+          onClick={show}
+          className="w-fit h-fit flex flex-row gap-2 md:py-[16px] py-2 md:px-[28px] px-5 rounded-xl bg-grey-500 font-bold text-white text-sm text-center hover:bg-grey-300 duration-300"
+        >
           <svg
             className="mt-1"
             width="13"

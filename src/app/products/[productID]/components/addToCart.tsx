@@ -1,7 +1,8 @@
 import Image from "next/image";
 import AddToCartSvg from "@/app/svg/addToCart.svg";
 import ShareSvg from "@/app/svg/share.svg";
-import { WhiteList } from "@/app/components/product";
+import WishList from "@/app/_components/wishlist";
+
 export default function ProductAddToCart({
   productID,
   whiteListed,
@@ -10,13 +11,13 @@ export default function ProductAddToCart({
   productID: string;
 }) {
   return (
-    <div className="h-[58px] flex flex-row gap-[18px]">
-      <button className="w-fit h-full flex flex-row gap-3 p-[18px] bg-khaki-500 rounded-xl text-white hover:bg-khaki-700 duration-300">
+    <div className="md:h-[58px] h-[48px] flex flex-row gap-[18px]">
+      <button className="w-fit h-full flex flex-row gap-3 md:p-[18px] px-[18px] py-[14px] bg-khaki-500 rounded-xl md:text-base text-sm text-white hover:bg-khaki-700 duration-300">
         <Image src={AddToCartSvg} alt="add to cart" width={22} height={22} />
         <p className="font-semibold">Add to Cart</p>
       </button>
-      <WhiteList whitelisted={whiteListed} productID={productID} />
-      <button className="size-[58px] py-[14px] px-[18px] bg-white-400 rounded-xl">
+      <WishList whitelisted={whiteListed} productID={productID} />
+      <button className="w-[58px] h-full py-[14px] px-[18px] bg-white-400 rounded-xl">
         <Image
           src={ShareSvg}
           alt="share icon"

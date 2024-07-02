@@ -1,17 +1,17 @@
-import SeasonalPromotions from "@/app/components/seasonalPromotions";
+import SeasonalPromotions from "@/app/_components/seasonalPromotions";
 import HowWeWorks from "./howWeWork";
 import OurRecentProjects from "./ourRecentProjects";
 import WhatDoWeCare from "./whatDoWeCare";
-import { PortfolioCard1 } from "./portfolioCards";
-import FounderCard from "@/app/components/founder";
+import FounderCard from "@/app/_components/founder";
+import PortfolioCards from "./portfolioCards";
 
 export default function Portfolio() {
   return (
-    <div className="xl:w-[1192px] flex flex-col gap-20 mx-auto xl:px-0 px-[52px] pb-10">
+    <div className="xl:w-[1192px] md:w-[668px] w-[340px] flex flex-col xl:gap-20 md:gap-10 gap-8 mx-auto xl:px-0 pb-10">
       <HowWeWorks />
       <WhatDoWeCare />
       <OurRecentProjects />
-      <PortfolioCard1 />
+      <PortfolioCards />
       <SeasonalPromotions />
       <FounderCard />
     </div>
