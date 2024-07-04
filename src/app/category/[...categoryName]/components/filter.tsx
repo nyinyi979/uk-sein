@@ -1,10 +1,10 @@
 "use client";
-import CategoryFilter from "@/app/_components/categoryFilter";
+import CategoryFilter from "@/components/categoryFilter";
 import ColorFilter from "./colorFilter";
 import SizeFilter from "./sizeFilter";
 import MaterialFilter from "./materialFilter";
 import PriceFilter from "./priceFilter";
-import Toggle from "../../../_components/toggle";
+import Toggle from "../../../../components/toggle";
 import { prodcutFilterWithSet, productFilter } from "@/app/types/type";
 import { motion } from "framer-motion";
 

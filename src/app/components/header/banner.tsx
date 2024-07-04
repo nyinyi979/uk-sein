@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import DrawerBtn from "./drawer/drawerBtn";
 import LoginSide from "./loginSide";
-import SearchBar from "../../_components/searchBar";
+import SearchBar from "../../../components/searchBar";
 
 export default function Banner() {
   return (

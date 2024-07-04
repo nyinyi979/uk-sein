@@ -1,4 +1,4 @@
-import RatingStars from "@/app/_components/rating";
+import RatingStars from "@/components/rating";
 
 export default function ProductRatings({
   rating,

@@ -8,7 +8,7 @@ import CartSummary from "./cartSummary";
 import CheckoutButtons from "./checkoutButtons";
 import CartHeader from "./cartHeader";
 import { useRouter } from "next/navigation";
-import useWindowSize from "@/app/_components/useWindowSize";
+import useWindowSize from "@/components/useWindowSize";
 import { checkOutData, payment, productInCart, state } from "@/app/types/type";
 import { AnimatePresence } from "framer-motion";
 

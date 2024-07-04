@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import WhiteListCateogry from "./toggleCategory";
-import DiscountBanner from "@/app/_components/discountBanner";
-import Pagination from "@/app/_components/pagination";
-import Product from "@/app/_components/product";
+import DiscountBanner from "@/components/discountBanner";
+import Pagination from "@/components/pagination";
+import Product from "@/components/product";
 import { product } from "@/app/types/type";
 import { AnimatePresence } from "framer-motion";
 

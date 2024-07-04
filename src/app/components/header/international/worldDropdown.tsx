@@ -1,9 +1,24 @@
+import React from "react";
 import MM from "../images/mm.png";
 import ENG from "../images/eng.png";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Locale } from "@/config";
+import { setUserLocale } from "@/services/locale";
 
-export default function WorldDropdown() {
+export default function WorldDropdown({hide}:{
+  hide: ()=>void;
+}) {
+  
+  const [isPending, startTransition] = React.useTransition();
+
+  function onChange(value: string) {
+    hide();
+    const locale = value as Locale;
+    startTransition(() => {
+      setUserLocale(locale);
+    });
+  }
   return (
     <motion.div
       animate={{ translateY: [20, 0], opacity: [0, 1] }}
@@ -23,7 +38,10 @@ export default function WorldDropdown() {
       }}
       className="w-[200px] absolute right-0 -bottom-[8.5rem] p-2.5 rounded-[15px] bg-white shadow-dropdown z-[40]"
     >
-      <button className="w-[180px] flex flex-row align-middle justify-items-center gap-3 py-3 px-2.5 rounded-[10px] hover:bg-grey-50 duration-300">
+      <button 
+        className="w-[180px] flex flex-row align-middle justify-items-center gap-3 py-3 px-2.5 rounded-[10px] hover:bg-grey-50 duration-300"
+        onClick={()=>onChange("en")}
+      >
         <div className="size-8 relative">
           <Image
             src={ENG}
@@ -35,7 +53,10 @@ export default function WorldDropdown() {
         </div>
         <p className="font-semibold">English</p>
       </button>
-      <button className="w-[180px] flex flex-row align-middle justify-items-center gap-3 py-3 px-2.5 rounded-[10px] hover:bg-grey-50 duration-300">
+      <button 
+        className="w-[180px] flex flex-row align-middle justify-items-center gap-3 py-3 px-2.5 rounded-[10px] hover:bg-grey-50 duration-300"
+        onClick={()=>onChange("my")}
+      >
         <div className="size-8 relative">
           <Image
             src={MM}

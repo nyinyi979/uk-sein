@@ -2,7 +2,7 @@ import CartHeader from "./cartHeader";
 import CartItem from "./cartItem";
 import React from "react";
 import CartFooter from "./cartFooter";
-import useWindowSize from "@/app/_components/useWindowSize";
+import useWindowSize from "@/components/useWindowSize";
 import { productInCart } from "@/app/types/type";
 import { AnimatePresence, motion } from "framer-motion";
 

@@ -3,7 +3,7 @@ import World from "./world";
 import Login from "./login";
 import React from "react";
 import Image from "next/image";
-import SearchIcon from "../../svg/search.svg";
+import SearchIcon from "@/svg/search.svg";
 
 export default function LoginSide() {
   const [hidden, setHidden] = React.useState({

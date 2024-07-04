@@ -1,4 +1,4 @@
-import PasswordInput from "@/app/_components/input/passwordInput";
+import PasswordInput from "@/components/input/passwordInput";
 import { motion } from "framer-motion";
 
 export default function SecondPage({

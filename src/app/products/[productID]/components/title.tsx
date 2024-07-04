@@ -1,5 +1,5 @@
 import Image from "next/image";
-import BackArr from "@/app/svg/backArrow.svg";
+import BackArr from "@/svg/backArrow.svg";
 import { useRouter } from "next/navigation";
 
 export default function ProductTitle({ category }: { category: string }) {

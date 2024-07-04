@@ -1,9 +1,9 @@
-import ImageUpload from "../../_components/input/imgUpload";
-import NameInput from "../../_components/input/nameInput";
-import PhoneNoInput from "../../_components/input/phoneNoInput";
-import MailInput from "../../_components/input/mailInput";
-import GenderInput from "../../_components/input/genderInput";
-import PasswordInput from "../../_components/input/passwordInput";
+import ImageUpload from "../../../components/input/imgUpload";
+import NameInput from "../../../components/input/nameInput";
+import PhoneNoInput from "../../../components/input/phoneNoInput";
+import MailInput from "../../../components/input/mailInput";
+import GenderInput from "../../../components/input/genderInput";
+import PasswordInput from "../../../components/input/passwordInput";
 import { motion } from "framer-motion";
 import { Dispatch, SetStateAction } from "react";
 

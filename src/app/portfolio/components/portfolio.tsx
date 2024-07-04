@@ -1,8 +1,8 @@
-import SeasonalPromotions from "@/app/_components/seasonalPromotions";
+import SeasonalPromotions from "@/components/seasonalPromotions";
 import HowWeWorks from "./howWeWork";
 import OurRecentProjects from "./ourRecentProjects";
 import WhatDoWeCare from "./whatDoWeCare";
-import FounderCard from "@/app/_components/founder";
+import FounderCard from "@/components/founder";
 import PortfolioCards from "./portfolioCards";
 
 export default function Portfolio() {

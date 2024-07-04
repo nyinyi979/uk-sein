@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import ClientWord from "./clientWord";
-import CarouselButtons from "@/app/_components/carouselButtons";
+import CarouselButtons from "@/components/carouselButtons";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";

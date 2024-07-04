@@ -2,6 +2,8 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import "./globals.css";
 import type { Metadata } from "next";
+import {NextIntlClientProvider} from 'next-intl';
+import {getLocale, getMessages} from 'next-intl/server';
 import { Quicksand, Sora, Lexend } from "next/font/google";
 
 const quicksand = Quicksand({
@@ -26,19 +28,24 @@ export const metadata: Metadata = {
   description: "",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body
         className={`${quicksand.variable} ${lexend.variable} ${sora.variable} font-quick text-grey-500`}
       >
-        <Header />
-        {children}
-        <Footer />
+        <NextIntlClientProvider messages={messages}>
+          <Header />
+          {children}
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

@@ -29,7 +29,7 @@ export default function CarouselText({ slide }: { slide: number }) {
               damping: 6.67,
               delay: 0.3,
             }}
-            className={`xl:top-[10%] md:top-[20%] top-[30%] ${textClass} text-white z-20`}
+            className={`whitespace-pre xl:top-[10%] md:top-[20%] top-[30%] ${textClass} text-white z-20`}
           >
             Your Home <br />
             Your Style <br />

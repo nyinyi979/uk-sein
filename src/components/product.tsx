@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import WishList from "./wishlist";
 import RatingStars from "./rating";
-import AddToCart from "../svg/addToCart.svg";
+import AddToCart from "@/svg/addToCart.svg";
 import { product } from "@/app/types/type";
 import { motion } from "framer-motion";
 

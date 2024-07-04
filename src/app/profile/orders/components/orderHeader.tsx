@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import useWindowSize from "@/app/_components/useWindowSize";
+import useWindowSize from "@/components/useWindowSize";
 import { orderStatus } from "@/app/types/type";
 import { AnimatePresence, motion } from "framer-motion";
 

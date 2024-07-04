@@ -1,9 +1,9 @@
-import TownshipInput from "@/app/_components/input/townshipInput";
-import AddresssInput from "@/app/_components/input/addressInput";
-import NameInput from "@/app/_components/input/nameInput";
-import PhoneNoInput from "@/app/_components/input/phoneNoInput";
-import MailInput from "@/app/_components/input/mailInput";
-import StateInput from "@/app/_components/input/stateInput";
+import TownshipInput from "@/components/input/townshipInput";
+import AddresssInput from "@/components/input/addressInput";
+import NameInput from "@/components/input/nameInput";
+import PhoneNoInput from "@/components/input/phoneNoInput";
+import MailInput from "@/components/input/mailInput";
+import StateInput from "@/components/input/stateInput";
 import { state } from "@/app/types/type";
 import { addresses } from "@/app/types/addresses";
 import { motion } from "framer-motion";

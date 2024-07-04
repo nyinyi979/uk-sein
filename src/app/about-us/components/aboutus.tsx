@@ -1,7 +1,7 @@
-import DiscountBanner from "@/app/_components/discountBanner";
-import FounderCard from "@/app/_components/founder";
-import SeasonalPromotions from "@/app/_components/seasonalPromotions";
-import PromotionBanner from "@/app/_components/promotionBanner";
+import DiscountBanner from "@/components/discountBanner";
+import FounderCard from "@/components/founder";
+import SeasonalPromotions from "@/components/seasonalPromotions";
+import PromotionBanner from "@/components/promotionBanner";
 import AboutUsCards from "./aboutUsCards";
 import WhatDoWeServe from "./whatDoWeServe";
 

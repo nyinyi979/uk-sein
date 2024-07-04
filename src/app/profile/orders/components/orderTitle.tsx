@@ -1,4 +1,4 @@
-import SearchBar from "@/app/_components/searchBar";
+import SearchBar from "@/components/searchBar";
 import Image from "next/image";
 import SearchIcon from "@/app/svg/search.svg";
 

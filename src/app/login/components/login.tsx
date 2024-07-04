@@ -3,8 +3,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import UKSEIN from "../images/uksein.png";
-import PhoneNoInput from "@/app/_components/input/phoneNoInput";
-import PasswordInput from "@/app/_components/input/passwordInput";
+import PhoneNoInput from "@/components/input/phoneNoInput";
+import PasswordInput from "@/components/input/passwordInput";
 import LoginHeader from "./loginHeader";
 import LoginBack from "./loginBack";
 
