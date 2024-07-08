@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import useWindowSize from "@/components/useWindowSize";
+import useWindowSize from "@/components/hooks/useWindowSize";
 import { orderStatus } from "@/app/types/type";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -25,9 +25,12 @@ export default function OrderHeader({
   ]);
   const [hidden, setHidden] = React.useState(true);
   const size = useWindowSize();
+
   React.useEffect(() => {
     if (size[0] > 767) setHidden(false);
+    else setHidden(true);
   }, [size]);
+
   const changeStatus = (status: orderStatus) => {
     updateStatus(status);
     if (size[0] > 767) setHidden(false);

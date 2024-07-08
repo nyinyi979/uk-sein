@@ -12,10 +12,10 @@ export default function CustomerDetails({
 }: customerInOrder) {
   return (
     <OrderDetailCard heading="Customer Details">
-      <div className="flex flex-col gap-[18px] font-bold xl:text-lg text-sm">
+      <div className="flex flex-col md:gap-[18px] gap-4 font-bold xl:text-lg text-sm">
         <div className="flex flex-row justify-between">
           <div className="flex flex-row gap-3">
-            <div className="w-[18px] h-5 relative">
+            <div className="w-[18px] h-5 md:block hidden relative">
               <Image
                 src={Profile}
                 alt="profile"
@@ -30,7 +30,7 @@ export default function CustomerDetails({
         </div>
         <div className="flex flex-row justify-between">
           <div className="flex flex-row gap-3">
-            <div className="w-[18px] h-5 relative">
+            <div className="w-[18px] h-5 md:block hidden relative">
               <Image
                 src={Email}
                 alt="profile"
@@ -45,7 +45,7 @@ export default function CustomerDetails({
         </div>
         <div className="flex flex-row justify-between">
           <div className="flex flex-row gap-3">
-            <div className="w-[18px] h-5 relative">
+            <div className="w-[18px] h-5 md:block hidden relative">
               <Image
                 src={Phone}
                 alt="phone no"

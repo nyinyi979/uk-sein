@@ -5,8 +5,9 @@ import PhoneNoInput from "@/components/input/phoneNoInput";
 import MailInput from "@/components/input/mailInput";
 import StateInput from "@/components/input/stateInput";
 import { state } from "@/app/types/type";
-import { addresses } from "@/app/types/addresses";
 import { motion } from "framer-motion";
+import { useLocale } from "next-intl";
+import { EngTownships, MyTownships } from "@/app/types/addresses";
 
 export default function FirstPage({
   name,
@@ -35,6 +36,7 @@ export default function FirstPage({
   address: string;
   setAddress: (add: string) => void;
 }) {
+  const locale = useLocale();
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -56,7 +58,7 @@ export default function FirstPage({
         <div className="grid md:grid-cols-2 grid-cols-1 gap-[26px]">
           <StateInput state={state} setState={setState} />
           <TownshipInput
-            allTownships={addresses[state]}
+            state={state}
             township={township}
             setTownship={setTownship}
           />

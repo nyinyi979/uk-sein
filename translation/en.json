@@ -1,3 +1,35 @@
 {
-    "title":"UK SEIN"
+    "signin":{
+        "welcome-back":"Welcome back👋",
+        "enter-details":"Enter your account details to login to the system.",
+        "forgot-password":"Forgot Password?",
+        "sign-in":"Sign in"
+    },
+    "input":{
+        "phone":"Phone Number",
+        "password":"Password",
+        "confirm":"Confirm Password",
+        "name":"Name",
+        "email":"Email",
+        "gender":"Gender",
+        "profile":"Profile Image",
+        "state":"State/Region",
+        "township":"Township",
+        "address":"Address",
+        "select-gender":"Select Gender",
+        "select-township":"Select township",
+        "select-state":"Select State/Region"
+    },
+    "signup":{
+        "create": "Create New Account👋",
+        "already": "Already have an account? ",
+        "personal":"Personal Information",
+        "enter-details": "Please enter your personal information to start.",
+        "continue":"Continue",
+        "shipping":"Shipping Information",
+        "back-to-personal": "Back to personal information",
+        "sign-up":"Sign up",
+        "new-account-created":"New Account Created Successfully!",
+        "successful-message":"Your account has been created. Let's explore our website."
+    }
 }

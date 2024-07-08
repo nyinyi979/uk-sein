@@ -9,6 +9,7 @@ import SignUpBack from "./signupBack";
 import { useRouter } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
 import { signUpInput, state } from "@/app/types/type";
+import { useTranslations } from "next-intl";
 
 export default function Signup() {
   const router = useRouter();
@@ -67,13 +68,14 @@ export default function Signup() {
   const [firstPage, setFirstPage] = React.useState(false);
   const validateInfo = () => {};
   const backOnClick = () => {
-    if(firstPage) router.replace("/");
+    if (firstPage) router.replace("/");
     else setFirstPage(true);
-  }
+  };
+  const t = useTranslations();
   return (
-    <div className="xl:w-[1190px] md:w-[668px] w-full mx-auto xl:my-20 my-10 grid md:grid-cols-2 grid-cols-1 gap-10">
+    <div className="xl:w-[1190px] md:w-[668px] w-full grid md:grid-cols-2 grid-cols-1 gap-10 mx-auto xl:py-20 py-10">
       <div className="xl:w-[500px] md:w-[400px] w-[340px] mx-auto h-fit flex flex-col gap-10">
-        <SignUpBack onClick={backOnClick} firstPage={firstPage}/>
+        <SignUpBack onClick={backOnClick} firstPage={firstPage} />
         <AnimatePresence>
           {firstPage ? (
             <FirstPage
@@ -107,13 +109,12 @@ export default function Signup() {
           )}
         </AnimatePresence>
         <p className="font-semibold text-center">
-          Already have an account?{" "}
+          {t("signup.already")}
           <Link
             href="/login"
             className="font-bold text-khaki-500 hover:text-khaki-700 duration-300"
           >
-            {" "}
-            Sign In{" "}
+            {t("signin.sign-in")}
           </Link>
         </p>
       </div>

@@ -1,8 +1,10 @@
 import React from "react";
 import Arrow from "./images/arrow.svg";
 import Image from "next/image";
-import { state } from "@/app/types/type";
 import Label from "./label";
+import { useLocale, useTranslations } from "next-intl";
+import { EngStates, MyStates } from "@/app/types/addresses";
+import { state } from "@/app/types/type";
 
 export default function StateInput({
   state,
@@ -11,24 +13,12 @@ export default function StateInput({
   state: state;
   setState: (s: state) => void;
 }) {
-  const allStates = React.useRef<state[]>([
-    "Yangon (ရန်ကုန်တိုင်း)",
-    "Ayeyarwady (ဧရာဝတီတိုင်း)",
-    "Bago (ပဲခူးတိုင်း)",
-    "Chin State (ချင်းပြည်နယ်)",
-    "East Shan State (အရှေ့ရှမ်းပြည်နယ်)",
-    "Kayah State (ကယားပြည်နယ်)",
-    "Mandalay (မန္တလေးတိုင်း)",
-    "Mon State (မွန်ပြည်နယ်)",
-    "North Shan State (ရှမ်းပြည်နယ်မြောက်ပိုင်း )",
-    "Rakhine State (ရခိုင်ပြည်နယ်)",
-    "Sagaing (စစ်ကိုင်းတိုင်း)",
-    "South Shan State (တောင်ပိုင်းရှမ်းပြည်နယ်)",
-    "Tanintharyi (တနင်္သာရီတိုင်း)",
-  ]);
+  const locale = useLocale();
+  const states = locale === "en" ? EngStates : MyStates;
+  const t = useTranslations("input");
   return (
     <div className="w-full flex flex-col gap-[14px] relative">
-      <Label htmlFor="state">State</Label>
+      <Label htmlFor="state">{t("state")}</Label>
       <select
         name="state"
         id="state"
@@ -37,11 +27,11 @@ export default function StateInput({
         defaultValue={state}
       >
         <option value={""} className="hidden">
-          Select State/Region
+          {t("select-state")}
         </option>
-        {allStates.current.map((st) => (
-          <option key={st} value={st}>
-            {st}
+        {states.map((s, ind) => (
+          <option key={s} value={EngStates[ind]}>
+            {s}
           </option>
         ))}
       </select>

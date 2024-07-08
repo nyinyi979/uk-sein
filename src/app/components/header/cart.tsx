@@ -41,7 +41,7 @@ export default function Cart({
   };
   const decrementQuantity = (ind: number) => {
     let newCartItems = [...cartItem];
-    newCartItems[ind].quantity--;
+    if (newCartItems[ind].quantity - 1 >= 0) newCartItems[ind].quantity--;
     setCartItem(newCartItems);
   };
   const removeItem = (ind: number) => {

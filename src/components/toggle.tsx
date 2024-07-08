@@ -19,7 +19,7 @@ export default function Toggle({
       >
         {name}
         <span
-          className={`ml-auto mt-2.5 ${expanded ? "scale-y-[-1] -translate-y-1" : "-translate-y-0"} duration-300`}
+          className={`ml-auto mt-1.5 ${expanded ? "scale-y-[-1] -translate-y-1.5" : "-translate-y-0"} duration-300`}
         >
           <svg
             width="18"

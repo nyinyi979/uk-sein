@@ -90,7 +90,8 @@ export default function ProductDetails({
     setActiveDetails({ ...activeDetails, count: activeDetails.count + 1 });
   };
   const decrementCounts = () => {
-    setActiveDetails({ ...activeDetails, count: activeDetails.count - 1 });
+    if (activeDetails.count - 1 > 0)
+      setActiveDetails({ ...activeDetails, count: activeDetails.count - 1 });
   };
   const setActiveColor = (clr: string) => {
     setActiveDetails({ ...activeDetails, color: clr });
@@ -102,7 +103,7 @@ export default function ProductDetails({
     setActiveDetails({ ...activeDetails, material: mat });
   };
   return (
-    <div className="xl:w-[1192px] md:w-[664px] w-[393px] xl:my-[50px] mx-auto md:px-0 px-5">
+    <div className="xl:w-[1192px] md:w-[664px] w-[393px] mx-auto xl:py-20 py-10 md:px-0 px-5">
       <ProductTitle category={productDetails.category} />
       <div className="w-full flex flex-col gap-20">
         <div className="grid md:grid-cols-2 gap-8">

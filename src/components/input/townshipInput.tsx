@@ -1,19 +1,27 @@
 import Image from "next/image";
 import Arrow from "./images/arrow.svg";
 import Label from "./label";
+import { useLocale, useTranslations } from "next-intl";
+import { EngTownships, MyTownships } from "@/app/types/addresses";
+import { state } from "@/app/types/type";
 
 export default function TownshipInput({
-  allTownships,
   township,
   setTownship,
+  state,
 }: {
-  allTownships: string[];
   township: string;
   setTownship: (n: string) => void;
+  state: state;
 }) {
+  const locale = useLocale();
+  const t = useTranslations("input");
+  const allTownships: string[] =
+    locale === "en" ? EngTownships[state] : MyTownships[state];
+  const valTownships = EngTownships[state];
   return (
     <div className="flex flex-col gap-[14px] relative">
-      <Label htmlFor="township">Township</Label>
+      <Label htmlFor="township">{t("township")}</Label>
       <select
         name="township"
         id="township"
@@ -22,10 +30,10 @@ export default function TownshipInput({
         defaultValue={township}
       >
         <option defaultChecked value={""} className="hidden">
-          Select Township
+          {t("select-township")}
         </option>
-        {allTownships.map((tw) => (
-          <option key={tw} value={tw}>
+        {allTownships.map((tw, ind) => (
+          <option key={tw} value={valTownships[ind]}>
             {tw}
           </option>
         ))}

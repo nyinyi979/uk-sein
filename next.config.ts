@@ -1,3 +1,3 @@
-const withNextIntl = require('next-intl/plugin')();
+const withNextIntl = require("next-intl/plugin")();
 
 module.exports = withNextIntl();

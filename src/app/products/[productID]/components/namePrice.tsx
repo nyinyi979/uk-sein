@@ -1,4 +1,4 @@
-import RatingStars from "@/components/rating";
+import RatingStars from "@/components/template/rating";
 
 export default function ProductNamePrice({
   engName,

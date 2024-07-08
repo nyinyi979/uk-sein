@@ -7,7 +7,6 @@ import MailInput from "@/components/input/mailInput";
 import GenderInput from "@/components/input/genderInput";
 import StateInput from "@/components/input/stateInput";
 import { state } from "@/app/types/type";
-import { addresses } from "@/app/types/addresses";
 import { motion } from "framer-motion";
 
 export default function FirstPage({
@@ -66,7 +65,7 @@ export default function FirstPage({
         <div className="grid md:grid-cols-2 grid-cols-1 gap-[26px]">
           <StateInput state={state} setState={setState} />
           <TownshipInput
-            allTownships={addresses[state]}
+            state={state}
             township={township}
             setTownship={setTownship}
           />

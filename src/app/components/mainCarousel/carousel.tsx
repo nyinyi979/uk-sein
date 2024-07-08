@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import CarouselButtons from "./carouselButtons";
+import CarouselButtons from "./mainCarouselButtons";
 import CarouselText from "./carouselText";
 import Image1 from "./images/01.png";
 import Image2 from "./images/02.png";

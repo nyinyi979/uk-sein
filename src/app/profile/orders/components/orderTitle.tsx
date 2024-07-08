@@ -1,6 +1,6 @@
 import SearchBar from "@/components/searchBar";
 import Image from "next/image";
-import SearchIcon from "@/app/svg/search.svg";
+import SearchIcon from "@/svg/search.svg";
 
 export default function OrderTitle() {
   return (

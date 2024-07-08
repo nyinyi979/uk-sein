@@ -2,8 +2,11 @@ import Link from "next/link";
 
 export default function OrderTitle({ orderID }: { orderID: string }) {
   return (
-    <div className="flex flex-col xl:gap-2.5 gap-1.5">
-      <Link href={"/orders"} className="back-arr-text xl:text-xl text-lg">
+    <div className="md:flex hidden flex-col xl:gap-2.5 gap-1.5">
+      <Link
+        href={"/profile/orders"}
+        className="md:flex hidden back-arr-text xl:text-xl text-lg"
+      >
         <svg
           width="25"
           height="21"
@@ -16,8 +19,8 @@ export default function OrderTitle({ orderID }: { orderID: string }) {
         </svg>
         <span>Back to Order History</span>
       </Link>
-      <p className="font-semibold xl:text-lg">
-        <span className="text-grey-100">Order History - </span>#{orderID}
+      <p className="flex flex-row md:font-semibold font-bold xl:text-lg md:text-base text-lg">
+        <span className="md:text-grey-100">Order History </span> #{orderID}
       </p>
     </div>
   );

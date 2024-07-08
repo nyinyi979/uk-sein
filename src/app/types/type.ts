@@ -62,19 +62,23 @@ export interface checkOutData {
 
 export type state =
   | ""
-  | "Yangon (ရန်ကုန်တိုင်း)"
-  | "Kayah State (ကယားပြည်နယ်)"
-  | "Rakhine State (ရခိုင်ပြည်နယ်)"
-  | "Chin State (ချင်းပြည်နယ်)"
-  | "Mon State (မွန်ပြည်နယ်)"
-  | "South Shan State (တောင်ပိုင်းရှမ်းပြည်နယ်)"
-  | "North Shan State (ရှမ်းပြည်နယ်မြောက်ပိုင်း )"
-  | "Mandalay (မန္တလေးတိုင်း)"
-  | "East Shan State (အရှေ့ရှမ်းပြည်နယ်)"
-  | "Tanintharyi (တနင်္သာရီတိုင်း)"
-  | "Sagaing (စစ်ကိုင်းတိုင်း)"
-  | "Bago (ပဲခူးတိုင်း)"
-  | "Ayeyarwady (ဧရာဝတီတိုင်း)";
+  | "Yangon"
+  | "Mandalay"
+  | "Magway"
+  | "Naypyidaw"
+  | "Ayeyarwady"
+  | "Bago"
+  | "Sagaing"
+  | "Tanintharyi"
+  | "East Shan State"
+  | "North Shan State"
+  | "South Shan State"
+  | "Kachin State"
+  | "Kayin State"
+  | "Mon State"
+  | "Chin State"
+  | "Rakhine State"
+  | "Kayah State";
 
 export interface productFilter {
   categories: {

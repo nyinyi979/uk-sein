@@ -8,7 +8,7 @@ export default function ShippingAddress({
 }: addressInOrder) {
   return (
     <OrderDetailCard heading="Shipping Address">
-      <div className="flex flex-col gap-5 font-semibold xl:text-lg">
+      <div className="flex flex-col md:gap-5 gap-3 font-semibold xl:text-lg md:text-base text-lg">
         <p>{address}</p>
         <p>{township}</p>
         <p>{state}</p>

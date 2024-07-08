@@ -2,7 +2,7 @@ import Image from "next/image";
 import Menu from "../images/menu.svg";
 import Drawer from "./drawer";
 import React from "react";
-import useWindowSize from "@/components/useWindowSize";
+import useWindowSize from "@/components/hooks/useWindowSize";
 import { AnimatePresence } from "framer-motion";
 
 export default function DrawerBtn() {

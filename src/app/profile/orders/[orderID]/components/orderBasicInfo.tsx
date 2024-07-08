@@ -7,17 +7,20 @@ import AyaPay from "../../images/ayapay.png";
 import Kpay from "../../images/kpay.png";
 import Wave from "../../images/wavepay.png";
 import Credit from "../../images/credit.png";
+import CloseButton from "./popUpCloseButton";
 
 export default function OrderBasicInfo({
   orderID,
   orderedDate,
   paymentMethod,
   status,
+  hide,
 }: {
   orderID: string;
   orderedDate: string;
   paymentMethod: "AyaPay" | "Kpay" | "Credit" | "WavePay";
   status: "Pending" | "Confirmed" | "Reject";
+  hide: () => void;
 }) {
   const img =
     paymentMethod == "AyaPay"
@@ -28,12 +31,15 @@ export default function OrderBasicInfo({
           ? Credit
           : Wave;
   return (
-    <div className="flex flex-row gap-8">
-      <OrderDetailCard heading={`Order ID - # ${orderID}`}>
-        <div className="flex flex-col gap-[18px] font-bold xl:text-lg text-sm">
+    <div className="flex flex-row gap-8 h-full">
+      <OrderDetailCard
+        heading={`Order ID - # ${orderID}`}
+        rightEle={<CloseButton hide={hide} />}
+      >
+        <div className="flex flex-col md:gap-[18px] gap-[14px] font-bold xl:text-lg text-sm">
           <div className="flex flex-row justify-between">
             <div className="flex flex-row gap-3">
-              <div className="w-[18px] h-5 relative">
+              <div className="w-[18px] h-5 md:block hidden relative">
                 <Image
                   src={Calendar}
                   alt="calendar"
@@ -48,7 +54,7 @@ export default function OrderBasicInfo({
           </div>
           <div className="flex flex-row justify-between">
             <div className="flex flex-row gap-3">
-              <div className="w-[18px] h-5 relative">
+              <div className="w-[18px] h-5 md:block hidden relative">
                 <Image
                   src={Payment}
                   alt="payment"
@@ -59,7 +65,7 @@ export default function OrderBasicInfo({
               </div>
               <p className="text-grey-100">Payment Method</p>
             </div>
-            <div className="xl:size-8 size-10 relative">
+            <div className="xl:size-8 md:size-10 size-8 relative">
               <Image
                 src={img}
                 alt="payment method"
@@ -71,7 +77,7 @@ export default function OrderBasicInfo({
           </div>
           <div className="flex flex-row justify-between">
             <div className="flex flex-row gap-3">
-              <div className="w-[18px] h-5 relative">
+              <div className="w-[18px] h-5 md:block hidden relative">
                 <Image
                   src={Bookmark}
                   alt="bookmark"

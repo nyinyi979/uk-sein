@@ -21,7 +21,7 @@ export default function Login() {
   };
   const notEmpty = input.phoneNumber != "" && input.password != "";
   return (
-    <div className="w-fit grid md:grid-cols-2 xl:gap-28 gap-10 mx-auto pt-20 pb-10">
+    <div className="w-fit grid md:grid-cols-2 xl:gap-28 gap-10 mx-auto py-20">
       <div className="xl:w-[500px] md:w-[344px] w-[340px] flex flex-col gap-10 mx-auto">
         <LoginBack />
         <form onSubmit={() => {}} className="flex flex-col gap-10">

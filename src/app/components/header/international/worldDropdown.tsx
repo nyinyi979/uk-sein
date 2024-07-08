@@ -6,10 +6,7 @@ import { motion } from "framer-motion";
 import { Locale } from "@/config";
 import { setUserLocale } from "@/services/locale";
 
-export default function WorldDropdown({hide}:{
-  hide: ()=>void;
-}) {
-  
+export default function WorldDropdown({ hide }: { hide: () => void }) {
   const [isPending, startTransition] = React.useTransition();
 
   function onChange(value: string) {
@@ -38,9 +35,9 @@ export default function WorldDropdown({hide}:{
       }}
       className="w-[200px] absolute right-0 -bottom-[8.5rem] p-2.5 rounded-[15px] bg-white shadow-dropdown z-[40]"
     >
-      <button 
+      <button
         className="w-[180px] flex flex-row align-middle justify-items-center gap-3 py-3 px-2.5 rounded-[10px] hover:bg-grey-50 duration-300"
-        onClick={()=>onChange("en")}
+        onClick={() => onChange("en")}
       >
         <div className="size-8 relative">
           <Image
@@ -53,9 +50,9 @@ export default function WorldDropdown({hide}:{
         </div>
         <p className="font-semibold">English</p>
       </button>
-      <button 
+      <button
         className="w-[180px] flex flex-row align-middle justify-items-center gap-3 py-3 px-2.5 rounded-[10px] hover:bg-grey-50 duration-300"
-        onClick={()=>onChange("my")}
+        onClick={() => onChange("my")}
       >
         <div className="size-8 relative">
           <Image

@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import Label from "./label";
 
 export default function NameInput({
@@ -7,15 +8,16 @@ export default function NameInput({
   name: string;
   setName: (n: string) => void;
 }) {
+  const t = useTranslations("input")("name");
   return (
     <div className="flex flex-col gap-[14px]">
-      <Label htmlFor="name">Name</Label>
+      <Label htmlFor="name">{t}</Label>
       <input
         value={name}
         onChange={(e) => setName(e.target.value)}
         id="name"
         type="text"
-        placeholder="Your name"
+        placeholder={t}
         className="input"
       />
     </div>

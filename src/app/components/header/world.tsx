@@ -28,7 +28,9 @@ export default function World({
           />
         </span>
       </button>
-      <AnimatePresence>{!hidden && <WorldDropdown hide={toggle}/>}</AnimatePresence>
+      <AnimatePresence>
+        {!hidden && <WorldDropdown hide={toggle} />}
+      </AnimatePresence>
     </div>
   );
 }

@@ -6,6 +6,7 @@ import GenderInput from "../../../components/input/genderInput";
 import PasswordInput from "../../../components/input/passwordInput";
 import { motion } from "framer-motion";
 import { Dispatch, SetStateAction } from "react";
+import FirstPageHeading from "./firstPageHeading";
 
 export default function FirstPage({
   setFile,
@@ -47,15 +48,7 @@ export default function FirstPage({
       exit={{ opacity: 0 }}
       className="flex flex-col xl:gap-[50px] gap-[18px]"
     >
-      <div className="flex flex-col gap-2.5 md:mt-10">
-        <p className="font-sora font-bold xl:text-[42px] md:text-[32px] text-2xl">
-          Create New Account👋
-        </p>
-        <p className="text-grey-200 md:text-base text-sm">
-          Please enter your personal information to start.
-        </p>
-      </div>
-      <p className="font-sora font-semibold text-2xl mt-10">Personal Information</p>
+      <FirstPageHeading />
       <ImageUpload setFile={setFile} />
       <NameInput name={name} setName={setName} />
       <PhoneNoInput phone={phoneNo} setPhone={setPhoneNo} />

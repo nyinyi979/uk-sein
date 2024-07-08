@@ -71,7 +71,7 @@ export default function Login({
               <p className="font-semibold">My Profile</p>
             </Link>
             <Link
-              href="/orders"
+              href="/profile/orders"
               onClick={toggle}
               className="w-[200px] flex flex-row align-middle justify-items-center gap-3 py-3 px-2.5 rounded-[10px] hover:bg-grey-50 duration-300"
             >
@@ -87,7 +87,7 @@ export default function Login({
               <p className="font-semibold">My Orders</p>
             </Link>
             <Link
-              href="/wishlists"
+              href="/profile/wishlists"
               onClick={toggle}
               className="w-[200px] flex flex-row align-middle justify-items-center gap-3 py-3 px-2.5 rounded-[10px] hover:bg-grey-50 duration-300"
             >

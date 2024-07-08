@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Arrow from "./images/arrow.svg";
+import { useTranslations } from "next-intl";
 
 export default function GenderInput({
   gender,
@@ -8,10 +9,11 @@ export default function GenderInput({
   gender: "" | "Male" | "Female" | "Other";
   setGender: (g: "" | "Male" | "Female" | "Other") => void;
 }) {
+  const t = useTranslations("input");
   return (
     <div className="flex flex-col gap-[14px] relative">
       <label htmlFor="gender" className="font-semibold">
-        Gender
+        {t("gender")}
       </label>
       <select
         name="gender"
@@ -23,7 +25,7 @@ export default function GenderInput({
         defaultValue={gender}
       >
         <option value="" className="hidden">
-          Select Gender
+          {t("select-gender")}
         </option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>

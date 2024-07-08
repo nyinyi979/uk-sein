@@ -7,8 +7,8 @@ import OrderConfirmed from "./confirmed";
 import CartSummary from "./cartSummary";
 import CheckoutButtons from "./checkoutButtons";
 import CartHeader from "./cartHeader";
+import useWindowSize from "@/components/hooks/useWindowSize";
 import { useRouter } from "next/navigation";
-import useWindowSize from "@/components/useWindowSize";
 import { checkOutData, payment, productInCart, state } from "@/app/types/type";
 import { AnimatePresence } from "framer-motion";
 
@@ -18,7 +18,7 @@ export default function Checkout() {
     name: "Ko Khant",
     phoneNo: "0964647576",
     email: "kokhant123@gmail.com",
-    state: "Yangon (ရန်ကုန်တိုင်း)",
+    state: "Yangon",
     township: "Insein (အင်းစိန်)",
     address: "No 27, Myo Mya St",
     payment: "",

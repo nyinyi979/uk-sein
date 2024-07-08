@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 import Filter from "./filter";
-import Product from "@/components/product";
-import DiscountBanner from "@/components/discountBanner";
-import useWindowSize from "@/components/useWindowSize";
-import Pagination from "@/components/pagination";
+import Product from "@/components/template/product";
+import useWindowSize from "@/components/hooks/useWindowSize";
+import DiscountBanner from "@/components/banner/discountBanner";
+import Pagination from "@/components/template/pagination";
 import Filters from "./filterList";
 import useFilters from "./useFilter";
 import NotFoundError from "./notFound";

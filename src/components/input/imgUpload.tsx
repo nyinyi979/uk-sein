@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Thumnbail from "./images/img.svg";
+import { useTranslations } from "next-intl";
 
 export default function ImageUpload({
   setFile,
@@ -21,10 +22,11 @@ export default function ImageUpload({
       if (e.target.files[0]) reader.readAsDataURL(e.target.files[0]);
     }
   };
+  const t = useTranslations("input");
   return (
     <div className="flex flex-col gap-[14px]">
       <label htmlFor="profile">
-        <p className="font-semibold pb-3">Profile Image</p>
+        <p className="font-semibold pb-3">{t("profile")}</p>
         <div className="size-[120px] relative rounded-xl overflow-hidden">
           {imgData !== null && (
             <img

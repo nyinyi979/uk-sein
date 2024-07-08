@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import Product from "../../../components/product";
-import CarouselButtons from "../../../components/carouselButtons";
+import Product from "../../../components/template/product";
+import CarouselButtons from "../../../components/template/carouselButtons";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";

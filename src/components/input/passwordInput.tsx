@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import Label from "./label";
 
 export default function PasswordInput({
@@ -11,6 +12,7 @@ export default function PasswordInput({
   displayedLabel: string;
   setPassword: (pw: string) => void;
 }) {
+  const t = useTranslations("input")("password");
   return (
     <div className="flex flex-col gap-[14px]">
       <Label htmlFor={id}>{displayedLabel}</Label>
@@ -20,7 +22,7 @@ export default function PasswordInput({
         id={id}
         name={id}
         type="password"
-        placeholder="Password"
+        placeholder={t}
         className="input"
       />
     </div>
