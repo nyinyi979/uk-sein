@@ -11,7 +11,7 @@ export default function SeasonalPromotions() {
           alt="about us 9"
           fill
           sizes="100%"
-          className="w-full h-full object-cover"
+          className="size-full object-cover"
         />
       </div>
       <div className="xl:w-[570px] w-full flex flex-col xl:gap-8 gap-6">

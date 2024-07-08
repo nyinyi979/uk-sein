@@ -20,7 +20,7 @@ export default function PortfolioCard({
         alt="a's thai spa 1"
         fill
         sizes="100%"
-        className="w-full h-full object-cover"
+        className="size-full object-cover"
       />
     </div>
   );
@@ -32,7 +32,7 @@ export default function PortfolioCard({
           alt="a's thai spa 2"
           fill
           sizes="100%"
-          className="w-full h-full object-cover"
+          className="size-full object-cover"
         />
       </div>
       <div className="w-full xl:h-[276px] md:h-[240px] h-[170px] relative rounded-3xl overflow-hidden">
@@ -41,7 +41,7 @@ export default function PortfolioCard({
           alt="a's thai spa 3"
           fill
           sizes="100%"
-          className="w-full h-full object-cover"
+          className="size-full object-cover"
         />
       </div>
     </div>

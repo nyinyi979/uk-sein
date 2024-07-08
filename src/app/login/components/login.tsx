@@ -67,7 +67,7 @@ export default function Login() {
           alt="UKSEIN"
           fill
           sizes="100%"
-          className="w-full h-full my-10 object-cover"
+          className="size-full my-10 object-cover"
         />
       </div>
     </div>

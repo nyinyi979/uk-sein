@@ -37,7 +37,7 @@ export default function GenderInput({
           alt="arrow"
           fill
           sizes="100%"
-          className="w-full h-full object-cover"
+          className="size-full object-cover"
         />
       </span>
     </div>

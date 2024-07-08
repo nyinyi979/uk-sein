@@ -7,6 +7,8 @@ import Order from "./images/order.svg";
 import WishList from "./images/whitelist.svg";
 import Logout from "./images/logOut.svg";
 import { AnimatePresence, motion } from "framer-motion";
+import { useUserStore } from "@/store/clientData";
+import { useRouter } from "next/navigation";
 
 export default function Login({
   hidden,
@@ -15,16 +17,17 @@ export default function Login({
   hidden: boolean;
   toggle: () => void;
 }) {
-  const [userInfo, setUserInfo] = React.useState({
-    id: "123",
-  });
+  const userToken = useUserStore((state) => state.userToken);
+  const clearUserToken = useUserStore((state) => state.clearUserToken);
+  const router = useRouter();
   const logOut = () => {
-    setUserInfo({ id: "" });
+    clearUserToken();
     toggle();
+    router.push("/");
   };
   return (
     <div className="xl:flex hidden flex-row relative">
-      {userInfo.id === "" ? (
+      {userToken === "" ? (
         <Link
           href={"/login"}
           className="w-[120px] h-[50px] px-5 py-3 bg-khaki-500 rounded-xl text-center text-white hover:bg-khaki-700 duration-300"
@@ -34,9 +37,9 @@ export default function Login({
       ) : (
         <button
           onClick={toggle}
-          className="w-[58px] h-[50px] flex align-middle justify-items-center py-3 px-4 bg-white-400 rounded-xl hover:bg-grey-50 duration-300"
+          className="w-[58px] h-[50px] flex align-middle justify-items-center md:py-3 p-2.5 bg-white-400 rounded-xl hover:bg-grey-50 duration-300"
         >
-          <span className="size-[22px] block relative">
+          <span className="size-[22px] block relative mx-auto">
             <Image
               src={ProfileNav}
               alt="cart"
@@ -65,7 +68,7 @@ export default function Login({
                   alt="my profile"
                   fill
                   sizes="100%"
-                  className="w-full h-full object-cover"
+                  className="size-full object-cover"
                 />
               </div>
               <p className="font-semibold">My Profile</p>
@@ -81,7 +84,7 @@ export default function Login({
                   alt="my orders"
                   fill
                   sizes="100%"
-                  className="w-full h-full object-cover"
+                  className="size-full object-cover"
                 />
               </div>
               <p className="font-semibold">My Orders</p>
@@ -97,7 +100,7 @@ export default function Login({
                   alt="my wishlists"
                   fill
                   sizes="100%"
-                  className="w-full h-full object-cover"
+                  className="size-full object-cover"
                 />
               </div>
               <p className="font-semibold">Wishlists</p>
@@ -112,7 +115,7 @@ export default function Login({
                   alt="logout"
                   fill
                   sizes="100%"
-                  className="w-full h-full object-cover"
+                  className="size-full object-cover"
                 />
               </div>
               <p className="font-semibold">Logout</p>

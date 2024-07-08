@@ -18,7 +18,7 @@ export default function Bags() {
           alt="bags"
           fill
           sizes="100%"
-          className="w-full h-full object-cover"
+          className="size-full object-cover"
         />
       </div>
     </SmallCard>

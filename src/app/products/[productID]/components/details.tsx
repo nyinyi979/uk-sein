@@ -33,7 +33,7 @@ export default function ProductDetail({
         <p className="font-sora font-semibold xl:text-base md:text-sm text-xs">
           Size
         </p>
-        <div className="flex flex-row xl:gap-[23px] gap-[16px]">
+        <div className="flex flex-row xl:gap-[23px] gap-4">
           {sizes.map((size) => (
             <div
               key={size}
@@ -49,7 +49,7 @@ export default function ProductDetail({
         <p className="font-sora font-semibold xl:text-base md:text-sm text-xs">
           Color
         </p>
-        <div className="flex flex-row xl:gap-[23px] gap-[16px]">
+        <div className="flex flex-row xl:gap-[23px] gap-4">
           {colors.map((clr) => (
             <div
               key={clr}
@@ -65,7 +65,7 @@ export default function ProductDetail({
         <p className="font-sora font-semibold xl:text-base md:text-sm text-xs">
           Material
         </p>
-        <div className="flex flex-row xl:gap-[23px] gap-[16px]">
+        <div className="flex flex-row xl:gap-[23px] gap-4">
           {materials.map((mat) => (
             <div
               key={mat}

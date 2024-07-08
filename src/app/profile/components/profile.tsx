@@ -115,7 +115,7 @@ export default function Signup() {
         </AnimatePresence>
         <button
           onClick={validateInfo}
-          className="md:w-fit w-full h-[50px] block py-[16px] px-[28px] rounded-xl text-sm text-center font-bold bg-khaki-500 text-white hover:bg-khaki-700 duration-300"
+          className="md:w-fit w-full h-[50px] block py-4 px-[28px] rounded-xl text-sm text-center font-bold bg-khaki-500 text-white hover:bg-khaki-700 duration-300"
         >
           Save {page === 0 ? "Changes" : "Password"}
         </button>

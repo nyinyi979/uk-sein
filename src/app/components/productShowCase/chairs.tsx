@@ -14,7 +14,7 @@ export default function Chairs() {
             alt="chairs"
             fill
             sizes="100%"
-            className="w-full h-full object-cover"
+            className="size-full object-cover"
           />
         </div>
       }

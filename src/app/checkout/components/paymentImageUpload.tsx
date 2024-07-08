@@ -29,11 +29,11 @@ export default function PaymentImageUpload({
             <img
               src={imgData}
               alt=""
-              className="bg-[#0000001A] w-full h-full object-cover"
+              className="bg-[#0000001A] size-full object-cover"
             />
           )}
           {imgData === null && (
-            <div className="bg-[#0000001A] w-full h-full hover:bg-grey-50 duration-300" />
+            <div className="bg-[#0000001A] size-full hover:bg-grey-50 duration-300" />
           )}
           <Image
             src={Thumnbail}

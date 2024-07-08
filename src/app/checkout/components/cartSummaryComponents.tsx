@@ -6,7 +6,7 @@ export function CartSummaryHeader({
   closeCart: () => void;
 }) {
   return (
-    <div className="flex flex-row gap-2.5 py-[16px] px-6">
+    <div className="flex flex-row gap-2.5 py-4 px-6">
       <p className="my-2 font-sora font-semibold xl:text-2xl text-lg">
         Cart Summary
       </p>
@@ -36,7 +36,7 @@ export function CartSummaryHeader({
 }
 export function CartFooter({ totalPrice }: { totalPrice: number }) {
   return (
-    <div className="flex flex-row pt-[16px] pb-[22px] px-8 font-bold">
+    <div className="flex flex-row pt-4 pb-[22px] px-8 font-bold">
       <p className="xl:text-xl text-lg">Total</p>
       <p className="ml-auto text-2xl">{totalPrice.toLocaleString()} Ks</p>
     </div>

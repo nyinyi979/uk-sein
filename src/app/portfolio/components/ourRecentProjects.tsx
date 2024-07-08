@@ -41,7 +41,7 @@ export default function OurRecentProjects() {
                 alt={a.name}
                 fill
                 sizes="100%"
-                className="w-full h-full object-cover"
+                className="size-full object-cover"
               />
             </div>
             <div className="flex flex-col gap-6">

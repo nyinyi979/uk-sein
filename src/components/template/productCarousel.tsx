@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import Product from "../../../components/template/product";
-import CarouselButtons from "../../../components/template/carouselButtons";
+import Product from "./product";
+import CarouselButtons from "./carouselButtons";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { product } from "@/types/type";
 
-export default function TopProductsCarousel({
+export default function ProductsCarousel({
   similarProduct,
   fetchURL,
 }: {
@@ -104,7 +104,7 @@ export default function TopProductsCarousel({
         navigation={{ nextEl: ".product-next", prevEl: ".product-prev" }}
         breakpoints={{
           1440: { slidesPerView: 3, spaceBetween: 30 },
-          768: { slidesPerView: 2, spaceBetween: 10 },
+          768: { slidesPerView: 2, spaceBetween: 40 },
           0: { slidesPerView: 2, spaceBetween: 20 },
         }}
         onRealIndexChange={(swiper) => setActiveIndex(swiper.activeIndex)}

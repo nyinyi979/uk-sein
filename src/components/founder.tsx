@@ -13,7 +13,7 @@ export default function FounderCard() {
           alt="founder"
           fill
           sizes="100%"
-          className="w-full h-full object-cover"
+          className="size-full object-cover"
         />
       </div>
       <div className="xl:w-[421px] md:w-[231px] w-full flex flex-col md:gap-[42px] gap-6 text-justify">

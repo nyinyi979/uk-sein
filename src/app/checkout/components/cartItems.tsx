@@ -19,7 +19,7 @@ export default function CartItem({
             alt={engName}
             sizes="100%"
             fill
-            className="w-full h-full object-cover shadow-product"
+            className="size-full object-cover shadow-product"
           />
         </div>
       </div>

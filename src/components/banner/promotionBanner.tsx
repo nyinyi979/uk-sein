@@ -11,7 +11,7 @@ export default function PromotionBanner() {
         </p>
         <Link
           href={"/products"}
-          className="w-fit h-fit md:py-[16px] py-2 md:px-[28px] px-[18px] rounded-xl bg-khaki-500 xl:bg-khaki-500 md:bg-grey-500 font-semibold md:text-base text-sm text-white md:hover:bg-grey-400 hover:bg-khaki-700 xl:hover:bg-khaki-700 duration-300"
+          className="w-fit h-fit md:py-4 py-2 md:px-[28px] px-[18px] rounded-xl bg-khaki-500 xl:bg-khaki-500 md:bg-grey-500 font-semibold md:text-base text-sm text-white md:hover:bg-grey-400 hover:bg-khaki-700 xl:hover:bg-khaki-700 duration-300"
         >
           SHOP NOW
         </Link>
@@ -22,7 +22,7 @@ export default function PromotionBanner() {
           alt="discount"
           fill
           sizes="100%"
-          className="w-full h-full object-cover"
+          className="size-full object-cover"
         />
       </div>
       <Image

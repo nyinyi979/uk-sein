@@ -23,7 +23,7 @@ export default function ClientWord({
             alt="client photo"
             fill
             sizes="100%"
-            className="w-full h-full object-cover"
+            className="size-full object-cover"
           />
         </div>
         <p className="flex flex-col xl:gap-1 gap-0.5">

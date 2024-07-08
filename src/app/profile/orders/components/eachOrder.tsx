@@ -30,7 +30,7 @@ export default function EachOrder({
   const router = useRouter();
   const [hidden, setHidden] = React.useState(true);
   const onClick = () =>
-    size[0] > 393
+    size[0] > 767
       ? router.push(`/profile/orders/${orderID}`)
       : setHidden(false);
   const hide = () => {
@@ -38,7 +38,7 @@ export default function EachOrder({
     router.replace("/profile/orders");
   };
   React.useEffect(() => {
-    if (size[0] > 393) setHidden(true);
+    if (size[0] > 767) setHidden(true);
   }, [size]);
   return (
     <>
@@ -60,7 +60,7 @@ export default function EachOrder({
                 alt={paymentMethod}
                 fill
                 sizes="100%"
-                className="w-full h-full object-cover"
+                className="size-full object-cover"
               />
             </div>
           </div>

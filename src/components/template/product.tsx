@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import WishList from "../actions/wishlist";
 import RatingStars from "./rating";
-import AddToCart from "@/svg/addToCart.svg";
 import { product } from "@/types/type";
+import AddToCartButton from "./addToCart";
 
 export default function Product({
   itemID,
@@ -30,7 +30,7 @@ export default function Product({
               alt={engName}
               fill
               sizes="100%"
-              className="w-full h-full object-cover"
+              className="size-full object-cover"
             />
           </div>
           <span className="absolute top-[18px] left-4 py-2 md:px-2.5 px-[18px] bg-red-50 rounded-[10px] font-semibold text-red-500 text-center xl:text-sm md:text-xs text-[10px]">
@@ -52,16 +52,12 @@ export default function Product({
           </div>
           <RatingStars count={rating} />
           <p
-            className={`font-bold font-sora ${small ? "xl:text-[32px] md:text-2xl text-xl" : "xl:text-[42px] md:text-[32px] text-xl"}`}
+            className={`font-bold font-sora ${small ? "xl:text-[32px] md:text-2xl text-xl" : "xl:text-[42px] md:text-[32px] text-xl leading-10"}`}
           >
             {price.toLocaleString()} Ks
           </p>
-          <div className="flex gap-[18px]">
-            <button
-              className={`${small ? "xl:size-[58px] size-[48px]" : "md:size-[58px] size-[48px]"} p-4 bg-khaki-500 rounded-xl hover:bg-khaki-700 duration-300`}
-            >
-              <Image src={AddToCart} alt="add to cart" width={22} height={22} />
-            </button>
+          <div className="flex flex-row gap-[18px]">
+            <AddToCartButton small={small} />
             <WishList
               whitelisted={whiteListed}
               productID={itemID}

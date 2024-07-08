@@ -23,7 +23,7 @@ export default function CategoryFilter({
               src={c.img_url}
               alt={c.name}
               fill
-              className="w-full h-full object-cover"
+              className="size-full object-cover"
             />
           </div>
           <p className="font-semibold text-grey-500">{c.name}</p>

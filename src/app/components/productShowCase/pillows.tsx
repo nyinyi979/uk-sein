@@ -13,13 +13,13 @@ export default function Pillows() {
       pathClass="fill-khaki-500"
       content="Soft and tender pillows available for your bed"
     >
-      <div className="w-full h-full absolute top-0 xl:right-0 -right-32">
+      <div className="size-full absolute top-0 xl:right-0 -right-32">
         <Image
           src={PillowImage}
           alt="pillows"
           fill
           sizes="100%"
-          className="w-full h-full object-cover"
+          className="size-full object-cover"
         />
       </div>
     </SmallCard>

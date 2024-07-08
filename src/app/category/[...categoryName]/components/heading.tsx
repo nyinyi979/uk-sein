@@ -21,7 +21,7 @@ export default function CateogryHeading({
       <div className="xl:hidden flex flex-row gap-2.5 ml-auto">
         <button
           onClick={show}
-          className="w-fit h-fit flex flex-row gap-2 md:py-[16px] py-2 md:px-[28px] px-5 rounded-xl bg-grey-500 font-bold text-white text-sm text-center hover:bg-grey-300 duration-300"
+          className="w-fit h-fit flex flex-row gap-2 md:py-4 py-2 md:px-[28px] px-5 rounded-xl bg-grey-500 font-bold text-white text-sm text-center hover:bg-grey-300 duration-300"
         >
           <svg
             className="mt-1"

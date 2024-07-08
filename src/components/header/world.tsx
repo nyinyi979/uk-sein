@@ -16,7 +16,7 @@ export default function World({
     <div className="relative">
       <button
         onClick={toggle}
-        className="xl:w-[58px] xl:h-[50px] size-[46px] hidden md:flex align-middle justify-items-center py-3 px-5 bg-white-400 rounded-xl hover:bg-grey-50 duration-300"
+        className="xl:w-[58px] xl:h-[50px] md:size-[48px] size-[46px] hidden md:flex pt-3 xl:px-5 bg-white-400 xl:rounded-xl md:rounded-full rounded-xl hover:bg-grey-50 duration-300"
       >
         <span className="size-[22px] block relative mx-auto">
           <Image

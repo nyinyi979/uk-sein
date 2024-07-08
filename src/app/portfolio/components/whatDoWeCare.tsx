@@ -45,7 +45,7 @@ export default function WhatDoWeCare() {
                   alt={a.id}
                   fill
                   sizes="100%"
-                  className="w-full h-full object-cover"
+                  className="size-full object-cover"
                 />
               </div>
             </div>

@@ -14,13 +14,13 @@ export default function Pillows() {
       pathClass="fill-white"
       content="Best quality crafted table available for your living room"
     >
-      <div className="absolute w-full h-full top-0 right-0">
+      <div className="absolute size-full top-0 right-0">
         <Image
           src={TableImage}
           alt="table"
           fill
           sizes="100%"
-          className="w-full h-full object-cover xl:brightness-100 brightness-50"
+          className="size-full object-cover xl:brightness-100 brightness-50"
         />
       </div>
     </SmallCard>

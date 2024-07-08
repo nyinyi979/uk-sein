@@ -27,7 +27,7 @@ export default function OrderTitle() {
             alt="search icon"
             fill
             sizes="100%"
-            className="w-full h-full object-cover"
+            className="size-full object-cover"
           />
         </div>
       </div>

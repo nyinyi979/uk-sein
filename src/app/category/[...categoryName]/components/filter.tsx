@@ -1,5 +1,5 @@
 "use client";
-import CategoryFilter from "@/components/categoryFilter";
+import CategoryFilter from "@/components/actions/categoryFilter";
 import ColorFilter from "./colorFilter";
 import SizeFilter from "./sizeFilter";
 import MaterialFilter from "./materialFilter";
@@ -72,7 +72,7 @@ export default function Filter({
         damping: 6.67,
       }}
       onClick={hide}
-      className="xl:w-fit xl:h-fit w-full h-full xl:relative fixed top-0 left-0 xl:bg-transparent bg-popup-bg xl:z-auto z-[100]"
+      className="xl:w-fit xl:h-fit size-full xl:relative fixed top-0 left-0 xl:bg-transparent bg-popup-bg xl:z-auto z-[100]"
     >
       <motion.div
         animate={{ translateY: [200, 0] }}
@@ -105,7 +105,7 @@ export default function Filter({
             </p>
             <button
               onClick={hide}
-              className={`xl:hidden w-fit h-[56px] py-2.5 px-[16px] ${filterJustApplied ? "bg-success hover:bg-sucessHover" : "bg-grey-50"} md:text-base text-sm rounded-[10px] text-white`}
+              className={`xl:hidden w-fit h-[56px] py-2.5 px-4 ${filterJustApplied ? "bg-success hover:bg-sucessHover" : "bg-grey-50"} md:text-base text-sm rounded-[10px] text-white`}
             >
               Save
             </button>

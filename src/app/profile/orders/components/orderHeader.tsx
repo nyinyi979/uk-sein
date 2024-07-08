@@ -36,13 +36,15 @@ export default function OrderHeader({
     if (size[0] > 767) setHidden(false);
     else setHidden(true);
   };
+  const txt =
+    status_txts.current[status_arr.current.findIndex((val) => val === status)];
   return (
     <div className="w-fit relative md:font-bold font-semibold xl:text-base text-sm">
       <button
         onClick={() => setHidden(!hidden)}
         className="flex flex-row md:hidden gap-4 py-[14px] px-[18px] rounded-lg bg-white-700 font-semibold text-sm hover:bg-grey-50 duration-300"
       >
-        <span>{status === "" ? "All" : status} Orders </span>
+        <span>{txt}</span>
         <svg
           viewBox="0 0 18 10"
           fill="none"

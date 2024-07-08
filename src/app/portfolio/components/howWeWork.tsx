@@ -16,17 +16,13 @@ export default function HowWeWorks() {
           with our timeless designs today.
         </p>
       </div>
-      <div className="w-full h-full absolute top-0 left-0 -z-[1]">
+      <div className="size-full absolute top-0 left-0 -z-[1]">
         <Image
           src={Portfolio1}
           alt="How we works"
           fill
           sizes="100%"
-          className="w-full h-full object-cover"
-          style={{
-            backgroundImage:
-              "background: linear-gradient(270deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 87.5%);",
-          }}
+          className="size-full object-cover [background-image:linear-gradient(270deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 87.5%)]"
         />
       </div>
     </div>

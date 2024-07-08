@@ -124,7 +124,7 @@ export default function Signup() {
           alt="signup"
           fill
           sizes="100%"
-          className="w-full h-full object-top object-cover"
+          className="size-full object-top object-cover"
         />
       </div>
     </div>

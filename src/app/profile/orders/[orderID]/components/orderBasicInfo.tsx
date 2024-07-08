@@ -45,7 +45,7 @@ export default function OrderBasicInfo({
                   alt="calendar"
                   fill
                   sizes="100%"
-                  className="w-full h-full object-cover"
+                  className="size-full object-cover"
                 />
               </div>
               <p className="text-grey-100">Date Added</p>
@@ -60,7 +60,7 @@ export default function OrderBasicInfo({
                   alt="payment"
                   fill
                   sizes="100%"
-                  className="w-full h-full object-cover"
+                  className="size-full object-cover"
                 />
               </div>
               <p className="text-grey-100">Payment Method</p>
@@ -71,7 +71,7 @@ export default function OrderBasicInfo({
                 alt="payment method"
                 fill
                 sizes="100%"
-                className="w-full h-full object-cover"
+                className="size-full object-cover"
               />
             </div>
           </div>
@@ -83,7 +83,7 @@ export default function OrderBasicInfo({
                   alt="bookmark"
                   fill
                   sizes="100%"
-                  className="w-full h-full object-cover"
+                  className="size-full object-cover"
                 />
               </div>
               <p className="text-grey-100">Status</p>

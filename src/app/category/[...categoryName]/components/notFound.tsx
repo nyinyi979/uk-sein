@@ -9,7 +9,7 @@ export default function NotFoundError() {
           alt="error"
           fill
           sizes="100%"
-          className="w-full h-full object-cover"
+          className="size-full object-cover"
         />
       </div>
       <p className="py-5 font-semibold text-center text-grey-200">

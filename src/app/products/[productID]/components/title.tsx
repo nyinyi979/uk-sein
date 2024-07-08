@@ -16,7 +16,7 @@ export default function ProductTitle({ category }: { category: string }) {
             alt="back arrow"
             fill
             sizes="100%"
-            className="w-full h-full mt-0.5"
+            className="size-full mt-0.5"
           />{" "}
         </div>
         Back to Products

@@ -32,17 +32,14 @@ body {
 .img-scale:hover img {
   transform: scale(1.2);
 }
-.bottom-row-container {
-  @apply w-full h-fit relative flex py-10 xl:pl-8 px-6 rounded-3xl overflow-hidden;
-}
 .black-button {
-  @apply w-fit h-[50px] py-[16px] px-[28px] rounded-xl bg-grey-500 font-bold text-white text-sm text-center hover:bg-grey-300 duration-300;
+  @apply w-fit h-[50px] py-4 px-[28px] rounded-xl bg-grey-500 font-bold text-white text-sm text-center hover:bg-grey-300 duration-300;
 }
 .button {
-  @apply w-fit h-[50px] block py-[16px] px-[28px] rounded-xl text-sm text-center duration-300;
+  @apply w-fit h-[50px] block py-4 px-[28px] rounded-xl text-sm text-center duration-300;
 }
 .showcase-button {
-  @apply w-fit xl:h-[50px] flex gap-2 xl:py-[16px] xl:px-[28px] xl:font-semibold font-normal rounded-xl xl:font-quick font-lex text-center duration-300;
+  @apply w-fit xl:h-[50px] flex gap-2 xl:py-4 xl:px-[28px] xl:font-semibold font-normal rounded-xl xl:font-quick font-lex text-center duration-300;
 }
 .chair-link {
   @apply flex flex-row gap-2.5 xl:font-sora font-lex font-normal md:text-lg text-base text-khaki-500 hover:text-khaki-700 hover:fill-khaki-700 duration-300;

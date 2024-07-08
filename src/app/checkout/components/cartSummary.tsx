@@ -38,7 +38,7 @@ export default function CartSummary({
         mass: 1,
         damping: 6.67,
       }}
-      className="w-full h-full flex align-middle justify-items-center xl:relative fixed top-0 left-0 xl:bg-transparent bg-popup-bg xl:rounded-none shadow-rating md:z-[1] z-[1000]"
+      className="size-full flex align-middle justify-items-center xl:relative fixed top-0 left-0 xl:bg-transparent bg-popup-bg xl:rounded-none shadow-rating md:z-[1] z-[1000]"
     >
       <motion.div
         animate={{ scale: [0, 1] }}

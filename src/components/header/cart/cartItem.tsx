@@ -15,7 +15,7 @@ export default function CartItem({
   removeItem: (ind: number) => void;
 }) {
   return (
-    <div className="xl:w-[550px] md:w-[500px] w-full flex flex-row gap-[16px] py-[28px] px-[18px] border-b border-dotted border-grey-50">
+    <div className="xl:w-[550px] md:w-[500px] w-full flex flex-row gap-4 py-[28px] px-[18px] border-b border-dotted border-grey-50">
       <div className="md:size-[160px] size-[126px] bg-white-400">
         <div className="md:w-[125px] w-[113px] md:h-[117px] h-[100px] relative mx-auto md:my-[21.5px] my-3.5">
           <Image
@@ -23,7 +23,7 @@ export default function CartItem({
             alt={engName}
             sizes="100%"
             fill
-            className="w-full h-full object-cover shadow-product"
+            className="size-full object-cover shadow-product"
           />
         </div>
       </div>

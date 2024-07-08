@@ -14,7 +14,7 @@ export default function Footer() {
             alt="uk sein logo"
             fill
             sizes="100%"
-            className="w-full h-full object-cover"
+            className="size-full object-cover"
             priority
           />
         </div>

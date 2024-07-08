@@ -25,7 +25,7 @@ export default function DrawerBtn() {
             alt="menu"
             fill
             sizes="100%"
-            className="w-full h-full object-cover"
+            className="size-full object-cover"
           />
         </div>
       </button>

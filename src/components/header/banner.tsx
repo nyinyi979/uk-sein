@@ -7,7 +7,7 @@ import SearchBar from "@/components/search/searchBar";
 
 export default function Banner() {
   return (
-    <div className="xl:flex xl:flex-row sticky top-0 left-0 grid grid-cols-121 xl:gap-[70px] align-middle xl:justify-between bg-white xl:px-[126px] md:px-[50px] px-6 xl:py-5 py-0 border-b border-gray-300 z-[100]">
+    <div className="w-full xl:flex xl:flex-row sticky top-0 left-0 grid grid-cols-121 xl:gap-[70px] gap-5 align-middle xl:justify-between bg-white xl:px-[126px] md:px-[50px] px-6 xl:py-5 py-0 border-b border-gray-300 z-[100]">
       <DrawerBtn />
       <Link
         href="/"
@@ -18,7 +18,7 @@ export default function Banner() {
           alt="UKSEIN1"
           fill
           sizes="100%"
-          className="w-full h-full object-cover"
+          className="size-full object-cover"
         />
       </Link>
       <div className="w-fit xl:block hidden">

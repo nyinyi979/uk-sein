@@ -47,7 +47,7 @@ export default function PaymentNumbers({
                     alt="MM"
                     fill
                     sizes="100%"
-                    className="w-full h-full object-cover"
+                    className="size-full object-cover"
                   />
                 </div>
                 <p className="font-semibold text-lg text-grey-400">MMK</p>
@@ -63,7 +63,7 @@ export default function PaymentNumbers({
                     alt="uds"
                     fill
                     sizes="100%"
-                    className="w-full h-full object-cover"
+                    className="size-full object-cover"
                   />
                 </div>
                 <p className="font-semibold text-lg text-grey-400">USD</p>
@@ -78,7 +78,7 @@ export default function PaymentNumbers({
           alt="qr"
           fill
           sizes="100%"
-          className="w-full h-full object-cover"
+          className="size-full object-cover"
         />
       </div>
       <p className="w-fit py-3 md:p-[18px] px-2 rounded-[10px] bg-red-50 font-semibold xl:text-base md:text-sm text-xs text-red-500">

@@ -21,7 +21,7 @@ export function AboutUsCard1() {
           alt="About us 1"
           fill
           sizes="100%"
-          className="w-full h-full rounded-[10px] object-cover"
+          className="size-full rounded-[10px] object-cover"
         />
       </div>
     </AboutUsCard>
@@ -41,7 +41,7 @@ export function AboutUsCard2() {
             alt="About us 2"
             fill
             sizes="100%"
-            className="w-full h-full rounded-[10px] object-cover"
+            className="size-full rounded-[10px] object-cover"
           />
         </div>
         <div className="w-[49%] h-full relative">
@@ -50,7 +50,7 @@ export function AboutUsCard2() {
             alt="About us 3"
             fill
             sizes="100%"
-            className="w-full h-full rounded-[10px] object-cover"
+            className="size-full rounded-[10px] object-cover"
           />
         </div>
       </div>
@@ -71,7 +71,7 @@ export function AboutUsCard3() {
             alt="About us 2"
             fill
             sizes="50%"
-            className="w-full h-full rounded-[10px] object-cover"
+            className="size-full rounded-[10px] object-cover"
           />
         </div>
         <div className="w-[32%] h-full relative">
@@ -80,7 +80,7 @@ export function AboutUsCard3() {
             alt="About us 3"
             fill
             sizes="50%"
-            className="w-full h-full rounded-[10px] object-cover"
+            className="size-full rounded-[10px] object-cover"
           />
         </div>
         <div className="w-[32%] h-full relative">
@@ -89,7 +89,7 @@ export function AboutUsCard3() {
             alt="About us 3"
             fill
             sizes="50%"
-            className="w-full h-full rounded-[10px] object-cover"
+            className="size-full rounded-[10px] object-cover"
           />
         </div>
       </div>
@@ -109,7 +109,7 @@ export function AboutUsCard4() {
           alt="About us 1"
           fill
           sizes="100%"
-          className="w-full h-full rounded-[10px] object-cover"
+          className="size-full rounded-[10px] object-cover"
         />
       </div>
     </AboutUsCard>

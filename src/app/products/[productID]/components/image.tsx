@@ -18,7 +18,7 @@ export default function ProductImages({
             alt="images"
             fill
             sizes="100%"
-            className="w-full h-full object-cover"
+            className="size-full object-cover"
           />
         </div>
         <span className="absolute top-[18px] left-4 px-2 py-2.5 bg-red-50 rounded-[10px] font-semibold text-red-500 text-center text-sm">

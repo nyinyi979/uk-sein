@@ -22,18 +22,18 @@ export default function DiscountBanner({
         </div>
         <Link
           href={"/products"}
-          className="w-fit h-fit md:py-[16px] py-2 md:px-[28px] px-[18px] ml-auto rounded-xl md:bg-grey-500 bg-khaki-500 font-bold text-white text-sm text-center hover:bg-khaki-700 md:hover:bg-grey-300 duration-300"
+          className="w-fit h-fit md:py-4 py-2 md:px-[28px] px-[18px] ml-auto rounded-xl md:bg-grey-500 bg-khaki-500 font-bold text-white text-sm text-center hover:bg-khaki-700 md:hover:bg-grey-300 duration-300"
         >
           SHOP NOW
         </Link>
       </div>
-      <div className="w-full h-full absolute top-0 left-0 z-[-1]">
+      <div className="size-full absolute top-0 left-0 z-[-1]">
         <Image
           src={imgURL}
           alt="discount image"
           fill
           sizes="100%"
-          className="w-full h-full object-cover"
+          className="size-full object-cover"
         />
       </div>
     </div>

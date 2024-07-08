@@ -16,7 +16,7 @@ export function EachReview({ rv }: { rv: review }) {
               alt="user image"
               fill
               sizes="100%"
-              className="w-full h-full object-cover"
+              className="size-full object-cover"
             />
           </div>
           <div className="flex flex-col gap-0.5">

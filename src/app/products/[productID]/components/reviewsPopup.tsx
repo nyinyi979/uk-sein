@@ -21,7 +21,7 @@ export default function ReviewPopUp({
       initial={{ opacity: 0, display: "none" }}
       animate={{ opacity: open ? 1 : 0, display: open ? "block" : "none" }}
       onClick={close}
-      className="w-full h-full fixed flex align-middle justify-items-center top-0 left-0 bg-popup-bg overscroll-y-contain z-[10000]"
+      className="size-full fixed flex align-middle justify-items-center top-0 left-0 bg-popup-bg overscroll-y-contain z-[10000]"
     >
       <motion.div
         initial={{ translateY: -40, opacity: 0, display: "none" }}

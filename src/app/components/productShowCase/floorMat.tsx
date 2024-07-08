@@ -5,7 +5,7 @@ import FloorMatImage from "./images/floorMat.png";
 export default function FloorMat() {
   return (
     <div className="img-scale w-full relative flex md:py-16 py-10 md:px-12 px-10 rounded-3xl overflow-hidden z-[2]">
-      <div className="flex flex-col xl:gap-6 gap-[16px] mt-auto">
+      <div className="flex flex-col xl:gap-6 gap-4 mt-auto">
         <div className="flex flex-col gap-1.5 md:w-full w-[190px]">
           <p className="font-bold font-sora xl:text-[56px] md:text-[32px] text-lg xl:leading-[70.56px] md:leading-[40.32px] leading-[22.68px]">
             Floor Mat
@@ -34,13 +34,13 @@ export default function FloorMat() {
           </svg>
         </Link>
       </div>
-      <div className="w-full h-full absolute right-0 top-0 z-[-1]">
+      <div className="size-full absolute right-0 top-0 z-[-1]">
         <Image
           src={FloorMatImage}
           alt="floorMat"
           fill
           sizes="100%"
-          className="w-full h-full object-cover md:object-center object-bottom"
+          className="size-full object-cover xl:object-center object-bottom"
         />
       </div>
     </div>

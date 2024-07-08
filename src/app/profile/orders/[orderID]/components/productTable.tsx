@@ -49,7 +49,7 @@ function ProductRow({
   quantity,
 }: productInOrder) {
   return (
-    <div className="flex md:flex-row flex-col md:gap-2.5 gap-[16px] md:py-6 pb-6 border-b border-grey-50 text-nowrap">
+    <div className="flex md:flex-row flex-col md:gap-2.5 gap-4 md:py-6 pb-6 border-b border-grey-50 text-nowrap">
       <div className="xl:w-[350px] md:w-[180px] w-full flex flex-row md:gap-[18px] gap-1.5">
         <div className="xl:size-[65px] size-12 bg-white-700">
           <div className="xl:w-[54px] w-[40px] xl:h-[52px] h-[38px] relative mx-[5px] my-[7px]">
@@ -58,7 +58,7 @@ function ProductRow({
               alt={engName}
               fill
               sizes="100%"
-              className="w-full h-full object-cover"
+              className="size-full object-cover"
             />
           </div>
         </div>

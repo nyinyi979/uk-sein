@@ -26,7 +26,7 @@ export default function PaymentMethods({
             alt="Kpay"
             fill
             sizes="100%"
-            className="w-full h-full object-cover"
+            className="size-full object-cover"
           />
         </div>
       </button>
@@ -41,7 +41,7 @@ export default function PaymentMethods({
             alt="Wave pay"
             fill
             sizes="100%"
-            className="w-full h-full object-cover"
+            className="size-full object-cover"
           />
         </div>
       </button>
@@ -56,7 +56,7 @@ export default function PaymentMethods({
             alt="Aya"
             fill
             sizes="100%"
-            className="w-full h-full object-cover"
+            className="size-full object-cover"
           />
         </div>
       </button>
@@ -71,7 +71,7 @@ export default function PaymentMethods({
             alt="Credit"
             fill
             sizes="100%"
-            className="w-full h-full object-cover"
+            className="size-full object-cover"
           />
         </div>
       </button>
@@ -86,7 +86,7 @@ export default function PaymentMethods({
             alt="BBK"
             fill
             sizes="100%"
-            className="w-full h-full object-cover"
+            className="size-full object-cover"
           />
         </div>
       </button>

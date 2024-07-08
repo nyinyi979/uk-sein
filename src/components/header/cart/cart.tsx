@@ -82,7 +82,7 @@ export default function CartSlider({
             mass: 1,
             damping: 6.67,
           }}
-          className="w-full h-full fixed top-0 left-0 bg-popup-bg z-[200] overflow-y-auto"
+          className="size-full fixed top-0 left-0 bg-popup-bg z-[200] overflow-y-auto"
           onClick={toggle}
         >
           <motion.div
@@ -97,7 +97,7 @@ export default function CartSlider({
             onClick={(e) => e.stopPropagation()}
           >
             <CartHeader count={products.length} toggle={toggle} />
-            <p className="py-[16px] px-[30px] font-semibold text-lg border-b border-grey-50">
+            <p className="py-4 px-[30px] font-semibold text-lg border-b border-grey-50">
               You have ({products.length}) in your cart!
             </p>
             <div className="h-[630px] flex flex-col gap-2.5 px-2.5 py-1.5 overflow-y-auto overflow-x-hidden">

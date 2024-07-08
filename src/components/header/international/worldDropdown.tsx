@@ -45,7 +45,7 @@ export default function WorldDropdown({ hide }: { hide: () => void }) {
             alt="english"
             fill
             sizes="100%"
-            className="w-full h-full object-cover"
+            className="size-full object-cover"
           />
         </div>
         <p className="font-semibold">English</p>
@@ -60,7 +60,7 @@ export default function WorldDropdown({ hide }: { hide: () => void }) {
             alt="myanmar"
             fill
             sizes="100%"
-            className="w-full h-full object-cover"
+            className="size-full object-cover"
           />
         </div>
         <p className="font-semibold">Myanmar</p>

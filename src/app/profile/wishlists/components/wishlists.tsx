@@ -5,7 +5,6 @@ import DiscountBanner from "@/components/banner/discountBanner";
 import Pagination from "@/components/template/pagination";
 import Product from "@/components/template/product";
 import { product } from "@/types/type";
-import { AnimatePresence } from "framer-motion";
 
 export default function WishList() {
   const [products, setProducts] = React.useState<product[]>([
@@ -102,9 +101,9 @@ export default function WishList() {
           updateCategory={updateCategory}
         />
         <div className="grid md:grid-cols-3 grid-cols-2 md:gap-20 gap-5">
-            {products.map((p) => (
-              <Product key={p.itemID} {...p} small />
-            ))}
+          {products.map((p) => (
+            <Product key={p.itemID} {...p} small />
+          ))}
           <div className="md:col-span-3 col-span-2 ml-auto">
             <Pagination activeIndex={1} totalIndex={1} setIndex={updatePage} />
           </div>

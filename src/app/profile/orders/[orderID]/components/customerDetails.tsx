@@ -21,7 +21,7 @@ export default function CustomerDetails({
                 alt="profile"
                 fill
                 sizes="100%"
-                className="w-full h-full object-cover"
+                className="size-full object-cover"
               />
             </div>
             <p className="text-grey-100">Name</p>
@@ -36,7 +36,7 @@ export default function CustomerDetails({
                 alt="profile"
                 fill
                 sizes="100%"
-                className="w-full h-full object-cover"
+                className="size-full object-cover"
               />
             </div>
             <p className="text-grey-100">Email</p>
@@ -51,7 +51,7 @@ export default function CustomerDetails({
                 alt="phone no"
                 fill
                 sizes="100%"
-                className="w-full h-full object-cover"
+                className="size-full object-cover"
               />
             </div>
             <p className="text-grey-100">Phone no</p>

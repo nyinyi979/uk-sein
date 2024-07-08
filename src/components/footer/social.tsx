@@ -59,7 +59,7 @@ export default function SocialLinks() {
               alt="kpay"
               fill
               sizes="100%"
-              className="w-full h-full object-cover"
+              className="size-full object-cover"
             />
           </div>
           <div className="xl:size-[50px] size-8 relative">
@@ -68,7 +68,7 @@ export default function SocialLinks() {
               alt="wave"
               fill
               sizes="100%"
-              className="w-full h-full object-cover"
+              className="size-full object-cover"
             />
           </div>
           <div className="xl:size-[50px] size-8 relative">
@@ -77,7 +77,7 @@ export default function SocialLinks() {
               alt="aya"
               fill
               sizes="100%"
-              className="w-full h-full object-cover"
+              className="size-full object-cover"
             />
           </div>
         </div>
