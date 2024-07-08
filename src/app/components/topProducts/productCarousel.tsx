@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { product } from "@/app/types/type";
+import { product } from "@/types/type";
 
 export default function TopProductsCarousel({
   similarProduct,

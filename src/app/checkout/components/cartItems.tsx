@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { productInCart } from "@/app/types/type";
+import { productInCart } from "@/types/type";
 
 export default function CartItem({
   product: { engName, imgURL, itemID, price, quantity, color, material, size },

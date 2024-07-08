@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import SearchIcon from "../svg/search.svg";
+import SearchIcon from "@/svg/search.svg";
 
 export default function SearchBar({
   width,

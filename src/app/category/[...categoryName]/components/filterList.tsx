@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Cross from "../images/cross.svg";
-import { filter } from "@/app/types/type";
+import { filter } from "@/types/type";
 import { motion } from "framer-motion";
 
 export default function Filters({

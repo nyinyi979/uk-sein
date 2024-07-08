@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import useWindowSize from "@/components/hooks/useWindowSize";
-import { orderStatus } from "@/app/types/type";
+import { orderStatus } from "@/types/type";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function OrderHeader({

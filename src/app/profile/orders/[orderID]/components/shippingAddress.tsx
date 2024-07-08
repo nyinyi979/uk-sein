@@ -1,5 +1,5 @@
 import OrderDetailCard from "./orderDetailCard";
-import { addressInOrder } from "@/app/types/type";
+import { addressInOrder } from "@/types/type";
 
 export default function ShippingAddress({
   address,

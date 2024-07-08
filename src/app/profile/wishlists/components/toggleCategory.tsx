@@ -1,6 +1,6 @@
 import React from "react";
 import CategoryFilter from "@/components/categoryFilter";
-import Toggle from "@/components/toggle";
+import Toggle from "@/components/actions/toggle";
 import CategoryDropdown from "./categoryDropdown";
 import { AnimatePresence } from "framer-motion";
 

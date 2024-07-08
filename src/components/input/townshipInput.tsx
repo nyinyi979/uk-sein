@@ -2,8 +2,8 @@ import Image from "next/image";
 import Arrow from "./images/arrow.svg";
 import Label from "./label";
 import { useLocale, useTranslations } from "next-intl";
-import { EngTownships, MyTownships } from "@/app/types/addresses";
-import { state } from "@/app/types/type";
+import { EngTownships, MyTownships } from "@/types/addresses";
+import { state } from "@/types/type";
 
 export default function TownshipInput({
   township,

@@ -9,7 +9,7 @@ import Filters from "./filterList";
 import useFilters from "./useFilter";
 import NotFoundError from "./notFound";
 import CateogryHeading from "./heading";
-import { product } from "@/app/types/type";
+import { product } from "@/types/type";
 import { AnimatePresence } from "framer-motion";
 
 export default function Category({
@@ -184,11 +184,11 @@ export default function Category({
             {filteredProducts.length === 0 ? (
               <NotFoundError />
             ) : (
-              <AnimatePresence>
+              <>
                 {filteredProducts.map((p) => (
                   <Product key={p.itemID} {...p} small />
                 ))}
-              </AnimatePresence>
+              </>
             )}
           </div>
           {filteredProducts.length !== 0 && (

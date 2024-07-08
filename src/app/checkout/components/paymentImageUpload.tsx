@@ -10,7 +10,6 @@ export default function PaymentImageUpload({
   const [imgData, setImgData] = React.useState<string | null>(null);
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      console.log(e.target.files);
       setFile(e.target.files[0]);
       var reader = new FileReader();
       reader.onload = function () {

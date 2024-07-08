@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { review } from "@/app/types/type";
+import { review } from "@/types/type";
 
 export function EachReview({ rv }: { rv: review }) {
   return (

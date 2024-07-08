@@ -2,7 +2,7 @@ import Image from "next/image";
 import QR from "../images/qr.png";
 import mm from "../images/mm.png";
 import usd from "../images/usd.png";
-import { payment } from "@/app/types/type";
+import { payment } from "@/types/type";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function PaymentNumbers({

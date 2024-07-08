@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import WishList from "../wishlist";
+import WishList from "../actions/wishlist";
 import RatingStars from "./rating";
 import AddToCart from "@/svg/addToCart.svg";
-import { product } from "@/app/types/type";
-import { motion } from "framer-motion";
+import { product } from "@/types/type";
 
 export default function Product({
   itemID,
@@ -19,15 +18,7 @@ export default function Product({
 }: smallLargeProduct) {
   return (
     <Link href={`/products/${itemID}`}>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{
-          duration: 0.3,
-        }}
-        className="w-fit flex flex-col gap-2.5 mx-auto relative rounded-3xl"
-      >
+      <div className="w-fit flex flex-col gap-2.5 mx-auto relative rounded-3xl">
         <div
           className={`${small ? "xl:size-[274px] md:size-[209px] w-[160px]" : "xl:w-[376px] xl:h-[350px] md:size-[320px] size-[160px]"} flex align-middle justify-center bg-white-400 rounded-[15px] overflow-hidden ${small ? "py-10" : "py-8"}`}
         >
@@ -78,7 +69,7 @@ export default function Product({
             />
           </div>
         </div>
-      </motion.div>
+      </div>
     </Link>
   );
 }

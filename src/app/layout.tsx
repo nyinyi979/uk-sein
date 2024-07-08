@@ -1,5 +1,5 @@
-import Header from "./components/header";
-import Footer from "./components/footer";
+import Header from "../components/header";
+import Footer from "../components/footer";
 import "./globals.css";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
@@ -35,7 +35,6 @@ export default async function RootLayout({
 }>) {
   const locale = await getLocale();
   const messages = await getMessages();
-  console.log(locale);
   return (
     <html lang={locale}>
       <body

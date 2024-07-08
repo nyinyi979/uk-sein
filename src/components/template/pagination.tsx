@@ -51,7 +51,6 @@ export default function Pagination({
         {activeIndex + 1 < totalIndex && (
           <button
             onClick={() => {
-              console.log("SHIT");
               setIndex(activeIndex + 1);
             }}
             className="pagination"

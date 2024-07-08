@@ -4,10 +4,10 @@ import NameInput from "@/components/input/nameInput";
 import PhoneNoInput from "@/components/input/phoneNoInput";
 import MailInput from "@/components/input/mailInput";
 import StateInput from "@/components/input/stateInput";
-import { state } from "@/app/types/type";
+import { state } from "@/types/type";
 import { motion } from "framer-motion";
 import { useLocale } from "next-intl";
-import { EngTownships, MyTownships } from "@/app/types/addresses";
+import { EngTownships, MyTownships } from "@/types/addresses";
 
 export default function FirstPage({
   name,

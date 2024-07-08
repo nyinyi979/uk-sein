@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import CartImage from "./images/cart.svg";
 import CartSlider from "./cart/cart";
-import { productInCart } from "@/app/types/type";
+import { productInCart } from "@/types/type";
 
 export default function Cart({
   hidden,

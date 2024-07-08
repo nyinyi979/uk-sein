@@ -4,7 +4,7 @@ import {
   prodcutFilterWithSet,
   product,
   productFilters,
-} from "@/app/types/type";
+} from "@/types/type";
 
 export default function useFilters({
   products,

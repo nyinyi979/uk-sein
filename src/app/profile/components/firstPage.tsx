@@ -6,7 +6,7 @@ import PhoneNoInput from "@/components/input/phoneNoInput";
 import MailInput from "@/components/input/mailInput";
 import GenderInput from "@/components/input/genderInput";
 import StateInput from "@/components/input/stateInput";
-import { state } from "@/app/types/type";
+import { state } from "@/types/type";
 import { motion } from "framer-motion";
 
 export default function FirstPage({

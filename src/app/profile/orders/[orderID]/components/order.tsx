@@ -6,7 +6,7 @@ import ShippingAddress from "./shippingAddress";
 import OrderBasicInfo from "./orderBasicInfo";
 import ProductTable from "./productTable";
 import useWindowSize from "@/components/hooks/useWindowSize";
-import { orderDetails } from "@/app/types/type";
+import { orderDetails } from "@/types/type";
 import { motion } from "framer-motion";
 
 export default function Order({

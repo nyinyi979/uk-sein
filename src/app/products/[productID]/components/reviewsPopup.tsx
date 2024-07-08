@@ -1,5 +1,5 @@
 import React from "react";
-import { review } from "@/app/types/type";
+import { review } from "@/types/type";
 import { EachReview, ReviewTitle } from "./reviewComponents";
 import { motion } from "framer-motion";
 

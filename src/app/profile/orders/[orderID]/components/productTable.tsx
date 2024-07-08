@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { productInOrder } from "@/app/types/type";
+import { productInOrder } from "@/types/type";
 
 export default function ProductTable({
   products,

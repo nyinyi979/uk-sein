@@ -2,7 +2,7 @@ import PaymentMethods from "./payment";
 import PaymentNumbers from "./paymentNumbers";
 import PaymentImageUpload from "./paymentImageUpload";
 import { motion } from "framer-motion";
-import { payment } from "@/app/types/type";
+import { payment } from "@/types/type";
 
 export default function PaymentPage({
   payment,

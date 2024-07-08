@@ -2,7 +2,7 @@ import React from "react";
 import CartItem from "./cartItems";
 import { motion } from "framer-motion";
 import { CartSummaryHeader, CartFooter } from "./cartSummaryComponents";
-import { productInCart } from "@/app/types/type";
+import { productInCart } from "@/types/type";
 
 export default function CartSummary({
   products,

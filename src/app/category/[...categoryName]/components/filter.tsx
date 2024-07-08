@@ -4,8 +4,8 @@ import ColorFilter from "./colorFilter";
 import SizeFilter from "./sizeFilter";
 import MaterialFilter from "./materialFilter";
 import PriceFilter from "./priceFilter";
-import Toggle from "../../../../components/toggle";
-import { prodcutFilterWithSet, productFilter } from "@/app/types/type";
+import Toggle from "../../../../components/actions/toggle";
+import { prodcutFilterWithSet, productFilter } from "@/types/type";
 import { motion } from "framer-motion";
 
 export default function Filter({

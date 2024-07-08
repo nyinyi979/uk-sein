@@ -1,7 +1,7 @@
 import Image from "next/image";
 import AddToCartSvg from "@/svg/addToCart.svg";
 import ShareSvg from "@/svg/share.svg";
-import WishList from "@/components/wishlist";
+import WishList from "@/components/actions/wishlist";
 
 export default function ProductAddToCart({
   productID,

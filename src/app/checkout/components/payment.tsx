@@ -4,7 +4,7 @@ import WavePay from "../images/wavepay.png";
 import BBK from "../images/bbk.png";
 import Credit from "../images/credit.png";
 import AyaBank from "../images/ayabank.png";
-import { payment } from "@/app/types/type";
+import { payment } from "@/types/type";
 
 export default function PaymentMethods({
   payment,

@@ -105,6 +105,7 @@ export default function Drawer({ hide }: { hide: () => void }) {
               <Link
                 key={link.name}
                 href={link.url}
+                onClick={hide}
                 className="w-[230px] h-fit flex flex-row gap-[18px] py-2.5 px-[10px] rounded-[15px] hover:bg-khaki-50 duration-300"
               >
                 <div className="md:size-[38px] px-3 py-2.5 bg-khaki-50 rounded-full">
@@ -129,6 +130,7 @@ export default function Drawer({ hide }: { hide: () => void }) {
               <Link
                 key={link.name}
                 href={link.url}
+                onClick={hide}
                 className="w-[230px] h-fit flex flex-row gap-[18px] py-2.5 px-[10px] rounded-[15px] hover:bg-khaki-50 duration-300"
               >
                 <div className="md:size-[38px] px-3 py-2.5 bg-khaki-50 rounded-full">

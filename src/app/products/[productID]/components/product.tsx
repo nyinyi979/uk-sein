@@ -9,7 +9,7 @@ import ProductAddToCart from "./addToCart";
 import ProductRatings from "./ratings";
 import ProductReviews from "./reviews";
 import TopProductsCarousel from "@/app/components/topProducts/productCarousel";
-import { productDetails } from "@/app/types/type";
+import { productDetails } from "@/types/type";
 
 export default function ProductDetails({
   params,

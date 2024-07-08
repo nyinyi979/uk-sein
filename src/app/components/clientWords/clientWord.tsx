@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { clientWord } from "@/app/types/type";
+import { clientWord } from "@/types/type";
 
 export default function ClientWord({
   wordID,

@@ -6,7 +6,7 @@ import Kpay from "../images/kpay.png";
 import Wave from "../images/wavepay.png";
 import Credit from "../images/credit.png";
 import useWindowSize from "@/components/hooks/useWindowSize";
-import { order, orderStatus } from "@/app/types/type";
+import { order, orderStatus } from "@/types/type";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import WriteReview from "./writeReview";
 import ReviewPopUp from "./reviewsPopup";
-import { review } from "@/app/types/type";
+import { review } from "@/types/type";
 import { EachReview, ReviewError, ReviewTitle } from "./reviewComponents";
 
 export default function ProductReviews({ reviews }: { reviews: review[] }) {

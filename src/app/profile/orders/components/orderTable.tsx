@@ -1,5 +1,5 @@
 import EachOrder from "./eachOrder";
-import { order, orderStatus } from "@/app/types/type";
+import { order, orderStatus } from "@/types/type";
 import { AnimatePresence } from "framer-motion";
 
 export default function OrderTable({

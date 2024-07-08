@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { clientWord } from "@/app/types/type";
+import { clientWord } from "@/types/type";
 
 export default function ClientWorkdsCarousel() {
   const [activeIndex, setActiveIndex] = React.useState(0);

@@ -2,11 +2,11 @@ import StateInput from "../../../components/input/stateInput";
 import TownshipInput from "../../../components/input/townshipInput";
 import AddresssInput from "../../../components/input/addressInput";
 import SecondPageHeading from "./secondPageHeading";
-import { EngTownships, MyTownships } from "../../types/addresses";
+import { EngTownships, MyTownships } from "../../../types/addresses";
 import { motion } from "framer-motion";
 import { Dispatch, SetStateAction } from "react";
 import { useLocale } from "next-intl";
-import { state } from "@/app/types/type";
+import { state } from "@/types/type";
 
 export default function SecondPage({
   setFirstPage,

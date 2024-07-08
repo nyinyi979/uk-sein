@@ -8,7 +8,7 @@ import Link from "next/link";
 import SignUpBack from "./signupBack";
 import { useRouter } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
-import { signUpInput, state } from "@/app/types/type";
+import { signUpInput, state } from "@/types/type";
 import { useTranslations } from "next-intl";
 
 export default function Signup() {

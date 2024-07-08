@@ -3,7 +3,7 @@ import Profile from "../images/calendar.svg";
 import Email from "../images/calendar.svg";
 import Phone from "../images/calendar.svg";
 import OrderDetailCard from "./orderDetailCard";
-import { customerInOrder } from "@/app/types/type";
+import { customerInOrder } from "@/types/type";
 
 export default function CustomerDetails({
   email,

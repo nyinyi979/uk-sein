@@ -4,7 +4,7 @@ import OrderTitle from "./orderTitle";
 import OrderHeader from "./orderHeader";
 import OrderTable from "./orderTable";
 import Pagination from "@/components/template/pagination";
-import { order, orderStatus } from "@/app/types/type";
+import { order, orderStatus } from "@/types/type";
 
 export default function Orders() {
   const [orderStatus, setOrderStatus] = React.useState<orderStatus>("");

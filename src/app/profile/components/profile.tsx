@@ -5,7 +5,7 @@ import ProfileTabs from "./tabs";
 import SecondPage from "./secondPage";
 import FirstPage from "./firstPage";
 import { AnimatePresence } from "framer-motion";
-import { signUpInputInProfile, state } from "@/app/types/type";
+import { signUpInputInProfile, state } from "@/types/type";
 
 export default function Signup() {
   const [input, setInput] = React.useState<signUpInputInProfile>({

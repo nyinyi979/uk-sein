@@ -3,8 +3,8 @@ import Arrow from "./images/arrow.svg";
 import Image from "next/image";
 import Label from "./label";
 import { useLocale, useTranslations } from "next-intl";
-import { EngStates, MyStates } from "@/app/types/addresses";
-import { state } from "@/app/types/type";
+import { EngStates, MyStates } from "@/types/addresses";
+import { state } from "@/types/type";
 
 export default function StateInput({
   state,
