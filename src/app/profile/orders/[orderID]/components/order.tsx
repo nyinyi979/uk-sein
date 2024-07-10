@@ -11,10 +11,10 @@ import { motion } from "framer-motion";
 
 export default function Order({
   params,
-  hide,
+  hide=()=>{},
 }: {
   params: { orderID: string };
-  hide: () => void;
+  hide?: () => void;
 }) {
   const [orderDetail, setOrderDetail] = React.useState<orderDetails>({
     orderID: "1234",

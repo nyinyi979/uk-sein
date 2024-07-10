@@ -3,6 +3,7 @@ import Search from "./images/searchResult.png";
 import RecentSearches from "./recentSearches";
 import { useTranslations } from "next-intl";
 import { useUserStore } from "@/store/clientData";
+import Link from "next/link";
 
 export default function DefaultResults({
   trendingSearch,
@@ -17,12 +18,13 @@ export default function DefaultResults({
         <p className="font-semibold fonts-sora">Trending Searches</p>
         <div className="flex gap-[18px] flex-wrap">
           {trendingSearch.map((ts) => (
-            <p
+            <Link
               key={ts}
+              href={`/category/${ts}`}
               className="py-2 px-5 rounded-[50px] border border-grey-100 font-medium text-sm"
             >
               {ts}
-            </p>
+            </Link>
           ))}
         </div>
       </div>

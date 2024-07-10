@@ -44,8 +44,8 @@ export default function Drawer({ hide }: { hide: () => void }) {
         }}
         drag={"x"}
         dragConstraints={{ left: -200, right: 0 }}
-        onDrag={(ev) => {
-          if (ev.x < 250) hide();
+        onDrag={(ev,info) => {
+          if (info.point.x < 250) hide();
         }}
         onClick={(ev) => ev.stopPropagation()}
         className="md:w-[350px] w-[276px] h-full md:pt-[83px] pt-10 md:pl-[50px] pl-5 pb-10 bg-white shadow-drawer overflow-y-auto"

@@ -10,7 +10,7 @@ export default function RecentSearches({
     <div className="flex flex-row gap-8 overflow-x-scroll">
       {recentSearches.map((rs) => (
         <Link
-          href={`/category/${rs}`}
+          href={`/products/${rs}`}
           key={rs}
           className="flex flex-col gap-2.5"
         >

@@ -5,11 +5,6 @@
 /* class formats in tailwind */
 /* width height position grid/flex flex/grid-properties margin padding bg radius border overflow font text duration */
 
-body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-}
 * {
   box-sizing: border-box;
 }

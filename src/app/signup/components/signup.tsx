@@ -65,7 +65,7 @@ export default function Signup() {
     input.password == input.rePassword;
   const secondPageNotEmpty =
     input.state != "" && input.township != "" && input.address != "";
-  const [firstPage, setFirstPage] = React.useState(false);
+  const [firstPage, setFirstPage] = React.useState(true);
   const validateInfo = () => {};
   const backOnClick = () => {
     if (firstPage) router.replace("/");

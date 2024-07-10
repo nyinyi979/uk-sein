@@ -1,3 +1,4 @@
+import React from "react";
 import SearchBar from "@/components/search/searchBar";
 import Image from "next/image";
 import SearchIcon from "@/svg/search.svg";
@@ -5,6 +6,7 @@ import { useTranslations } from "next-intl";
 
 export default function OrderTitle() {
   const t = useTranslations();
+  const [searchValue, setSearchValue] = React.useState("");
   return (
     <div className="flex flex-row">
       <div className="flex flex-col xl:gap-2.5 gap-1.5">
@@ -18,7 +20,8 @@ export default function OrderTitle() {
       </div>
       <div className="xl:w-[430px] w-[280px] md:block hidden ml-auto">
         <SearchBar
-          onSearch={(s) => {}}
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
           width="w-full"
           placeholder={t("orders.search-by-keyword")}
         />
