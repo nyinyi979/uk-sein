@@ -59,7 +59,7 @@ export default function WhiteListCateogry({
         </AnimatePresence>
       </div>
       <div className="xl:block hidden">
-        <Toggle name="Category">
+        <Toggle name={t("category.category")}>
           <CategoryFilter
             categories={categories}
             category={category}

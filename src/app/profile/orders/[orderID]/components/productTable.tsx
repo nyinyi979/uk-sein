@@ -53,6 +53,7 @@ function ProductRow({
   quantity,
 }: productInOrder) {
   const locale = useLocale();
+  const t = useTranslations();
   return (
     <div className="flex md:flex-row flex-col md:gap-2.5 gap-4 md:py-6 pb-6 border-b border-grey-50 text-nowrap">
       <div className="xl:w-[350px] md:w-[180px] w-full flex flex-row md:gap-[18px] gap-1.5">
@@ -77,25 +78,25 @@ function ProductRow({
         </div>
       </div>
       <p className="xl:w-[200px] md:w-[150px] w-full md:block flex xl:text-left text-center">
-        <span className="md:hidden font-semibold text-grey-200">Category</span>
+        <span className="md:hidden font-semibold text-grey-200">{t("category.category")}</span>
         <span className="ml-auto xl:text-base md:text-sm text-lg">
           {category}
         </span>
       </p>
       <p className="xl:w-[130px] md:w-[80px] w-full md:block flex xl:text-left text-center">
-        <span className="md:hidden font-semibold text-grey-200">Quantity</span>
+        <span className="md:hidden font-semibold text-grey-200">{t("orders.QUANTITY")}</span>
         <span className="ml-auto xl:text-base md:text-sm text-lg">
           {quantity}x
         </span>
       </p>
       <p className="xl:w-[250px] md:w-[250px] w-full md:block flex text-right">
-        <span className="md:hidden font-semibold text-grey-200">Price</span>
+        <span className="md:hidden font-semibold text-grey-200">{t("orders.price")}</span>
         <span className="ml-auto md:font-bold font-semibold xl:text-base md:text-sm text-lg">
           {price.toLocaleString()} MMK
         </span>
       </p>
       <p className="xl:w-[250px] md:w-[100px] w-full md:block flex">
-        <span className="md:hidden font-semibold text-grey-200">Price</span>
+        <span className="md:hidden font-semibold text-grey-200">{t("orders.total")}</span>
         <span className="md:block ml-auto font-bold xl:text-base md:text-sm text-lg text-right md:text-grey-500 text-khaki-500">
           {(price * quantity).toLocaleString()} MMK
         </span>

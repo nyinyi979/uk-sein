@@ -172,7 +172,9 @@
         "write-your-review": "Write Your Review",
         "write-review": "Write Review",
         "product-categories": "Product Categories",
-        "explore-now": "Explore now"
+        "explore-now": "Explore now",
+        "top-product": "Top Products",
+        "similar-product": "Similar Products"
     },
     "profile":{
         "account": "Account",
@@ -194,6 +196,7 @@
         "CATEGORY": "CATEGORY",
         "payment" : "PAYMENT",
         "payment-method": "Payment Methods",
+        "price": "Price",
         "unit-price": "UNIT PRICE",
         "QUANTITY": "QUANTITY",
         "TOTAL"   : "TOTAL",

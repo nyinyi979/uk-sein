@@ -8,6 +8,7 @@ import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { product } from "@/types/type";
+import { useTranslations } from "next-intl";
 
 export default function ProductsCarousel({
   similarProduct,
@@ -88,10 +89,11 @@ export default function ProductsCarousel({
       whiteListed: false,
     },
   ]);
+  const t = useTranslations("product");
   return (
     <div className="relative md:px-0 px-5">
       <div className="flex flex-row relative py-4 font-sora font-bold xl:text-[32px] text-2xl">
-        {similarProduct ? "Similar Products" : "Top products"}
+        {similarProduct ? t("similar-product") : t("top-product")}
         <CarouselButtons
           decrementIndex={decrementIndex}
           incrementIndex={incrementIndex}
