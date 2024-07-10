@@ -2,11 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 import MediumCard from "./mediumCard";
 import BasketsImage from "./images/baskets.png";
+import { useTranslations } from "next-intl";
 
 export default function Baskets() {
+  const t = useTranslations("product-showcase");
   return (
     <MediumCard
-      heading="Baskets"
+      heading={t("baskets")}
       image={
         <div className="xl:w-[423px] w-full xl:h-[200px] h-full absolute xl:bottom-0 bottom-4 xl:-right-20 md:-right-32 -right-48">
           <Image
@@ -18,13 +20,13 @@ export default function Baskets() {
           />
         </div>
       }
-      content="Best quality basket available for your kitchen"
+      content={t("baskets-tag")}
     >
       <Link
         href={"/products"}
         className="showcase-button xl:bg-grey-500 xl:text-white text-khaki-500 xl:text-sm md:text-lg xl:hover:bg-grey-400"
       >
-        EXPLORE NOW
+        {t("EXPLORE-NOW")}
         <svg
           className="xl:hidden mt-1"
           width="16"

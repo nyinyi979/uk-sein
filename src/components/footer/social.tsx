@@ -3,13 +3,15 @@ import Link from "next/link";
 import KPay from "./images/kpay.png";
 import WavePay from "./images/wavepay.png";
 import AyaPay from "./images/ayapay.png";
+import { useTranslations } from "next-intl";
 
 export default function SocialLinks() {
+  const t = useTranslations("footer");
   return (
     <div className="xl:w-fit w-[165px] flex flex-col xl:gap-[26px] md:gap-8 gap-[14px]">
       <div className="flex flex-col gap-[18px]">
         <p className="font-sora font-semibold xl:text-lg text-khaki-500">
-          Social
+          {t("social")}
         </p>
         <div className="flex flex-row gap-6">
           <Link href={""} className="footer-link">

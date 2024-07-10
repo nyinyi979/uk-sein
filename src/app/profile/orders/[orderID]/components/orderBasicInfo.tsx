@@ -8,6 +8,7 @@ import Kpay from "../../images/kpay.png";
 import Wave from "../../images/wavepay.png";
 import Credit from "../../images/credit.png";
 import CloseButton from "./popUpCloseButton";
+import { useTranslations } from "next-intl";
 
 export default function OrderBasicInfo({
   orderID,
@@ -30,6 +31,7 @@ export default function OrderBasicInfo({
         : paymentMethod === "Credit"
           ? Credit
           : Wave;
+  const t = useTranslations("orders");
   return (
     <div className="flex flex-row gap-8 h-full">
       <OrderDetailCard
@@ -48,7 +50,7 @@ export default function OrderBasicInfo({
                   className="size-full object-cover"
                 />
               </div>
-              <p className="text-grey-100">Date Added</p>
+              <p className="text-grey-100">{t("date-added")}</p>
             </div>
             <p>{orderedDate}</p>
           </div>
@@ -63,7 +65,7 @@ export default function OrderBasicInfo({
                   className="size-full object-cover"
                 />
               </div>
-              <p className="text-grey-100">Payment Method</p>
+              <p className="text-grey-100">{t("payment-method")}</p>
             </div>
             <div className="xl:size-8 md:size-10 size-8 relative">
               <Image
@@ -86,7 +88,7 @@ export default function OrderBasicInfo({
                   className="size-full object-cover"
                 />
               </div>
-              <p className="text-grey-100">Status</p>
+              <p className="text-grey-100">{t("status")}</p>
             </div>
             <p className={`${status}-order ml-auto`}>{status}</p>
           </div>

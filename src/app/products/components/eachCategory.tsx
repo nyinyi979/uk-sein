@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import Arrow from "../images/linkArrow.svg";
+import { useTranslations } from "next-intl";
 
 export default function EachCategory({ category }: { category: string }) {
+  const t = useTranslations("product");
   return (
     <div className="xl:w-[375px] w-full h-fit flex flex-row gap-4 md:py-5 md:px-[18px] p-[18px] bg-white-400 rounded-[18px] align-middle justify-center">
       <div className="xl:size-[110px] md:size-[50px] size-10 my-5 relative">
@@ -31,7 +33,7 @@ export default function EachCategory({ category }: { category: string }) {
               className="size-full object-cover"
             />
           </div>
-          Explore now
+          {t("explore-now")}
           <div className="size-2 md:hidden mt-1 relative">
             <Image
               src={Arrow}

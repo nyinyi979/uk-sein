@@ -7,6 +7,7 @@ import PhoneNoInput from "@/components/input/phoneNoInput";
 import PasswordInput from "@/components/input/passwordInput";
 import LoginHeader from "./loginHeader";
 import LoginBack from "./loginBack";
+import { useTranslations } from "next-intl";
 
 export default function Login() {
   const [input, setInput] = React.useState({
@@ -20,6 +21,7 @@ export default function Login() {
     setInput({ ...input, password: pw });
   };
   const notEmpty = input.phoneNumber != "" && input.password != "";
+  const t = useTranslations();
   return (
     <div className="w-fit grid md:grid-cols-2 xl:gap-28 gap-10 mx-auto py-20">
       <div className="xl:w-[500px] md:w-[344px] w-[340px] flex flex-col gap-10 mx-auto">
@@ -30,7 +32,7 @@ export default function Login() {
             <div className="flex flex-col md:gap-8 gap-[18px]">
               <PhoneNoInput phone={input.phoneNumber} setPhone={setPhoneNo} />
               <PasswordInput
-                displayedLabel="Password"
+                displayedLabel={t("input.password")}
                 id="pw"
                 password={input.password}
                 setPassword={setPassword}
@@ -39,7 +41,7 @@ export default function Login() {
                 href={"/"}
                 className="my-3 ml-auto text-reject font-bold md:text-base text-sm"
               >
-                Forgot password?
+                {t("signin.forgot-password")}
               </Link>
             </div>
             <button
@@ -47,16 +49,16 @@ export default function Login() {
               type="submit"
               className={`w-full h-[78px] mt-5 rounded-[18px] font-semibold font-sora xl:text-2xl ${notEmpty ? "bg-khaki-600 text-white hover:bg-khaki-700" : "bg-white-700 text-white"} duration-300`}
             >
-              Sign in
+              {t("signin.sign-in")}
             </button>
           </div>
           <p className="my-3 font-semibold text-center xl:text-lg text-sm">
-            Don't have an account?{" "}
+            {t("signin.don't-have-account")}
             <Link
               className="font-bold text-khaki-500 hover:text-khaki-700 duration-300"
               href={"/signup"}
             >
-              Sign Up
+              {t("signup.sign-up")}
             </Link>
           </p>
         </form>

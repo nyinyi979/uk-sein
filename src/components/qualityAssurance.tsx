@@ -1,19 +1,21 @@
 import Image from "next/image";
 import CartWhite from "../svg/cart-white.svg";
+import { useTranslations } from "next-intl";
 
 export default function QualityAssureRow({ className }: { className: string }) {
+  const t = useTranslations("highlights");
   let texts = [
     {
-      heading: "Quality Assure",
-      smallHeading: "Best quality in local",
+      heading: t("quality-assure"),
+      smallHeading: t("best-quality"),
     },
     {
-      heading: "Customer Support",
-      smallHeading: "We care your experience",
+      heading: t("customer-support"),
+      smallHeading: t("we-care-your-exp"),
     },
     {
-      heading: "Secure Payment",
-      smallHeading: "100% Secure Payment Method",
+      heading: t("secure-payment"),
+      smallHeading: t("100-secure-payment"),
     },
   ];
   return (
@@ -22,7 +24,7 @@ export default function QualityAssureRow({ className }: { className: string }) {
         {texts.map((text) => (
           <div
             key={text.heading}
-            className="w-fit flex xl:flex-row md:flex-col md:gap-4 gap-6 mx-auto md:px-0 md:py-0 py-4 px-8 rounded-[15px] md:shadow-none shadow-light"
+            className="xl:w-full md:w-fit w-full flex xl:flex-row md:flex-col md:gap-4 gap-6 mx-auto md:px-0 md:py-0 py-4 px-8 rounded-[15px] md:shadow-none shadow-light"
           >
             <div className="md:w-[60px] md:h-[56px] size-[46px] md:px-5 md:py-4 pt-[14px] pl-4 bg-khaki-500 rounded-xl">
               <div className="md:size-[22px] size-4 relative">

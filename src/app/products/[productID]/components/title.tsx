@@ -1,9 +1,11 @@
 import Image from "next/image";
 import BackArr from "@/svg/backArrow.svg";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function ProductTitle({ category }: { category: string }) {
   const router = useRouter();
+  const t = useTranslations();
   return (
     <div className="flex flex-col gap-2.5 md:my-[50px] my-8">
       <button
@@ -19,10 +21,10 @@ export default function ProductTitle({ category }: { category: string }) {
             className="size-full mt-0.5"
           />{" "}
         </div>
-        Back to Products
+        {t("back-to.back-to-products")}
       </button>
       <p className="font-semibold">
-        <span>Categories - </span> {category}
+        <span>{t("product.categories")} - </span> {category}
       </p>
     </div>
   );

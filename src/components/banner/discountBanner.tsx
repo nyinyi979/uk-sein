@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,6 +9,7 @@ export default function DiscountBanner({
   percent: string;
   imgURL: string;
 }) {
+  const t = useTranslations("discount-banner");
   return (
     <div className="md:w-full w-[353px] xl:h-[380px] md:h-[250px] h-[160px] mx-auto relative flex md:py-10 py-5 md:px-20 px-10 rounded-[15px] overflow-hidden font-bold text-right">
       <div className="md:w-[423px] flex flex-col xl:gap-10 md:gap-6 gap-4 ml-auto">
@@ -17,14 +19,14 @@ export default function DiscountBanner({
             {percent}% Discount!
           </p>
           <p className="font-semibold xl:text-base md:text-sm text-[10px]">
-            It's a seasonal time to grab your chance 🎉
+            {t("seasonal-time")}
           </p>
         </div>
         <Link
           href={"/products"}
           className="w-fit h-fit md:py-4 py-2 md:px-[28px] px-[18px] ml-auto rounded-xl md:bg-grey-500 bg-khaki-500 font-bold text-white text-sm text-center hover:bg-khaki-700 md:hover:bg-grey-300 duration-300"
         >
-          SHOP NOW
+          {t("shop-now")}
         </Link>
       </div>
       <div className="size-full absolute top-0 left-0 z-[-1]">

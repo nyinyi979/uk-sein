@@ -1,25 +1,25 @@
+import { useTranslations } from "next-intl";
+
 export default function WhatDoWeServe() {
+  const t = useTranslations();
   const whatdoWeServe = [
     {
-      heading: "Quality Assure",
-      description:
-        "No mixed tour, private driver/guide , transportation & transfer",
+      heading: t("highlights.quality-assure"),
+      description: t("highlights.sample"),
     },
     {
-      heading: "Customer Support",
-      description:
-        "No mixed tour, private driver/guide , transportation & transfer ",
+      heading: t("highlights.customer-support"),
+      description: t("highlights.sample"),
     },
     {
-      heading: "Secure Payment",
-      description:
-        "No mixed tour, private driver/guide , transportation & transfer",
+      heading: t("highlights.secure-payment"),
+      description: t("highlights.sample"),
     },
   ];
   return (
     <div className="flex flex-col xl:gap-[65px] gap-8 pb-8">
       <p className="font-sora font-semibold xl:text-5xl text-2xl">
-        What Do We Serve?
+        {t("about-us.what-do-we-serve")}
       </p>
       <div className="flex md:flex-row flex-col xl:gap-[28px] md:gap-[18px] gap-[28px]">
         {whatdoWeServe.map((s) => (

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { productInCart } from "@/types/type";
+import { useLocale } from "next-intl";
 
 export default function CartItem({
   product: { engName, imgURL, itemID, price, quantity, color, material, size },
@@ -67,12 +68,13 @@ function ItemButtons({
   decrementQuantity: (ind: number) => void;
   removeItem: (ind: number) => void;
 }) {
+  const decrement = () => {
+    if (quantity - 1 === 0) removeItem(index);
+    else decrementQuantity(index);
+  };
   return (
     <div className="flex flex-row gap-2.5">
-      <button
-        onClick={() => decrementQuantity(index)}
-        className="cart-btn md:px-3.5 px-2.5"
-      >
+      <button onClick={decrement} className="cart-btn md:px-3.5 px-2.5">
         <svg
           width="14"
           height="2"

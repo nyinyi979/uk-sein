@@ -13,12 +13,14 @@ export default function PaymentMethods({
   payment: payment;
   setPayment: (payment: payment) => void;
 }) {
+  const btnClass =
+    "md:size-20 size-[50px] md:rounded-[10px] rounded-[5px] border border-grey-50 disabled:border-grey-500 hover:bg-grey-50 duration-300";
   return (
     <div className="flex flex-row gap-[18px]">
       <button
         onClick={() => setPayment("Kpay")}
         disabled={payment === "Kpay"}
-        className="md:size-20 size-[50px] md:rounded-[10px] rounded-[5px] border border-grey-50 disabled:border-grey-500 hover:bg-grey-50 duration-300"
+        className={btnClass}
       >
         <div className="md:size-[50px] size-7 mx-auto md:my-[15px] relative">
           <Image
@@ -33,7 +35,7 @@ export default function PaymentMethods({
       <button
         onClick={() => setPayment("WavePay")}
         disabled={payment === "WavePay"}
-        className="md:size-20 size-[50px] md:rounded-[10px] rounded-[5px] border border-grey-50 disabled:border-grey-500 hover:bg-grey-50 duration-300"
+        className={btnClass}
       >
         <div className="md:size-[50px] size-7 mx-auto md:my-[15px] relative">
           <Image
@@ -48,7 +50,7 @@ export default function PaymentMethods({
       <button
         onClick={() => setPayment("Aya")}
         disabled={payment === "Aya"}
-        className="md:size-20 size-[50px] md:rounded-[10px] rounded-[5px] border border-grey-50 disabled:border-grey-500 hover:bg-grey-50 duration-300"
+        className={btnClass}
       >
         <div className="md:size-[50px] size-7 mx-auto md:my-[15px] relative">
           <Image
@@ -63,7 +65,7 @@ export default function PaymentMethods({
       <button
         onClick={() => setPayment("Credit")}
         disabled={payment === "Credit"}
-        className="md:size-20 size-[50px] md:rounded-[10px] rounded-[5px] border border-grey-50 disabled:border-grey-500 hover:bg-grey-50 duration-300"
+        className={btnClass}
       >
         <div className="md:size-[50px] size-7 mx-auto md:my-[15px] relative">
           <Image
@@ -78,7 +80,7 @@ export default function PaymentMethods({
       <button
         onClick={() => setPayment("BBK")}
         disabled={payment === "BBK"}
-        className="md:size-20 size-[50px] md:rounded-[10px] rounded-[5px] border border-grey-50 disabled:border-grey-500 hover:bg-grey-50 duration-300"
+        className={btnClass}
       >
         <div className="md:size-[50px] size-7 mx-auto md:my-[15px] relative">
           <Image

@@ -2,35 +2,34 @@ import Image from "next/image";
 import Portfolio5 from "../images/portfolio-5.png";
 import Portfolio6 from "../images/portfolio-6.png";
 import Portfolio7 from "../images/portfolio-7.png";
+import { useTranslations } from "next-intl";
 
 export default function OurRecentProjects() {
+  const t = useTranslations("portfolio");
   const arr = [
     {
       id: "orp1",
       name: "A's Thai Spa",
-      description:
-        "To expand its presence and offer customers an immersive shopping experience.",
+      description: t("to-expand"),
       img: Portfolio5,
     },
     {
       id: "orp2",
       name: "Dream Floral Service & Event Decoration",
-      description:
-        "To expand its presence and offer customers an immersive shopping experience.",
+      description: t("to-expand"),
       img: Portfolio6,
     },
     {
       id: "orp3",
       name: "Dior By Heart",
-      description:
-        "To expand its presence and offer customers an immersive shopping experience.",
+      description: t("to-expand"),
       img: Portfolio7,
     },
   ];
   return (
     <div className="xl:flex hidden flex-col gap-[50px]">
       <p className="font-sora font-bold xl:text-5xl md:text-2xl text-[28px] text-center">
-        Our Recent Projects
+        {t("our-recent-projects")}
       </p>
       <div className="xl:grid w-fit hidden grid-cols-3 gap-5 mx-auto">
         {arr.map((a) => (

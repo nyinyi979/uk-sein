@@ -1,18 +1,20 @@
 import Image from "next/image";
 import SmallCard from "./smallCard";
 import TableImage from "./images/table.png";
+import { useTranslations } from "next-intl";
 
-export default function Pillows() {
+export default function Table() {
+  const t = useTranslations("product-showcase");
   return (
     <SmallCard
       bgClass="bg-[#F3F3F3]"
-      heading="Table"
+      heading={t("table")}
       href="/products"
-      linkText="GET 20% PROMO"
+      linkText={t("get-20-promo")}
       textClass="text-white xl:text-grey-500"
       linkClass="text-white xl:text-grey-500"
       pathClass="fill-white"
-      content="Best quality crafted table available for your living room"
+      content={t("table-tag")}
     >
       <div className="absolute size-full top-0 right-0">
         <Image

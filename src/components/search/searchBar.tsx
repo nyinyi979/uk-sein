@@ -1,18 +1,25 @@
 "use client";
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
 import SearchIcon from "@/svg/search.svg";
 
 export default function SearchBar({
   width,
-  onSearch,
+  searchValue,
+  setSearchValue,
   placeholder,
+  onEnter = () => {},
+  onBlur = () => {},
+  onFocus = () => {},
 }: {
   width: string;
-  onSearch: (searchValue: string) => void;
+  searchValue: string;
+  setSearchValue: Dispatch<SetStateAction<string>>;
   placeholder: string;
+  onEnter?: () => void;
+  onFocus?: () => void;
+  onBlur?: () => void;
 }) {
-  const [searchValue, setSearchValue] = React.useState("");
   const updateSearchValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
   };
@@ -21,9 +28,11 @@ export default function SearchBar({
       <input
         value={searchValue}
         onChange={(e) => updateSearchValue(e)}
-        onKeyUp={(ev) => {
-          if (ev.key === "Enter") onSearch(searchValue);
+        onKeyDown={(e) => {
+          if (e.key === "Enter") onEnter();
         }}
+        onFocus={onFocus}
+        onBlur={onBlur}
         className={`${width} xl:h-[62px] h-14 pl-16 p-5 rounded-[15px] outline-none border border-grey-200 focus:border-grey-500 duration-300`}
         placeholder={placeholder}
       />

@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import {
   AboutUsCard1,
   AboutUsCard2,
@@ -6,14 +7,13 @@ import {
 } from "./aboutUsCards_";
 
 export default function AboutUsCards() {
+  const t = useTranslations("about-us");
   return (
     <div className="flex flex-col gap-10">
       <div className="flex flex-col gap-2.5 font-sora">
-        <p className="font-normal xl:text-2xl text-grey-400">
-          Story of UK SEIN
-        </p>
+        <p className="font-normal xl:text-2xl text-grey-400">{t("story")}</p>
         <p className="font-bold xl:text-5xl text-2xl text-grey-500">
-          OVER THE YEARS
+          {t("over-the-year")}
         </p>
       </div>
       <div className="flex flex-col gap-0">

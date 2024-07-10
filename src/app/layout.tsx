@@ -38,7 +38,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${quicksand.variable} ${lexend.variable} ${sora.variable} font-quick text-grey-500`}
+        className={`${quicksand.variable} ${lexend.variable} ${sora.variable} relative sm:overflow-x-hidden overflow-x-auto font-quick text-grey-500`}
       >
         <NextIntlClientProvider messages={messages}>
           <Header />

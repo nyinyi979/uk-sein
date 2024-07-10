@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 export default function CartHeader({
   count,
   toggle,
@@ -5,11 +7,12 @@ export default function CartHeader({
   count: number;
   toggle: () => void;
 }) {
+  const t = useTranslations("cart");
   return (
     <div className="flex flex-row justify-between py-4 px-[30px] border-b border-grey-50">
       <div className="flex flex-row gap-3 md:mt-0 mt-2">
         <p className="my-2 font-sora font-semibold md:text-2xl text-xl">
-          In Your Cart
+          {t("in-your-cart")}
         </p>
         <p className="size-4 rounded-full bg-red-500 md:my-4 my-3 text-white text-[10px] text-center">
           {count}

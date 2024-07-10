@@ -31,7 +31,7 @@ export default function MainProductsCarousel() {
           alt="Product"
           fill
           sizes="100%"
-          className="w-auto h-auto relative z-10"
+          className="w-auto h-auto relative"
         />
       </SwiperSlide>
       <SwiperSlide>
@@ -40,7 +40,7 @@ export default function MainProductsCarousel() {
           alt="Product"
           fill
           sizes="100%"
-          className="w-auto h-auto relative z-10"
+          className="w-auto h-auto relative"
         />
       </SwiperSlide>
       <SwiperSlide>

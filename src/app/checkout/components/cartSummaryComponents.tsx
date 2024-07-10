@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 export function CartSummaryHeader({
   closeCart,
   count,
@@ -5,10 +7,11 @@ export function CartSummaryHeader({
   count: number;
   closeCart: () => void;
 }) {
+  const t = useTranslations("checkout");
   return (
     <div className="flex flex-row gap-2.5 py-4 px-6">
       <p className="my-2 font-sora font-semibold xl:text-2xl text-lg">
-        Cart Summary
+        {t("cart-summary")}
       </p>
       <p className="size-4 rounded-full bg-red-500 xl:my-4 my-3.5 text-white text-[10px] text-center">
         {count}
@@ -35,9 +38,10 @@ export function CartSummaryHeader({
   );
 }
 export function CartFooter({ totalPrice }: { totalPrice: number }) {
+  const t = useTranslations("checkout");
   return (
     <div className="flex flex-row pt-4 pb-[22px] px-8 font-bold">
-      <p className="xl:text-xl text-lg">Total</p>
+      <p className="xl:text-xl text-lg">{t("total")}</p>
       <p className="ml-auto text-2xl">{totalPrice.toLocaleString()} Ks</p>
     </div>
   );

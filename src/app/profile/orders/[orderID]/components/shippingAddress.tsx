@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import OrderDetailCard from "./orderDetailCard";
 import { addressInOrder } from "@/types/type";
 
@@ -6,8 +7,9 @@ export default function ShippingAddress({
   state,
   township,
 }: addressInOrder) {
+  const t = useTranslations("signup");
   return (
-    <OrderDetailCard heading="Shipping Address">
+    <OrderDetailCard heading={t("shipping-info")}>
       <div className="flex flex-col md:gap-5 gap-3 font-semibold xl:text-lg md:text-base text-lg">
         <p>{address}</p>
         <p>{township}</p>

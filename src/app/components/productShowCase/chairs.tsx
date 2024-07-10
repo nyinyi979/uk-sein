@@ -2,11 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 import MediumCard from "./mediumCard";
 import ChairsImage from "./images/chairs.png";
+import { useTranslations } from "next-intl";
 
 export default function Chairs() {
+  const t = useTranslations("product-showcase");
   return (
     <MediumCard
-      heading="Chairs"
+      heading={t("chairs")}
       image={
         <div className="xl:w-[289px] md:w-[60%] w-[180px] xl:h-[270px] h-full absolute bottom-0 md:-right-2 right-0">
           <Image
@@ -18,7 +20,7 @@ export default function Chairs() {
           />
         </div>
       }
-      content="Best quality chairs available for your living room"
+      content={t("chairs-tag")}
     >
       <Link href={"/products"} className="chair-link">
         <svg
@@ -34,8 +36,8 @@ export default function Chairs() {
             fill="#DE9D62"
           />
         </svg>
-        <p className="xl:block hidden">Chairs for Everyone</p>
-        <p className="xl:hidden block">Explore Now</p>
+        <p className="xl:block hidden">{t("chairs-for-everyone")}</p>
+        <p className="xl:hidden block">{t("explore-now")}</p>
         <svg
           className="mt-1 xl:hidden"
           width="17"

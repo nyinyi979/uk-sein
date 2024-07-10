@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import React from "react";
 
@@ -22,9 +23,10 @@ export default function SmallCard({
   pathClass: string;
   children?: React.ReactNode;
 }) {
+  const t = useTranslations("product-showcase");
   return (
     <div
-      className={`img-scale w-full md:h-full h-fit relative flex xl:py-10 py-7 xl:pl-8 px-6 rounded-3xl overflow-hidden ${bgClass}`}
+      className={`img-scale w-full md:h-full h-fit relative flex xl:py-14 py-7 xl:pl-8 px-6 rounded-3xl overflow-hidden ${bgClass}`}
     >
       <div className="z-[2] xl:w-[246px] w-[200px] flex flex-col xl:gap-6 md:gap-2.5 gap-4">
         <div className="flex flex-col xl:gap-3 gap-1.5">
@@ -44,7 +46,7 @@ export default function SmallCard({
           className="showcase-button xl:text-sm xl:bg-grey-500 xl:hover:bg-grey-400 xl:text-white"
         >
           <p className="xl:block hidden">{linkText}</p>
-          <p className={`xl:hidden text-sm ${linkClass}`}>Explore now</p>
+          <p className={`xl:hidden text-sm ${linkClass}`}>{t("explore-now")}</p>
           <svg
             className="xl:hidden size-3 mt-1"
             width="16"

@@ -4,15 +4,17 @@ import Contact1 from "../images/contact1.png";
 import Contact2 from "../images/contact2.png";
 import Contact3 from "../images/contact3.png";
 import Contact4 from "../images/contact4.png";
+import { useTranslations } from "next-intl";
 
 export default function Contact() {
   const arr = [Contact1, Contact2, Contact3, Contact4];
+  const t = useTranslations("contact");
   return (
     <div className="xl:w-[1190px] md:w-[668px] w-[340px] mx-auto xl:pt-20 pt-10 pb-32">
       <div className="flex flex-col xl:gap-32 gap-8 relative">
         <div className="flex flex-col xl:gap-[50px] gap-8">
           <p className="font-sora font-bold xl:text-5xl text-[32px] md:text-left text-center">
-            Contact Us
+            {t("contact-us")}
           </p>
           <div className="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8 h-fit relative rounded-[15px]">
             {arr.map((a, ind) => (
@@ -28,7 +30,7 @@ export default function Contact() {
                 </div>
                 <div className="flex flex-col gap-[14px] xl:text-lg">
                   <span className="font-bold">
-                    Innovate & No.63, Bo Yar Nyunt Road, Dagon, Yangon
+                    Innovate & No.63, {t("address")}
                   </span>
                   <span className="font-medium">09-887822121</span>
                 </div>

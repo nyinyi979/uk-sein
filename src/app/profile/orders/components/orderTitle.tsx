@@ -1,23 +1,26 @@
 import SearchBar from "@/components/search/searchBar";
 import Image from "next/image";
 import SearchIcon from "@/svg/search.svg";
+import { useTranslations } from "next-intl";
 
 export default function OrderTitle() {
+  const t = useTranslations();
   return (
     <div className="flex flex-row">
       <div className="flex flex-col xl:gap-2.5 gap-1.5">
         <p className="font-sora font-bold xl:text-5xl md:text-[32px] text-lg">
-          My Orders
+          {t("orders.my-orders")}
         </p>
         <p className="font-semibold xl:text-lg md:text-base text-sm text-grey-100">
-          Acccount - <span className="text-grey-500">Order History</span>
+          {t("profile.account")} -{" "}
+          <span className="text-grey-500">{t("checkout.order-history")}</span>
         </p>
       </div>
       <div className="xl:w-[430px] w-[280px] md:block hidden ml-auto">
         <SearchBar
           onSearch={(s) => {}}
           width="w-full"
-          placeholder="Search by keyword or order..."
+          placeholder={t("orders.search-by-keyword")}
         />
       </div>
       <div className="size-[46px] md:hidden ml-auto rounded-lg bg-white-700 hover:bg-grey-50 duration-300">

@@ -9,6 +9,7 @@ import useWindowSize from "@/components/hooks/useWindowSize";
 import { order, orderStatus } from "@/types/type";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function EachOrder({
   order: { amount, orderID, orderedDate, paymentMethod, productCount, status },
@@ -40,6 +41,7 @@ export default function EachOrder({
   React.useEffect(() => {
     if (size[0] > 767) setHidden(true);
   }, [size]);
+  const t = useTranslations("orders");
   return (
     <>
       {checked && (
@@ -77,7 +79,7 @@ export default function EachOrder({
           </div>
           <div className="xl:w-[140px] md:w-[80px] w-[110px]">
             <button onClick={onClick} className="order-btn">
-              <span>View Order</span>
+              <span>{t("view-order")}</span>
               <svg
                 viewBox="0 0 9 16"
                 fill="none"

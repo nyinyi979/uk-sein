@@ -2,16 +2,18 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function NavBar() {
+  const t = useTranslations("main-pages");
   const path = usePathname().split("/")[1];
-  const links = React.useRef([
+  const links = [
     "",
-    "PRODUCTS",
-    "PORTFOLIO",
-    "ABOUT US",
-    "CONTACT",
-  ]);
+    t("PRODUCTS"),
+    t("PORTFOLIO"),
+    t("ABOUT-US"),
+    t("CONTACT"),
+  ];
   const actualLinks = React.useRef([
     "",
     "products",
@@ -28,13 +30,13 @@ export default function NavBar() {
   ]);
   return (
     <div className="w-full xl:flex hidden align-middle justify-center gap-[56px] py-[18px] px-[120px] z-[30] bg-white shadow-lightest">
-      {links.current.map((link, index) => (
+      {links.map((link, index) => (
         <Link
           href={`/${actualLinks.current[index]}`}
           key={link}
           className={`font-normal ${checkLinks.current[index].has(path) ? "text-khaki-500" : "text-black hover:text-khaki-500 duration-300"}`}
         >
-          {link == "" ? "HOME" : link}
+          {link == "" ? t("HOME") : link}
         </Link>
       ))}
     </div>

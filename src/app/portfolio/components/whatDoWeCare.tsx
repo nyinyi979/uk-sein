@@ -2,35 +2,34 @@ import Image from "next/image";
 import Portfolio2 from "../images/portfolio-2.png";
 import Portfolio3 from "../images/portfolio-3.png";
 import Portfolio4 from "../images/portfolio-4.png";
+import { useTranslations } from "next-intl";
 
 export default function WhatDoWeCare() {
+  const t = useTranslations("portfolio");
   const arr = [
     {
       id: "wdwc1",
-      name: "Customer Focus",
-      description:
-        "Delivering an exceptional customer experience drives everything we do.",
+      name: t("what-do-we-care1.name"),
+      description: t("what-do-we-care1.description"),
       img: Portfolio2,
     },
     {
       id: "wdwc2",
-      name: "Collaborate Effectively",
-      description:
-        "We invest in cross-functional global partnerships that maximize impact.",
+      name: t("what-do-we-care2.name"),
+      description: t("what-do-we-care2.description"),
       img: Portfolio3,
     },
     {
       id: "wdwc3",
-      name: "Innovate & Improve",
-      description:
-        "We are not limited by precedent. We boldly challenge the norm.",
+      name: t("what-do-we-care2.name"),
+      description: t("what-do-we-care2.description"),
       img: Portfolio4,
     },
   ];
   return (
     <div className="flex flex-col xl:gap-[65px] gap-8 pb-8">
       <p className="font-sora font-bold xl:text-5xl text-2xl text-center">
-        What Do We Care?
+        {t("what-do-we-care")}
       </p>
       <div className="flex md:flex-row flex-col xl:gap-7 gap-8">
         {arr.map((a) => (

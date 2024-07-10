@@ -7,6 +7,7 @@ import PriceFilter from "./priceFilter";
 import Toggle from "../../../../components/actions/toggle";
 import { prodcutFilterWithSet, productFilter } from "@/types/type";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function Filter({
   appliedFilters,
@@ -55,6 +56,7 @@ export default function Filter({
   filterJustApplied: boolean;
   filterJustAppliedOff: () => void;
 }) {
+  const t = useTranslations("category");
   return (
     <motion.div
       animate={{ opacity: [0, 1] }}
@@ -98,47 +100,47 @@ export default function Filter({
               onClick={resetFilter}
               className={`xl:w-full w-fit h-[56px] xl:p-0 p-2.5 ${filterApplied ? "xl:bg-red-500 text-red-500 xl:text-white" : "xl:bg-grey-50 text-grey-100 xl:text-white"} md:text-base text-sm rounded-[10px] duration-300`}
             >
-              Clear filters
+              {t("clear-filters")}
             </button>
             <p className="xl:hidden font-sora font-semibold text-lg my-2">
-              Filters
+              {t("filters")}
             </p>
             <button
               onClick={hide}
               className={`xl:hidden w-fit h-[56px] py-2.5 px-4 ${filterJustApplied ? "bg-success hover:bg-sucessHover" : "bg-grey-50"} md:text-base text-sm rounded-[10px] text-white`}
             >
-              Save
+              {t("save")}
             </button>
           </div>
-          <Toggle name="Category">
+          <Toggle name={t("category")}>
             <CategoryFilter
               categories={possibleFilters.categories}
               category={category}
               updateCategory={updateCategory}
             />
           </Toggle>
-          <Toggle name="Color">
+          <Toggle name={t("color")}>
             <ColorFilter
               colors={possibleFilters.color}
               color={appliedFilters.color}
               toggleColor={toggleColor}
             />
           </Toggle>
-          <Toggle name="Size">
+          <Toggle name={t("size")}>
             <SizeFilter
               sizes={possibleFilters.sizes}
               size={appliedFilters.sizes}
               toggleSize={toggleSize}
             />
           </Toggle>
-          <Toggle name="Material">
+          <Toggle name={t("material")}>
             <MaterialFilter
               materials={possibleFilters.material}
               material={appliedFilters.material}
               toggleMaterial={toggleMaterial}
             />
           </Toggle>
-          <Toggle name="Price Per Item">
+          <Toggle name={t("price-per-item")}>
             <PriceFilter
               maximum={maximum}
               minimum={minimum}

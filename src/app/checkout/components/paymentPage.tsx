@@ -3,6 +3,7 @@ import PaymentNumbers from "./paymentNumbers";
 import PaymentImageUpload from "./paymentImageUpload";
 import { motion } from "framer-motion";
 import { payment } from "@/types/type";
+import { useTranslations } from "next-intl";
 
 export default function PaymentPage({
   payment,
@@ -17,6 +18,7 @@ export default function PaymentPage({
   currency: "MMK" | "USD";
   setCurrency: (cur: "MMK" | "USD") => void;
 }) {
+  const t = useTranslations("checkout");
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -27,7 +29,7 @@ export default function PaymentPage({
     >
       <div className="flex flex-col md:gap-6 gap-[18px]">
         <p className="font-sora font-semibold md:text-2xl text-xl">
-          Payment Method
+          {t("payment-method")}
         </p>
         <PaymentMethods payment={payment} setPayment={setPayment} />
         {payment !== "" && (

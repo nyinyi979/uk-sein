@@ -8,8 +8,8 @@ import ProductNamePrice from "./namePrice";
 import ProductAddToCart from "./addToCart";
 import ProductRatings from "./ratings";
 import ProductReviews from "./reviews";
-import TopProductsCarousel from "@/app/components/topProducts/productCarousel";
 import { productDetails } from "@/types/type";
+import ProductsCarousel from "@/components/template/productCarousel";
 
 export default function ProductDetails({
   params,
@@ -147,7 +147,7 @@ export default function ProductDetails({
           ratings={productDetails.ratings}
         />
         <ProductReviews reviews={productDetails.reviews} />
-        <TopProductsCarousel fetchURL="" similarProduct />
+        <ProductsCarousel fetchURL="" similarProduct />
       </div>
     </div>
   );

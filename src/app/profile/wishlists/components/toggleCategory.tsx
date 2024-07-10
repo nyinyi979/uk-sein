@@ -3,6 +3,7 @@ import CategoryFilter from "@/components/actions/categoryFilter";
 import Toggle from "@/components/actions/toggle";
 import CategoryDropdown from "./categoryDropdown";
 import { AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function WhiteListCateogry({
   categories,
@@ -14,13 +15,16 @@ export default function WhiteListCateogry({
   updateCategory: (cat: string) => void;
 }) {
   const [hidden, setHidden] = React.useState(true);
-
+  const t = useTranslations();
   return (
     <div className="xl:w-[274px] w-full xl:block flex flex-row">
       <div className="xl:hidden flex flex-col md:gap-1.5 gap-1">
-        <p className="font-bold md:text-[32px] text-lg">Wishlist</p>
+        <p className="font-bold md:text-[32px] text-lg">
+          {t("wishlist.wishlist")}{" "}
+        </p>
         <p className="font-semibold md:text-base text-sm">
-          <span className="text-grey-100">Account - </span>Wishlist
+          <span className="text-grey-100">{t("profile.account")} - </span>
+          {t("wishlist.wishlist")}
         </p>
       </div>
       <div className="ml-auto relative">
@@ -28,7 +32,9 @@ export default function WhiteListCateogry({
           onClick={() => setHidden(!hidden)}
           className="xl:hidden flex flex-row gap-3 p-[14px] rounded-lg bg-white-700 hover:bg-grey-50 duration-300"
         >
-          <span className="font-semibold text-xs">All Category</span>
+          <span className="font-semibold text-xs">
+            {t("wishlist.all-category")}
+          </span>
           <span className="w-[14px] h-3 mt-1.5">
             <svg
               viewBox="0 0 18 10"

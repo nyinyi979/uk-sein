@@ -7,6 +7,7 @@ import PasswordInput from "../../../components/input/passwordInput";
 import { motion } from "framer-motion";
 import { Dispatch, SetStateAction } from "react";
 import FirstPageHeading from "./firstPageHeading";
+import { useTranslations } from "next-intl";
 
 export default function FirstPage({
   setFile,
@@ -41,6 +42,7 @@ export default function FirstPage({
   firstPageNotEmpty: boolean;
   setFirstPage: Dispatch<SetStateAction<boolean>>;
 }) {
+  const t = useTranslations();
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -56,13 +58,13 @@ export default function FirstPage({
       <GenderInput gender={gender} setGender={setGender} />
       <PasswordInput
         id="password"
-        displayedLabel="Password"
+        displayedLabel={t("input.password")}
         password={password}
         setPassword={setPassword}
       />
       <PasswordInput
         id="repassword"
-        displayedLabel="Confirm Password"
+        displayedLabel={t("input.confirm-password")}
         password={rePassword}
         setPassword={setRePassword}
       />
@@ -71,7 +73,7 @@ export default function FirstPage({
         onClick={() => setFirstPage(false)}
         className={`w-full py-[18px] mt-5 xl:text-2xl font-semibold font-sora rounded-[18px] text-white bg-khaki-600 hover:bg-khaki-700 disabled:bg-white-700 duration-300`}
       >
-        Continue
+        {t("default.continue")}
       </button>
     </motion.div>
   );

@@ -1,5 +1,6 @@
 import PasswordInput from "@/components/input/passwordInput";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function SecondPage({
   currentPassword,
@@ -16,6 +17,7 @@ export default function SecondPage({
   reNewPassword: string;
   setReNewPassword: (pw: string) => void;
 }) {
+  const t = useTranslations("input");
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -27,19 +29,19 @@ export default function SecondPage({
       <div className="flex flex-col gap-6 pb-[55px] md:border-b border-grey-100 border-dotted">
         <p className="font-sora font-semibold text-2xl">Personal Information</p>
         <PasswordInput
-          displayedLabel="Current Password"
+          displayedLabel={t("current-password")}
           id="c_password"
           password={currentPassword}
           setPassword={setCurrentPassword}
         />
         <PasswordInput
-          displayedLabel="New Password"
+          displayedLabel={t("new-password")}
           id="new_password"
           password={newPassword}
           setPassword={setNewPassword}
         />
         <PasswordInput
-          displayedLabel="Confirm New Password"
+          displayedLabel={t("renew-password")}
           id="re_new_password"
           password={reNewPassword}
           setPassword={setReNewPassword}

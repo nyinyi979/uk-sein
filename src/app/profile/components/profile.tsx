@@ -6,6 +6,7 @@ import SecondPage from "./secondPage";
 import FirstPage from "./firstPage";
 import { AnimatePresence } from "framer-motion";
 import { signUpInputInProfile, state } from "@/types/type";
+import { useTranslations } from "next-intl";
 
 export default function Signup() {
   const [input, setInput] = React.useState<signUpInputInProfile>({
@@ -77,6 +78,7 @@ export default function Signup() {
     } else {
     }
   };
+  const t = useTranslations("profile");
   return (
     <div className="xl:w-[1192px] md:w-[492px] w-[340px] flex flex-col xl:gap-10 md:gap-8 gap-6 xl:mx-auto md:ml-10 mx-auto pt-10 pb-20">
       <ProfileTitle />
@@ -117,7 +119,7 @@ export default function Signup() {
           onClick={validateInfo}
           className="md:w-fit w-full h-[50px] block py-4 px-[28px] rounded-xl text-sm text-center font-bold bg-khaki-500 text-white hover:bg-khaki-700 duration-300"
         >
-          Save {page === 0 ? "Changes" : "Password"}
+          {page === 0 ? t("save-changes") : t("save-password")}
         </button>
       </div>
     </div>

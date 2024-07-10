@@ -1,24 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
 import FloorMatImage from "./images/floorMat.png";
+import { useTranslations } from "next-intl";
 
 export default function FloorMat() {
+  const t = useTranslations("product-showcase");
   return (
     <div className="img-scale w-full relative flex md:py-16 py-10 md:px-12 px-10 rounded-3xl overflow-hidden z-[2]">
       <div className="flex flex-col xl:gap-6 gap-4 mt-auto">
         <div className="flex flex-col gap-1.5 md:w-full w-[190px]">
           <p className="font-bold font-sora xl:text-[56px] md:text-[32px] text-lg xl:leading-[70.56px] md:leading-[40.32px] leading-[22.68px]">
-            Floor Mat
+            {t("floor-mat")}
           </p>
           <p className="xl:font-medium font-normal md:text-sm text-xs md:leading-auto leading-[15px]">
-            Best quality floor mat available for your room
+            {t("floor-mat-tag")}
           </p>
         </div>
         <Link
           href={"/products"}
           className="showcase-button xl:bg-khaki-500 xl:text-white text-black xl:text-sm md:text-lg xl:hover:bg-khaki-700"
         >
-          EXPLORE NOW
+          {t("EXPLORE-NOW")}
           <svg
             className="xl:hidden mt-1"
             width="16"

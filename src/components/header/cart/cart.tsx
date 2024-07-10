@@ -5,6 +5,7 @@ import CartFooter from "./cartFooter";
 import useWindowSize from "@/components/hooks/useWindowSize";
 import { productInCart } from "@/types/type";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function CartSlider({
   hidden,
@@ -64,6 +65,7 @@ export default function CartSlider({
       });
     }
   }, [size]);
+  const t = useTranslations("cart");
   return (
     <AnimatePresence>
       {!hidden && (
@@ -98,7 +100,7 @@ export default function CartSlider({
           >
             <CartHeader count={products.length} toggle={toggle} />
             <p className="py-4 px-[30px] font-semibold text-lg border-b border-grey-50">
-              You have ({products.length}) in your cart!
+              {t("you-have")} ({products.length}) {t("in-your-cart!")}
             </p>
             <div className="h-[630px] flex flex-col gap-2.5 px-2.5 py-1.5 overflow-y-auto overflow-x-hidden">
               {products.map((p, ind) => (

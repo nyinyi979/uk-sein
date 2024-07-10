@@ -1,12 +1,20 @@
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 export default function QuickLinks() {
-  const links = ["HOME", "PRODUCTS", "PORTFOLIO", "ABOUT US", "CONTACT"];
+  const t = useTranslations();
+  const links = [
+    t("main-pages.HOME"),
+    t("main-pages.PRODUCTS"),
+    t("main-pages.PORTFOLIO"),
+    t("main-pages.ABOUT-US"),
+    t("main-pages.CONTACT"),
+  ];
   const actualLinks = ["/", "products", "portfolio", "about-us", "contact"];
   return (
     <div className="xl:w-fit w-[96px] flex flex-col gap-5">
       <p className="font-sora font-semibold xl:text-lg text-khaki-500">
-        Quick Links
+        {t("footer.quick-links")}
       </p>
       <div className="flex flex-col xl:gap-5 gap-3">
         {links.map((link, ind) => (

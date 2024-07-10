@@ -3,6 +3,7 @@ import React from "react";
 import useWindowSize from "@/components/hooks/useWindowSize";
 import { orderStatus } from "@/types/type";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function OrderHeader({
   status,
@@ -11,6 +12,7 @@ export default function OrderHeader({
   status: orderStatus;
   updateStatus: (status: orderStatus) => void;
 }) {
+  const t = useTranslations("orders");
   const status_arr = React.useRef<orderStatus[]>([
     "",
     "Confirmed",
@@ -18,10 +20,10 @@ export default function OrderHeader({
     "Reject",
   ]);
   const status_txts = React.useRef([
-    "All Orders",
-    "In-Progress Orders",
-    "Rejected Orders",
-    "Successful Orders",
+    t("all-orders"),
+    t("in-progress-orders"),
+    t("rejected-orders"),
+    t("successful-orders"),
   ]);
   const [hidden, setHidden] = React.useState(true);
   const size = useWindowSize();

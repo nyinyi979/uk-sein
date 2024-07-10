@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 export default function PriceFilter({
   maximum,
   maximumPercent,
@@ -21,11 +23,12 @@ export default function PriceFilter({
   setMinimumInPercent: (min: string) => void;
   setMinimum: (min: string) => void;
 }) {
+  const t = useTranslations("category");
   return (
     <div className="w-full">
       <div className="grid grid-cols-2 gap-2.5 text-grey-300">
         <div className="flex flex-col gap-1.5">
-          <p className="font-semibold text-[10px]">Minimum</p>
+          <p className="font-semibold text-[10px]">{t("minimum")}</p>
           <input
             type="number"
             value={minimum}
@@ -36,7 +39,7 @@ export default function PriceFilter({
           />
         </div>
         <div className="flex flex-col gap-1.5">
-          <p className="font-semibold text-[10px]">Maximum</p>
+          <p className="font-semibold text-[10px]">{t("maximum")}</p>
           <input
             type="number"
             value={maximum}

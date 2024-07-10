@@ -3,10 +3,12 @@ import Signout from "./images/signout.svg";
 import Signin from "./images/signIn.svg";
 import { useUserStore } from "@/store/clientData";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function SignOutIn({ hide }: { hide: () => void }) {
   const { userToken, clearUserToken } = useUserStore((state) => state);
   const router = useRouter();
+  const t = useTranslations("signin");
   const onClick = () => {
     hide();
     if (userToken !== "") clearUserToken();
@@ -37,7 +39,7 @@ export default function SignOutIn({ hide }: { hide: () => void }) {
         )}
       </div>
       <span className="font-bold">
-        {userToken === "" ? "Sign in" : "Sign out"}
+        {userToken === "" ? t("sign-in") : t("sign-out")}
       </span>
     </button>
   );

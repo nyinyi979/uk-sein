@@ -4,15 +4,18 @@ import Label from "./label";
 import { useLocale, useTranslations } from "next-intl";
 import { EngTownships, MyTownships } from "@/types/addresses";
 import { state } from "@/types/type";
+import RedDot from "./redDot";
 
 export default function TownshipInput({
   township,
   setTownship,
   state,
+  required = false,
 }: {
   township: string;
   setTownship: (n: string) => void;
   state: state;
+  required?: boolean;
 }) {
   const locale = useLocale();
   const t = useTranslations("input");
@@ -21,7 +24,10 @@ export default function TownshipInput({
   const valTownships = EngTownships[state];
   return (
     <div className="flex flex-col gap-[14px] relative">
-      <Label htmlFor="township">{t("township")}</Label>
+      <Label htmlFor="township">
+        {t("township")}
+        {required && <RedDot />}
+      </Label>
       <select
         name="township"
         id="township"

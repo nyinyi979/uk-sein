@@ -4,6 +4,7 @@ import mm from "../images/mm.png";
 import usd from "../images/usd.png";
 import { payment } from "@/types/type";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function PaymentNumbers({
   currency,
@@ -14,15 +15,18 @@ export default function PaymentNumbers({
   currency: "MMK" | "USD";
   setCurrency: (cur: "MMK" | "USD") => void;
 }) {
+  const t = useTranslations("checkout");
   return (
     <div className="flex flex-col md:gap-6 gap-[18px] pb-7">
       <div className="flex flex-col md:gap-4 gap-3">
         <div className="flex flex-row gap-3">
-          <p className="font-semibold text-grey-400">Payment Number : </p>
+          <p className="font-semibold text-grey-400">
+            {t("payment-number")} :{" "}
+          </p>
           <p className="font-bold">0887822121</p>
         </div>
         <div className="flex flex-row gap-3">
-          <p className="font-semibold text-grey-400">Owner name : </p>
+          <p className="font-semibold text-grey-400">{t("owner-name")} : </p>
           <p className="font-bold">Ko Khant</p>
         </div>
       </div>
@@ -82,7 +86,7 @@ export default function PaymentNumbers({
         />
       </div>
       <p className="w-fit py-3 md:p-[18px] px-2 rounded-[10px] bg-red-50 font-semibold xl:text-base md:text-sm text-xs text-red-500">
-        *Drop the screenshot here after you make the payment!
+        *{t("drop-the-ss")}
       </p>
     </div>
   );

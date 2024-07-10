@@ -1,6 +1,8 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 export default function NotFoundError() {
+  const t = useTranslations("category");
   return (
     <div className="col-span-3 md:w-1/2 mx-auto py-[120px]">
       <div className="size-[120px] mx-auto relative">
@@ -13,8 +15,7 @@ export default function NotFoundError() {
         />
       </div>
       <p className="py-5 font-semibold text-center text-grey-200">
-        Sorry! No Data Found from your filter search! <br /> Try to search
-        something else.
+        {t("sorry-no-data-found")} <br /> {t("try-to-search")}
       </p>
     </div>
   );

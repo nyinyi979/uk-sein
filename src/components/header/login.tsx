@@ -9,6 +9,7 @@ import Logout from "./images/logOut.svg";
 import { AnimatePresence, motion } from "framer-motion";
 import { useUserStore } from "@/store/clientData";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function Login({
   hidden,
@@ -25,6 +26,7 @@ export default function Login({
     toggle();
     router.push("/");
   };
+  const t = useTranslations("main-pages");
   return (
     <div className="xl:flex hidden flex-row relative">
       {userToken === "" ? (
@@ -32,7 +34,7 @@ export default function Login({
           href={"/login"}
           className="w-[120px] h-[50px] px-5 py-3 bg-khaki-500 rounded-xl text-center text-white hover:bg-khaki-700 duration-300"
         >
-          Login
+          {t("login")}
         </Link>
       ) : (
         <button
@@ -71,7 +73,7 @@ export default function Login({
                   className="size-full object-cover"
                 />
               </div>
-              <p className="font-semibold">My Profile</p>
+              <p className="font-semibold">{t("my-profile")}</p>
             </Link>
             <Link
               href="/profile/orders"
@@ -87,7 +89,7 @@ export default function Login({
                   className="size-full object-cover"
                 />
               </div>
-              <p className="font-semibold">My Orders</p>
+              <p className="font-semibold">{t("my-order")}</p>
             </Link>
             <Link
               href="/profile/wishlists"
@@ -103,7 +105,7 @@ export default function Login({
                   className="size-full object-cover"
                 />
               </div>
-              <p className="font-semibold">Wishlists</p>
+              <p className="font-semibold">{t("wishlists")}</p>
             </Link>
             <button
               onClick={logOut}
@@ -118,7 +120,7 @@ export default function Login({
                   className="size-full object-cover"
                 />
               </div>
-              <p className="font-semibold">Logout</p>
+              <p className="font-semibold">{t("logout")}</p>
             </button>
           </motion.div>
         )}

@@ -1,17 +1,23 @@
 import { useTranslations } from "next-intl";
 import Label from "./label";
+import RedDot from "./redDot";
 
 export default function AddresssInput({
   address,
   setAddress,
+  required = false,
 }: {
   address: string;
   setAddress: (n: string) => void;
+  required?: boolean;
 }) {
   const t = useTranslations("input")("address");
   return (
     <div className="flex flex-col gap-[14px]">
-      <Label htmlFor="add">{t}</Label>
+      <Label htmlFor="add">
+        {t}
+        {required && <RedDot />}
+      </Label>
       <textarea
         value={address}
         onChange={(e) => setAddress(e.target.value)}

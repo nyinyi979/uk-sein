@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { review } from "@/types/type";
+import { useTranslations } from "next-intl";
 
 export function EachReview({ rv }: { rv: review }) {
   return (
@@ -48,14 +49,16 @@ export function EachReview({ rv }: { rv: review }) {
   );
 }
 export function ReviewTitle({ children }: { children?: React.ReactNode }) {
+  const t = useTranslations("product");
   return (
     <p className="flex flex-row font-sora font-semibold xl:text-[32px] md:text-2xl text-lg">
-      Our Customers' Reviews
+      {t("our-customer-reviews")}
       {children}
     </p>
   );
 }
 export function ReviewError() {
+  const t = useTranslations("product");
   return (
     <div className="py-[120px] text-center">
       <Image
@@ -66,8 +69,7 @@ export function ReviewError() {
         className="w-auto h-auto"
       />
       <p>
-        Sorry! No review found yet! <br />
-        Be the first one to review the product.
+        {t("sorry-no-reivew")} <br /> {t("be-the-first")}
       </p>
     </div>
   );

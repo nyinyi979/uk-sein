@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import ProductQuantity from "./quantity";
 
 export default function ProductDetail({
@@ -27,11 +28,12 @@ export default function ProductDetail({
   incrementCounts: () => void;
   decrementCounts: () => void;
 }) {
+  const t = useTranslations("category");
   return (
     <div className="flex flex-col xl:gap-[38px] gap-6 xl:pb-8 pb-6">
       <div className="flex flex-col xl:gap-[18px] md:gap-[14px] gap-3">
         <p className="font-sora font-semibold xl:text-base md:text-sm text-xs">
-          Size
+          {t("size")}
         </p>
         <div className="flex flex-row xl:gap-[23px] gap-4">
           {sizes.map((size) => (
@@ -47,7 +49,7 @@ export default function ProductDetail({
       </div>
       <div className="flex flex-col xl:gap-[18px] md:gap-[14px] gap-3">
         <p className="font-sora font-semibold xl:text-base md:text-sm text-xs">
-          Color
+          {t("color")}
         </p>
         <div className="flex flex-row xl:gap-[23px] gap-4">
           {colors.map((clr) => (
@@ -63,7 +65,7 @@ export default function ProductDetail({
       </div>
       <div className="flex flex-col xl:gap-[18px] md:gap-[14px] gap-3">
         <p className="font-sora font-semibold xl:text-base md:text-sm text-xs">
-          Material
+          {t("material")}
         </p>
         <div className="flex flex-row xl:gap-[23px] gap-4">
           {materials.map((mat) => (

@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 export default function CheckoutButtons({
   page,
   updatePage,
@@ -5,6 +7,7 @@ export default function CheckoutButtons({
   page: "Shipping" | "Payment" | "Confirmed";
   updatePage: () => void;
 }) {
+  const t = useTranslations("default");
   return (
     <>
       {page === "Shipping" && (
@@ -12,7 +15,7 @@ export default function CheckoutButtons({
           onClick={updatePage}
           className="button font-bold xl:ml-auto bg-khaki-500 text-white hover:bg-khaki-700 duration-300"
         >
-          Continue
+          {t("continue")}
         </button>
       )}
       {page === "Payment" && (
@@ -20,7 +23,7 @@ export default function CheckoutButtons({
           onClick={updatePage}
           className="button font-bold xl:ml-auto bg-khaki-500 text-white hover:bg-khaki-700 duration-300"
         >
-          Continue
+          {t("continue")}
         </button>
       )}
     </>

@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { clientWord } from "@/types/type";
+import { useTranslations } from "next-intl";
 
 export default function ClientWorkdsCarousel() {
   const [activeIndex, setActiveIndex] = React.useState(0);
@@ -15,6 +16,7 @@ export default function ClientWorkdsCarousel() {
     activeIndex + 1 <= clientWords.length && setActiveIndex(activeIndex + 1);
   const decrementIndex = () =>
     activeIndex - 1 >= 0 && setActiveIndex(activeIndex - 1);
+  const t = useTranslations("home");
   const [clientWords, setClientWords] = React.useState<clientWord[]>([
     {
       wordID: "word1",
@@ -44,7 +46,7 @@ export default function ClientWorkdsCarousel() {
   return (
     <div className="flex flex-col gap-8 relative md:px-0 px-5">
       <div className="flex flex-row py-4 font-sora font-bold xl:text-[32px] md:text-2xl text-lg">
-        <span className="md:mt-0 mt-3">Our Clients' Words</span>
+        <span className="md:mt-0 mt-3">{t("client.client-words")}</span>
         <CarouselButtons
           classname="review"
           decrementIndex={decrementIndex}

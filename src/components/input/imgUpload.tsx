@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Thumnbail from "./images/img.svg";
+import Thumnbail from "@/svg/img.svg";
 import { useTranslations } from "next-intl";
 
 export default function ImageUpload({

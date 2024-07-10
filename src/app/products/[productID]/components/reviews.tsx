@@ -3,6 +3,7 @@ import WriteReview from "./writeReview";
 import ReviewPopUp from "./reviewsPopup";
 import { review } from "@/types/type";
 import { EachReview, ReviewError, ReviewTitle } from "./reviewComponents";
+import { useTranslations } from "next-intl";
 
 export default function ProductReviews({ reviews }: { reviews: review[] }) {
   const [open, setOpen] = React.useState(false);
@@ -12,6 +13,7 @@ export default function ProductReviews({ reviews }: { reviews: review[] }) {
   const openPopUp = () => {
     setOpen(true);
   };
+  const t = useTranslations("product");
   return (
     <div className="flex flex-col xl:gap-8 gap-6 pb-8">
       <div className="flex flex-row justify-between">
@@ -23,7 +25,7 @@ export default function ProductReviews({ reviews }: { reviews: review[] }) {
               className="md:flex hidden flex-row gap-2 align-middle p-2 text-khaki-500"
               onClick={openPopUp}
             >
-              See All Reviews
+              {t("see-all-review")}
               <svg
                 className="mt-1"
                 width="16"

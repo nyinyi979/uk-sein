@@ -5,20 +5,26 @@ import Label from "./label";
 import { useLocale, useTranslations } from "next-intl";
 import { EngStates, MyStates } from "@/types/addresses";
 import { state } from "@/types/type";
+import RedDot from "./redDot";
 
 export default function StateInput({
   state,
   setState,
+  required = false,
 }: {
   state: state;
   setState: (s: state) => void;
+  required?: boolean;
 }) {
   const locale = useLocale();
   const states = locale === "en" ? EngStates : MyStates;
   const t = useTranslations("input");
   return (
     <div className="w-full flex flex-col gap-[14px] relative">
-      <Label htmlFor="state">{t("state")}</Label>
+      <Label htmlFor="state">
+        {t("state")}
+        {required && <RedDot />}
+      </Label>
       <select
         name="state"
         id="state"

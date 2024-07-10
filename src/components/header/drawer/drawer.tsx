@@ -3,9 +3,11 @@ import ProfileLinks from "./profileLink";
 import SignOutIn from "./signOutIn";
 import { motion } from "framer-motion";
 import { useUserStore } from "@/store/clientData";
+import { useTranslations } from "next-intl";
 
 export default function Drawer({ hide }: { hide: () => void }) {
   const userToken = useUserStore((state) => state.userToken);
+  const t = useTranslations("product");
   return (
     <motion.div
       animate={{ opacity: [0, 1] }}
@@ -49,7 +51,7 @@ export default function Drawer({ hide }: { hide: () => void }) {
         className="md:w-[350px] w-[276px] h-full md:pt-[83px] pt-10 md:pl-[50px] pl-5 pb-10 bg-white shadow-drawer overflow-y-auto"
       >
         <div className="w-fit flex flex-col gap-6">
-          <p className="font-semibold text-2xl">Explore Menu</p>
+          <p className="font-semibold text-2xl">{t("explore-now")}</p>
           <NavigationLinks hide={hide} />
           {userToken !== "" && <ProfileLinks hide={hide} />}
           <SignOutIn hide={hide} />

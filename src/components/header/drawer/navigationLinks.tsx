@@ -4,33 +4,35 @@ import Portfolio from "./images/portfolio.svg";
 import AboutUs from "./images/aboutUs.svg";
 import Contact from "./images/contact.svg";
 import HyperLink from "./link";
+import { useTranslations } from "next-intl";
 
 export default function NavigationLinks({ hide }: { hide: () => void }) {
+  const t = useTranslations("main-pages");
   const navLinks = [
     {
       url: "/",
       img: Home,
-      name: "Home",
+      name: t("home"),
     },
     {
       url: "/products",
       img: Products,
-      name: "Products",
+      name: t("products"),
     },
     {
       url: "/portfolio",
       img: Portfolio,
-      name: "Portfolio",
+      name: t("portfolio"),
     },
     {
       url: "/about-us",
       img: AboutUs,
-      name: "About Us",
+      name: t("about-us"),
     },
     {
       url: "/contact",
       img: Contact,
-      name: "Contact Us",
+      name: t("contact"),
     },
   ];
   return (

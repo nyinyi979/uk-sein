@@ -4,12 +4,14 @@ import Email from "../images/calendar.svg";
 import Phone from "../images/calendar.svg";
 import OrderDetailCard from "./orderDetailCard";
 import { customerInOrder } from "@/types/type";
+import { useTranslations } from "next-intl";
 
 export default function CustomerDetails({
   email,
   name,
   phoneNo,
 }: customerInOrder) {
+  const t = useTranslations("input");
   return (
     <OrderDetailCard heading="Customer Details">
       <div className="flex flex-col md:gap-[18px] gap-4 font-bold xl:text-lg text-sm">
@@ -24,7 +26,7 @@ export default function CustomerDetails({
                 className="size-full object-cover"
               />
             </div>
-            <p className="text-grey-100">Name</p>
+            <p className="text-grey-100">{t("name")}</p>
           </div>
           <p>{name}</p>
         </div>
@@ -39,7 +41,7 @@ export default function CustomerDetails({
                 className="size-full object-cover"
               />
             </div>
-            <p className="text-grey-100">Email</p>
+            <p className="text-grey-100">{t("email")}</p>
           </div>
           <p>{email}</p>
         </div>
@@ -54,7 +56,7 @@ export default function CustomerDetails({
                 className="size-full object-cover"
               />
             </div>
-            <p className="text-grey-100">Phone no</p>
+            <p className="text-grey-100">{t("phone")}</p>
           </div>
           <p>{phoneNo}</p>
         </div>

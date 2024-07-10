@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 export default function CateogryHeading({
   category,
   show,
@@ -5,6 +7,7 @@ export default function CateogryHeading({
   category: string;
   show: () => void;
 }) {
+  const t = useTranslations("category");
   return (
     <div className="flex flex-row">
       <div className="flex flex-col">
@@ -13,7 +16,7 @@ export default function CateogryHeading({
         </p>
         <p className="md:leading-8 leading-4">
           <span className="text-grey-100 md:text-base text-sm">
-            Category -{" "}
+            {t("category")} -{" "}
           </span>
           {category}
         </p>
@@ -36,7 +39,7 @@ export default function CateogryHeading({
               fill="white"
             />
           </svg>
-          <span>Filter</span>
+          <span>{t("filter")}</span>
         </button>
       </div>
     </div>

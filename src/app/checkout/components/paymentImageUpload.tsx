@@ -1,12 +1,15 @@
 import React from "react";
 import Image from "next/image";
-import Thumnbail from "../../components/images/img.svg";
+import Thumnbail from "@/svg/img.svg";
+import { useTranslations } from "next-intl";
+import RedDot from "@/components/input/redDot";
 
 export default function PaymentImageUpload({
   setFile,
 }: {
   setFile: (f: File) => void;
 }) {
+  const t = useTranslations("common-phrases");
   const [imgData, setImgData] = React.useState<string | null>(null);
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -22,7 +25,8 @@ export default function PaymentImageUpload({
     <div className="flex flex-col gap-[14px]">
       <label htmlFor="payment">
         <p className="font-semibold pb-3">
-          Payment <span className="text-red-500">*</span>
+          {t("payment")}
+          <RedDot />
         </p>
         <div className="w-[180px] h-[300px] relative rounded-xl overflow-hidden">
           {imgData !== null && (

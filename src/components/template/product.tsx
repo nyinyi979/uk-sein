@@ -4,6 +4,7 @@ import WishList from "../actions/wishlist";
 import RatingStars from "./rating";
 import { product } from "@/types/type";
 import AddToCartButton from "./addToCart";
+import { useLocale } from "next-intl";
 
 export default function Product({
   itemID,
@@ -16,6 +17,7 @@ export default function Product({
   whiteListed,
   small,
 }: smallLargeProduct) {
+  const locale = useLocale();
   return (
     <Link href={`/products/${itemID}`}>
       <div className="w-fit flex flex-col gap-2.5 mx-auto relative rounded-3xl">
@@ -42,12 +44,13 @@ export default function Product({
             <p
               className={`py-1 font-sora font-semibold ${small ? "xl:text-xl md:text-base text-sm" : "xl:text-2xl md:text-xl text-sm"}`}
             >
-              {engName}
+              {locale === "en" ? engName : myName}
             </p>
             <p
               className={`${small ? "md:text-xs text-[8px]" : "md:text-sm text-[8px]"} text-grey-300`}
             >
-              {myName} <span className="px-2 text-grey-200">({itemID})</span>
+              {locale === "en" ? myName : engName}{" "}
+              <span className="px-2 text-grey-200">({itemID})</span>
             </p>
           </div>
           <RatingStars count={rating} />

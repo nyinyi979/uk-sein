@@ -8,26 +8,26 @@ import Portfolio13 from "../images/portfolio-13.png";
 import Portfolio14 from "../images/portfolio-14.png";
 import Portfolio15 from "../images/portfolio-15.png";
 import Portfolio16 from "../images/portfolio-16.png";
+import { useTranslations } from "next-intl";
+
 export default function PortfolioCards() {
+  const t = useTranslations("portfolio");
   return (
     <>
       <PortfolioCard
         heading="A's Thai Spa"
-        content={`Introducing our latest furniture project, the "EcoHarmony Collection," where modern design meets sustainability. This groundbreaking line features an array of stylish, eco-friendly furniture crafted from sustainable materials like reclaimed wood and recycled metals. Each piece is meticulously designed to offer exceptional durability and comfort, ensuring that your home not only looks beautiful but also supports a healthier planet.
-    From elegant dining sets to cozy sofas, the EcoHarmony Collection embodies a perfect balance of form and function. Our commitment to green practices means that every item in this collection is created with minimal environmental impact, using energy-efficient processes and eco-friendly finishes.`}
+        content={t("portfolio-card")}
         imgs={[Portfolio8, Portfolio9, Portfolio10]}
       />
       <PortfolioCard
         heading="Dream Floral Service & Event Decoration"
-        content={`Introducing our latest furniture project, the "EcoHarmony Collection," where modern design meets sustainability. This groundbreaking line features an array of stylish, eco-friendly furniture crafted from sustainable materials like reclaimed wood and recycled metals. Each piece is meticulously designed to offer exceptional durability and comfort, ensuring that your home not only looks beautiful but also supports a healthier planet.
-From elegant dining sets to cozy sofas, the EcoHarmony Collection embodies a perfect balance of form and function. Our commitment to green practices means that every item in this collection is created with minimal environmental impact, using energy-efficient processes and eco-friendly finishes.`}
+        content={t("portfolio-card")}
         imgs={[Portfolio11, Portfolio12, Portfolio13]}
         leftIsBigger={false}
       />
       <PortfolioCard
         heading="Dior By Heart"
-        content={`Introducing our latest furniture project, the "EcoHarmony Collection," where modern design meets sustainability. This groundbreaking line features an array of stylish, eco-friendly furniture crafted from sustainable materials like reclaimed wood and recycled metals. Each piece is meticulously designed to offer exceptional durability and comfort, ensuring that your home not only looks beautiful but also supports a healthier planet.
-From elegant dining sets to cozy sofas, the EcoHarmony Collection embodies a perfect balance of form and function. Our commitment to green practices means that every item in this collection is created with minimal environmental impact, using energy-efficient processes and eco-friendly finishes.`}
+        content={t("portfolio-card")}
         imgs={[Portfolio14, Portfolio15, Portfolio16]}
       />
     </>
