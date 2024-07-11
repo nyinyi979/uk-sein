@@ -56,7 +56,7 @@ export default function CartSummary({
           damping: 6.67,
         }}
         onClick={(ev) => ev.stopPropagation()}
-        className="xl:w-[478px] md:w-[578px] w-[360px] md:max-h-max max-h-[500px] overflow-scroll xl:my-0 mt-[10%] mx-auto flex flex-col gap-1.5 pt-2.5 rounded-[15px] bg-white origin-center"
+        className="xl:w-[478px] md:w-[578px] w-[360px] md:max-h-max max-h-[500px] overflow-scroll xl:my-0 mt-[20%] mx-auto flex flex-col gap-1.5 pt-2.5 rounded-[15px] bg-white origin-center"
       >
         <CartSummaryHeader closeCart={closeCart} count={products.length} />
         <div className="px-2.5 pb-6">

@@ -44,7 +44,7 @@ export default function Drawer({ hide }: { hide: () => void }) {
         }}
         drag={"x"}
         dragConstraints={{ left: -200, right: 0 }}
-        onDrag={(ev,info) => {
+        onDrag={(ev, info) => {
           if (info.point.x < 250) hide();
         }}
         onClick={(ev) => ev.stopPropagation()}

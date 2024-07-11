@@ -46,7 +46,7 @@ export default function CartItem({
           </p>
           <button
             onClick={() => removeItem(index)}
-            className="cart-btn ml-auto px-2.5"
+            className="cart-btn ml-auto md:px-2.5 px-2"
           >
             <svg
               width="18"

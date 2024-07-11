@@ -5,6 +5,6 @@ export const metadata: Metadata = {
   description: "Different categories of products available in UK SEIN!",
 };
 
-export default function(){
-  return(<></>)
+export default function () {
+  return <></>;
 }

@@ -78,25 +78,33 @@ function ProductRow({
         </div>
       </div>
       <p className="xl:w-[200px] md:w-[150px] w-full md:block flex xl:text-left text-center">
-        <span className="md:hidden font-semibold text-grey-200">{t("category.category")}</span>
+        <span className="md:hidden font-semibold text-grey-200">
+          {t("category.category")}
+        </span>
         <span className="ml-auto xl:text-base md:text-sm text-lg">
           {category}
         </span>
       </p>
       <p className="xl:w-[130px] md:w-[80px] w-full md:block flex xl:text-left text-center">
-        <span className="md:hidden font-semibold text-grey-200">{t("orders.QUANTITY")}</span>
+        <span className="md:hidden font-semibold text-grey-200">
+          {t("orders.QUANTITY")}
+        </span>
         <span className="ml-auto xl:text-base md:text-sm text-lg">
           {quantity}x
         </span>
       </p>
       <p className="xl:w-[250px] md:w-[250px] w-full md:block flex text-right">
-        <span className="md:hidden font-semibold text-grey-200">{t("orders.price")}</span>
+        <span className="md:hidden font-semibold text-grey-200">
+          {t("orders.price")}
+        </span>
         <span className="ml-auto md:font-bold font-semibold xl:text-base md:text-sm text-lg">
           {price.toLocaleString()} MMK
         </span>
       </p>
       <p className="xl:w-[250px] md:w-[100px] w-full md:block flex">
-        <span className="md:hidden font-semibold text-grey-200">{t("orders.total")}</span>
+        <span className="md:hidden font-semibold text-grey-200">
+          {t("orders.total")}
+        </span>
         <span className="md:block ml-auto font-bold xl:text-base md:text-sm text-lg text-right md:text-grey-500 text-khaki-500">
           {(price * quantity).toLocaleString()} MMK
         </span>

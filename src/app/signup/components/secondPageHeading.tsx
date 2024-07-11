@@ -32,7 +32,10 @@ export default function SecondPageHeading({
         </svg>
         <span> {t("back-to.back-to-personal")} </span>
       </button>
-      <p className="font-sora font-semibold text-2xl"> {t("common-phrases.shipping")} </p>
+      <p className="font-sora font-semibold text-2xl">
+        {" "}
+        {t("common-phrases.shipping")}{" "}
+      </p>
     </>
   );
 }

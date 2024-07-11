@@ -65,9 +65,11 @@ export default function Cart({
             className="size-auto"
           />
         </span>
-        <p className="md:relative absolute top-0 right-0 size-4 rounded-full mt-1 bg-red-500 text-white text-[10px] text-center">
-          {cartItem.length}
-        </p>
+        {cartItem.length > 0 && (
+          <p className="md:relative absolute top-0 right-0 size-4 rounded-full mt-1 bg-red-500 text-white text-[10px] text-center">
+            {cartItem.length}
+          </p>
+        )}
       </button>
       <CartSlider
         hidden={hidden}

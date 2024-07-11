@@ -23,7 +23,7 @@ export default function Login() {
   const notEmpty = input.phoneNumber != "" && input.password != "";
   const t = useTranslations();
   return (
-    <div className="w-fit grid md:grid-cols-2 xl:gap-28 gap-10 mx-auto py-20">
+    <div className="w-fit grid md:grid-cols-2 xl:gap-28 gmd:ap-10 gap-5 mx-auto md:py-20 py-10">
       <div className="xl:w-[500px] md:w-[344px] w-[340px] flex flex-col gap-10 mx-auto">
         <LoginBack />
         <form onSubmit={() => {}} className="flex flex-col gap-10">
@@ -44,14 +44,14 @@ export default function Login() {
                 {t("signin.forgot-password")}
               </Link>
             </div>
-            <button
-              disabled={!notEmpty}
-              type="submit"
-              className={`w-full h-[78px] mt-5 rounded-[18px] font-semibold font-sora xl:text-2xl ${notEmpty ? "bg-khaki-600 text-white hover:bg-khaki-700" : "bg-white-700 text-white"} duration-300`}
-            >
-              {t("signin.sign-in")}
-            </button>
           </div>
+          <button
+            disabled={!notEmpty}
+            type="submit"
+            className={`w-full h-[78px] rounded-[18px] font-semibold font-sora xl:text-2xl ${notEmpty ? "bg-khaki-600 text-white hover:bg-khaki-700" : "bg-white-700 text-white"} duration-300`}
+          >
+            {t("signin.sign-in")}
+          </button>
           <p className="my-3 font-semibold text-center xl:text-lg text-sm">
             {t("signin.don't-have-account")}
             <Link

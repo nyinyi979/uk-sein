@@ -18,7 +18,7 @@ export default function Pagination({
     }
   }
   return (
-    <div className="flex flex-row gap-10 ml-auto">
+    <div className="flex flex-row md:gap-10 gap-3 ml-auto">
       <button
         onClick={() => setIndex(activeIndex - 1)}
         disabled={activeIndex === 1}
@@ -58,14 +58,14 @@ export default function Pagination({
             {activeIndex + 1}
           </button>
         )}
-        {activeIndex === 1 && activeIndex + 2 < totalIndex && (
+        {/* {activeIndex === 1 && activeIndex + 2 < totalIndex && (
           <button
             onClick={() => setIndex(activeIndex + 2)}
             className="pagination xl:block hidden"
           >
             {activeIndex + 2}
           </button>
-        )}
+        )} */}
         {totalIndex - activeIndex > 2 && (
           <p className="disabled-paginatoin">...</p>
         )}

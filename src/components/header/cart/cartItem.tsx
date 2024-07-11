@@ -109,7 +109,10 @@ function ItemButtons({
         </svg>
       </button>
       <div className="xl:ml-20 ">
-        <button onClick={() => removeItem(index)} className="cart-btn px-2.5">
+        <button
+          onClick={() => removeItem(index)}
+          className="cart-btn md:px-2.5 px-2"
+        >
           <svg
             width="18"
             height="18"

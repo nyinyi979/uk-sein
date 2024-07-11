@@ -19,12 +19,12 @@ export default function OrderHeader({
     "Pending",
     "Reject",
   ]);
-  const status_txts = React.useRef([
+  const status_txts = [
     t("all-orders"),
     t("in-progress-orders"),
     t("rejected-orders"),
     t("successful-orders"),
-  ]);
+  ];
   const [hidden, setHidden] = React.useState(true);
   const size = useWindowSize();
 
@@ -39,7 +39,7 @@ export default function OrderHeader({
     else setHidden(true);
   };
   const txt =
-    status_txts.current[status_arr.current.findIndex((val) => val === status)];
+    status_txts[status_arr.current.findIndex((val) => val === status)];
   return (
     <div className="w-fit relative md:font-bold font-semibold xl:text-base text-sm">
       <button
@@ -86,7 +86,7 @@ export default function OrderHeader({
                 onClick={() => changeStatus(s)}
                 className="xl:py-5 md:py-4 xl:px-[72px] md:px-[20px] p-[18px] text-left md:disabled:border-b-[1.5px] md:disabled:border-khaki-500 md:disabled:text-khaki-500 disabled:bg-grey-50 md:hover:bg-khaki-50 hover:bg-grey-50 duration-300"
               >
-                {status_txts.current[i]}
+                {status_txts[i]}
               </button>
             ))}
           </motion.div>
