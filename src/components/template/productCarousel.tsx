@@ -22,9 +22,9 @@ export default function ProductsCarousel({
     activeIndex + 1 <= products.length - 3 && setActiveIndex(activeIndex + 1);
   const decrementIndex = () =>
     activeIndex - 1 >= 0 && setActiveIndex(activeIndex - 1);
-  fetch(fetchURL).then((val) => {
-    //
-  });
+  // fetch(fetchURL).then((val) => {
+
+  // });
   const [products, setProducts] = React.useState<product[]>([
     {
       itemID: "sample id",
