@@ -24,7 +24,7 @@ export default function Baskets() {
     >
       <Link
         href={"/products"}
-        className="showcase-button xl:bg-grey-500 xl:text-white text-khaki-500 xl:text-sm md:text-lg xl:hover:bg-grey-400"
+        className="baskets-link"
       >
         {t("EXPLORE-NOW")}
         <svg

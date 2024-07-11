@@ -30,7 +30,7 @@ export default function SeasonalPromotions() {
         </p>
         <Link
           href={"/products"}
-          className="button bg-grey-500 md:bg-khaki-500 xl:bg-grey-500 text-white hover:bg-grey-400 md:hover:bg-khaki-700 xl:hover:bg-grey-400 duration-300"
+          className="w-fit h-[50px] block py-4 px-[28px] rounded-xl text-sm text-center bg-grey-500 md:bg-khaki-500 xl:bg-grey-500 text-white hover:bg-grey-400 md:hover:bg-khaki-700 xl:hover:bg-grey-400 duration-300"
         >
           {t("product.explore-now")}
         </Link>
