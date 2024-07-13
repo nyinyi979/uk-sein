@@ -32,7 +32,7 @@ export default function Login({
       {userToken === "" ? (
         <Link
           href={"/login"}
-          className="w-[120px] h-[50px] px-5 py-3 bg-khaki-500 rounded-xl text-center text-white hover:bg-khaki-700 duration-300"
+          className="w-[140px] h-[50px] px-5 py-3 bg-khaki-500 rounded-xl text-center text-white hover:bg-khaki-700 duration-300"
         >
           {t("login")}
         </Link>

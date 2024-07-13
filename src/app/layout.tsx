@@ -23,6 +23,9 @@ const lexend = Lexend({
 export const metadata: Metadata = {
   title: "UK Sein",
   description: "",
+  icons:{
+    icon: "/favicon.ico"
+  }
 };
 
 export default async function RootLayout({

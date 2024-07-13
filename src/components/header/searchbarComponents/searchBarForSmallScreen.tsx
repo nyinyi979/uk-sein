@@ -7,6 +7,7 @@ import SearchResults from "./searchResults";
 import useWindowSize from "@/components/hooks/useWindowSize";
 import { useTranslations } from "next-intl";
 import { AnimatePresence } from "framer-motion";
+import { useSearchParams } from "next/navigation";
 
 export default function SearchBarForSmallScreen() {
   const [searchInput, setSearchInput] = React.useState("");
@@ -25,6 +26,7 @@ export default function SearchBarForSmallScreen() {
       // fetch from api
       setSearchResult(["Example", "Example2", "Example3", "Example4"]);
     }, 2000);
+    return () => clearInterval(timer);
   }, [searchInput]);
 
   const searchBtnClick = () => {
@@ -32,6 +34,7 @@ export default function SearchBarForSmallScreen() {
       setSearchInput("");
     }
   };
+  const query = useSearchParams().get("query");
   return (
     <div className="xl:hidden md:w-[664px] w-[340px] relative py-4 mx-auto">
       <input
@@ -55,8 +58,8 @@ export default function SearchBarForSmallScreen() {
           <Image src={CrossIcon} alt="search icon" fill sizes="100%" />
         </button>
       )}
-      <DefaultResults small />
-      {searchInput !== "" && (
+      {query===null&&<DefaultResults small />}
+      {query===null&&searchInput !== "" && (
         <AnimatePresence>
           <SearchResults searchResults={searchResult} />
         </AnimatePresence>

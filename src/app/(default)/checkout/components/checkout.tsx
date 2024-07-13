@@ -11,9 +11,12 @@ import useWindowSize from "@/components/hooks/useWindowSize";
 import { useRouter } from "next/navigation";
 import { checkOutData, payment, productInCart, state } from "@/types/type";
 import { AnimatePresence } from "framer-motion";
+import { useUserStore } from "@/store/clientData";
+import { isAuthenticated } from "@/store/auth";
 
 export default function Checkout() {
   const router = useRouter();
+  const userToken = useUserStore((store)=>store.userToken);
   const [input, setInput] = React.useState<checkOutData>({
     name: "Ko Khant",
     phoneNo: "0964647576",
@@ -97,11 +100,6 @@ export default function Checkout() {
       document.body.style.overflowY = "hidden";
     }
   };
-  React.useEffect(() => {
-    if (size[0] >= 1440) {
-      openCart();
-    } else closeCart();
-  }, [size]);
   const updatePage = () => {
     if (page === "Shipping") setPage("Payment");
     else if (page === "Payment") setPage("Confirmed");
@@ -110,6 +108,15 @@ export default function Checkout() {
     if (page === "Shipping") router.back();
     else if (page === "Payment") setPage("Shipping");
   };
+  React.useEffect(() => {
+    if (size[0] >= 1440) {
+      openCart();
+    } else closeCart();
+  }, [size]);
+
+  React.useEffect(()=>{
+    if(!isAuthenticated(userToken)) router.back();
+  },[])
   return (
     <div className="xl:w-[1190px] flex flex-row gap-40 mx-auto py-20 xl:px-0 md:px-[51px]">
       <div className="md:w-[580px] w-[343px] mx-auto flex flex-col gap-[50px]">

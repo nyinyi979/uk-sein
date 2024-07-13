@@ -9,6 +9,7 @@ export default function ({
 }>) {
   const userToken = useUserStore((state) => state.userToken);
   const router = useRouter();
+  console.log(isAuthenticated(userToken))
   if (!isAuthenticated(userToken)) {
     router.push("/");
   }

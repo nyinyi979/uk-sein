@@ -28,7 +28,7 @@ export default function CateogryHeading({
         </p>
       </div>
       <div className="xl:hidden flex flex-row gap-2.5 ml-auto">
-        <button className="size-[46px] py-2 px-5 bg-khaki-50 hover:bg-khaki-100 rounded-[10px] duration-300">
+        <button className="md:size-[46px] size-[36px] py-2 md:px-5 px-3 bg-khaki-50 hover:bg-khaki-100 rounded-[10px] duration-300">
           <span className="block w-3 h-3 relative">
             <Image
               src={Sort}

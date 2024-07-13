@@ -23,7 +23,20 @@ export default function SearchBarInBanner() {
   };
   const t = useTranslations("banner");
   const placeholder =
-    size[0] > 1440 ? t("search-products") : t("search-products");
+    size[0] > 1440 ? t("search-products") : t("search");
+
+  const searchBtnClick = () => {
+    if (searchInput !== "") {
+      setSearchInput("");
+    }
+  };
+  const escCapture = () => {
+    if(searchInput!=="") setSearchInput("");
+    else {
+      hide();
+      document.getElementById("search")?.blur();
+    }
+  }
 
   React.useEffect(() => {
     hide();
@@ -33,16 +46,13 @@ export default function SearchBarInBanner() {
       // fetch from api
       setSearchResult(["Example", "Example2", "Example3", "Example4"]);
     }, 2000);
+    return ()=>clearInterval(timer);
   }, [searchInput]);
 
-  const searchBtnClick = () => {
-    if (searchInput !== "") {
-      setSearchInput("");
-    }
-  };
   return (
     <div
       onBlur={onBlur}
+      onKeyDown={(ev)=>ev.key==="Escape"&&escCapture()}
       className="xl:w-[651px] md:w-[664px] w-[340px] h-fit relative py-4 mx-auto"
     >
       <input

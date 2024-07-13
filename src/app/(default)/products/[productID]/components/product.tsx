@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React from "react";
 import ProductTitle from "./title";
 import ProductImages from "./image";
@@ -8,8 +8,8 @@ import ProductNamePrice from "./namePrice";
 import ProductAddToCart from "./addToCart";
 import ProductRatings from "./ratings";
 import ProductReviews from "./reviews";
-import { productDetails } from "@/types/type";
 import ProductsCarousel from "@/components/template/productCarousel";
+import { productDetails } from "@/types/type";
 
 export default function ProductDetails({
   params,

@@ -242,7 +242,8 @@
         "Myanmar": "Myanmar"
     },
     "banner":{
-        "search-products": "Search Products..."
+        "search-products": "Search Products...",
+        "search": "Search..."
     },
     "product-showcase":{
         "bags": "Bags",
@@ -264,6 +265,7 @@
     },
     "search-bar":{
         "no-recent": "No recent searches yet! Please search something.",
-        "recent-searches": "Recent Searches"
+        "recent-searches": "Recent Searches",
+        "trending-searches": "Trending Searches"
     }
 }
