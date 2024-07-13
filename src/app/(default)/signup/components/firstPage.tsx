@@ -1,12 +1,12 @@
-import ImageUpload from "../../../components/input/imgUpload";
-import NameInput from "../../../components/input/nameInput";
-import PhoneNoInput from "../../../components/input/phoneNoInput";
-import MailInput from "../../../components/input/mailInput";
-import GenderInput from "../../../components/input/genderInput";
-import PasswordInput from "../../../components/input/passwordInput";
+import FirstPageHeading from "./firstPageHeading";
+import ImageUpload from "@/components/input/imgUpload";
+import NameInput from "@/components/input/nameInput";
+import PhoneNoInput from "@/components/input/phoneNoInput";
+import MailInput from "@/components/input/mailInput";
+import GenderInput from "@/components/input/genderInput";
+import PasswordInput from "@/components/input/passwordInput";
 import { motion } from "framer-motion";
 import { Dispatch, SetStateAction } from "react";
-import FirstPageHeading from "./firstPageHeading";
 import { useTranslations } from "next-intl";
 
 export default function FirstPage({

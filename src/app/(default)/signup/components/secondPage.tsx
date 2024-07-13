@@ -1,11 +1,10 @@
-import StateInput from "../../../components/input/stateInput";
-import TownshipInput from "../../../components/input/townshipInput";
-import AddresssInput from "../../../components/input/addressInput";
 import SecondPageHeading from "./secondPageHeading";
-import { EngTownships, MyTownships } from "../../../types/addresses";
+import TownshipInput from "@/components/input/townshipInput";
+import StateInput from "@/components/input/stateInput";
+import AddresssInput from "@/components/input/addressInput";
 import { motion } from "framer-motion";
 import { Dispatch, SetStateAction } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { state } from "@/types/type";
 
 export default function SecondPage({
