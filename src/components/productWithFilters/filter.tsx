@@ -4,10 +4,10 @@ import ColorFilter from "./colorFilter";
 import SizeFilter from "./sizeFilter";
 import MaterialFilter from "./materialFilter";
 import PriceFilter from "./priceFilter";
-import Toggle from "../../../../components/actions/toggle";
 import { prodcutFilterWithSet, productFilter } from "@/types/type";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import Toggle from "@/components/actions/toggle";
 
 export default function Filter({
   appliedFilters,
@@ -74,7 +74,7 @@ export default function Filter({
         damping: 6.67,
       }}
       onClick={hide}
-      className="xl:w-fit xl:h-fit size-full xl:relative fixed top-0 left-0 xl:bg-transparent bg-popup-bg xl:z-auto z-[100]"
+      className="xl:w-fit xl:h-fit size-full xl:relative fixed top-0 left-0 xl:bg-transparent bg-popup-bg xl:z-auto z-[9999]"
     >
       <motion.div
         animate={{ translateY: [200, 0] }}

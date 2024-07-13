@@ -1,24 +1,28 @@
 "use client";
 import React from "react";
-import Filter from "./filter";
 import Product from "@/components/template/product";
 import useWindowSize from "@/components/hooks/useWindowSize";
 import DiscountBanner from "@/components/banner/discountBanner";
 import Pagination from "@/components/template/pagination";
-import Filters from "./filterList";
 import useFilters from "./useFilter";
-import NotFoundError from "./notFound";
 import CateogryHeading from "./heading";
+import Filter from "./filter";
+import Filters from "./filterList";
+import NotFoundError from "./notFound";
 import { product } from "@/types/type";
 import { AnimatePresence } from "framer-motion";
+import { useRouter, useSearchParams } from "next/navigation";
 
-export default function Category({
+export default function ProductWithFilters({
   params,
+  searched = false,
 }: {
   params: { categoryName: string };
+  searched?: boolean;
 }) {
   const { categoryName } = params;
-  const [category, setCategory] = React.useState(categoryName[0]);
+  const [category, setCategory] = React.useState(categoryName);
+  const [hidden, setHidden] = React.useState(true);
   const [products, setProducts] = React.useState<product[]>([
     {
       itemID: "sample id",
@@ -86,12 +90,8 @@ export default function Category({
       whiteListed: false,
     },
   ]);
-  const [filteredProducts, setFilteredProducts] = React.useState(products);
   const updateProducts = (products: product[]) => {
     setProducts(products);
-  };
-  const updateFilteredProducts = (products: product[]) => {
-    setFilteredProducts(products);
   };
   const {
     appliedFilters,
@@ -111,12 +111,17 @@ export default function Category({
     filterJustAppliedOff,
   } = useFilters({
     products: products,
-    updateFilteredProducts: updateFilteredProducts,
+    updateProducts: updateProducts,
   });
-  const [pages, setPage] = React.useState(1);
-  const updatePage = (ind: number) => setPage(ind);
+  const router = useRouter();
+  const page = Number(useSearchParams().get("p") || 1);
+  const totalPages = 10;
+  const updatePage = (ind: number) => {
+    if (searched) router.push(`/search?=${categoryName}&p=${ind}`);
+    else router.push(`/category/${categoryName}?p=${ind}`);
+  };
   const updateCategory = (cat: string) => setCategory(cat);
-  const [hidden, setHidden] = React.useState(true);
+
   const size = useWindowSize();
   const showFilterDrawer = () => {
     setHidden(false);
@@ -142,8 +147,13 @@ export default function Category({
     }
   }, [size]);
   return (
-    <div className="xl:w-[1190px] md:w-[668px] w-[393px] flex flex-col gap-10 xl:my-20 my-10 md:px-0 px-5 mx-auto">
-      <CateogryHeading category={category} show={showFilterDrawer} />
+    <div className="xl:w-[1190px] md:w-[668px] w-[393px] flex flex-col md:gap-10 gap-5 xl:my-20 my-10 md:px-0 px-5 mx-auto">
+      <CateogryHeading
+        searched={searched}
+        productCounts={products.length}
+        category={category}
+        show={showFilterDrawer}
+      />
       <div className="flex xl:flex-row flex-col xl:gap-20 gap-10">
         <AnimatePresence>
           {!hidden && (
@@ -181,20 +191,20 @@ export default function Category({
             toggleSize={toggleSize}
           />
           <div className="grid md:grid-cols-3 grid-cols-2 xl:gap-10 md:gap-2.5 gap-5">
-            {filteredProducts.length === 0 ? (
+            {products.length === 0 ? (
               <NotFoundError />
             ) : (
               <>
-                {filteredProducts.map((p) => (
+                {products.map((p) => (
                   <Product key={p.itemID} {...p} small />
                 ))}
               </>
             )}
           </div>
-          {filteredProducts.length !== 0 && (
+          {products.length !== 0 && (
             <Pagination
-              activeIndex={pages}
-              totalIndex={5}
+              activeIndex={page}
+              totalIndex={totalPages}
               setIndex={updatePage}
             />
           )}

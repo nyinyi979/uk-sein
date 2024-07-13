@@ -89,7 +89,8 @@
         "sorry-no-data-found": "Sorry! No Data Found from your filter search!",
         "try-to-search": "Try to search something else.",
         "minimum": "Minimum",
-        "maximum": "Maximum"
+        "maximum": "Maximum",
+        "results": "Results"
     },
     "default": {
         "continue": "Continue"

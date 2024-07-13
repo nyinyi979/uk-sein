@@ -1,10 +1,10 @@
 import ProductShowCase from "./productShowCase";
-import QualityAssureRow from "../../components/qualityAssurance";
-import DiscountBanner from "../../components/banner/discountBanner";
-import PromotionBanner from "../../components/banner/promotionBanner";
 import MainProductsCarousel from "./mainCarousel/carousel";
 import ClientWorkdsCarousel from "./clientWords/clientWordsCarousel";
 import ProductsCarousel from "@/components/template/productCarousel";
+import QualityAssureRow from "@/components/qualityAssurance";
+import DiscountBanner from "@/components/banner/discountBanner";
+import PromotionBanner from "@/components/banner/promotionBanner";
 
 export default function Home() {
   return (

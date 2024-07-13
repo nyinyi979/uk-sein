@@ -9,7 +9,6 @@
   box-sizing: border-box;
 }
 
-
 span.swiper-pagination-bullet {
   @apply size-2 bg-white opacity-100;
 }
@@ -97,10 +96,12 @@ span.swiper-pagination-bullet-active {
 .chair-link {
   @apply flex flex-row gap-2.5 xl:font-sora font-lex font-normal md:text-lg text-base text-khaki-500 hover:text-khaki-700 hover:fill-khaki-700 duration-300;
 }
-.baskets-link path, .chair-link path {
+.baskets-link path,
+.chair-link path {
   @apply fill-khaki-500 duration-300;
 }
-.baskets-link:hover path, .chair-link:hover path {
+.baskets-link:hover path,
+.chair-link:hover path {
   @apply fill-khaki-700;
 }
 /*                                                                    */

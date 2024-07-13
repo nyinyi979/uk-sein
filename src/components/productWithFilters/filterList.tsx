@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Cross from "../images/cross.svg";
+import Cross from "@/svg/cross.svg";
 import { filter } from "@/types/type";
 import { motion } from "framer-motion";
 

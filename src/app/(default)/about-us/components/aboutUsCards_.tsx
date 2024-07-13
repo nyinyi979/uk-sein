@@ -1,5 +1,5 @@
 import Image from "next/image";
-import AboutUsCard from "../components/aboutUsCard";
+import AboutUsCard from "./aboutUsCard";
 import AboutUs1 from "../images/about-us-1.png";
 import AboutUs2 from "../images/about-us-2.png";
 import AboutUs3 from "../images/about-us-3.png";

@@ -24,7 +24,7 @@ export default function SearchBar({
     setSearchValue(e.target.value);
   };
   return (
-    <div className="w-fit relative py-4">
+    <div className="w-fit relative py-4 mx-auto">
       <input
         value={searchValue}
         onChange={(e) => updateSearchValue(e)}
@@ -36,7 +36,7 @@ export default function SearchBar({
         className={`${width} xl:h-[62px] h-14 pl-16 p-5 rounded-[15px] outline-none border border-grey-200 focus:border-grey-500 duration-300`}
         placeholder={placeholder}
       />
-      <div className="size-[18px] absolute left-5 top-[38px]">
+      <div className="size-[18px] absolute left-5 xl:top-[38px] top-9">
         <Image src={SearchIcon} alt="search icon" fill sizes="100%" />
       </div>
     </div>

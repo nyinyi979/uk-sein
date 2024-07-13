@@ -88,6 +88,7 @@ const config: Config = {
         product: `10px 11px 32px 0px #0000001a, 38px 45px 59px 0px #00000017, 86px 101px 79px 0px #0000000d, 152px 180px 94px 0px #00000003, 238px 281px 103px 0px #00000000;`,
         cartFooter: "0px -3px 30px 0px #0000000D",
         drawer: "4px 4px 50px 0px #00000033",
+        search: "3px 6px 50px 0px #00000026",
       },
     },
   },

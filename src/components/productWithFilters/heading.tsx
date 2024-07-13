@@ -1,11 +1,17 @@
+import Image from "next/image";
+import Sort from "./images/sort.svg";
 import { useTranslations } from "next-intl";
 
 export default function CateogryHeading({
   category,
   show,
+  productCounts,
+  searched = false,
 }: {
   category: string;
   show: () => void;
+  productCounts: number;
+  searched?: boolean;
 }) {
   const t = useTranslations("category");
   return (
@@ -16,15 +22,26 @@ export default function CateogryHeading({
         </p>
         <p className="md:leading-8 leading-4">
           <span className="text-grey-100 md:text-base text-sm">
-            {t("category")} -{" "}
+            {searched ? t("results") : t("category")} -{" "}
           </span>
-          {category}
+          {searched ? productCounts + " Results" : category}
         </p>
       </div>
       <div className="xl:hidden flex flex-row gap-2.5 ml-auto">
+        <button className="size-[46px] py-2 px-5 bg-khaki-50 hover:bg-khaki-100 rounded-[10px] duration-300">
+          <span className="block w-3 h-3 relative">
+            <Image
+              src={Sort}
+              alt="sort"
+              fill
+              sizes="100%"
+              className="size-auto object-cover"
+            />
+          </span>
+        </button>
         <button
           onClick={show}
-          className="w-fit h-fit flex flex-row gap-2 md:py-4 py-2 md:px-[28px] px-5 rounded-xl bg-grey-500 font-bold text-white text-sm text-center hover:bg-grey-300 duration-300"
+          className="w-fit h-fit flex flex-row gap-2 md:py-3 py-2 md:px-[28px] px-5 rounded-xl bg-grey-500 font-bold text-white text-sm text-center hover:bg-grey-300 duration-300"
         >
           <svg
             className="mt-1"

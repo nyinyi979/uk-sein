@@ -8,10 +8,10 @@ import {
 
 export default function useFilters({
   products,
-  updateFilteredProducts,
+  updateProducts,
 }: {
   products: product[];
-  updateFilteredProducts: (products: product[]) => void;
+  updateProducts: (products: product[]) => void;
 }) {
   // the filters will be dynamic
   const [filters, setFilters] = React.useState<productFilters>({
@@ -105,7 +105,7 @@ export default function useFilters({
       pos_minimum + pos_minimum * Number(min);
     setMinimumPercent(Number(min));
     setFilters({ ...filters, appliedFilters: newAppliedFilters });
-    applyFilter(newAppliedFilters);
+    // applyFilter(newAppliedFilters);
   };
   const setMaximumInPercent = (max: string) => {
     // if the maximum is lower than the minimum percent it will stop the operation
@@ -118,7 +118,7 @@ export default function useFilters({
       pos_minimum + pos_minimum * Number(max);
     setMaximumPercent(Number(max));
     setFilters({ ...filters, appliedFilters: newAppliedFilters });
-    applyFilter(newAppliedFilters);
+    // applyFilter(newAppliedFilters);
   };
   // this is to set minimum value from direct input
   const setMinimum = (min: string) => {
@@ -132,7 +132,7 @@ export default function useFilters({
       setMinimumPercent(((Number(min) - pos_minimum) / range) * 100);
     }
     setFilters({ ...filters, appliedFilters: newAppliedFilters });
-    applyFilter(newAppliedFilters);
+    // applyFilter(newAppliedFilters);
   };
   // this is to set maximum value from direct input
   const setMaximum = (max: string) => {
@@ -146,7 +146,7 @@ export default function useFilters({
       setMaximumPercent(((Number(max) - pos_minimum) / range) * 100);
     }
     setFilters({ ...filters, appliedFilters: newAppliedFilters });
-    applyFilter(newAppliedFilters);
+    // applyFilter(newAppliedFilters);
   };
 
   // this will apply the filters to make changes to the product
@@ -160,7 +160,7 @@ export default function useFilters({
       pricePerItem.maximum === filters.possibleFilters.pricePerItem.maximum &&
       pricePerItem.minimum === filters.possibleFilters.pricePerItem.minimum
     ) {
-      updateFilteredProducts(products);
+      // updateFilteredProducts(products);
       return;
     }
     // clone the products
@@ -179,7 +179,7 @@ export default function useFilters({
     }
     // filter the products by checking the item ID
     const newFilteredProducts = newProducts.filter((p) => p.itemID != "");
-    updateFilteredProducts(newFilteredProducts);
+    // updateFilteredProducts(newFilteredProducts);
   };
   // clear all the filters
   const resetFilter = () => {
@@ -195,7 +195,7 @@ export default function useFilters({
         },
       },
     });
-    updateFilteredProducts(products);
+    // updateFilteredProducts(products);
   };
 
   // if the filters are applied or not

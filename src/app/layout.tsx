@@ -1,11 +1,8 @@
-import Header from "../components/header";
-import Footer from "../components/footer";
-import "./globals.css";
 import type { Metadata } from "next";
+import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { Quicksand, Sora, Lexend } from "next/font/google";
-
 const quicksand = Quicksand({
   subsets: ["latin"],
   display: "swap",
@@ -41,9 +38,7 @@ export default async function RootLayout({
         className={`${quicksand.variable} ${lexend.variable} ${sora.variable} relative sm:overflow-x-hidden overflow-x-auto font-quick text-grey-500`}
       >
         <NextIntlClientProvider messages={messages}>
-          <Header />
           {children}
-          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
