@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import ProductTitle from "./title";
 import ProductImages from "./image";

@@ -58,8 +58,8 @@ export default function SearchBarForSmallScreen() {
           <Image src={CrossIcon} alt="search icon" fill sizes="100%" />
         </button>
       )}
-      {query===null&&<DefaultResults small />}
-      {query===null&&searchInput !== "" && (
+      {query === null && <DefaultResults small />}
+      {query === null && searchInput !== "" && (
         <AnimatePresence>
           <SearchResults searchResults={searchResult} />
         </AnimatePresence>

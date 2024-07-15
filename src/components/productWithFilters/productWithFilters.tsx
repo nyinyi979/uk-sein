@@ -185,12 +185,14 @@ export default function ProductWithFilters({
         </AnimatePresence>
         <div className="xl:w-[886px] w-full flex flex-col gap-10">
           <AnimatePresence>
-            {filterApplied&&<Filters
-              filters={appliedFilters}
-              toggleColor={toggleColor}
-              toggleMaterial={toggleMaterial}
-              toggleSize={toggleSize}
-            />}
+            {filterApplied && (
+              <Filters
+                filters={appliedFilters}
+                toggleColor={toggleColor}
+                toggleMaterial={toggleMaterial}
+                toggleSize={toggleSize}
+              />
+            )}
           </AnimatePresence>
           <div className="grid md:grid-cols-3 grid-cols-2 xl:gap-10 md:gap-2.5 gap-5">
             {products.length === 0 ? (

@@ -2,12 +2,20 @@
 import BackArrow from "./images/backArrow.svg";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
+import { motion } from "framer-motion";
 export default function SearchHeader() {
   const router = useRouter();
   const pushBack = router.back;
   return (
-    <div className="xl:hidden flex flex-row py-2.5 px-[50px] shadow-lightest">
+    <motion.div
+      animate={{ translateY: [-50, 0] }}
+      transition={{
+        stiffness: 19.75,
+        mass: 1,
+        damping: 6.67,
+      }}
+      className="xl:hidden flex flex-row py-2.5 px-[50px] shadow-lightest"
+    >
       <button
         onClick={pushBack}
         className="size-[46px] block bg-white-700 rounded-full hover:bg-white-400 duration-300"
@@ -25,6 +33,6 @@ export default function SearchHeader() {
       <div className="w-full mt-2 font-semibold font-sora text-lg text-center">
         Search
       </div>
-    </div>
+    </motion.div>
   );
 }

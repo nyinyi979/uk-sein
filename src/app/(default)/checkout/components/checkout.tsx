@@ -16,7 +16,7 @@ import { isAuthenticated } from "@/store/auth";
 
 export default function Checkout() {
   const router = useRouter();
-  const userToken = useUserStore((store)=>store.userToken);
+  const userToken = useUserStore((store) => store.userToken);
   const [input, setInput] = React.useState<checkOutData>({
     name: "Ko Khant",
     phoneNo: "0964647576",
@@ -114,9 +114,9 @@ export default function Checkout() {
     } else closeCart();
   }, [size]);
 
-  React.useEffect(()=>{
-    if(!isAuthenticated(userToken)) router.back();
-  },[])
+  React.useEffect(() => {
+    if (!isAuthenticated(userToken)) router.back();
+  }, []);
   return (
     <div className="xl:w-[1190px] flex flex-row gap-40 mx-auto py-20 xl:px-0 md:px-[51px]">
       <div className="md:w-[580px] w-[343px] mx-auto flex flex-col gap-[50px]">

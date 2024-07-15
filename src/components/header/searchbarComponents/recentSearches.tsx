@@ -14,8 +14,8 @@ export default function RecentSearches({
           key={rs}
           className="flex flex-col gap-2.5"
         >
-          <div className="md:size-[150px] overflow-hidden">
-            <div className="md:w-[120px] md:h-[106px] relative mx-auto mt-5">
+          <div className="md:size-[150px] size-40 overflow-hidden">
+            <div className="md:w-[120px] md:h-[106px] w-[127px] h-[113px] relative mx-auto mt-5">
               <Image
                 src={"/sampleDiscount.png"}
                 alt="sample"

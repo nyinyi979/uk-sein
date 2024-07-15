@@ -12,15 +12,15 @@ export default function CartFooter({
   toggle: () => void;
 }) {
   const t = useTranslations("cart");
-  const userToken = useUserStore((store)=>store.userToken);
+  const userToken = useUserStore((store) => store.userToken);
   const router = useRouter();
   const onClick = () => {
-    if(!isAuthenticated(userToken)) {
+    if (!isAuthenticated(userToken)) {
       alert("You need to login first!");
       return;
-    } else router.push("/checkout")
+    } else router.push("/checkout");
     toggle();
-  }
+  };
   return (
     <div className="xl:w-[500px] md:w-[420px] w-[340px] mx-auto flex flex-col gap-[26px] mt-auto pt-[18px] pb-8 shadow-cartFooter">
       <div className="w-full mx-auto flex flex-row justify-between md:text-xl">
