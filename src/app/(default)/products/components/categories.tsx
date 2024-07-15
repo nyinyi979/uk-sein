@@ -25,7 +25,7 @@ export default function Categories() {
       <p className="font-sora font-bold xl:text-5xl md:text-2xl text-lg">
         {t("product-categories")}
       </p>
-      <div className="w-full grid md:grid-cols-3 grid-cols-2 xl:gap-[33px] md:gap-[18px] gap-4">
+      <div className="w-full grid md:grid-cols-3 sm:grid-cols-2 xl:gap-[33px] md:gap-[18px] gap-4">
         {categories.map((c) => (
           <EachCategory key={c} category={c} />
         ))}

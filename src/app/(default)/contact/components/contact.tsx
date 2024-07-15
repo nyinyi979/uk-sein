@@ -10,7 +10,7 @@ export default function Contact() {
   const arr = [Contact1, Contact2, Contact3, Contact4];
   const t = useTranslations("contact");
   return (
-    <div className="xl:w-[1190px] md:w-[668px] w-[340px] mx-auto xl:pt-20 pt-10 pb-32">
+    <div className="xl:w-[1190px] md:w-[668px] sm:w-[340px] w-full mx-auto xl:pt-20 pt-10 pb-32 sm:px-0 px-2">
       <div className="flex flex-col xl:gap-32 gap-8 relative">
         <div className="flex flex-col xl:gap-[50px] gap-8">
           <p className="font-sora font-bold xl:text-5xl text-[32px] md:text-left text-center">

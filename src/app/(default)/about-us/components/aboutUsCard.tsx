@@ -10,7 +10,7 @@ export default function AboutUsCard({
   description: string;
 }) {
   return (
-    <div className="relative xl:pb-[100px] pb-[60px] xl:pl-[60px] pl-8 border-l border-khaki-500">
+    <div className="relative xl:pb-[100px] pb-[60px] xl:pl-[60px] sm:pl-8 border-l border-khaki-500">
       <div className="py-[20px] px-10 bg-white rounded-[15px] shadow-aboutus">
         <div className="xl:w-[1010px] w-full flex flex-col gap-[18px]">
           <p className="font-sora font-bold xl:text-4xl text-lg">{year}</p>

@@ -102,7 +102,7 @@ export default function CartSlider({
             <p className="py-4 px-[30px] font-semibold text-lg border-b border-grey-50">
               {t("you-have")} ({products.length}) {t("in-your-cart!")}
             </p>
-            <div className="h-[630px] flex flex-col gap-2.5 px-2.5 py-1.5 overflow-y-auto overflow-x-hidden">
+            <div className="w-fit h-[630px] mx-auto flex flex-col gap-2.5 px-2.5 py-1.5 overflow-y-auto overflow-x-hidden">
               {products.map((p, ind) => (
                 <CartItem
                   key={p.itemID}

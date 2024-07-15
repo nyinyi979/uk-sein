@@ -58,7 +58,7 @@ export default function Orders() {
     },
   ]);
   return (
-    <div className="xl:w-[1190px] md:w-[664px] w-[360px] flex flex-col xl:gap-20 md:gap-10 gap-8 xl:py-20 md:py-10 py-8 xl:px-0 mx-auto">
+    <div className="xl:w-[1190px] md:w-[664px] sm:w-[360px] w-full flex flex-col xl:gap-20 md:gap-10 gap-8 mx-auto xl:py-20 md:py-10 py-8 sm:px-0 px-2">
       <OrderTitle />
       <div className="flex flex-col gap-10 w-fit mx-auto">
         <OrderHeader status={orderStatus} updateStatus={updateOrderStatus} />

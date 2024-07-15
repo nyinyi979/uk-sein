@@ -36,7 +36,7 @@ export default function SearchBarForSmallScreen() {
   };
   const query = useSearchParams().get("query");
   return (
-    <div className="xl:hidden md:w-[664px] w-[340px] relative py-4 mx-auto">
+    <div className="w-full xl:hidden relative py-4 mx-auto">
       <input
         value={searchInput}
         onChange={(e) => updateSearchValue(e.target.value)}

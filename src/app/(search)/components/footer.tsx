@@ -13,7 +13,7 @@ export default function SearchFooter() {
   ];
   const actualLinks = ["/", "products", "portfolio", "about-us", "contact"];
   return (
-    <div className="xl:hidden flex flex-col py-6 shadow-searchFooter">
+    <div className="xl:hidden flex flex-col py-6 bg-white shadow-searchFooter">
       <div className="flex flex-col md:gap-[18px] gap-6">
         <div className="w-[130px] h-[120px] mx-auto relative">
           <Image
@@ -24,7 +24,7 @@ export default function SearchFooter() {
             className="size-auto"
           />
         </div>
-        <div className="w-fit mx-auto flex flex-row md:gap-[56px] gap-2.5">
+        <div className="w-fit mx-auto flex flex-row md:gap-[56px] gap-2.5 flex-wrap justify-center">
           {links.map((link, ind) => (
             <Link
               key={link}

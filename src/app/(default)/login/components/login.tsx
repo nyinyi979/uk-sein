@@ -23,8 +23,8 @@ export default function Login() {
   const notEmpty = input.phoneNumber != "" && input.password != "";
   const t = useTranslations();
   return (
-    <div className="w-fit grid md:grid-cols-2 xl:gap-28 gmd:ap-10 gap-5 mx-auto md:py-20 py-10">
-      <div className="xl:w-[500px] md:w-[344px] w-[340px] flex flex-col gap-10 mx-auto">
+    <div className="w-fit grid md:grid-cols-2 xl:gap-28 gmd:ap-10 gap-5 mx-auto md:py-20 py-10 sm:px-0 px-2">
+      <div className="xl:w-[500px] md:w-[344px] sm:w-[340px] w-full flex flex-col gap-10 mx-auto">
         <LoginBack />
         <form onSubmit={() => {}} className="flex flex-col gap-10">
           <LoginHeader />

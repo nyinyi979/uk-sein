@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function PromotionBanner() {
   const t = useTranslations("discount-banner");
   return (
-    <div className="md:w-full w-[353px] xl:h-[380px] md:h-[250px] h-[160px] mx-auto relative flex rounded-[15px] overflow-hidden xl:py-16 md:py-10 py-6 md:px-20 px-8 font-bold text-left">
+    <div className="md:w-full sm:w-[353px] w-full xl:h-[380px] md:h-[250px] h-[160px] mx-auto relative flex rounded-[15px] overflow-hidden xl:py-16 md:py-10 py-6 md:px-20 px-8 font-bold text-left">
       <div className="flex flex-col md:gap-8 gap-4">
         <p className="font-sora xl:text-[56px] md:text-[32px] text-xl xl:leading-[65px] md:leading-10 z-10">
           {t("rainy-season")} <br /> {t("big-promotion")}

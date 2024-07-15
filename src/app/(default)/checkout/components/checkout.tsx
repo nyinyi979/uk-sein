@@ -118,8 +118,8 @@ export default function Checkout() {
     if (!isAuthenticated(userToken)) router.back();
   }, []);
   return (
-    <div className="xl:w-[1190px] flex flex-row gap-40 mx-auto py-20 xl:px-0 md:px-[51px]">
-      <div className="md:w-[580px] w-[343px] mx-auto flex flex-col gap-[50px]">
+    <div className="xl:w-[1190px] flex flex-row gap-40 mx-auto py-20 xl:px-0 md:px-[51px] sm:px-0 px-2">
+      <div className="md:w-[580px] sm:w-[343px] w-full mx-auto flex flex-col gap-[50px]">
         <CartHeader backPage={backPage} page={page} openCart={openCart} />
         <div className="flex flex-col xl:gap-10 gap-8">
           <CheckoutProgress progress={page} />

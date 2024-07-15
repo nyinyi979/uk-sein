@@ -95,7 +95,7 @@ export default function ProductsCarousel({
   const t = useTranslations("product");
   return (
     <div className="relative md:px-0 px-5">
-      <div className="flex flex-row relative py-4 font-sora font-bold xl:text-[32px] text-2xl">
+      <div className="flex flex-row relative py-4 font-sora font-bold xl:text-[32px] sm:text-2xl text-xl">
         {similarProduct ? t("similar-product") : t("top-product")}
         <CarouselButtons
           decrementIndex={decrementIndex}
@@ -109,8 +109,8 @@ export default function ProductsCarousel({
         navigation={{ nextEl: ".product-next", prevEl: ".product-prev" }}
         breakpoints={{
           1440: { slidesPerView: 3, spaceBetween: 30 },
-          768: { slidesPerView: 2, spaceBetween: 40 },
-          0: { slidesPerView: 2, spaceBetween: 20 },
+          393: { slidesPerView: 2, spaceBetween: 40 },
+          0: { slidesPerView: 1, spaceBetween: 20 },
         }}
         onRealIndexChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         modules={[Navigation]}

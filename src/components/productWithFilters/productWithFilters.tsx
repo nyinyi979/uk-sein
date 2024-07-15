@@ -147,7 +147,7 @@ export default function ProductWithFilters({
     }
   }, [size]);
   return (
-    <div className="xl:w-[1190px] md:w-[668px] w-[393px] flex flex-col gap-10 xl:my-20 my-10 md:px-0 px-5 mx-auto">
+    <div className="xl:w-[1190px] md:w-[668px] sm:w-[393px] w-full flex flex-col gap-10 xl:my-20 my-10 md:px-0 px-5 mx-auto">
       <CateogryHeading
         searched={searched}
         productCounts={products.length}
@@ -194,7 +194,7 @@ export default function ProductWithFilters({
               />
             )}
           </AnimatePresence>
-          <div className="grid md:grid-cols-3 grid-cols-2 xl:gap-10 md:gap-2.5 gap-5">
+          <div className="grid md:grid-cols-3 sm:grid-cols-2 xl:gap-10 md:gap-2.5 gap-5">
             {products.length === 0 ? (
               <NotFoundError />
             ) : (

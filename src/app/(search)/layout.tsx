@@ -1,6 +1,7 @@
 import SearchHeader from "./components/header";
 import Header from "@/components/header";
 import { Metadata } from "next";
+import SearchFooter from "./components/footer";
 
 export const metadata: Metadata = {
   title: "Search",
@@ -15,7 +16,8 @@ export default async function RootLayout({
     <>
       <Header searchSide />
       <SearchHeader />
-      <div className="py-5">{children}</div>
+      {children}
+      <SearchFooter/>
     </>
   );
 }

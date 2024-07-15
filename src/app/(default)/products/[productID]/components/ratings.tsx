@@ -42,7 +42,7 @@ function Rating({
   number: number;
 }) {
   return (
-    <div className="xl:w-[530px] md:w-[348px] w-[320px] flex flex-row justify-between align-middle">
+    <div className="xl:w-[530px] md:w-[348px] w-[320px] sm:flex hidden flex-row justify-between align-middle">
       <div className="flex flex-row gap-1">
         <svg
           className="filled-star"

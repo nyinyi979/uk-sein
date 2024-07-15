@@ -6,8 +6,8 @@ import { useTranslations } from "next-intl";
 export default function SeasonalPromotions() {
   const t = useTranslations();
   return (
-    <div className="flex xl:flex-row flex-col xl:justify-between xl:gap-0 gap-6">
-      <div className="xl:w-[550px] w-full xl:h-[470px] h-[240px] relative rounded-[15px] overflow-hidden">
+    <div className="flex xl:flex-row flex-col xl:justify-between xl:gap-0 gap-6 sm:px-0 px-2">
+      <div className="xl:w-[550px] w-full xl:h-[470px] h-[240px] mx-auto relative rounded-[15px] overflow-hidden">
         <Image
           src={AboutUs9}
           alt="about us 9"

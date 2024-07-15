@@ -80,7 +80,7 @@ export default function Signup() {
   };
   const t = useTranslations("profile");
   return (
-    <div className="xl:w-[1192px] md:w-[492px] w-[340px] flex flex-col xl:gap-10 md:gap-8 gap-6 xl:mx-auto md:ml-10 mx-auto pt-10 pb-20">
+    <div className="xl:w-[1192px] md:w-[492px] sm:w-[340px] w-full flex flex-col xl:gap-10 md:gap-8 gap-6 xl:mx-auto md:ml-10 mx-auto pt-10 pb-20 sm:px-0 px-2">
       <ProfileTitle />
       <ProfileTabs page={page} updatePage={updatePage} />
       <div className="xl:w-[626px] w-full h-fit flex flex-col md:gap-[50px] gap-0">

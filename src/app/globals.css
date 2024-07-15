@@ -28,14 +28,17 @@ span.swiper-pagination-bullet-active {
 .main-arr path {
   @apply fill-khaki-500;
 }
+.pagination, .disabled-pagination, .active-pagination{
+  @apply md:w-fit md:h-fit size-10 md:py-3 py-[3.5px] md:px-[18px] px-[8.5px] md:rounded-[10px] rounded-[30px];
+}
 .pagination {
-  @apply md:w-fit md:h-fit size-10 md:py-3 py-[3.5px] md:px-[18px] px-[8.5px] md:rounded-[10px] rounded-[30px] bg-white text-grey-500 hover:text-white hover:bg-grey-400 font-semibold duration-300;
+  @apply bg-white text-grey-500 hover:text-white hover:bg-grey-400 font-semibold duration-300;
 }
 .disabled-pagination {
-  @apply md:w-fit md:h-fit size-10 md:py-3 py-[3.5px] md:px-[18px] px-[8.5px] md:rounded-[10px] rounded-[30px] text-grey-500 font-semibold duration-300;
+  @apply text-grey-500 font-semibold duration-300;
 }
 .active-pagination {
-  @apply md:w-fit md:h-fit size-10 md:py-3 py-[3.5px] md:px-[18px] px-[8.5px] md:rounded-[10px] rounded-[30px] text-white bg-grey-500 font-semibold duration-300;
+  @apply text-white bg-grey-500 font-semibold duration-300;
 }
 .pagination-arr circle,
 .pagniation-arr path,
@@ -262,7 +265,7 @@ input[type="range"]::-ms-thumb {
 
 /* Mostly used in swipers buttons */
 .carousel-btn {
-  @apply md:size-[50px] size-[46px] md:p-4 p-3 rounded-full bg-khaki-500 border border-khaki-100 disabled:bg-white disabled:border-khaki-200 hover:bg-khaki-700 duration-300;
+  @apply md:size-[50px] size-[46px] md:p-4 pl-3.5 rounded-full bg-khaki-500 border border-khaki-100 disabled:bg-white disabled:border-khaki-200 hover:bg-khaki-700 duration-300;
 }
 .carousel-btn path {
   @apply fill-white duration-300;

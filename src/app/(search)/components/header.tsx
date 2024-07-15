@@ -14,13 +14,13 @@ export default function SearchHeader() {
         mass: 1,
         damping: 6.67,
       }}
-      className="xl:hidden flex flex-row py-2.5 px-[50px] shadow-lightest"
+      className="xl:hidden sticky top-0 left-0 flex flex-row py-2.5 px-[50px] bg-white shadow-lightest z-[1000]"
     >
       <button
         onClick={pushBack}
-        className="size-[46px] block bg-white-700 rounded-full hover:bg-white-400 duration-300"
+        className="md:size-[46px] size-[40px] block bg-white-700 rounded-full hover:bg-white-400 duration-300"
       >
-        <div className="w-[13px] h-4 mx-auto mt-[3px] relative">
+        <div className="w-[13px] h-4 mx-auto relative">
           <Image
             src={BackArrow}
             alt="Back arrow"

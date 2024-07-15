@@ -21,7 +21,7 @@ export const useUserStore = create<UserData & Actions>((set) => ({
   preferredLanguage: "en",
   userToken: "ok",
   cartItems: [""],
-  recentSearches: ["Sample"],
+  recentSearches: ["Sample","Sample2"],
   updateLanguage: (lang: "en" | "my") =>
     set(() => ({ preferredLanguage: lang })),
   setUserToken: (token: string) => set(() => ({ userToken: token })),

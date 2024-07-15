@@ -2,6 +2,7 @@ import Image from "next/image";
 import AddToCartSvg from "@/svg/addToCart.svg";
 import ShareSvg from "@/svg/share.svg";
 import WishList from "@/components/actions/wishlist";
+import { useTranslations } from "next-intl";
 
 export default function ProductAddToCart({
   productID,
@@ -10,11 +11,12 @@ export default function ProductAddToCart({
   whiteListed: boolean;
   productID: string;
 }) {
+  const t = useTranslations("product");
   return (
     <div className="md:h-[58px] h-[48px] flex flex-row gap-[18px]">
-      <button className="w-fit h-full flex flex-row gap-3 md:p-[18px] px-[18px] py-[14px] bg-khaki-500 rounded-xl md:text-base text-sm text-white hover:bg-khaki-700 duration-300">
+      <button className="w-fit h-full flex flex-row gap-3 md:p-[18px] sm:px-[18px] px-2 py-[14px] bg-khaki-500 rounded-xl md:text-base text-sm text-white hover:bg-khaki-700 duration-300">
         <Image src={AddToCartSvg} alt="add to cart" width={22} height={22} />
-        <p className="font-semibold">Add to Cart</p>
+        <p className="font-semibold">{t("add-to-cart")} </p>
       </button>
       <WishList whitelisted={whiteListed} productID={productID} />
       <button className="w-[58px] h-full py-[14px] px-[18px] bg-white-400 rounded-xl">

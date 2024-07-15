@@ -15,7 +15,7 @@ export default function OrderConfirmed() {
       layout
     >
       <p className="font-sora font-semibold text-2xl">Ordered Successfully!</p>
-      <div className="w-full h-[200px] relative">
+      <div className="sm:w-full w-[98%] h-[200px] relative">
         <Image
           src={Confirmed}
           alt="confirmed"
@@ -31,13 +31,13 @@ export default function OrderConfirmed() {
       <div className="flex xl:flex-row flex-col gap-6">
         <Link
           href={"/products"}
-          className="xl:w-fit w-[340px] mx-auto xl:h-[50px] h-[56px] xl:py-4 py-[18px] px-7 rounded-xl bg-grey-500 font-bold text-white text-sm text-center hover:bg-grey-300 duration-300"
+          className="xl:w-fit sm:w-[340px] w-full mx-auto xl:h-[50px] h-[56px] xl:py-4 py-[18px] px-7 rounded-xl bg-grey-500 font-bold text-white text-sm text-center hover:bg-grey-300 duration-300"
         >
           {t("back-to.go-back")}
         </Link>
         <Link
           href={"/profile/orders"}
-          className="xl:w-fit w-[340px] mx-auto xl:h-[50px] h-[56px] block xl:py-4 py-[18px] px-7 rounded-xl bg-khaki-500 font-bold text-white text-sm text-center hover:bg-khaki-700 duration-300"
+          className="xl:w-fit sm:w-[340px] w-full mx-auto xl:h-[50px] h-[56px] block xl:py-4 py-[18px] px-7 rounded-xl bg-khaki-500 font-bold text-white text-sm text-center hover:bg-khaki-700 duration-300"
         >
           {t("checkout.order-history")}
         </Link>

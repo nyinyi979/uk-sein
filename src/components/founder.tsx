@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 export default function FounderCard() {
   const t = useTranslations("founder");
   return (
-    <div className="flex md:flex-row flex-col md:gap-0 gap-8 justify-between pb-[50px]">
+    <div className="flex md:flex-row flex-col md:gap-0 gap-8 justify-between pb-[50px] sm:px-0 px-2">
       <p className="xl:w-[355px] md:w-[169px] w-full font-sora font-bold xl:text-[58px] text-[28px] xl:leading-[58px] leading-[35.28px]">
         {t("words-from-our-founder")}
       </p>

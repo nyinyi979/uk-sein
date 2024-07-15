@@ -31,7 +31,7 @@ export default function ReviewPopUp({
           display: open ? "block" : "none",
         }}
         onClick={(e) => e.preventDefault()}
-        className="xl:w-[1088px] md:w-[680px] w-[330px] h-[70%] xl:mt-[150px] mt-[100px] overflow-scroll bg-white flex flex-col md:gap-8 gap-[18px] mx-auto md:p-8 p-6 rounded-[15px]"
+        className="xl:w-[1088px] md:w-[680px] sm:w-[330px] w-[93%] h-[70%] xl:mt-[150px] mt-[100px] overflow-scroll bg-white flex flex-col md:gap-8 gap-[18px] mx-auto md:p-8 p-6 rounded-[15px]"
       >
         <ReviewTitle>
           <button className="ml-auto" onClick={close}>

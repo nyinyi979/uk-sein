@@ -6,7 +6,7 @@ export default function HowWeWorks() {
   const t = useTranslations("portfolio");
   return (
     <div className="w-full xl:h-[520px] md:h-[300px] h-[220px] relative">
-      <div className="xl:w-[532px] md:w-[320px] w-[296px] flex flex-col xl:gap-[18px] xl:mt-[158px] md:mt-14 mt-10 xl:ml-[86px] md:ml-20 ml-5 text-white">
+      <div className="xl:w-[532px] md:w-[320px] sm:w-[296px] flex flex-col xl:gap-[18px] xl:mt-[158px] md:mt-14 mt-10 xl:ml-[86px] md:ml-20 sm:ml-5 mx-2 text-white">
         <p className="font-sora font-extrabold xl:text-[56px] md:text-[42px] text-[26px]">
           {t("how-we-work")}
         </p>

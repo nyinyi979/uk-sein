@@ -18,7 +18,7 @@ export default function Footer() {
             priority
           />
         </div>
-        <div className="flex flex-row xl:gap-[121px] gap-10">
+        <div className="flex flex-row xl:gap-[121px] gap-10 sm:flex-nowrap flex-wrap">
           <QuickLinks />
           <ContactUs />
         </div>

@@ -3,6 +3,7 @@ import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { Quicksand, Sora, Lexend } from "next/font/google";
+
 const quicksand = Quicksand({
   subsets: ["latin"],
   display: "swap",

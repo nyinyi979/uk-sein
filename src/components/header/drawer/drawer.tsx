@@ -48,7 +48,7 @@ export default function Drawer({ hide }: { hide: () => void }) {
           if (info.point.x < 250) hide();
         }}
         onClick={(ev) => ev.stopPropagation()}
-        className="md:w-[350px] w-[276px] h-full md:pt-[83px] pt-10 md:pl-[50px] pl-5 pb-10 bg-white shadow-drawer overflow-y-auto"
+        className="md:w-[350px] sm:w-[276px] w-fit h-full md:pt-[83px] pt-10 md:pl-[50px] sm:pl-5 pl-2 pb-10 bg-white shadow-drawer overflow-y-auto"
       >
         <div className="w-fit flex flex-col gap-6">
           <p className="font-semibold text-2xl">{t("explore-now")}</p>
