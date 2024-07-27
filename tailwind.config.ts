@@ -90,6 +90,7 @@ const config: Config = {
         drawer: "4px 4px 50px 0px #00000033",
         searchFooter: "0px -4px 40px 0px #0000000D",
         search: "3px 6px 50px 0px #00000026",
+        toast: "2px 2px 50px 0px #00000014"
       },
     },
   },

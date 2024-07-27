@@ -274,3 +274,16 @@ input[type="range"]::-ms-thumb {
   @apply fill-khaki-500;
 }
 /*                                                                    */
+
+/* Toast */
+.opened-toast,
+.closed-toast,
+#toast{
+  @apply w-fit flex flex-col gap-2.5 mx-auto py-[18px] px-10 rounded-[15px] bg-white shadow-toast z-[30000] duration-300;
+}
+.closed-toast{
+  @apply -translate-y-20 opacity-0;
+}
+.opened-toast{
+  @apply translate-y-0 opacity-100;
+}
