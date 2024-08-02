@@ -108,7 +108,8 @@ export default function ProductsCarousel({
         pagination={{ clickable: true }}
         navigation={{ nextEl: ".product-next", prevEl: ".product-prev" }}
         breakpoints={{
-          1440: { slidesPerView: 3, spaceBetween: 30 },
+          1200: { slidesPerView: 3, spaceBetween: 30 },
+          560: { slidesPerView: 2, spaceBetween: 30},
           393: { slidesPerView: 2, spaceBetween: 40 },
           0: { slidesPerView: 1, spaceBetween: 20 },
         }}

@@ -3,6 +3,7 @@ import AddToCartSvg from "@/svg/addToCart.svg";
 import ShareSvg from "@/svg/share.svg";
 import WishList from "@/components/actions/wishlist";
 import { useTranslations } from "next-intl";
+import { useUserStore } from "@/store/clientData";
 
 export default function ProductAddToCart({
   productID,
@@ -11,10 +12,11 @@ export default function ProductAddToCart({
   whiteListed: boolean;
   productID: string;
 }) {
+  const addToCart = useUserStore((state)=> state.addCartItem);
   const t = useTranslations("product");
   return (
     <div className="md:h-[58px] h-[48px] flex flex-row gap-[18px]">
-      <button className="w-fit h-full flex flex-row gap-3 md:p-[18px] sm:px-[18px] px-2 py-[14px] bg-khaki-500 rounded-xl md:text-base text-sm text-white hover:bg-khaki-700 duration-300">
+      <button onClick={()=>addToCart(1)} className="w-fit h-full flex flex-row gap-3 md:p-[18px] sm:px-[18px] px-2 py-[14px] bg-khaki-500 rounded-xl md:text-base text-sm text-white hover:bg-khaki-700 duration-300">
         <Image src={AddToCartSvg} alt="add to cart" width={22} height={22} />
         <p className="font-semibold">{t("add-to-cart")} </p>
       </button>

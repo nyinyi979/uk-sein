@@ -8,7 +8,7 @@ import PromotionBanner from "@/components/banner/promotionBanner";
 
 export default function Home() {
   return (
-    <div className="xl:w-[1190px] md:w-[664px] sm:w-[393px] w-full flex flex-col xl:gap-20 md:gap-10 gap-8 pb-20 mx-auto">
+    <div className="xl:w-[1190px] md:w-[85%] sm:w-[90%] w-full flex flex-col xl:gap-20 md:gap-10 gap-8 pb-20 mx-auto">
       <MainProductsCarousel />
       <QualityAssureRow className="md:block hidden" />
       <ProductShowCase />

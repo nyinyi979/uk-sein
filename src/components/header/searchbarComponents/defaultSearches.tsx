@@ -33,7 +33,7 @@ export default function DefaultResults({ small = false }: { small?: boolean }) {
         damping: 6.67,
       }}
       onClick={(e) => e.stopPropagation()}
-      className="w-full h-fit flex flex-col gap-10 xl:absolute relative mt-2 xl:right-0 xl:top-24 mx-auto xl:px-[35px] xl:pt-[35px] xl:pb-[50px] p-[18px] rounded-[15px] bg-white xl:shadow-search xl:z-[1000]"
+      className="w-full h-fit flex flex-col gap-10 xl:absolute relative mt-2 xl:right-0 xl:top-24 mx-auto xl:px-[35px] xl:pt-[35px] xl:pb-[50px] p-[18px] rounded-[15px] bg-white xl:shadow-search xl:z-[10]"
     >
       <div className="flex flex-col gap-6">
         <p className="font-semibold fonts-sora text-lg">

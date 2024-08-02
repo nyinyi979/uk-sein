@@ -10,7 +10,7 @@ export default function Contact() {
   const arr = [Contact1, Contact2, Contact3, Contact4];
   const t = useTranslations("contact");
   return (
-    <div className="xl:w-[1190px] md:w-[668px] sm:w-[340px] w-full mx-auto xl:pt-20 pt-10 pb-32 sm:px-0 px-2">
+    <div className="xl:w-[1192px] md:w-[85%] sm:w-[90%] w-full mx-auto flex flex-col xl:gap-20 gap-10 xl:mx-auto xl:py-20 py-10">
       <div className="flex flex-col xl:gap-32 gap-8 relative">
         <div className="flex flex-col xl:gap-[50px] gap-8">
           <p className="font-sora font-bold xl:text-5xl text-[32px] md:text-left text-center">
@@ -19,7 +19,7 @@ export default function Contact() {
           <div className="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8 h-fit relative rounded-[15px]">
             {arr.map((a, ind) => (
               <div key={ind} className="flex flex-col gap-[18px]">
-                <div className="w-full xl:h-[274px] h-[250px] relative rounded-[15px] overflow-hidden">
+                <div className="w-full lg:h-[274px] h-[250px] mx-auto relative rounded-[15px] overflow-hidden">
                   <Image
                     src={a}
                     alt={`contact ${ind}`}

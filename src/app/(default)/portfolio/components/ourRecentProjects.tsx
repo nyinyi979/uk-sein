@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Portfolio5 from "../images/portfolio-5.png";
-import Portfolio6 from "../images/portfolio-6.png";
-import Portfolio7 from "../images/portfolio-7.png";
+import Portfolio5 from "../images/portfolio-5.jpg";
+import Portfolio6 from "../images/portfolio-6.jpg";
+import Portfolio7 from "../images/portfolio-7.jpg";
 import { useTranslations } from "next-intl";
 
 export default function OurRecentProjects() {
@@ -27,14 +27,14 @@ export default function OurRecentProjects() {
     },
   ];
   return (
-    <div className="xl:flex hidden flex-col gap-[50px]">
+    <div className="flex flex-col gap-[50px]">
       <p className="font-sora font-bold xl:text-5xl md:text-2xl text-[28px] text-center">
         {t("our-recent-projects")}
       </p>
-      <div className="xl:grid w-fit hidden grid-cols-3 gap-5 mx-auto">
+      <div className="lg:grid w-fit hidden grid-cols-3 gap-5 mx-auto">
         {arr.map((a) => (
           <div key={a.id} className="flex flex-col gap-6">
-            <div className="size-[374px] relative rounded-[10px]">
+            <div className="size-[374px] relative rounded-[10px] overflow-hidden">
               <Image
                 src={a.img}
                 alt={a.name}

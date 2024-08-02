@@ -58,9 +58,9 @@ export default function Orders() {
     },
   ]);
   return (
-    <div className="xl:w-[1190px] md:w-[664px] sm:w-[360px] w-full flex flex-col xl:gap-20 md:gap-10 gap-8 mx-auto xl:py-20 md:py-10 py-8 sm:px-0 px-2">
+    <div className="xl:w-[1192px] md:w-[85%] sm:w-[90%] w-full h-fit mx-auto flex flex-col xl:gap-20 gap-10 xl:mx-auto xl:py-20 py-10">
       <OrderTitle />
-      <div className="flex flex-col gap-10 w-fit mx-auto">
+      <div className="flex flex-col gap-10 w-full mx-auto">
         <OrderHeader status={orderStatus} updateStatus={updateOrderStatus} />
         <OrderTable orders={orders} status={orderStatus} />
       </div>

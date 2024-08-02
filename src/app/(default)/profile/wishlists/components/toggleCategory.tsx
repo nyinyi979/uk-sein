@@ -17,8 +17,8 @@ export default function WhiteListCateogry({
   const [hidden, setHidden] = React.useState(true);
   const t = useTranslations();
   return (
-    <div className="xl:w-[274px] w-full xl:block flex flex-row">
-      <div className="xl:hidden flex flex-col md:gap-1.5 gap-1">
+    <div className="lg:w-[274px] w-full lg:block flex flex-row">
+      <div className="lg:hidden flex flex-col md:gap-1.5 gap-1">
         <p className="font-bold md:text-[32px] text-lg">
           {t("wishlist.wishlist")}{" "}
         </p>
@@ -30,7 +30,7 @@ export default function WhiteListCateogry({
       <div className="ml-auto relative">
         <button
           onClick={() => setHidden(!hidden)}
-          className="xl:hidden flex flex-row gap-3 p-[14px] rounded-lg bg-white-700 hover:bg-grey-50 duration-300"
+          className="lg:hidden flex flex-row gap-3 p-[14px] rounded-lg bg-white-700 hover:bg-grey-50 duration-300"
         >
           <span className="font-semibold text-xs">
             {t("wishlist.all-category")}
@@ -58,7 +58,7 @@ export default function WhiteListCateogry({
           )}
         </AnimatePresence>
       </div>
-      <div className="xl:block hidden">
+      <div className="lg:block hidden">
         <Toggle name={t("category.category")}>
           <CategoryFilter
             categories={categories}

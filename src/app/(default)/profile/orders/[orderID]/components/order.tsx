@@ -49,7 +49,7 @@ export default function Order({
   React.useEffect(() => {}, [size]);
   return (
     <motion.div
-      className="size-full md:relative fixed top-0 left-0 md:bg-transparent bg-popup-bg md:z-0 z-[1000]"
+      className="size-full md:relative fixed top-0 left-0 md:bg-transparent bg-popup-bg md:z-0 z-[10]"
       animate={{ opacity: size[0] < 768 ? [0, 1] : [1, 1] }}
       exit={{ opacity: size[0] < 768 ? 0 : 1 }}
     >

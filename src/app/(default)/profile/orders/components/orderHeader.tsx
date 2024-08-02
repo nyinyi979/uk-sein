@@ -41,7 +41,7 @@ export default function OrderHeader({
   const txt =
     status_txts[status_arr.current.findIndex((val) => val === status)];
   return (
-    <div className="w-fit relative md:font-bold font-semibold xl:text-base text-sm">
+    <div className="w-full md:flex relative md:mx-auto md:font-bold font-semibold xl:text-base text-sm">
       <button
         onClick={() => setHidden(!hidden)}
         className="flex flex-row md:hidden gap-4 py-[14px] px-[18px] rounded-lg bg-white-700 font-semibold text-sm hover:bg-grey-50 duration-300"
@@ -77,14 +77,14 @@ export default function OrderHeader({
               mass: 1,
               damping: 6.67,
             }}
-            className="w-[180px] md:w-fit md:relative absolute left-0 md:mt-0 mt-[10%] flex md:flex-row flex-col mx-auto bg-white md:rounded-none rounded-xl overflow-hidden md:z-[1] z-[20]"
+            className="w-[180px] md:w-full md:relative absolute left-0 md:mt-0 mt-[10%] flex md:grid md:grid-cols-4 flex-col mx-auto bg-white md:rounded-none rounded-xl overflow-hidden md:z-[1] z-[20]"
           >
             {status_arr.current.map((s, i) => (
               <button
                 key={s}
                 disabled={status === s}
                 onClick={() => changeStatus(s)}
-                className="xl:py-5 md:py-4 xl:px-[72px] md:px-[20px] p-[18px] text-left md:disabled:border-b-[1.5px] md:disabled:border-khaki-500 md:disabled:text-khaki-500 disabled:bg-grey-50 md:hover:bg-khaki-50 hover:bg-grey-50 duration-300"
+                className="w-full xl:py-5 md:py-4 xl:px-[72px] md:px-[10px] p-[18px] md:text-center text-left md:disabled:border-b-[1.5px] md:disabled:border-khaki-500 md:disabled:text-khaki-500 disabled:bg-grey-50 md:hover:bg-khaki-50 hover:bg-grey-50 duration-300"
               >
                 {status_txts[i]}
               </button>

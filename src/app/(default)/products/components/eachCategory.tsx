@@ -7,7 +7,7 @@ export default function EachCategory({ category }: { category: string }) {
   const t = useTranslations("product");
   return (
     <div className="xl:w-[375px] sm:w-full w-fit mx-auto h-fit flex flex-row gap-4 md:py-5 md:px-[18px] p-[18px] bg-white-400 rounded-[18px] align-middle justify-center">
-      <div className="xl:size-[110px] md:size-[50px] size-10 my-5 relative">
+      <div className="xl:size-[110px] lg:size-20 md:size-[50px] size-10 my-5 rounded-md overflow-hidden relative">
         <Image
           src={"/sampleDiscount.png"}
           alt="img"

@@ -20,7 +20,7 @@ export default function QualityAssureRow({ className }: { className: string }) {
   ];
   return (
     <div className={`${className} md:shadow-light`}>
-      <div className="w-full flex md:flex-row flex-col md:gap-0 gap-4 justify-between xl:px-[50px] px-5 xl:py-[70px] md:py-[50px] mx-auto rounded-3xl">
+      <div className="w-full flex md:flex-row flex-col md:gap-0 gap-4 justify-between xl:px-[50px] ssm:px-0 px-5 xl:py-[70px] md:py-[50px] mx-auto rounded-3xl">
         {texts.map((text) => (
           <div
             key={text.heading}

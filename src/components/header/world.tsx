@@ -13,7 +13,7 @@ export default function World({
   toggle: () => void;
 }) {
   return (
-    <div className="relative z-20">
+    <div className="relative z-[10]">
       <button
         onClick={toggle}
         className="xl:w-[58px] xl:h-[50px] md:size-[48px] size-[46px] hidden md:flex pt-3 xl:px-5 bg-white-400 xl:rounded-xl md:rounded-full rounded-xl hover:bg-grey-50 duration-300"

@@ -84,7 +84,7 @@ export default function CartSlider({
             mass: 1,
             damping: 6.67,
           }}
-          className="size-full fixed top-0 left-0 bg-popup-bg z-[200] overflow-y-auto"
+          className="size-full fixed top-0 left-0 bg-popup-bg overflow-y-auto z-[11]"
           onClick={toggle}
         >
           <motion.div

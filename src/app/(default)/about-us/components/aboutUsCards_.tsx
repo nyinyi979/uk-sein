@@ -17,7 +17,7 @@ export function AboutUsCard1() {
       title="The Visionary Founder"
       description={t("card1")}
     >
-      <div className="w-full xl:h-[450px] md:h-[240px] h-[150px] relative rounded-[10px]">
+      <div className="w-full xl:h-[450px] lg:h-[350px] md:h-[240px] h-[150px] relative rounded-[10px]">
         <Image
           src={AboutUs1}
           alt="About us 1"
@@ -37,7 +37,7 @@ export function AboutUsCard2() {
       title="The Smart Furniture Revolution"
       description={t("card2")}
     >
-      <div className="w-[full] xl:h-[450px] md:h-[180px] h-[130px] relative flex flex-row justify-between">
+      <div className="w-[full] xl:h-[450px] lg:h-[350px] md:h-[180px] h-[130px] relative flex flex-row justify-between">
         <div className="w-[49%] h-full relative">
           <Image
             src={AboutUs2}
@@ -68,13 +68,13 @@ export function AboutUsCard3() {
       title="Opening Flagship Stores"
       description={t("card3")}
     >
-      <div className="w-[full] xl:h-[450px] md:h-[150px] h-[60px] relative flex flex-row justify-between">
+      <div className="w-[full] xl:h-[450px] lg:h-[350px] md:h-[150px] h-[60px] relative flex flex-row justify-between">
         <div className="w-[32%] h-full relative">
           <Image
             src={AboutUs4}
             alt="About us 2"
             fill
-            sizes="50%"
+            sizes="100%"
             className="size-full rounded-[10px] object-cover"
           />
         </div>
@@ -83,7 +83,7 @@ export function AboutUsCard3() {
             src={AboutUs5}
             alt="About us 3"
             fill
-            sizes="50%"
+            sizes="100%"
             className="size-full rounded-[10px] object-cover"
           />
         </div>
@@ -92,7 +92,7 @@ export function AboutUsCard3() {
             src={AboutUs6}
             alt="About us 3"
             fill
-            sizes="50%"
+            sizes="100%"
             className="size-full rounded-[10px] object-cover"
           />
         </div>

@@ -22,7 +22,7 @@ export default function ProductRatings({
           Total ({ratingCount}) rating{ratingCount >= 1 && "s"}
         </div>
       </div>
-      <div className="flex flex-col gap-4 p-[10px]">
+      <div className="w-fit flex flex-col gap-4 md:ml-auto md:mr-0 mx-auto p-2.5">
         <Rating number={5} ratingCount={ratingCount} ratings={ratings[5]} />
         <Rating number={4} ratingCount={ratingCount} ratings={ratings[4]} />
         <Rating number={3} ratingCount={ratingCount} ratings={ratings[3]} />

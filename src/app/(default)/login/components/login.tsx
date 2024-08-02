@@ -8,6 +8,7 @@ import PasswordInput from "@/components/input/passwordInput";
 import LoginHeader from "./loginHeader";
 import LoginBack from "./loginBack";
 import { useTranslations } from "next-intl";
+import AlertBox, { showAlert } from "@/components/Alert";
 
 export default function Login() {
   const [input, setInput] = React.useState({
@@ -20,13 +21,16 @@ export default function Login() {
   const setPassword = (pw: string) => {
     setInput({ ...input, password: pw });
   };
-  const notEmpty = input.phoneNumber != "" && input.password != "";
+  const disabled = input.phoneNumber !== "" && input.password !== "";
   const t = useTranslations();
   return (
-    <div className="w-fit grid md:grid-cols-2 xl:gap-28 gmd:ap-10 gap-5 mx-auto md:py-20 py-10 sm:px-0 px-2">
-      <div className="xl:w-[500px] md:w-[344px] sm:w-[340px] w-full flex flex-col gap-10 mx-auto">
+    <div className="xl:w-fit w-[80%] grid md:grid-cols-2 xl:gap-28 md:gap-10 gap-5 mx-auto md:py-20 py-10 sm:px-0 px-2">
+      <AlertBox className="text-center p-5">
+        You have successfully signed in from <br /> {input.phoneNumber}
+      </AlertBox>
+      <div className="xl:w-[500px] w-full flex flex-col gap-10 mx-auto">
         <LoginBack />
-        <form onSubmit={() => {}} className="flex flex-col gap-10">
+        <form onSubmit={(ev) => {ev.preventDefault();showAlert(5000);}} className="flex flex-col gap-10">
           <LoginHeader />
           <div className="flex flex-col gap-[50px]">
             <div className="flex flex-col md:gap-8 gap-[18px]">
@@ -46,9 +50,9 @@ export default function Login() {
             </div>
           </div>
           <button
-            disabled={!notEmpty}
+            disabled={!disabled}
             type="submit"
-            className={`w-full h-[78px] rounded-[18px] font-semibold font-sora xl:text-2xl ${notEmpty ? "bg-khaki-600 text-white hover:bg-khaki-700" : "bg-white-700 text-white"} duration-300`}
+            className={`w-full h-[78px] rounded-[18px] font-semibold font-sora xl:text-2xl ${disabled ? "bg-khaki-600 text-white hover:bg-khaki-700" : "bg-white-700 text-white"} duration-300`}
           >
             {t("signin.sign-in")}
           </button>

@@ -11,7 +11,7 @@ export default function DiscountBanner({
 }) {
   const t = useTranslations("discount-banner");
   return (
-    <div className="md:w-full sm:w-[353px] w-full xl:h-[380px] md:h-[250px] h-[160px] mx-auto relative flex md:py-10 py-5 md:px-20 px-10 rounded-[15px] overflow-hidden font-bold text-right">
+    <div className="w-full xl:h-[380px] lg:h-[300px] md:h-[250px] ssm:h-[200px] h-[160px] mx-auto relative flex md:py-10 ssm:py-7 py-5 md:px-20 px-10 rounded-[15px] overflow-hidden font-bold text-right">
       <div className="md:w-[423px] flex flex-col xl:gap-10 md:gap-6 gap-4 ml-auto">
         <div className="flex flex-col xl:gap-[18px] gap-2.5">
           <p className="font-bold font-sora xl:text-[56px] md:text-[32px] text-xl xl:leading-[65px] md:leading-10 leading-6">

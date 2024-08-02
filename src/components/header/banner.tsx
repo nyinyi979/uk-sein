@@ -14,7 +14,7 @@ export default function Banner({
   const t = useTranslations("banner");
   return (
     <div
-      className={`w-full sticky xl:flex xl:flex-row top-0 left-0 ${searchSide ? "hidden" : "grid grid-cols-121"} xl:gap-[70px] gap-5 align-middle xl:justify-between bg-white xl:px-[126px] md:px-[50px] px-6 xl:py-5 py-0 border-b border-gray-300 z-[1000]`}
+      className={`w-full sticky xl:flex xl:flex-row top-0 left-0 ${searchSide ? "hidden" : "grid grid-cols-121"} xl:gap-[70px] gap-5 align-middle xl:justify-between bg-white xl:px-[126px] md:px-[50px] px-6 xl:py-5 py-0 border-b border-gray-300 z-[11]`}
     >
       <DrawerBtn />
       <Link

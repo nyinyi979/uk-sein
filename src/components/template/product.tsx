@@ -22,10 +22,10 @@ export default function Product({
     <Link href={`/products/${itemID}`}>
       <div className="w-fit flex flex-col gap-2.5 mx-auto relative rounded-3xl">
         <div
-          className={`${small ? "xl:size-[274px] md:size-[209px] sm:w-[160px] w-full h-fit" : "xl:w-[376px] xl:h-[350px] md:size-[320px] sm:size-[160px] w-full h-fit"} flex align-middle justify-center bg-white-400 rounded-[15px] overflow-hidden ${small ? "sm:py-10 py-5" : "sm:py-8 py-4"}`}
+          className={`${small ? "xl:size-[274px] md:size-[209px] sm:w-[160px] w-full h-fit" : "xl:w-[376px] xl:h-[350px] md:size-[320px] ssm:size-[200px] sm:size-[160px] w-full h-fit"} flex align-middle justify-center bg-white-400 rounded-[15px] overflow-hidden ${small ? "sm:py-10 py-5" : "sm:py-8 py-4"}`}
         >
           <div
-            className={`relative ${small ? "xl:w-[231px] xl:h-[206px] md:w-[171px] w-[127px] md:h-[152px] h-[113px]" : "xl:w-[333px] md:w-[263px] w-[127px] xl:h-[296px] md:h-[233px] h-[113px]"} shadow-product`}
+            className={`relative ${small ? "xl:w-[231px] xl:h-[206px] md:w-[171px] w-[127px] md:h-[152px] h-[113px]" : "xl:w-[333px] md:w-[263px] ssm:size-[160px] w-[127px] xl:h-[296px] md:h-[233px] ssm:h-[150px] h-[113px]"} shadow-product`}
           >
             <Image
               src={imageURL}

@@ -14,10 +14,10 @@ export default function PortfolioCard({
   children?: React.ReactNode;
 }) {
   const OneSection = (
-    <div className="xl:w-[671px] md:w-[664px] sm:w-[340px] w-full xl:h-auto md:h-[260px] h-[200px] relative rounded-3xl overflow-hidden">
+    <div className="xl:w-[671px] md:w-[664px] sm:w-[340px] w-full xl:h-auto md:h-[260px] h-[200px] mx-auto relative rounded-3xl overflow-hidden">
       <Image
         src={imgs[0]}
-        alt="a's thai spa 1"
+        alt="image"
         fill
         sizes="100%"
         className="size-full object-cover"
@@ -25,11 +25,11 @@ export default function PortfolioCard({
     </div>
   );
   const TwoSection = (
-    <div className="xl:w-[467px] md:w-[664px] sm:w-[340px] w-full flex xl:flex-col xl:gap-0 gap-2.5 justify-between">
+    <div className="xl:w-[467px] md:w-[664px] sm:w-[340px] w-full flex xl:flex-col xl:gap-0 gap-2.5 justify-between mx-auto">
       <div className="w-full xl:h-[276px] md:h-[240px] h-[170px] relative rounded-3xl overflow-hidden">
         <Image
           src={imgs[1]}
-          alt="a's thai spa 2"
+          alt="image"
           fill
           sizes="100%"
           className="size-full object-cover"
@@ -38,7 +38,7 @@ export default function PortfolioCard({
       <div className="w-full xl:h-[276px] md:h-[240px] h-[170px] relative rounded-3xl overflow-hidden">
         <Image
           src={imgs[2]}
-          alt="a's thai spa 3"
+          alt="image"
           fill
           sizes="100%"
           className="size-full object-cover"

@@ -27,7 +27,7 @@ export default function CategoryDropdown({
         mass: 1,
         damping: 6.67,
       }}
-      className="xl:hidden w-[200px] absolute mt-5 right-0 p-2.5 rounded-[15px] bg-white shadow-dropdown z-[100]"
+      className="lg:hidden w-[200px] absolute mt-5 right-0 p-2.5 rounded-[15px] bg-white shadow-dropdown z-[100]"
     >
       <CategoryFilter
         categories={categories}

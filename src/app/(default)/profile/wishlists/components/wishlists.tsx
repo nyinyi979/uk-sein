@@ -5,6 +5,7 @@ import DiscountBanner from "@/components/banner/discountBanner";
 import Pagination from "@/components/template/pagination";
 import Product from "@/components/template/product";
 import { product } from "@/types/type";
+import useWindowSize from "@/components/hooks/useWindowSize";
 
 export default function WishList() {
   const [products, setProducts] = React.useState<product[]>([
@@ -93,16 +94,16 @@ export default function WishList() {
     setPage(page);
   };
   return (
-    <div className="xl:w-[1192px] md:w-[664px] sm:w-[340px] w-full flex flex-col xl:gap-20 gap-10 mx-auto xl:py-20 md:py-10 py-8 sm:px-0 px-2">
-      <div className="flex xl:flex-row flex-col xl:gap-8 md:gap-10 gap-8">
+    <div className="xl:w-[1192px] md:w-[85%] sm:w-[90%] w-full h-fit mx-auto flex flex-col xl:gap-20 gap-10 xl:mx-auto xl:py-20 py-10">
+      <div className="flex lg:flex-row flex-col xl:gap-8 md:gap-10 gap-8">
         <WhiteListCateogry
           categories={possibleCategories.current}
           category={category}
           updateCategory={updateCategory}
         />
-        <div className="grid md:grid-cols-3 grid-cols-2 md:gap-20 gap-5">
+        <div className="grid ssm:grid-cols-3 grid-cols-2 md:gap-20 gap-5">
           {products.map((p) => (
-            <Product key={p.itemID} {...p} small />
+            <Product key={p.itemID} {...p} small/>
           ))}
           <div className="md:col-span-3 col-span-2 ml-auto">
             <Pagination activeIndex={1} totalIndex={1} setIndex={updatePage} />

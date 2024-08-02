@@ -125,7 +125,7 @@ export default function ProductWithFilters({
   const size = useWindowSize();
   const showFilterDrawer = () => {
     setHidden(false);
-    if (size[0] < 1440) {
+    if (size[0] < 1200) {
       document.body.style.overflowY = "hidden";
     } else {
       document.body.style.overflowY = "auto";
@@ -133,28 +133,28 @@ export default function ProductWithFilters({
   };
   const hideFilterDrawer = () => {
     setHidden(true);
-    if (size[0] <= 1440) {
+    if (size[0] <= 1200) {
       document.body.style.overflowY = "auto";
     } else {
       document.body.style.overflowY = "hidden";
     }
   };
   React.useEffect(() => {
-    if (size[0] >= 1440) {
+    if (size[0] >= 1200) {
       showFilterDrawer();
     } else {
       hideFilterDrawer();
     }
   }, [size]);
   return (
-    <div className="xl:w-[1190px] md:w-[668px] sm:w-[393px] w-full flex flex-col gap-10 xl:my-20 my-10 md:px-0 px-5 mx-auto">
+    <div className="xl:w-[1190px] md:w-[85%] sm:w-[90%] w-full flex flex-col gap-10 xl:my-20 my-10 md:px-0 px-5 mx-auto">
       <CateogryHeading
         searched={searched}
         productCounts={products.length}
         category={category}
         show={showFilterDrawer}
       />
-      <div className="flex xl:flex-row flex-col xl:gap-20 gap-10">
+      <div className="flex lg:flex-row flex-col xl:gap-20 gap-10">
         <AnimatePresence>
           {!hidden && (
             <Filter
@@ -183,7 +183,7 @@ export default function ProductWithFilters({
             />
           )}
         </AnimatePresence>
-        <div className="xl:w-[886px] w-full flex flex-col gap-10">
+        <div className="lg:w-[886px] w-full flex flex-col gap-10">
           <AnimatePresence>
             {filterApplied && (
               <Filters
@@ -194,7 +194,7 @@ export default function ProductWithFilters({
               />
             )}
           </AnimatePresence>
-          <div className="grid md:grid-cols-3 sm:grid-cols-2 xl:gap-10 md:gap-2.5 gap-5">
+          <div className="grid ssm:grid-cols-3 sm:grid-cols-2 xl:gap-10 md:gap-2.5 gap-5">
             {products.length === 0 ? (
               <NotFoundError />
             ) : (

@@ -14,7 +14,7 @@ export default function SearchHeader() {
         mass: 1,
         damping: 6.67,
       }}
-      className="xl:hidden sticky top-0 left-0 flex flex-row py-2.5 px-[50px] bg-white shadow-lightest z-[1000]"
+      className="xl:hidden sticky top-0 left-0 flex flex-row py-2.5 px-[50px] bg-white shadow-lightest "
     >
       <button
         onClick={pushBack}

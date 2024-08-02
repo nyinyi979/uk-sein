@@ -23,7 +23,7 @@ export default function SearchResults({
         damping: 6.67,
       }}
       onClick={(e) => e.stopPropagation()}
-      className="w-full h-fit flex flex-col gap-10 absolute left-0 top-24 mx-auto xl:px-[35px] xl:pt-[35px] xl:pb-[50px] p-[18px] rounded-[15px] bg-white shadow-search z-[1000]"
+      className="w-full h-fit flex flex-col gap-10 absolute left-0 top-24 mx-auto xl:px-[35px] xl:pt-[35px] xl:pb-[50px] p-[18px] rounded-[15px] bg-white shadow-search z-[10]"
     >
       <div className="flex flex-col gap-[18px]">
         {searchResults.map((sr) => (

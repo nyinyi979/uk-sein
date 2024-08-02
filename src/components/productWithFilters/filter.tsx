@@ -74,7 +74,7 @@ export default function Filter({
         damping: 6.67,
       }}
       onClick={hide}
-      className="xl:w-fit xl:h-fit size-full xl:relative fixed top-0 left-0 xl:bg-transparent bg-popup-bg xl:z-auto z-[9999]"
+      className="lg:w-fit lg:h-fit size-full lg:relative fixed top-0 left-0 xl:bg-transparent bg-popup-bg xl:z-auto z-[9999]"
     >
       <motion.div
         animate={{ translateY: [200, 0] }}
@@ -92,22 +92,22 @@ export default function Filter({
           damping: 6.67,
         }}
         onClick={(e) => e.stopPropagation()}
-        className="xl:w-fit w-full xl:h-fit h-[616px] overflow-y-auto xl:pt-0 pt-6 xl:pb-0 pb-[50px] bg-white xl:relative fixed bottom-0 left-0 xl:rounded-none rounded-t-3xl"
+        className="lg:w-fit w-full lg:h-fit h-[616px] overflow-y-auto xl:pt-0 pt-6 xl:pb-0 pb-[50px] bg-white lg:relative fixed bottom-0 left-0 lg:rounded-none rounded-t-3xl"
       >
-        <div className="xl:w-[274px] md:w-[663px] w-full xl:h-auto mx-auto flex flex-col xl:gap-6 gap-8 md:px-0 px-5">
-          <div className="xl:block flex flex-row justify-between">
+        <div className="lg:w-[274px] md:w-[663px] w-full xl:h-auto mx-auto flex flex-col xl:gap-6 gap-8 md:px-0 px-5">
+          <div className="lg:block flex flex-row justify-between">
             <button
               onClick={resetFilter}
-              className={`xl:w-full w-fit h-[56px] xl:p-0 p-2.5 ${filterApplied ? "xl:bg-red-500 text-red-500 xl:text-white" : "xl:bg-grey-50 text-grey-100 xl:text-white"} md:text-base text-sm rounded-[10px] duration-300`}
+              className={`lg:w-full w-fit h-[56px] xl:p-0 p-2.5 ${filterApplied ? "xl:bg-red-500 text-red-500 xl:text-white" : "xl:bg-grey-50 text-grey-100 xl:text-white"} md:text-base text-sm rounded-[10px] duration-300`}
             >
               {t("clear-filters")}
             </button>
-            <p className="xl:hidden font-sora font-semibold text-lg my-2">
+            <p className="lg:hidden font-sora font-semibold text-lg my-2">
               {t("filters")}
             </p>
             <button
               onClick={hide}
-              className={`xl:hidden w-fit h-[56px] py-2.5 px-4 ${filterJustApplied ? "bg-success hover:bg-sucessHover" : "bg-grey-50"} md:text-base text-sm rounded-[10px] text-white`}
+              className={`lg:hidden w-fit h-[56px] py-2.5 px-4 ${filterJustApplied ? "bg-success hover:bg-sucessHover" : "bg-grey-50"} md:text-base text-sm rounded-[10px] text-white`}
             >
               {t("save")}
             </button>

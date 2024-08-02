@@ -26,7 +26,7 @@ export default function SmallCard({
   const t = useTranslations("product-showcase");
   return (
     <div
-      className={`img-scale w-full md:h-full h-fit relative flex xl:py-14 py-7 xl:pl-8 px-6 rounded-3xl overflow-hidden ${bgClass}`}
+      className={`img-scale w-full ssm:h-full h-fit relative flex xl:py-14 py-7 xl:pl-8 px-6 rounded-3xl overflow-hidden ${bgClass}`}
     >
       <div className="z-[2] xl:w-[246px] w-[200px] flex flex-col xl:gap-6 md:gap-2.5 gap-4">
         <div className="flex flex-col xl:gap-3 gap-1.5">

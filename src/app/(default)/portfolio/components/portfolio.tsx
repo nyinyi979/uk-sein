@@ -7,7 +7,7 @@ import PortfolioCards from "./portfolioCards";
 
 export default function Portfolio() {
   return (
-    <div className="xl:w-[1192px] md:w-[668px] sm:w-[340px] w-full flex flex-col xl:gap-20 md:gap-10 gap-8 mx-auto pb-10">
+    <div className="xl:w-[1192px] md:w-[85%] sm:w-[90%] w-full flex flex-col xl:gap-20 md:gap-10 gap-8 mx-auto pb-10">
       <HowWeWorks />
       <WhatDoWeCare />
       <OurRecentProjects />

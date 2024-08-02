@@ -1,6 +1,6 @@
+import { Table, TableBody, TableHead, TableHeader, TableRow } from "@/components/Table";
 import EachOrder from "./eachOrder";
 import { order, orderStatus } from "@/types/type";
-import { AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 export default function OrderTable({
@@ -12,12 +12,24 @@ export default function OrderTable({
 }) {
   const t = useTranslations("orders");
   return (
-    <div className="flex flex-col md:gap-6 gap-[18px] mx-auto xl:pt-7 pt-[18px] pb-[50px] px-7 bg-white shadow-orderTable">
-      <div className="w-full flex flex-row justify-between font-bold xl:text-base text-xs text-center text-grey-200">
+    <div className="w-full mx-auto bg-white shadow-orderTable">
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead>{t("order-id")}</TableHead>
+            <TableHead className="text-center">{t("date")}</TableHead>
+            <TableHead className="ssm:table-cell hidden text-center">{t("payment")}</TableHead>
+            <TableHead className="ssm:table-cell hidden text-right">{t("TOTAL")}</TableHead>
+            <TableHead className="md:table-cell hidden">{t("PRODUCTS")}</TableHead>
+            <TableHead className="md:table-cell hidden">{t("STATUS")}</TableHead>
+            <TableHead className="text-right">{t("actions")}</TableHead>
+          </TableRow>
+        </TableHeader>
+      {/* <div className="w-full flex flex-row justify-between font-bold xl:text-base text-xs text-center text-grey-200">
         <p className="xl:w-[100px] md:w-[60px] w-[110px] xl:text-left md:text-center text-left">
           {t("order-id")}
         </p>
-        <p className="xl:w-[100px] md:w-[80px] w-[100px]">{t("date")}</p>
+        <p className="xl:w-[100px] md:w-[80px] w-[100px]"></p>
         <p className="xl:w-[148px] md:block hidden w-[80px]">{t("payment")}</p>
         <p className="xl:w-[200px] md:block hidden w-[100px]">{t("TOTAL")}</p>
         <p className="xl:w-[90px] md:block hidden w-[60px] xl:text-left">
@@ -25,12 +37,13 @@ export default function OrderTable({
         </p>
         <p className="xl:w-[180px] md:block hidden w-[100px]">{t("STATUS")}</p>
         <p className="xl:w-[140px] md:w-[80px] w-[110px]">{t("actions")}</p>
-      </div>
-      <AnimatePresence>
+      </div> */}
+      <TableBody>
         {orders.map((order) => (
           <EachOrder key={order.orderID} order={order} orderStatus={status} />
         ))}
-      </AnimatePresence>
+      </TableBody>
+      </Table>
     </div>
   );
 }

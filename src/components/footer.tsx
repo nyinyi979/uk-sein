@@ -6,8 +6,8 @@ import UKSeinFooter from "./footer/images/UKSEINFooter.png";
 
 export default function Footer() {
   return (
-    <div className="shadow-footer w-full flex flex-col gap-8 mt-10 mx-auto xl:py-[50px] xl:px-[125px] px-7 md:py-10 py-8">
-      <div className="flex md:flex-row flex-col align-middle xl:justify-center justify-between xl:gap-[121px] md:gap-0 gap-8 mx-auto pb-10 border-b border-dotted border-grey-300">
+    <div className="w-full flex flex-col gap-8 mt-10 mx-auto xl:py-[50px] xl:px-[125px] px-7 md:py-10 py-8 shadow-footer">
+      <div className="w-[90%] flex md:flex-row flex-col align-middle xl:justify-center justify-between xl:gap-[121px] md:gap-0 gap-8 mx-auto pb-10 border-b border-dotted border-grey-300">
         <div className="xl:w-[238px] xl:h-[220px] md:w-[107.84px] w-[161px] md:h-[100px] h-[150px] relative">
           <Image
             src={UKSeinFooter}
@@ -18,7 +18,7 @@ export default function Footer() {
             priority
           />
         </div>
-        <div className="flex flex-row xl:gap-[121px] gap-10 sm:flex-nowrap flex-wrap">
+        <div className="flex flex-row xl:gap-[121px] md:gap-16 gap-10 sm:flex-nowrap flex-wrap">
           <QuickLinks />
           <ContactUs />
         </div>

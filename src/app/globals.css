@@ -141,13 +141,13 @@ span.swiper-pagination-bullet-active {
   @apply bg-red-50 rounded-xl duration-300;
 }
 .heart:hover > svg > path {
-  @apply fill-red-500 duration-300;
+  @apply fill-red-500;
 }
 .heart-active {
   @apply bg-white;
 }
 .heart-active > svg > path {
-  @apply fill-red-500 duration-300;
+  @apply fill-red-500;
 }
 /*                                                                    */
 
@@ -223,7 +223,7 @@ input[type="range"]::-ms-thumb {
 
 /* View order button */
 .order-btn {
-  @apply xl:w-[120px] md:w-[80px] w-[90px] mx-auto flex flex-row xl:gap-2.5 md:gap-1 gap-1.5 xl:py-[14px] md:py-2.5 xl:px-3 md:px-2 p-2 bg-khaki-50 md:rounded-[10px] rounded-[5px] font-bold xl:text-sm md:text-[8px] text-[10px] text-khaki-500 duration-300;
+  @apply xl:w-[120px] md:w-[80px] w-[90px] ml-auto flex flex-row xl:gap-2.5 md:gap-1 gap-1.5 xl:py-[14px] md:py-2.5 xl:px-3 md:px-2 p-2 bg-khaki-50 md:rounded-[10px] rounded-[5px] font-bold xl:text-sm md:text-[8px] text-[10px] text-khaki-500 duration-300;
 }
 .order-btn path {
   @apply fill-khaki-500 duration-300;

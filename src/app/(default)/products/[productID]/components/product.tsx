@@ -103,7 +103,7 @@ export default function ProductDetails({
     setActiveDetails({ ...activeDetails, material: mat });
   };
   return (
-    <div className="xl:w-[1192px] md:w-[664px] sm:w-[393px] w-full mx-auto xl:py-20 py-10 md:px-0 px-5">
+    <div className="xl:w-[1192px] md:w-[85%] sm:w-[90%] w-full mx-auto xl:py-20 py-10">
       <ProductTitle category={productDetails.category} />
       <div className="w-full flex flex-col gap-20">
         <div className="grid md:grid-cols-2 gap-8">

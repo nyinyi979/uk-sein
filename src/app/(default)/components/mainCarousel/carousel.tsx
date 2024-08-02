@@ -16,40 +16,41 @@ export default function MainProductsCarousel() {
 
   return (
     <Swiper
-      className="w-full xl:h-[520px] md:h-[350px] h-[240px] relative mx-auto md:rounded-b-[32px] rounded-none overflow-hidden"
+      className="w-full xl:h-[520px] lg:h-[400px] md:h-[350px] h-[240px] relative mx-auto md:rounded-b-[32px] rounded-none overflow-hidden"
       pagination={{ clickable: true }}
       navigation={{ nextEl: ".main-next", prevEl: ".main-prev" }}
       spaceBetween={30}
       speed={1600}
+      style={{zIndex:1}}
       onRealIndexChange={(sw) => setSlide(sw.activeIndex)}
       autoplay={{ delay: 1500, waitForTransition: true }}
       modules={[Pagination, Navigation, Autoplay]}
     >
-      <SwiperSlide>
+      <SwiperSlide className="z-[1]">
         <Image
           src={Image1}
           alt="Product"
           fill
           sizes="100%"
-          className="w-auto h-auto relative"
+          className="w-auto h-auto relative z-[2]"
         />
       </SwiperSlide>
-      <SwiperSlide>
+      <SwiperSlide className="z-[1]">
         <Image
           src={Image2}
           alt="Product"
           fill
           sizes="100%"
-          className="w-auto h-auto relative"
+          className="w-auto h-auto relative z-[2]"
         />
       </SwiperSlide>
-      <SwiperSlide>
+      <SwiperSlide className="z-[1]">
         <Image
           src={Image3}
           alt="Product"
           fill
           sizes="100%"
-          className="w-auto h-auto relative"
+          className="w-auto h-auto relative z-[2]"
         />
       </SwiperSlide>
       <CarouselButtons />
@@ -57,3 +58,4 @@ export default function MainProductsCarousel() {
     </Swiper>
   );
 }
+

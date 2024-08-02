@@ -73,8 +73,8 @@ export default function Signup() {
   };
   const t = useTranslations();
   return (
-    <div className="xl:w-[1190px] md:w-[668px] w-full grid md:grid-cols-2 grid-cols-1 gap-10 mx-auto xl:py-20 py-10 sm:px-0 px-2">
-      <div className="xl:w-[500px] md:w-[400px] sm:w-[340px] mx-auto h-fit flex flex-col gap-10">
+    <div className="lg:w-[1190px] w-full grid md:grid-cols-2 grid-cols-1 gap-10 mx-auto xl:py-20 py-10 sm:px-0 px-2">
+      <div className="lg:w-[500px] md:w-[80%] sm:w-[80%] mx-auto h-fit flex flex-col gap-10">
         <SignUpBack onClick={backOnClick} firstPage={firstPage} />
         <AnimatePresence>
           {firstPage ? (
