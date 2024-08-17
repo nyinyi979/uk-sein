@@ -1,0 +1,271 @@
+{
+    "signin":{
+        "welcome-back":"ပြန်လည်ကြိုဆိုပါသည်။👋",
+        "enter-details":"အကောင့်အသေးစိတ်အချက်အလက်များထည့်၍ system ထဲသို့ဝင်ရောက်ပါ။",
+        "forgot-password":"စကားဝှက် မေ့နေပါသလား?",
+        "sign-in":"ဝင်ရောက်ပါ",
+        "sign-out": "ထွက်ခွာပါ။",
+        "don't-have-account":"အကောင့်မရှိပါသလား။",
+        "back-home": "ပင်မစာမျက်နှာသို့"
+    },
+    "input":{
+        "phone":"ဖုန်းနံပါတ်",
+        "current-password": "လက်ရှိ စကားဝှက်",
+        "new-password": "စကားဝှက် အသစ်",
+        "renew-password": "စကားဝှက် အသစ် ထပ်မံထည့်ပါ။",
+        "password":"စကားဝှက်",
+        "confirm":"စကားဝှက် ထပ်မံထည့်ပါ။",
+        "name":"နာမည်",
+        "email":"မေးလ်",
+        "gender":"လိင်",
+        "profile":"ပရိုဖိုင်ပုံ",
+        "state":"ပြည်နယ်/ဒေသ",
+        "township":"မြို့နယ်",
+        "address":"နေရပ်လိပ်စာ",
+        "select-gender":"လိင် ရွေးချယ်ရန်",
+        "select-township":"မြို့နယ် ရွေးချယ်ရန်",
+        "select-state":"ပြည်နယ်/ဒေသ ရွေးချယ်ရန်"
+    },
+    "signup":{
+        "create": "အကောင့်အသစ်ဖွင့်ပါ 👋",
+        "already": "အကောင့်ရှိပြီသားပါလား။ ",
+        "personal":"ကိုယ်ရေးကိုယ်တာ အချက်အလက်",
+        "enter-details": "ကိုယ်ရေးကိုယ်တာအချက်အလက်များထည့်၍ စတင်ပါ။",
+        "shipping-info":"ပို့ဆောင်မှု အချက်အလက်",
+        "sign-up":" Sign up",
+        "new-account-created":"အကောင့်အောင်မြင်စွာ လုပ်ပြီးပါပြီ။",
+        "successful-message":"အကောင့်လုပ်ပြီးပါပြီ။ website အားလေ့လာကြစို့။"
+    },
+    "main-pages":{
+        "HOME": "ပင်မစာမျက်နှာ",
+        "home": "ပင်မစာမျက်နှာ",
+        "PRODUCTS": "ပစ္စည်းများ",
+        "products": "ပစ္စည်းများ",
+        "PORTFOLIO": "အရည်အချင်း",
+        "portfolio": "အရည်အချင်း",
+        "ABOUT-US": "ကျွန်ုပ်တို့ အကြောင်း",
+        "about-us": "ကျွန်ုပ်တို့ အကြောင်း",
+        "CONTACT": "ဆက်သွယ်ရန်",
+        "contact": "ဆက်သွယ်ရန်",
+        "my-profile": "မိမိ ပရိုဖိုင်",
+        "my-order": "မိမိ အော်ဒါများ",
+        "wishlists": "လိုက်ခ်များ",
+        "login": "ဝင်ရောက်ရန်",
+        "logout": "ထွက်ခွာရန်"
+    },
+    "highlights":{
+        "quality-assure": "အရည်အသွေးစိတ်ချရမှု",
+        "best-quality": "ပြည်တွင်းအကောင်းဆုံး အရည်အသွေး",
+        "customer-support": "စျေးဝယ်သူစိတ်တိုင်းကျဖြစ်မှု",
+        "we-care-your-exp": "သင်တို့အတွေ့အကြုံကို ဂရုစိုက်ပါသည်။",
+        "secure-payment": "စိတ်ချရသော ငွေပေးချေမှု",
+        "100-secure-payment": "ရာနှုန်းပြည့် စိတ်ချရသော ငွေပေးချေမှု",
+        "sample": "ရှုပ်ထွေးမှုမရှိ၊ သီးသန့် ပို့ဆောင်သူ၊ စိတ်ချရသော ပို့ဆောင်မှဒ"
+    },
+    "about-us":{
+        "story": "ယူကေစိန်၏ ဇာတ်လမ်း",
+        "over-the-year": "လွန်ခဲ့သော နှစ်များအတွင်း",
+        "card1": "In a small, sunlit workshop, Alex Thompson sketched the blueprint for the \"Eclipse Chair.\" Combining ergonomic curves with sustainable materials, this first piece embodied a perfect blend of comfort and style. Alex's dedication to quality and innovation quickly became evident as the Eclipse Chair garnered attention and praise. The chair's success was a testament to the brand's philosophy: creating furniture that was both beautiful and environmentally responsible. This initial triumph laid a solid foundation for the brand's future, setting high expectations and promising a new standard in furniture design.",
+        "card2": "As technology advanced, the brand embraced the opportunity to integrate smart features into their designs. The launch of the \"SmartLiving Series\" marked a significant milestone, introducing furniture with built-in charging ports, wireless speakers, and adjustable lighting. The flagship product, the \"IntelliSofa,\" became an instant favorite among tech-savvy customers, offering a seamless blend of comfort and modern convenience. This innovative approach not only enhanced the functionality of the furniture but also positioned the brand as a leader in the smart furniture market, attracting a new, younger audience eager for contemporary solutions.",
+        "card3": "To expand its presence and offer customers an immersive shopping experience, the brand opened flagship stores in major cities. These stores showcased the entire range of products, allowing customers to see and feel the quality and craftsmanship firsthand. The flagship stores became destinations in themselves, beautifully designed to reflect the brand's aesthetic and values. This expansion not only boosted sales but also strengthened the brand’s reputation, making it a household name in the furniture industry. By bringing their vision directly to consumers, the brand solidified its position as a market leader and continued to grow its loyal customer base.",
+        "card4": "In its fourth year, the brand launched a community-driven initiative called \"Furniture for All.\" This program focused on giving back to local communities through furniture donations and workshops on sustainable living. Partnering with non-profits, the brand provided comfortable, stylish furniture to shelters and community centers. Additionally, they hosted events where artisans and designers taught locals how to upcycle old furniture and make eco-friendly choices in their homes. The initiative not only helped those in need but also fostered a sense of community and environmental awareness. This commitment to social responsibility resonated deeply with customers, strengthening their loyalty and enhancing the brand's image as a socially conscious and caring company.",
+        "what-do-we-serve": "ကျွန်တော်တို့ ဘာတွေပေးဆောင်နိုင်သလဲ?"
+    },
+    "founder":{
+        "words-from-our-founder": "စတင်တည်ထောင်သူမှ အမှာစကား",
+        "founder-name": "စတည်တည်ထောင်သူ နာမည်",
+        "founder-details": "“Discover elegance and comfort with our innovative furniture collections. Crafted with care, each piece combines style and sustainability to enhance your living space. Visit our stores or shop online to experience quality like never before. Transform your home with our timeless designs today.”"
+    },
+    "category":{
+        "clear-filters": "Filters များအားဖယ်ရှားရန်",
+        "filters": "Filters",
+        "filter": "Filter",
+        "save": "မှတ်တမ်းတင်ပါ။",
+        "category": "အမျိုးအစား",
+        "color": "အရောင်",
+        "size": "အရွယ်အစား",
+        "material": "အသုံးပြုထားသည့် ပစ္စည်း",
+        "price-per-item": "ပစ္စည်းများစျေးနှုန်း",
+        "sorry-no-data-found": "စိတ်မကောင်းပါ! လူကြီးမင်းရှာဖွေသော ပစ္စည်း မတွေ့ရှိပါ!",
+        "try-to-search": "တစ်ခြားပုံစံတစ်မျိုးနှင့် ရှာကြည့်ပါ။",
+        "minimum": "အနိမ့်ဆုံး",
+        "maximum": "အမြင့်ဆုံး",
+        "results": "ရလဒ်များ"
+    },
+    "default": {
+        "continue":"ဆက်လက်ဆောင်ရွက်ပါ။"
+    },
+    "back-to":{
+        "back-to-cart": "စျေးဝယ်ရန်သို့ ပြန်သွားရန်",
+        "back-to-personal": "ကိုယ်ရေးကိုယ်တာအချက်အလက်သို့ ပြန်သွားရန်",
+        "back-to-home": "ပင်မစာမျက်နှာသို့ ပြန်သွားရန်",
+        "back-to-shipping": "ပို့ဆောင်မှုသို့ ပြန်သွားရန်",
+        "go-back": "နောက်သို့ပြန်သွားရန်။",
+        "back-to-products": "ကုန်ပစ္စည်းများသို့ ပြန်သွားရန်",
+        "back-to-order-history": "အော်ဒါမှတ်တမ်းများသို့ ပြန်သွားရန်"
+    },
+    "common-phrases":{
+        "shipping":"ပို့ဆောင်မှု",
+        "payment": "ငွေပေးချေမှု",
+        "confirmed": "သေချာပါပြီ။",
+        "shop-now": "အခုချက်ချင်း ဝယ်ယူပါ။"
+    },
+    "checkout": {
+        "cart-summary": "စျေးဝယ်မှု အကျည်းချုပ်",
+        "view-cart-summary": "စျေးဝယ်မှု အကျည်းချုပ်ကြည့်ရှုရန်",
+        "total": "စုစုပေါင်း",
+        "cart": "စျေးဝယ်မှု",
+        "order-history": "Order မှတ်တမ်း",
+        "order-registered": "Order အောင်မြင်စွာ တင်ပြီးပါပြီ။ <br/> ကျွန်တော်တို့ team မှ ငွေပေးချေမှုကို စစ်စေး၍ <br /> အမြန်ဆုံးအကြောင်းပြန်ပါမည်။",
+        "payment-method": "ငွေပေးချေမှု နည်းလမ်းများ",
+        "payment-number": "ပေးဆောင်ရန် နံပါတ်",
+        "owner-name": "ပေးဆောင်ရန် နာမည်",
+        "choose-currency": "ငွေကြေးအမျိုးအစားရွေးရန်",
+        "drop-the-ss": "ငွေပေးချေမှု screenshot ကို ထည့်သွင်းရန်။"
+    },
+    "home":{
+        "client": {
+            "client-words": "ကျွန်တော်တို့၏ ဖောက်သည်တို့ ပြောစကားများ"
+        },
+        "main-carousel":{
+            "carousel-text1": "သင်ရဲ့အိမ်\n သင်ရဲ့စတိုင်လ်\n ကျွန်တော်တို့ဖန်တီးမှု",
+            "carousel-text2": "ပြည်တွင်းအသွင်နှင့် သင်ရဲ့အိမ်ကို မြှင့်တင်လိုက်ပါ။",
+            "carousel-text3": "ပြည်တွင်းအသွင်နှင့် သင်ရဲ့အိမ်ကို မြှင့်တင်လိုက်ပါ။"
+        }
+    },
+    "contact":{
+        "contact-us": "ကျွန်တော်တို့နှင့် ဆက်သွယ်ရန်",
+        "address": "နံပါတ် ၆၃, ဘိုရာညွှန့်လမ်း, ဒဂုံ, ရန်ကုန်",
+        "email": "အီးမေလ် လိပ်စာ",
+        "join-our-community": "ကျွန်တော်တို့အသိုင်းအဝိုင်းကို ပါဝင်ရန်",
+        "ready-to-transform": "သင်ရဲ့အမြင်ကိုပြောင်းလဲဖို့ အဆင်သင့်ဖြစ်ပါသလား။ ယနေ့ပင် ရက်ချိန်းယူ၍ Jo Hair တွင်မတူခြားနားမှုကို ခံစားလိုက်ပါ။",
+        "follow-us": "ဆိုရှယ်မီဒီယာတွင် နောက်ဆုံးပေါ် စတိုင်အသစ်များအတွက် ကျွန်တော်တို့ကို follow ထားပါ။",
+        "submit-now": "အခုချက်ချင်း တင်ပြပါ။",
+        "message": "မက်ဆေ့ချ်"
+    },
+    "portfolio":{
+        "how-we-work": "အလုပ်လုပ်ပုံ",
+        "discover-our-elegance": "ကျွန်တော်တို့ရဲ့ အသစ်သစ်သော ပရိဘောဂများဖြင့် ကျက်သရေရှိမှုနဲ့ သက်တောင့်သက်သာရှိမှုကို ရှာဖွေလိုက်ပါ။ ဂရုတစိုက်ပြုလုပ်ထားသော, တစ်စိတ်တစ်ပိုင်းချင်းစီပေါင်းထားသည့် စတိုင်နဲ့ သင့်ရဲ့နေအိမ်ကို မြှင့်တင်လိုက်ပါ။ အရင်ကထက်သာလွန်သော အရည်အသွေးများကို ရယူရန် ဆိုင်များကိုလာလည်ပါ။ ထာဝရမပြောင်းလဲသော ဒီဇိုင်းများဖြင့် သင်ရဲ့အိမ်များကို ယနေ့ပြောင်းလဲလိုက်ပါ။",
+        "to-expand": "စျေးဝယ်သည်များကို ပို၍စွဲမက်ဖွယ်ကောင်းသော အတွေ့အကြုံကို ကမ်းလှန်းရန်နှင့် တည်ရှိမှုကိုပို၍ သိသာစေရန်။",
+        "our-recent-projects": "လက်တလောဆောက်ရွက်ထားသော ပရောဂျက်များ",
+        "portfolio-card": "Introducing our latest furniture project, the \"EcoHarmony Collection,\" where modern design meets sustainability. This groundbreaking line features an array of stylish, eco-friendly furniture crafted from sustainable materials like reclaimed wood and recycled metals. Each piece is meticulously designed to offer exceptional durability and comfort, ensuring that your home not only looks beautiful but also supports a healthier planet. From elegant dining sets to cozy sofas, the EcoHarmony Collection embodies a perfect balance of form and function. Our commitment to green practices means that every item in this collection is created with minimal environmental impact, using energy-efficient processes and eco-friendly finishes.",
+        "what-do-we-care": "ကျွန်တော်တို့ဘာကို ဂရုစိုက်ပါသလဲ?",
+        "what-do-we-care1":{
+            "name": "ဝယ်ယူသူအား အလေးထားမှု",
+            "description": "ထူးခြားသော ဝယ်ယူသူအတွေ့အကြုံကို လုပ်ဆောင်ပေးခြင်းဟာ ကျွန်တော်တို့ရဲ့ လုပ်ဆောင်မှုတွေပဲဖြစ်ပါတယ်။"
+        },
+        "what-do-we-care2":{
+            "name": "ထိရောက်စွာပူးပေါင်းဆောက်ရွက်လိုက်ပါ။",
+            "description": "ကျွန်တော်တို့ဟာ ထိရောက်မှုအများဆုံးဖြစ်မယ့် နိုင်ငံတကာပူးပေါင်းဆောင်ရွက်မှုကို ရင်နှီးမြှုပ်နှံပါသည်။"
+        },
+        "what-do-we-care3":{
+            "name": "အသစ်တီထွင်၍ တိုးတက်သည်။",
+            "description": "ကျွန်တော်တို့ကို အစဥ်လာထုံးစံများနဲ့ ကန့်သတ်ထားခြင်းမရှိပါ။ ကျွန်တော်တို့သည် စံနှုန်းများကို အမြဲ စမ်သပ်နေပါသည်။"
+        }
+    },
+    "product":{
+        "add-to-cart": "စျေးခြင်းတောင်းထဲထည့်ပါ။",
+        "our-customer-reviews": "ကျွန်တော်တို့ စျေးဝယ်သူများ၏ သုံးသပ်ချက်များ",
+        "sorry-no-reivew": "စိတ်မကောင်းပါ။ သုံးသပ်ချက်များမတွေ့ပါ။",
+        "be-the-first": "ပထမဦးဆုံး သုံးသပ်ချက်ပေး သူဖြစ်လိုက်ပါ။",
+        "see-all-review": "သုံးသပ်ချက်အားလုံးကိုကြည့်ပါ။",
+        "categories": "အမျိုးအစားများ",
+        "write-your-review": "လူကြီးမင်း၏ သုံးသပ်ချက်ကိုရေးပါ။",
+        "write-review": "သုံးသပ်ချက်ရေးပါ။",
+        "product-categories": "ပစ္စည်းအမျိုးအစားများ",
+        "explore-now": "အခုကြည့်ပါ။",
+        "top-product": "ရောင်းအားအကောင်းဆုံး ပစ္စည်းများ",
+        "similar-product": "အလားတူ ပစ္စည်းများ"
+    },
+    "profile":{
+        "account" : "အကောင့်",
+        "save-changes": "အပြောင်းအလဲများကို မှတ်တမ်းတင်ပါ။",
+        "save-password": "စကားဝှက်ကို မှတ်တမ်းတင်ပါ။",
+        "change-password": "စကားဝှက်ကို ပြောင်းလဲပါ။"
+    },
+    "orders":{
+        "view-order": "အော်ဒါကိုကြည့်ပါ။",
+        "all-orders": "အော်ဒါအားလုံး",
+        "in-progress-orders": "လုပ်ဆောင်နေဆဲ အော်ဒါများ",
+        "rejected-orders": "ပျက်သွားသော အော်ဒါများ",
+        "successful-orders": "အောင်မြင်သည့် အော်ဒါများ",
+        "order-id": "အော်ဒါအိုင်ဒီ",
+        "PRODUCTS": "ပစ္စည်းများ",
+        "PRODUCT" : "ပစ္စည်း",
+        "products": "ပစ္စည်းများ",
+        "product": "ပစ္စည်း",
+        "CATEGORY": "အမျိုးအစား",
+        "payment" : "ငွေပေးချေမှု",
+        "payment-method": "ငွေပေးချေမှု နည်းလမ်း",
+        "price": "စျေးနှုန်း",
+        "unit-price": "တစ်ခုချင်း စျေးနှုန်း",
+        "QUANTITY": "အရေအတွက်",
+        "TOTAL"   : "စုစုပေါင်း",
+        "total"   : "စုစုပေါင်း",
+        "grand-total": "အားလုံး စုစုပေါင်း",
+        "date"    : "ရက်စွဲ",
+        "date-added": "ထည့်ထားသောရက်စွဲ",
+        "status"  : "အခြေအနေ",
+        "STATUS"  : "အခြေအနေ",
+        "actions" : "လုပ်ဆောင်နိုင်ရန်",
+        "order-history": "အော်ဒါမှတ်တမ်း",
+        "my-orders": "ကျွန်ုပ်၏ အော်ဒါများ",
+        "search-by-keyword": "စာလုံးတစ်ခုခုဖြင့်ရှာပါ..."
+    },
+    "wishlist": {
+        "wishlist": "ဆန္ဒစာရင်း",
+        "all-category": "အမျိုးအစား အလုံးစုံ"
+    },
+    "discount-banner":{
+        "seasonal-time": "အခုချိန် အခွင့်အရေးရယူရန် အချိန်သင့်ပါ 🎉",
+        "shop-now": "ချက်ချင်းဝယ်ယူရန်",
+        "rainy-season": "မိုးရာသီ",
+        "big-promotion": "ပရိုမိုးရှင်းကြီး",
+        "seasonal": "ရာသီအလိုက်",
+        "promotion": "ပရိုမိုးရှင်းများ",
+        "transform-your-home": "သင်၏အိမ်ကို ယခုရာသီအတွက်သာ သီးသန့် ပရိဘောဂများဖြင့် ပြောင်းလဲလိုက်ပါ။ ပစ္စည်းများကို ၃၀% လျှော့စျေးအပြင် ကျက်သရေရှိမှု၊ သက်တောင့်သက်သာရှိမှု နှင့် ခံနိုင်ရည်ရှိမှုတို့ကို ဝယ်ယူလိုက်ပါ။ ဧည့်ခန်းအတွက်ပဲဖြစ်ဖြစ် အိပ်ခန်းအတွက်ပဲဖြစ်ဖြစ် ပြောင်းလဲမှုလုပ်ချင်ရင် အခုချိန်က အကောင်းဆုံးအချိန်ပါပဲ။ မြန်မြန်သာဝယ်ယူလိုက်ပါ discount တွေကခဏပဲကြာမှာ။",
+        "save-up-to-40": "ပတ်ဝန်းကျင်နဲ့ သင့်လျှော်သောပစ္စည်းနဲ့ ဘယ်တော့မဆိုလှပတင့်တယ့်နေမည့် ဒီဇိုင်းများဖြင့် ပြုလုပ်ထားသည့် ထိန်တန်းပစ္စည်းများကို ၄၀% လျှော့စျေးဖြင့်ဝယ်ယူလိုက်ပါ။ သင့်ရဲ့အိမ်ကို ပြောင်းလဲဖို့လိုအပ်တယ် သက်တောင့်သက်သာရှိသော ဆိုဖာ၊ ဖက်ရှင်ကျသော မီးဖိုချောင်သုံးပစ္စည်းများ အပြင် လိုတာများကို ရှာဖွေဝယ်ယူလိုက်ပါ။"
+    },
+    "footer":{
+        "quick-links": "အမြန်လင့်(ခ်)များ",
+        "social": "ဆိုရှယ်"
+    },
+    "cart":{
+        "you-have": "သင့်တွင် ပစ္စည်း",
+        "in-your-cart!": "ခု စျေးခြင်းတောင်းထဲတွင်ရှိသည်။",
+        "in-your-cart": "သင့်၏စျေးခြင်းတောင်း",
+        "sub-total": "စုစုပေါင်း",
+        "check-out-now": "ယခုဝယ်ယူရန်"
+    },
+    "international":{
+        "English":"အင်္ဂလိပ်",
+        "Myanmar": "မြန်မာ"
+    },
+    "banner":{
+        "search-products": "ပစ္စည်းများကိုရှာဖွေရန်...",
+        "search": "ရှာဖွေရန်..."
+    },
+    "product-showcase":{
+        "bags": "အိတ်များ",
+        "bags-tag": "ပတ်ဝန်းကျင်နဲ့သင့်လျော်၍ နေ့စဥ်သုံးအတွက်အဆင်ပြေသည့် အိတ်များ",
+        "baskets": "ခြင်းများ",
+        "baskets-tag": "သင်ရဲ့မီးဖိုချောင်အတွက် အကောင်းဆုံးခြင်းများ",
+        "chairs": "ကုလားထိုင်",
+        "chairs-tag": "သင့်ရဲ့ဧည့်ခန်းအတွက် အကောင်းဆုံး ကုလားထိုင်များ",
+        "floor-mat": "ကြမ်းခင်း",
+        "floor-mat-tag": "သင့်ရဲ့အခန်းအတွက်အကောင်းဆုံးကြမ်းခင်း",
+        "pillows": "ခေါင်းအုံးများ",
+        "pillows-tag": "သင်ရဲ့ အိပ်ယာအတွက် နူးညံသိမ်မွေ့သော ခေါင်းအုံးများ",
+        "table": "စားပွဲ",
+        "table-tag": "သင်ရဲ့ဧည့်ခန်းအတွက် ကောင်းမွန်စွာပြုလုပ်ထားသည့် စားပွဲများ",
+        "explore-now": "အခုကြည့်ပါ။",
+        "EXPLORE-NOW": "အခုကြည့်ပါ။",
+        "chairs-for-everyone": "လူတိုင်းအတွက် ထိုင်ခုံများ",
+        "get-20-promo": "၂၀% ပရိုမိုးရှင်း ရယူပါ။"
+    },
+    "search-bar":{
+        "no-recent": "ယခင်ရှာထာသည်များမရှိပါ။ တစ်ခုခုရှာပါ။",
+        "recent-searches": "လက်တလောရှာထားသည့်အရာများ",
+        "trending-searches": "နာမည်ကြီးနေသော ရှာဖွေမှုများ"
+    }
+}

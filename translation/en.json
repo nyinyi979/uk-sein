@@ -1,0 +1,271 @@
+{
+    "signin":{
+        "welcome-back":"Welcome back👋",
+        "enter-details":"Enter your account details to login to the system.",
+        "forgot-password":"Forgot Password?",
+        "sign-in":"Sign in",
+        "sign-out": "Sign out",
+        "don't-have-account":"Don't have an account?",
+        "back-home": "Back Home"
+    },
+    "input":{
+        "phone":"Phone Number",
+        "password":"Password",
+        "current-password": "Current Password",
+        "new-password": "New Password",
+        "renew-password": "Confirm New Password",
+        "confirm-password":"Confirm Password",
+        "name":"Name",
+        "email":"Email",
+        "gender":"Gender",
+        "profile":"Profile Image",
+        "state":"State/Region",
+        "township":"Township",
+        "address":"Address",
+        "select-gender":"Select Gender",
+        "select-township":"Select township",
+        "select-state":"Select State/Region"
+    },
+    "signup":{
+        "create": "Create New Account👋",
+        "already": "Already have an account? ",
+        "personal":"Personal Information",
+        "enter-details": "Please enter your personal information to start.",
+        "shipping-info":"Shipping Information",
+        "sign-up":" Sign up",
+        "new-account-created":"New Account Created Successfully!",
+        "successful-message":"Your account has been created. Let's explore our website."
+    },
+    "main-pages":{
+        "HOME": "HOME",
+        "home": "Home",
+        "PRODUCTS": "PRODUCTS",
+        "products": "Products",
+        "PORTFOLIO": "PORTFOLIO",
+        "portfolio": "Portfolio",
+        "ABOUT-US": "ABOUT US",
+        "about-us": "About Us",
+        "CONTACT": "CONTACT",
+        "contact": "Contact",
+        "my-profile": "My Profile",
+        "my-order": "My Orders",
+        "wishlists": "Wishlists",
+        "login": "Login",
+        "logout": "Logout"
+    },
+    "highlights":{
+        "quality-assure": "Quality Assure",
+        "best-quality": "Best quality in local",
+        "customer-support": "Customer Support",
+        "we-care-your-exp": "We care your experience",
+        "secure-payment": "Secure Payment",
+        "100-secure-payment": "100% Secure Payment Method",
+        "sample": "No mixed tour, private driver/guide , transportation & transfer"
+    },
+    "about-us":{
+        "story": "Story of UK SEIN",
+        "over-the-year": "OVER THE YEARS",
+        "card1": "In a small, sunlit workshop, Alex Thompson sketched the blueprint for the \"Eclipse Chair.\" Combining ergonomic curves with sustainable materials, this first piece embodied a perfect blend of comfort and style. Alex's dedication to quality and innovation quickly became evident as the Eclipse Chair garnered attention and praise. The chair's success was a testament to the brand's philosophy: creating furniture that was both beautiful and environmentally responsible. This initial triumph laid a solid foundation for the brand's future, setting high expectations and promising a new standard in furniture design.",
+        "card2": "As technology advanced, the brand embraced the opportunity to integrate smart features into their designs. The launch of the \"SmartLiving Series\" marked a significant milestone, introducing furniture with built-in charging ports, wireless speakers, and adjustable lighting. The flagship product, the \"IntelliSofa,\" became an instant favorite among tech-savvy customers, offering a seamless blend of comfort and modern convenience. This innovative approach not only enhanced the functionality of the furniture but also positioned the brand as a leader in the smart furniture market, attracting a new, younger audience eager for contemporary solutions.",
+        "card3": "To expand its presence and offer customers an immersive shopping experience, the brand opened flagship stores in major cities. These stores showcased the entire range of products, allowing customers to see and feel the quality and craftsmanship firsthand. The flagship stores became destinations in themselves, beautifully designed to reflect the brand's aesthetic and values. This expansion not only boosted sales but also strengthened the brand’s reputation, making it a household name in the furniture industry. By bringing their vision directly to consumers, the brand solidified its position as a market leader and continued to grow its loyal customer base.",
+        "card4": "In its fourth year, the brand launched a community-driven initiative called \"Furniture for All.\" This program focused on giving back to local communities through furniture donations and workshops on sustainable living. Partnering with non-profits, the brand provided comfortable, stylish furniture to shelters and community centers. Additionally, they hosted events where artisans and designers taught locals how to upcycle old furniture and make eco-friendly choices in their homes. The initiative not only helped those in need but also fostered a sense of community and environmental awareness. This commitment to social responsibility resonated deeply with customers, strengthening their loyalty and enhancing the brand's image as a socially conscious and caring company.",
+        "what-do-we-serve": "What Do We Serve?"
+    },
+    "founder":{
+        "words-from-our-founder": "WORDS FROM OUR FOUNDER",
+        "founder-name": "FOUNDER NAME",
+        "founder-details": "“Discover elegance and comfort with our innovative furniture collections. Crafted with care, each piece combines style and sustainability to enhance your living space. Visit our stores or shop online to experience quality like never before. Transform your home with our timeless designs today.”"
+    },
+    "category":{
+        "clear-filters": "Clear filters",
+        "filters": "Filters",
+        "filter": "Filter",
+        "save": "Save",
+        "category": "Category",
+        "color": "Color",
+        "size": "Size",
+        "material": "Material",
+        "price-per-item": "Price Per Item",
+        "sorry-no-data-found": "Sorry! No Data Found from your filter search!",
+        "try-to-search": "Try to search something else.",
+        "minimum": "Minimum",
+        "maximum": "Maximum",
+        "results": "Results"
+    },
+    "default": {
+        "continue": "Continue"
+    },
+    "back-to":{
+        "back-to-cart": "Back to Cart",
+        "back-to-personal": "Back to personal information",
+        "back-to-home": "Back Home",
+        "back-to-shipping": "Back to Shipping",
+        "go-back": "GO BACK",
+        "back-to-products": "Back to Products",
+        "back-to-order-history": "Back to Order History"
+    },
+    "common-phrases":{
+        "shipping":"Shipping",
+        "payment": "Payment",
+        "confirmed": "Confirmed",
+        "shop-now": "Shop Now"
+    },
+    "checkout": {
+        "cart-summary": "Cart Summary",
+        "view-cart-summary": "View Cart Summary",
+        "total": "Total",
+        "cart": "Cart",
+        "order-history": "Order History",
+        "order-registered": "Your order has been registered successfully. <br/> Our team will review your payment and reply <br /> to you as soon as possible.",
+        "payment-method": "Payment Methods",
+        "payment-number": "Payment Number",
+        "owner-name": "Owner name",
+        "choose-currency": "Choose currency",
+        "drop-the-ss": "Drop the screenshot here after you make the payment!"
+    },
+    "home":{
+        "client": {
+            "client-words": "Our Clients' Words"
+        },
+        "main-carousel":{
+            "carousel-text1": "Your Home\n Your Style\n Our Crafts",
+            "carousel-text2": "Transform Spaces with Local Flair",
+            "carousel-text3": "Elevate Your Home with Local Flair"
+        }
+    },
+    "contact":{
+        "contact-us": "Contact Us",
+        "address": "No.63, Bo Yar Nyunt Road, Dagon, Yangon",
+        "email": "Email Address",
+        "join-our-community": "Join Our Community",
+        "ready-to-transform": " Ready to transform your look? Book an appointment today and experience the difference at Jo Hair.",
+        "follow-us": "Follow us on social medias for the latest updates and style inspiration.",
+        "submit-now": "Submit now",
+        "message": "Message"
+    },
+    "portfolio":{
+        "how-we-work": "How We Work",
+        "discover-our-elegance": "Discover elegance and comfort with our innovative furniture collections. Crafted with care, each piece combines style and sustainability to enhance your living space. Visit our stores or shop online to experience quality like never before. Transform your home with our timeless designs today.",
+        "to-expand": "To expand its presence and offer customers an immersive shopping experience.",
+        "our-recent-projects": "Our Recent Projects",
+        "portfolio-card": "Introducing our latest furniture project, the \"EcoHarmony Collection,\" where modern design meets sustainability. This groundbreaking line features an array of stylish, eco-friendly furniture crafted from sustainable materials like reclaimed wood and recycled metals. Each piece is meticulously designed to offer exceptional durability and comfort, ensuring that your home not only looks beautiful but also supports a healthier planet. From elegant dining sets to cozy sofas, the EcoHarmony Collection embodies a perfect balance of form and function. Our commitment to green practices means that every item in this collection is created with minimal environmental impact, using energy-efficient processes and eco-friendly finishes.",
+        "what-do-we-care": "What do we care?",
+        "what-do-we-care1":{
+            "name": "Customer Focus",
+            "description": "Delivering an exceptional customer experience drives everything we do."
+        },
+        "what-do-we-care2":{
+            "name": "Collaborate Effectively",
+            "description": "We invest in cross-functional global partnerships that maximize impact."
+        },
+        "what-do-we-care3":{
+            "name": "Innovate & Improve",
+            "description": "We are not limited by precedent. We boldly challenge the norm."
+        }
+    },
+    "product":{
+        "add-to-cart": "Add to Cart",
+        "our-customer-reviews": "Our Customers' Reviews",
+        "sorry-no-reivew": "Sorry! No review found yet!",
+        "be-the-first": "Be the first one to review the product.",
+        "see-all-review": "See All Reviews",
+        "categories": "Categories",
+        "write-your-review": "Write Your Review",
+        "write-review": "Write Review",
+        "product-categories": "Product Categories",
+        "explore-now": "Explore now",
+        "top-product": "Top Products",
+        "similar-product": "Similar Products"
+    },
+    "profile":{
+        "account": "Account",
+        "save-changes": "Save Changes",
+        "save-password": "Save Password",
+        "change-password": "Change Password"
+    },
+    "orders":{
+        "view-order": "View Order",
+        "all-orders": "All Orders",
+        "in-progress-orders": "In-Progress Orders",
+        "rejected-orders": "Rejected Orders",
+        "successful-orders": "Successful Orders",
+        "order-id": "ORDER ID",
+        "PRODUCTS": "PRODUCTS",
+        "PRODUCT" : "PRODUCT",
+        "products": "Products",
+        "product" : "Product",
+        "CATEGORY": "CATEGORY",
+        "payment" : "PAYMENT",
+        "payment-method": "Payment Methods",
+        "price": "Price",
+        "unit-price": "UNIT PRICE",
+        "QUANTITY": "QUANTITY",
+        "TOTAL"   : "TOTAL",
+        "total"   : "Total",
+        "grand-total": "Grand Total",
+        "date"    : "DATE",
+        "date-added": "Date Added",
+        "status"  : "Status",
+        "STATUS"  : "STATUS",
+        "actions" : "ACTIONS",
+        "order-history": "Order History",
+        "my-orders": "My Orders",
+        "search-by-keyword": "Search by Keyword or order..."
+    },
+    "wishlist": {
+        "wishlist": "Wishlist",
+        "all-category": "All Category"
+    },
+    "discount-banner":{
+        "seasonal-time": "It's a seasonal time to grab your chance 🎉",
+        "shop-now": "SHOP NOW",
+        "rainy-season": "Rainy Season",
+        "big-promotion": "Big Promotion",
+        "seasonal": "Seasonal",
+        "promotion": "Promotions",
+        "transform-your-home": "Transform your home this season with our exclusive furniture collections. Enjoy up to 30% off on select pieces, blending elegance, comfort, and sustainability. Whether you're refreshing your living room or updating your bedroom, now's the perfect time to shop. Hurry, these deals won't last long!",
+        "save-up-to-40": "Save up to 40% on our top collections, featuring eco-friendly materials and timeless designs. From cozy sofas to chic dining sets, find everything you need to refresh your home."
+    },
+    "footer":{
+        "quick-links": "Quick Links",
+        "social": "Social"
+    },
+    "cart":{
+        "you-have": "You have",
+        "in-your-cart!": " in your carts!",
+        "in-your-cart": "In Your Cart",
+        "sub-total": "Sub Total",
+        "check-out-now": "Check Out Now"
+    },
+    "international":{
+        "English":"English",
+        "Myanmar": "Myanmar"
+    },
+    "banner":{
+        "search-products": "Search Products...",
+        "search": "Search..."
+    },
+    "product-showcase":{
+        "bags": "Bags",
+        "bags-tag": "Eco-friendly bags available for your daily use",
+        "baskets": "Baskets",
+        "baskets-tag":"Best quality basket available for your kitchen",
+        "chairs": "Chairs",
+        "chairs-tag": "Best quality chairs available for your living room",
+        "floor-mat": "Floor Mat",
+        "floor-mat-tag": "Best quality floor mat available for your room",
+        "pillows": "Pillows",
+        "pillows-tag": "Soft and tender pillows available for your bed",
+        "table": "Table",
+        "table-tag": "Best quality crafted table available for your living room",
+        "explore-now": "Explore now",
+        "EXPLORE-NOW": "EXPLORE NOW",
+        "chairs-for-everyone": "Chairs for Everyone",
+        "get-20-promo": "Get 20% Promo"
+    },
+    "search-bar":{
+        "no-recent": "No recent searches yet! Please search something.",
+        "recent-searches": "Recent Searches",
+        "trending-searches": "Trending Searches"
+    }
+}
