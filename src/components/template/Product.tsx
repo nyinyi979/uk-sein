@@ -1,9 +1,9 @@
 import Link from "next/link";
 import RatingStars from "./Rating";
+import ProductAddToCart from "./AddToCart";
 import { variant } from "@/types/type";
 import { useLocale } from "next-intl";
 import { MEDIA_URL } from "@/utils/axios";
-import ProductAddToCart from "./AddToCart";
 
 export default function Product({ small, variation }: smallLargeProduct) {
   const locale = useLocale();

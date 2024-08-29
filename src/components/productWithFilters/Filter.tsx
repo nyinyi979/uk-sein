@@ -3,12 +3,11 @@ import CategoryFilter from "@/components/actions/CategoryFilter";
 import ColorFilter from "./ColorFilter";
 import SizeFilter from "./SizeFilter";
 import MaterialFilter from "./MaterialFilter";
-import PriceFilter from "./PriceFilter";
-import { color, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Toggle from "@/components/actions/Toggle";
 import React, { Dispatch, SetStateAction } from "react";
-import { product } from "@/types/type";
+import { variant } from "@/types/type";
 const initialPossibleFilters: possibleFilters = {
   category: new Set(),
   color: new Set(),
@@ -28,7 +27,7 @@ const initialFilters = {
 export default function Filter({
   filters,
   setFilters,
-  products,
+  variations,
   hide,
   toggleColor,
   toggleMaterial,
@@ -40,11 +39,11 @@ export default function Filter({
   });
   const possibleFilters = React.useMemo(() => {
     const filt: possibleFilters = initialPossibleFilters;
-    products.map((p) => {
-      p.categories.map((c) => filt.category.add(c));
-      filt.color.add(p.color);
-      filt.material.add(p.material);
-      filt.size.add(p.size);
+    variations.map((v) => {
+      v.categories.map((c) => filt.category.add(c));
+        filt.color.add(v.color);
+        filt.material.add(v.material);
+        filt.size.add(v.size);
     });
     return {
       category: Array.from(filt.category),
@@ -54,7 +53,7 @@ export default function Filter({
       maximum: 0,
       minimum: 0,
     };
-  }, [products]);
+  }, [variations]);
 
   const filterApplied =
     filters.category !== "" ||
@@ -189,7 +188,7 @@ type possibleFilters = {
 interface Filter {
   filters: filter;
   setFilters: Dispatch<SetStateAction<filter>>;
-  products: product[];
+  variations: variant[];
   hide: () => void;
   toggleMaterial: (mat: string) => void;
   toggleSize: (size: string) => void;

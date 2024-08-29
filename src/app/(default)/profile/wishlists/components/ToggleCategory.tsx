@@ -1,16 +1,14 @@
 import React from "react";
-import CategoryFilter from "@/components/actions/CategoryFilter";
-import Toggle from "@/components/actions/Toggle";
 import CategoryDropdown from "./CategoryDropdown";
 import { AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
 
-export default function WhiteListCateogry({
+export default function WhitelistCateogry({
   categories,
   category,
   updateCategory,
 }: {
-  categories: { name: string; img_url: string }[];
+  categories: string[];
   category: string;
   updateCategory: (cat: string) => void;
 }) {
@@ -59,13 +57,13 @@ export default function WhiteListCateogry({
         </AnimatePresence>
       </div>
       <div className="lg:block hidden">
-        <Toggle name={t("category.category")}>
+        {/* <Toggle name={t("category.category")}>
           <CategoryFilter
             categories={categories}
             category={category}
             updateCategory={updateCategory}
           />
-        </Toggle>
+        </Toggle> */}
       </div>
     </div>
   );

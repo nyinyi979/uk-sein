@@ -9,7 +9,7 @@ import Filter from "./Filter";
 import FilterList from "./FilterList";
 import NotFoundError from "./NotFound";
 import axios from "@/utils/axios";
-import { product } from "@/types/type";
+import { product, variant } from "@/types/type";
 import { AnimatePresence } from "framer-motion";
 import { useRouter, useSearchParams } from "next/navigation";
 import { showErrorAlert } from "../Alert";
@@ -23,7 +23,7 @@ export default function ProductWithFilters({
 }) {
   const { categoryName } = params;
   const [hidden, setHidden] = React.useState(true);
-  const [products, setProducts] = React.useState<product[]>([]);
+  const [variations, setVariations] = React.useState<variant[]>([]);
   const [loading, setLoading] = React.useState(true);
   const [filters, setFilters] = React.useState({
     color: "",
@@ -40,7 +40,8 @@ export default function ProductWithFilters({
         `product/list/client/?color=${filters.color}&size=${filters.size}&material=${filters.material}&category=${filters.category}`,
       )
       .then((data) => {
-        setProducts(data.data);
+        console.log(data)
+        setVariations(data.data);
         setLoading(false);
       })
       .catch(() => {
@@ -48,9 +49,7 @@ export default function ProductWithFilters({
         setLoading(false);
       });
   }, [filters]);
-  const updateProducts = (products: product[]) => {
-    setProducts(products);
-  };
+  
   const router = useRouter();
   const page = Number(useSearchParams().get("p") || 1);
   const totalPages = 10;
@@ -108,7 +107,7 @@ export default function ProductWithFilters({
     <div className="xl:w-[1190px] md:w-[85%] sm:w-[90%] w-full flex flex-col gap-10 xl:my-20 my-10 md:px-0 px-5 mx-auto">
       <CateogryHeading
         searched={searched}
-        productCounts={products.length}
+        count={variations.length}
         category={filters.category}
         show={showFilterDrawer}
       />
@@ -118,7 +117,7 @@ export default function ProductWithFilters({
             <Filter
               filters={filters}
               hide={hideFilterDrawer}
-              products={products}
+              variations={variations}
               setFilters={setFilters}
               toggleColor={toggleColor}
               toggleMaterial={toggleMaterial}
@@ -138,17 +137,17 @@ export default function ProductWithFilters({
           <div className="grid ssm:grid-cols-3 sm:grid-cols-2 xl:gap-10 md:gap-2.5 gap-5">
             {loading ? (
               [0, 1, 2, 3, 4].map((val) => <ProductLoading key={val} />)
-            ) : products.length === 0 ? (
+            ) : variations.length === 0 ? (
               <NotFoundError />
             ) : (
               <>
-                {products.map((p) => (
-                  <Product key={p.id} {...p} small />
-                ))}
+                {variations.map((v) => 
+                 <Product key={v.id+v.gift} variation={v} small/>
+                )}
               </>
             )}
           </div>
-          {products.length !== 0 && (
+          {variations.length !== 0 && (
             <Pagination
               activeIndex={page}
               totalIndex={totalPages}

@@ -6,7 +6,7 @@ export default function CategoryDropdown({
   category,
   updateCategory,
 }: {
-  categories: { name: string; img_url: string }[];
+  categories: string[];
   category: string;
   updateCategory: (cat: string) => void;
 }) {
