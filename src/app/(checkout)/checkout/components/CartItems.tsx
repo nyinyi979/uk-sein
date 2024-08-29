@@ -1,12 +1,14 @@
 import Image from "next/image";
 import { productInCart } from "@/types/type";
+import { cartItem } from "@/store/clientData";
+import { MEDIA_URL } from "@/utils/axios";
 
 export default function CartItem({
-  product: { name, images, itemID, price, quantity, color, material, size },
+  cartItem: { name, quantity, color, material, size, image, code, subtotal },
   index,
   removeItem,
 }: {
-  product: productInCart;
+  cartItem: cartItem;
   index: number;
   removeItem: (ind: number) => void;
 }) {
@@ -14,11 +16,9 @@ export default function CartItem({
     <div className="w-full flex flex-row gap-4 xl:py-7 py-6 px-[18px] border-b border-dotted border-grey-50">
       <div className="md:size-[100px] size-[72px] bg-white-400">
         <div className="xl:w-[71px] w-[51px] xl:h-[65px] h-[47px] relative mx-auto my-[21.5px]">
-          <Image
-            src={images[0]}
+          <img
+            src={MEDIA_URL+image}
             alt={name}
-            sizes="100%"
-            fill
             className="size-full object-cover shadow-product"
           />
         </div>
@@ -30,7 +30,7 @@ export default function CartItem({
               {name}
             </p>
             <div className="flex flex-row gap-1.5 xl:text-[10px] text-[8px]">
-              <p className="text-grey-200">({itemID})</p>
+              <p className="text-grey-200">({code})</p>
               {material && <p className="text-grey-200">({material})</p>}
               {size && <p className="text-grey-200">({size})</p>}
               {color && <p className="text-grey-200">({color})</p>}
@@ -42,7 +42,7 @@ export default function CartItem({
         </div>
         <div className="flex flex-row">
           <p className="font-sora font-bold xl:text-2xl text-xl">
-            {(quantity * price).toLocaleString()} Ks
+            {subtotal.toLocaleString()} Ks
           </p>
           <button
             onClick={() => removeItem(index)}

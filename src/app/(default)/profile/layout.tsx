@@ -1,17 +1,20 @@
 "use client";
-import { isAuthenticated } from "@/store/auth";
-import { useUserStore } from "@/store/clientData";
+import React from "react";
+import axios from "@/utils/axios";
 import { useRouter } from "next/navigation";
+import { useUserStore } from "@/store/clientData";
+
 export default function ({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const userToken = useUserStore((state) => state.userToken);
+  const { token } = useUserStore((state) => state);
   const router = useRouter();
-  console.log(isAuthenticated(userToken));
-  if (!isAuthenticated(userToken)) {
-    router.push("/");
+  if (!token) {
+    router.push("/login");
+  } else {
+    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
   }
   return <>{children}</>;
 }

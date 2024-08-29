@@ -1,29 +1,43 @@
 import Image from "next/image";
-import { productInCart } from "@/types/type";
-import { useLocale } from "next-intl";
+import { cartItem, useUserStore } from "@/store/clientData";
+import { MEDIA_URL } from "@/utils/axios";
 
 export default function CartItem({
-  product: { name, images, itemID, price, quantity, color, material, size },
-  decrementQuantity,
-  incrementQuantity,
+  cartItem: {
+    image,
+    name,
+    code,
+    size,
+    material,
+    color,
+    subtotal,
+    number_of_stock,
+    quantity,
+  },
   index,
-  removeItem,
 }: {
-  product: productInCart;
+  cartItem: cartItem;
   index: number;
-  incrementQuantity: (ind: number) => void;
-  decrementQuantity: (ind: number) => void;
-  removeItem: (ind: number) => void;
 }) {
+  const { cartItems, setCartItems } = useUserStore((state) => state);
+  const updateQuantity = (value: number) => {
+    const newCartItems = [...cartItems];
+    if (value === 0) {
+      newCartItems.splice(index, 1);
+    } else {
+      newCartItems[index].quantity = value;
+      newCartItems[index].subtotal =
+        value * Number(newCartItems[index].regular_price);
+    }
+    setCartItems(newCartItems);
+  };
   return (
     <div className="xl:w-[550px] md:w-[500px] w-full flex flex-row gap-4 py-[28px] sm:px-[18px] mx-auto border-b border-dotted border-grey-50">
       <div className="md:size-[160px] size-[126px] bg-white-400">
         <div className="md:w-[125px] w-[113px] md:h-[117px] h-[100px] relative mx-auto md:my-[21.5px] my-3.5">
-          <Image
-            src={images[0]}
+          <img
+            src={MEDIA_URL + image}
             alt={name}
-            sizes="100%"
-            fill
             className="size-full object-cover shadow-product"
           />
         </div>
@@ -34,21 +48,19 @@ export default function CartItem({
             {name}
           </p>
           <div className="flex flex-row gap-1.5 font-semibold md:text-xs text-[10px]">
-            <p className="text-grey-200">({itemID})</p>
+            <p className="text-grey-200">({code})</p>
             {size && <p>({size})</p>}
             {material && <p>({material})</p>}
             {color && <p>({color})</p>}
           </div>
         </div>
         <p className="font-sora font-bold md:text-2xl text-xl">
-          {(price * quantity).toLocaleString()} Ks
+          {subtotal.toLocaleString()} Ks
         </p>
         <ItemButtons
-          decrementQuantity={decrementQuantity}
-          incrementQuantity={incrementQuantity}
-          index={index}
+          number_of_stock={number_of_stock}
           quantity={quantity}
-          removeItem={removeItem}
+          updateQuantity={updateQuantity}
         />
       </div>
     </div>
@@ -56,25 +68,20 @@ export default function CartItem({
 }
 
 function ItemButtons({
-  decrementQuantity,
-  incrementQuantity,
-  index,
-  removeItem,
+  updateQuantity,
+  number_of_stock,
   quantity,
 }: {
+  updateQuantity: (val: number) => void;
+  number_of_stock: number;
   quantity: number;
-  index: number;
-  incrementQuantity: (ind: number) => void;
-  decrementQuantity: (ind: number) => void;
-  removeItem: (ind: number) => void;
 }) {
-  const decrement = () => {
-    if (quantity - 1 === 0) removeItem(index);
-    else decrementQuantity(index);
-  };
   return (
     <div className="flex flex-row gap-2.5">
-      <button onClick={decrement} className="cart-btn md:px-3.5 px-2.5">
+      <button
+        onClick={() => updateQuantity(quantity - 1)}
+        className="cart-btn md:px-3.5 px-2.5"
+      >
         <svg
           width="14"
           height="2"
@@ -92,7 +99,8 @@ function ItemButtons({
         {quantity}
       </div>
       <button
-        onClick={() => incrementQuantity(index)}
+        onClick={() => updateQuantity(quantity + 1)}
+        disabled={quantity === number_of_stock}
         className="cart-btn md:px-3.5 px-2"
       >
         <svg
@@ -110,7 +118,7 @@ function ItemButtons({
       </button>
       <div className="xl:ml-20 ">
         <button
-          onClick={() => removeItem(index)}
+          onClick={() => updateQuantity(0)}
           className="cart-btn md:px-2.5 px-2"
         >
           <svg

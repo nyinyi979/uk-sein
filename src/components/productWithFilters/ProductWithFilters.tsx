@@ -1,17 +1,18 @@
 "use client";
 import React from "react";
-import Product from "@/components/template/Product";
+import Product, { ProductLoading } from "@/components/template/Product";
 import useWindowSize from "@/components/hooks/useWindowSize";
 import DiscountBanner from "@/components/banner/DiscountBanner";
 import Pagination from "@/components/template/Pagination";
-import useFilters from "./UseFilter";
 import CateogryHeading from "./Heading";
 import Filter from "./Filter";
-import Filters from "./FilterList";
+import FilterList from "./FilterList";
 import NotFoundError from "./NotFound";
+import axios from "@/utils/axios";
 import { product } from "@/types/type";
 import { AnimatePresence } from "framer-motion";
 import { useRouter, useSearchParams } from "next/navigation";
+import { showErrorAlert } from "../Alert";
 
 export default function ProductWithFilters({
   params,
@@ -21,85 +22,35 @@ export default function ProductWithFilters({
   searched?: boolean;
 }) {
   const { categoryName } = params;
-  const [category, setCategory] = React.useState(categoryName);
   const [hidden, setHidden] = React.useState(true);
-  const [products, setProducts] = React.useState<product[]>([
-    {
-      id: "sample id",
-      category: "sample",
-      images: ["/sampleDiscount.png"],
-      name: "sample",
-      mm_name: "မြန်မာ",
-      rating: 4,
-      color: "red",
-      material: "aluminium",
-      size: "17 x 18",
-      price: 250000,
-      whiteListed: false,
-    },
-    {
-      id: "sample id2",
-      category: "sample",
-      images: ["/sampleDiscount.png"],
-      name: "sample",
-      mm_name: "မြန်မာ",
-      rating: 4,
-      color: "red",
-      material: "aluminium",
-      size: "17 x 18",
-      price: 250000,
-      whiteListed: false,
-    },
-    {
-      id: "sample id3",
-      category: "sample",
-      images: ["/sampleDiscount.png"],
-      name: "sample",
-      mm_name: "မြန်မာ",
-      rating: 4,
-      color: "red",
-      material: "aluminium",
-      size: "17 x 18",
-      price: 250000,
-      whiteListed: false,
-    },
-    {
-      id: "sample id4",
-      category: "sample",
-      images: ["/sampleDiscount.png"],
-      name: "sample",
-      mm_name: "မြန်မာ",
-      rating: 4,
-      color: "red",
-      material: "aluminium",
-      size: "17 x 18",
-      price: 250000,
-      whiteListed: false,
-    },
-  ]);
+  const [products, setProducts] = React.useState<product[]>([]);
+  const [loading, setLoading] = React.useState(true);
+  const [filters, setFilters] = React.useState({
+    color: "",
+    size: "",
+    material: "",
+    category: categoryName,
+    maximum: 0,
+    minimum: 0,
+  });
+  React.useEffect(() => {
+    setLoading(true);
+    axios
+      .get(
+        `product/list/client/?color=${filters.color}&size=${filters.size}&material=${filters.material}&category=${filters.category}`,
+      )
+      .then((data) => {
+        setProducts(data.data);
+        setLoading(false);
+      })
+      .catch(() => {
+        showErrorAlert({ text: "Something went wrong!" });
+        setLoading(false);
+      });
+  }, [filters]);
   const updateProducts = (products: product[]) => {
     setProducts(products);
   };
-  const {
-    appliedFilters,
-    filters,
-    filterApplied,
-    resetFilter,
-    toggleColor,
-    toggleMaterial,
-    toggleSize,
-    maximumPercent,
-    minimumPercent,
-    setMaximum,
-    setMinimum,
-    setMaximumInPercent,
-    setMinimumInPercent,
-    filterJustApplied,
-    filterJustAppliedOff,
-  } = useFilters({
-    products: products,
-    updateProducts: updateProducts,
-  });
   const router = useRouter();
   const page = Number(useSearchParams().get("p") || 1);
   const totalPages = 10;
@@ -107,8 +58,28 @@ export default function ProductWithFilters({
     if (searched) router.push(`/search?query=${categoryName}&p=${ind}`);
     else router.push(`/category/${categoryName}?p=${ind}`);
   };
-  const updateCategory = (cat: string) => setCategory(cat);
 
+  const toggleColor = (color: string) => {
+    if (filters.color === color) {
+      setFilters({ ...filters, color: "" });
+    } else {
+      setFilters({ ...filters, color });
+    }
+  };
+  const toggleMaterial = (material: string) => {
+    if (filters.material === material) {
+      setFilters({ ...filters, material: "" });
+    } else {
+      setFilters({ ...filters, material });
+    }
+  };
+  const toggleSize = (size: string) => {
+    if (filters.size === size) {
+      setFilters({ ...filters, size: "" });
+    } else {
+      setFilters({ ...filters, size });
+    }
+  };
   const size = useWindowSize();
   const showFilterDrawer = () => {
     setHidden(false);
@@ -138,51 +109,36 @@ export default function ProductWithFilters({
       <CateogryHeading
         searched={searched}
         productCounts={products.length}
-        category={category}
+        category={filters.category}
         show={showFilterDrawer}
       />
       <div className="flex lg:flex-row flex-col xl:gap-20 gap-10">
         <AnimatePresence>
           {!hidden && (
             <Filter
-              appliedFilters={filters.appliedFilters}
-              possibleFilters={filters.possibleFilters}
-              filterApplied={filterApplied}
-              resetFilter={resetFilter}
-              category={category}
-              updateCategory={updateCategory}
+              filters={filters}
+              hide={hideFilterDrawer}
+              products={products}
+              setFilters={setFilters}
               toggleColor={toggleColor}
               toggleMaterial={toggleMaterial}
               toggleSize={toggleSize}
-              maximum={filters.appliedFilters.pricePerItem.maximum}
-              minimum={filters.appliedFilters.pricePerItem.minimum}
-              setMaximum={setMaximum}
-              setMinimum={setMinimum}
-              maximumPercent={maximumPercent}
-              minimumPercent={minimumPercent}
-              setMaximumInPercent={setMaximumInPercent}
-              setMinimumInPercent={setMinimumInPercent}
-              hidden={hidden}
-              hide={hideFilterDrawer}
-              show={showFilterDrawer}
-              filterJustApplied={filterJustApplied}
-              filterJustAppliedOff={filterJustAppliedOff}
             />
           )}
         </AnimatePresence>
         <div className="lg:w-[886px] w-full flex flex-col gap-10">
           <AnimatePresence>
-            {filterApplied && (
-              <Filters
-                filters={appliedFilters}
-                toggleColor={toggleColor}
-                toggleMaterial={toggleMaterial}
-                toggleSize={toggleSize}
-              />
-            )}
+            <FilterList
+              filters={filters}
+              toggleColor={toggleColor}
+              toggleMaterial={toggleMaterial}
+              toggleSize={toggleSize}
+            />
           </AnimatePresence>
           <div className="grid ssm:grid-cols-3 sm:grid-cols-2 xl:gap-10 md:gap-2.5 gap-5">
-            {products.length === 0 ? (
+            {loading ? (
+              [0, 1, 2, 3, 4].map((val) => <ProductLoading key={val} />)
+            ) : products.length === 0 ? (
               <NotFoundError />
             ) : (
               <>

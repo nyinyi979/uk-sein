@@ -6,21 +6,21 @@ import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 
 export default function SignOutIn({ hide }: { hide: () => void }) {
-  const { userToken, clearUserToken } = useUserStore((state) => state);
+  const { token, setToken } = useUserStore((state) => state);
   const router = useRouter();
   const t = useTranslations("signin");
   const onClick = () => {
     hide();
-    if (userToken !== "") clearUserToken();
+    if (token !== "") setToken(null);
     else router.push("/login");
   };
   return (
     <button
       onClick={onClick}
-      className={`w-fit flex flex-row gap-3 py-[14px] px-7 rounded-[10px] ${userToken === "" ? "bg-khaki-500 hover:bg-khaki-700" : "bg-red-500 hover:bg-red-700"} text-white duration-300`}
+      className={`w-fit flex flex-row gap-3 py-[14px] px-7 rounded-[10px] ${token === "" ? "bg-khaki-500 hover:bg-khaki-700" : "bg-red-500 hover:bg-red-700"} text-white duration-300`}
     >
       <div className="size-[18px] relative">
-        {userToken === "" ? (
+        {token === "" ? (
           <Image
             src={Signin}
             alt="sign in"
@@ -39,7 +39,7 @@ export default function SignOutIn({ hide }: { hide: () => void }) {
         )}
       </div>
       <span className="font-bold">
-        {userToken === "" ? t("sign-in") : t("sign-out")}
+        {token === "" ? t("sign-in") : t("sign-out")}
       </span>
     </button>
   );

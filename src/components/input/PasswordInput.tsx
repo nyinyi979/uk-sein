@@ -1,5 +1,9 @@
-import { useTranslations } from "next-intl";
 import Label from "./Label";
+import React from "react";
+import { useTranslations } from "next-intl";
+import OpenEyes from "@/svg/open-eyes";
+import ClosedEyes from "@/svg/closed-eye";
+import RedDot from "./RedDot";
 
 export default function PasswordInput({
   id,
@@ -12,19 +16,35 @@ export default function PasswordInput({
   displayedLabel: string;
   setPassword: (pw: string) => void;
 }) {
+  const [open, setOpen] = React.useState(false);
+  const [focus, setFocus] = React.useState(false);
   const t = useTranslations("input")("password");
   return (
-    <div className="flex flex-col gap-[14px]">
-      <Label htmlFor={id}>{displayedLabel}</Label>
+    <div className="flex flex-col gap-[14px] relative">
+      <Label htmlFor={id}>
+        {displayedLabel} <RedDot />
+      </Label>
       <input
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         id={id}
         name={id}
-        type="password"
+        type={open ? "text" : "password"}
         placeholder={t}
+        onFocus={() => setFocus(true)}
+        onBlur={() => setFocus(false)}
         className="input"
       />
+      <span
+        onClick={() => setOpen(!open)}
+        className="absolute right-5 top-[60px]"
+      >
+        {open ? (
+          <OpenEyes fill={focus ? "#101010" : "#B5B5B5"} className="mt-0.5" />
+        ) : (
+          <ClosedEyes fill={focus ? "#101010" : "#B5B5B5"} />
+        )}
+      </span>
     </div>
   );
 }

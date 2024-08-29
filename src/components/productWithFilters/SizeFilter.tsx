@@ -4,22 +4,22 @@ export default function SizeFilter({
   toggleSize,
 }: {
   sizes: string[];
-  size: Set<string>;
-  toggleSize: (clr: string) => void;
+  size: string;
+  toggleSize: (size: string) => void;
 }) {
   return (
     <div className="flex flex-col gap-[20px]">
-      {sizes.map((c) => (
-        <div key={c} className="flex flex-row gap-[18px]">
+      {sizes.map((s) => (
+        <div key={s} className="flex flex-row gap-[18px]">
           <input
             type="checkbox"
-            name={c}
-            id={c}
-            checked={size.has(c)}
-            onChange={() => toggleSize(c)}
+            name={s}
+            id={s}
+            checked={s === size}
+            onChange={() => toggleSize(s)}
           />
-          <label htmlFor={c} className="font-semibold">
-            {c}
+          <label htmlFor={s} className="font-semibold">
+            {s}
           </label>
         </div>
       ))}

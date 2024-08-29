@@ -1,27 +1,27 @@
 import Image from "next/image";
 import Arrow from "./images/arrow.svg";
 import Label from "./Label";
+import RedDot from "./RedDot";
 import { useLocale, useTranslations } from "next-intl";
 import { EngTownships, MyTownships } from "@/types/addresses";
 import { state } from "@/types/type";
-import RedDot from "./RedDot";
 
-export default function TownshipInput({
-  township,
-  setTownship,
+export default function CityInput({
+  city,
+  setCity,
   state,
   required = false,
 }: {
-  township: string;
-  setTownship: (n: string) => void;
-  state: state;
+  city: string;
+  setCity: (n: string) => void;
+  state: state|string;
   required?: boolean;
 }) {
   const locale = useLocale();
   const t = useTranslations("input");
   const allTownships: string[] =
-    locale === "en" ? EngTownships[state] : MyTownships[state];
-  const valTownships = EngTownships[state];
+    locale === "en" ? EngTownships[(state) as state]||EngTownships[""] : MyTownships[(state) as state]||MyTownships[""];
+  const valTownships = EngTownships[(state) as state];
   return (
     <div className="flex flex-col gap-[14px] relative">
       <Label htmlFor="township">
@@ -31,9 +31,9 @@ export default function TownshipInput({
       <select
         name="township"
         id="township"
-        className={`input ${township == "" && "text-grey-100"}`}
-        onChange={(e) => setTownship(e.target.value)}
-        defaultValue={township}
+        className={`input ${city == "" && "text-grey-100"}`}
+        onChange={(e) => setCity(e.target.value)}
+        defaultValue={city}
       >
         <option defaultChecked value={""} className="hidden">
           {t("select-township")}

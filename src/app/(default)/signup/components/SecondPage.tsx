@@ -11,8 +11,8 @@ export default function SecondPage({
   setFirstPage,
   state,
   setState,
-  township,
-  setTownship,
+  city,
+  setCity,
   address,
   setAddress,
   secondPageNotEmpty,
@@ -20,8 +20,8 @@ export default function SecondPage({
   setFirstPage: Dispatch<SetStateAction<boolean>>;
   state: state;
   setState: (s: state) => void;
-  township: string;
-  setTownship: (ts: string) => void;
+  city: string;
+  setCity: (ts: string) => void;
   address: string;
   setAddress: (add: string) => void;
   secondPageNotEmpty: boolean;
@@ -38,8 +38,8 @@ export default function SecondPage({
       <StateInput state={state} setState={setState} />
       <TownshipInput
         state={state}
-        township={township}
-        setTownship={setTownship}
+        city={city}
+        setCity={setCity}
       />
       <AddresssInput address={address} setAddress={setAddress} />
       <button

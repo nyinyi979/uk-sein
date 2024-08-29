@@ -1,7 +1,5 @@
-import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useUserStore } from "@/store/clientData";
-import { isAuthenticated } from "@/store/auth";
 import { useRouter } from "next/navigation";
 
 export default function CartFooter({
@@ -12,10 +10,10 @@ export default function CartFooter({
   toggle: () => void;
 }) {
   const t = useTranslations("cart");
-  const userToken = useUserStore((store) => store.userToken);
+  const token = useUserStore((store) => store.token);
   const router = useRouter();
   const onClick = () => {
-    if (!isAuthenticated(userToken)) {
+    if (token === "") {
       alert("You need to login first!");
       return;
     } else router.push("/checkout");

@@ -1,17 +1,49 @@
-export interface product {
-  id: string;
-  images: string[];
+export interface variant {
+  id: number;
+  categories: string[];
   name: string;
   mm_name: string;
-  rating: 1 | 2 | 3 | 4 | 5;
-  price: number;
+  images: {
+    id: number;
+    created_at: string;
+    updated_at: string;
+    image: string;
+    variant: number;
+  }[];
+  regular_price: string;
+  discount: string;
+  status: string;
+  gift: string;
   color: string;
-  category: string;
   size: string;
   material: string;
-  whiteListed: boolean;
+  number_of_stock: number;
+  sold_out: number;
+  threshold_stock: number;
+  code: string;
+  product: number;
 }
-
+export interface product {
+  id: number;
+  name: string;
+  mm_name: string;
+  total_product: number;
+  description: string;
+  images: {
+    id: number;
+    created_at: string;
+    updated_at: string;
+    image: string;
+    product: number;
+  }[];
+  status: string;
+  code: string;
+  categories: string[];
+  variations: variant[];
+  created_at: string;
+  updated_at: string;
+  reviews: review[];
+}
 export interface clientWord {
   wordID: string;
   boughtMessage: string;
@@ -24,13 +56,13 @@ export interface clientWord {
 export interface signUpInput {
   file: File | null;
   name: string;
-  phoneNo: string;
+  phone: string;
   email: string;
   gender: string;
   password: string;
   rePassword: string;
   state: state;
-  township: string;
+  city: string;
   address: string;
 }
 export interface signUpInputInProfile {
@@ -120,29 +152,6 @@ export interface review {
     username: string;
     imgURL: string;
   };
-}
-
-export interface productDetails {
-  itemID: string;
-  images: string[];
-  description: string;
-  name: string;
-  mm_name: string;
-  rating: number;
-  ratings: {
-    1: number;
-    2: number;
-    3: number;
-    4: number;
-    5: number;
-  };
-  price: number;
-  category: string;
-  sizes: string[];
-  colors: string[];
-  materials: string[];
-  whiteListed: boolean;
-  reviews: review[];
 }
 
 export interface order {

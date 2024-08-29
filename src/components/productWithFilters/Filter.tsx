@@ -4,58 +4,66 @@ import ColorFilter from "./ColorFilter";
 import SizeFilter from "./SizeFilter";
 import MaterialFilter from "./MaterialFilter";
 import PriceFilter from "./PriceFilter";
-import { prodcutFilterWithSet, productFilter } from "@/types/type";
-import { motion } from "framer-motion";
+import { color, motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Toggle from "@/components/actions/Toggle";
-
+import React, { Dispatch, SetStateAction } from "react";
+import { product } from "@/types/type";
+const initialPossibleFilters: possibleFilters = {
+  category: new Set(),
+  color: new Set(),
+  material: new Set(),
+  size: new Set(),
+  maxium: 0,
+  minimum: 0,
+};
+const initialFilters = {
+  category: "",
+  color: "",
+  material: "",
+  size: "",
+  maximum: 0,
+  minimum: 0,
+};
 export default function Filter({
-  appliedFilters,
-  filterApplied,
-  possibleFilters,
-  resetFilter,
-  category,
-  updateCategory,
-  toggleColor,
-  toggleSize,
-  toggleMaterial,
-  minimum,
-  minimumPercent,
-  maximum,
-  maximumPercent,
-  setMinimum,
-  setMaximum,
-  setMaximumInPercent,
-  setMinimumInPercent,
-  hidden,
+  filters,
+  setFilters,
+  products,
   hide,
-  show,
-  filterJustApplied,
-  filterJustAppliedOff,
-}: {
-  resetFilter: () => void;
-  filterApplied: boolean;
-  possibleFilters: productFilter;
-  appliedFilters: prodcutFilterWithSet;
-  category: string;
-  updateCategory: (cat: string) => void;
-  toggleColor: (clr: string) => void;
-  toggleSize: (size: string) => void;
-  toggleMaterial: (mat: string) => void;
-  minimum: number;
-  maximum: number;
-  minimumPercent: number;
-  maximumPercent: number;
-  setMinimum: (min: string) => void;
-  setMaximum: (max: string) => void;
-  setMinimumInPercent: (min: string) => void;
-  setMaximumInPercent: (max: string) => void;
-  hidden: boolean;
-  hide: () => void;
-  show: () => void;
-  filterJustApplied: boolean;
-  filterJustAppliedOff: () => void;
-}) {
+  toggleColor,
+  toggleMaterial,
+  toggleSize,
+}: Filter) {
+  const [price, setPrice] = React.useState({
+    maximum: "",
+    minimum: "",
+  });
+  const possibleFilters = React.useMemo(() => {
+    const filt: possibleFilters = initialPossibleFilters;
+    products.map((p) => {
+      p.categories.map((c) => filt.category.add(c));
+      filt.color.add(p.color);
+      filt.material.add(p.material);
+      filt.size.add(p.size);
+    });
+    return {
+      category: Array.from(filt.category),
+      color: Array.from(filt.color),
+      size: Array.from(filt.size),
+      material: Array.from(filt.material),
+      maximum: 0,
+      minimum: 0,
+    };
+  }, [products]);
+
+  const filterApplied =
+    filters.category !== "" ||
+    filters.color !== "" ||
+    filters.material !== "" ||
+    filters.size !== "";
+  const resetFilter = () => {
+    setFilters(initialFilters);
+  };
   const t = useTranslations("category");
   return (
     <motion.div
@@ -107,55 +115,83 @@ export default function Filter({
             </p>
             <button
               onClick={hide}
-              className={`lg:hidden w-fit h-[56px] py-2.5 px-4 ${filterJustApplied ? "bg-success hover:bg-sucessHover" : "bg-grey-50"} md:text-base text-sm rounded-[10px] text-white`}
+              className={`lg:hidden w-fit h-[56px] py-2.5 px-4 ${filterApplied ? "bg-success hover:bg-sucessHover" : "bg-grey-50"} md:text-base text-sm rounded-[10px] text-white`}
             >
               {t("save")}
             </button>
           </div>
           <Toggle name={t("category")}>
             <CategoryFilter
-              categories={possibleFilters.categories}
-              category={category}
-              updateCategory={updateCategory}
+              categories={possibleFilters.category}
+              category={filters.category}
+              updateCategory={(category) =>
+                setFilters({ ...filters, category })
+              }
             />
           </Toggle>
           <Toggle name={t("color")}>
             <ColorFilter
               colors={possibleFilters.color}
-              color={appliedFilters.color}
+              color={filters.color}
               toggleColor={toggleColor}
             />
           </Toggle>
           <Toggle name={t("size")}>
             <SizeFilter
-              sizes={possibleFilters.sizes}
-              size={appliedFilters.sizes}
+              sizes={possibleFilters.size}
+              size={filters.size}
               toggleSize={toggleSize}
             />
           </Toggle>
           <Toggle name={t("material")}>
             <MaterialFilter
               materials={possibleFilters.material}
-              material={appliedFilters.material}
+              material={filters.material}
               toggleMaterial={toggleMaterial}
             />
           </Toggle>
-          <Toggle name={t("price-per-item")}>
+          {/* <Toggle name={t("price-per-item")}>
             <PriceFilter
-              maximum={maximum}
-              minimum={minimum}
-              setMaximum={setMaximum}
-              setMinimum={setMinimum}
-              setMaximumInPercent={setMaximumInPercent}
-              setMinimumInPercent={setMinimumInPercent}
-              maximumPercent={maximumPercent}
-              minimumPercent={minimumPercent}
-              possibleMaximum={possibleFilters.pricePerItem.maximum}
-              possibleMinimum={possibleFilters.pricePerItem.minimum}
+              maximum={filters.maximum}
+              minimum={filters.minimum}
+              setMaximum={()=>{}}
+              setMinimum={()=>{}}
+              setMaximumInPercent={(maximum)=>setPrice({...price,maximum})}
+              setMinimumInPercent={(minimum)=>setPrice({...price,minimum})}
+              maximumPercent={price.maximum}
+              minimumPercent={price.minimum}
+              possibleMaximum={possibleFilters.maximum}
+              possibleMinimum={possibleFilters.minimum}
             />
-          </Toggle>
+          </Toggle> */}
         </div>
       </motion.div>
     </motion.div>
   );
+}
+
+export type filter = {
+  color: string;
+  size: string;
+  material: string;
+  category: string;
+  maximum: number;
+  minimum: number;
+};
+type possibleFilters = {
+  color: Set<string>;
+  size: Set<string>;
+  material: Set<string>;
+  category: Set<string>;
+  maxium: number;
+  minimum: number;
+};
+interface Filter {
+  filters: filter;
+  setFilters: Dispatch<SetStateAction<filter>>;
+  products: product[];
+  hide: () => void;
+  toggleMaterial: (mat: string) => void;
+  toggleSize: (size: string) => void;
+  toggleColor: (clr: string) => void;
 }

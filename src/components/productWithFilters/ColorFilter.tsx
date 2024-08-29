@@ -4,7 +4,7 @@ export default function ColorFilter({
   toggleColor,
 }: {
   colors: string[];
-  color: Set<string>;
+  color: string;
   toggleColor: (clr: string) => void;
 }) {
   return (
@@ -15,7 +15,7 @@ export default function ColorFilter({
             type="checkbox"
             name={c}
             id={c}
-            checked={color.has(c)}
+            checked={c === color}
             onChange={() => toggleColor(c)}
           />
           <label htmlFor={c} className="font-semibold">

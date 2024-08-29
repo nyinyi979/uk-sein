@@ -6,7 +6,7 @@ import { useUserStore } from "@/store/clientData";
 import { useTranslations } from "next-intl";
 
 export default function Drawer({ hide }: { hide: () => void }) {
-  const userToken = useUserStore((state) => state.userToken);
+  const token = useUserStore((state) => state.token);
   const t = useTranslations("product");
   return (
     <motion.div
@@ -53,7 +53,7 @@ export default function Drawer({ hide }: { hide: () => void }) {
         <div className="w-fit flex flex-col gap-6">
           <p className="font-semibold text-2xl">{t("explore-now")}</p>
           <NavigationLinks hide={hide} />
-          {userToken !== "" && <ProfileLinks hide={hide} />}
+          {token !== "" && <ProfileLinks hide={hide} />}
           <SignOutIn hide={hide} />
         </div>
       </motion.div>

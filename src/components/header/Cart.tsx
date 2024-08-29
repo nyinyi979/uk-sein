@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import CartImage from "./images/cart.svg";
 import CartSlider from "./cart/Cart";
-import { productInCart } from "@/types/type";
+import { useUserStore } from "@/store/clientData";
 
 export default function Cart({
   hidden,
@@ -16,40 +16,7 @@ export default function Cart({
     if (!hidden) document.body.style.overflowY = "hidden";
     else document.body.style.overflowY = "auto";
   }, [hidden]);
-  const [cartItem, setCartItem] = React.useState<productInCart[]>([
-    {
-      itemID: "1234",
-      name: "Sample item",
-      images: ["/sampleDiscount.png"],
-      price: 360000,
-      quantity: 2,
-      size: "16x17x18",
-    },
-    {
-      itemID: "1235",
-      name: "Sample item",
-      images: ["/sampleDiscount.png"],
-      price: 180000,
-      quantity: 2,
-      size: "16x17x18",
-    },
-  ]);
-  const incrementQuantity = (ind: number) => {
-    let newCartItems = [...cartItem];
-    newCartItems[ind].quantity++;
-    setCartItem(newCartItems);
-  };
-  const decrementQuantity = (ind: number) => {
-    let newCartItems = [...cartItem];
-    if (newCartItems[ind].quantity - 1 >= 0) newCartItems[ind].quantity--;
-    setCartItem(newCartItems);
-  };
-  const removeItem = (ind: number) => {
-    let newCartItems = [...cartItem];
-    newCartItems[ind].itemID = "";
-    let newItems = newCartItems.filter((x) => x.itemID !== "");
-    setCartItem(newItems);
-  };
+  const cartItems = useUserStore((state) => state.cartItems);
   return (
     <div className="relative">
       <button
@@ -65,20 +32,13 @@ export default function Cart({
             className="size-auto"
           />
         </span>
-        {cartItem.length > 0 && (
+        {cartItems.length > 0 && (
           <p className="md:relative absolute top-0 md:right-0 -right-2 size-4 rounded-full mt-1 bg-red-500 text-white text-[10px] text-center">
-            {cartItem.length}
+            {cartItems.length}
           </p>
         )}
       </button>
-      <CartSlider
-        hidden={hidden}
-        toggle={toggle}
-        decrementQuantity={decrementQuantity}
-        incrementQuantity={incrementQuantity}
-        products={cartItem}
-        removeItem={removeItem}
-      />
+      <CartSlider hidden={hidden} toggle={toggle} />
     </div>
   );
 }

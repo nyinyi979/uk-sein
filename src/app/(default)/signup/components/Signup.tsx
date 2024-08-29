@@ -16,13 +16,13 @@ export default function Signup() {
   const [input, setInput] = React.useState<signUpInput>({
     file: null,
     name: "",
-    phoneNo: "",
+    phone: "",
     email: "",
     gender: "",
     password: "",
     rePassword: "",
     state: "",
-    township: "",
+    city: "",
     address: "",
   });
   const setFile = (f: File) => {
@@ -31,40 +31,40 @@ export default function Signup() {
   const setName = (n: string) => {
     setInput({ ...input, name: n });
   };
-  const setPhoneNo = (ph: string) => {
-    setInput({ ...input, phoneNo: ph });
+  const setPhone = (phone: string) => {
+    setInput({ ...input, phone });
   };
-  const setEmail = (m: string) => {
-    setInput({ ...input, email: m });
+  const setEmail = (email: string) => {
+    setInput({ ...input, email });
   };
-  const setGender = (g: string) => {
-    setInput({ ...input, gender: g });
+  const setGender = (gender: string) => {
+    setInput({ ...input, gender });
   };
-  const setPassword = (pw: string) => {
-    setInput({ ...input, password: pw });
+  const setPassword = (password: string) => {
+    setInput({ ...input, password });
   };
-  const setRePassword = (pw: string) => {
-    setInput({ ...input, rePassword: pw });
+  const setRePassword = (rePassword: string) => {
+    setInput({ ...input, rePassword });
   };
-  const setState = (s: state) => {
-    setInput({ ...input, state: s });
+  const setState = (state: state) => {
+    setInput({ ...input, state });
   };
-  const setTownship = (t: string) => {
-    setInput({ ...input, township: t });
+  const setTownship = (city: string) => {
+    setInput({ ...input, city });
   };
   const setAddress = (add: string) => {
     setInput({ ...input, address: add });
   };
   const firstPageNotEmpty =
     input.name != "" &&
-    input.phoneNo != "" &&
+    input.phone != "" &&
     input.email != "" &&
     input.gender != "" &&
     input.password != "" &&
     input.rePassword != "" &&
     input.password == input.rePassword;
   const secondPageNotEmpty =
-    input.state != "" && input.township != "" && input.address != "";
+    input.state != "" && input.city != "" && input.address != "";
   const [firstPage, setFirstPage] = React.useState(true);
   const validateInfo = () => {};
   const backOnClick = () => {
@@ -82,8 +82,8 @@ export default function Signup() {
               setFile={setFile}
               name={input.name}
               setName={setName}
-              phoneNo={input.phoneNo}
-              setPhoneNo={setPhoneNo}
+              phoneNo={input.phone}
+              setPhoneNo={setPhone}
               email={input.email}
               setEmail={setEmail}
               gender={input.gender}
@@ -100,8 +100,8 @@ export default function Signup() {
               setFirstPage={setFirstPage}
               state={input.state}
               setState={setState}
-              township={input.township}
-              setTownship={setTownship}
+              city={input.city}
+              setCity={setTownship}
               address={input.address}
               setAddress={setAddress}
               secondPageNotEmpty={secondPageNotEmpty}

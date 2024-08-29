@@ -12,10 +12,10 @@ export default function PriceFilter({
   setMaximumInPercent,
   setMinimumInPercent,
 }: {
-  minimumPercent: number;
+  minimumPercent: string;
   minimum: number;
   possibleMinimum: number;
-  maximumPercent: number;
+  maximumPercent: string;
   maximum: number;
   possibleMaximum: number;
   setMaximumInPercent: (max: string) => void;

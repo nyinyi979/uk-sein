@@ -4,14 +4,14 @@ export default function ProductNamePrice({
   name,
   mm_name,
   rating,
-  itemID,
+  code,
   price,
 }: {
-  itemID: string;
+  code: string;
   name: string;
   mm_name: string;
   rating: number;
-  price: number;
+  price: string;
 }) {
   return (
     <div className="flex flex-col xl:gap-6 md:gap-4 gap-[18px] pb-12 border-b border-dotted border-grey-100">
@@ -20,7 +20,7 @@ export default function ProductNamePrice({
           {name}
         </p>
         <p className="text-grey-300 xl:text-base text-sm">
-          {mm_name} <span className="px-2 text-grey-200">({itemID})</span>
+          {mm_name} <span className="px-2 text-grey-200">({code})</span>
         </p>
       </div>
       <RatingStars count={rating} />

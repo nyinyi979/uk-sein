@@ -6,10 +6,11 @@ import Profile from "./images/profile.svg";
 import Order from "./images/order.svg";
 import WishList from "./images/whitelist.svg";
 import Logout from "./images/logOut.svg";
+import axios from "@/utils/axios";
 import { AnimatePresence, motion } from "framer-motion";
-import { useUserStore } from "@/store/clientData";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { useUserStore } from "@/store/clientData";
 
 export default function Login({
   hidden,
@@ -18,18 +19,35 @@ export default function Login({
   hidden: boolean;
   toggle: () => void;
 }) {
-  const userToken = useUserStore((state) => state.userToken);
-  const clearUserToken = useUserStore((state) => state.clearUserToken);
+  const { token, setToken } = useUserStore((state) => state);
   const router = useRouter();
   const logOut = () => {
-    clearUserToken();
+    setToken(null);
     toggle();
     router.push("/");
   };
+
+  React.useEffect(() => {
+    const getAuth = async () => {
+      const response = await axios.get("auth/me/");
+      localStorage.setItem("user", JSON.stringify(response.data));
+    };
+
+    if (token) {
+      axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+      console.log(axios.defaults.headers);
+      const user = localStorage.getItem("user");
+      if (user === null) {
+        getAuth();
+      }
+    } else {
+      delete axios.defaults.headers.common["Authorization"];
+    }
+  }, [token]);
   const t = useTranslations("main-pages");
   return (
     <div className="xl:flex hidden flex-row relative">
-      {userToken === "" ? (
+      {token === null || token === "" ? (
         <Link
           href={"/login"}
           className="w-[140px] h-[50px] px-5 py-3 bg-khaki-500 rounded-xl text-center text-white hover:bg-khaki-700 duration-300"

@@ -6,29 +6,23 @@ import useWindowSize from "@/components/hooks/useWindowSize";
 import { productInCart } from "@/types/type";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { useUserStore } from "@/store/clientData";
 
 export default function CartSlider({
   hidden,
-  products,
-  decrementQuantity,
-  incrementQuantity,
-  removeItem,
   toggle,
 }: {
   hidden: boolean;
-  products: productInCart[];
-  incrementQuantity: (ind: number) => void;
-  decrementQuantity: (ind: number) => void;
-  removeItem: (ind: number) => void;
   toggle: () => void;
 }) {
+  const cartItems = useUserStore((store) => store.cartItems);
   const totalPrice = React.useMemo(() => {
     let tot = 0;
-    for (let i = 0; i < products.length; i++) {
-      tot += products[i].price * products[i].quantity;
+    for (let i = 0; i < cartItems.length; i++) {
+      tot += Number(cartItems[i].subtotal);
     }
     return tot;
-  }, [products.length, incrementQuantity, decrementQuantity, removeItem]);
+  }, [cartItems]);
   const [animationValue, setAnimationValue] = React.useState({
     intro: {
       translateX: [200, 0],
@@ -98,19 +92,16 @@ export default function CartSlider({
             className="ml-auto xl:w-[580px] md:w-[500px] w-full xl:h-[1024px] md:h-[1194px] h-full flex flex-col bg-white origin-center overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <CartHeader count={products.length} toggle={toggle} />
+            <CartHeader count={cartItems.length} toggle={toggle} />
             <p className="py-4 px-[30px] font-semibold text-lg border-b border-grey-50">
-              {t("you-have")} ({products.length}) {t("in-your-cart!")}
+              {t("you-have")} ({cartItems.length}) {t("in-your-cart!")}
             </p>
             <div className="w-fit h-[630px] mx-auto flex flex-col gap-2.5 px-2.5 py-1.5 overflow-y-auto overflow-x-hidden">
-              {products.map((p, ind) => (
+              {cartItems.map((cartItem, ind) => (
                 <CartItem
-                  key={p.itemID}
+                  key={cartItem.variation_product + cartItem.code + ind}
                   index={ind}
-                  decrementQuantity={decrementQuantity}
-                  incrementQuantity={incrementQuantity}
-                  removeItem={removeItem}
-                  product={p}
+                  cartItem={cartItem}
                 />
               ))}
             </div>

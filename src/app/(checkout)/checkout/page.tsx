@@ -1,5 +1,5 @@
-import { Metadata } from "next";
 import Checkout from "./components/Checkout";
+import { Metadata } from "next";
 
 export default Checkout;
 

@@ -60,13 +60,13 @@ export function ReviewTitle({ children }: { children?: React.ReactNode }) {
 export function ReviewError() {
   const t = useTranslations("product");
   return (
-    <div className="py-[120px] text-center">
+    <div className="flex flex-col gap-4 justify-center items-center py-[120px] text-center">
       <Image
         src="/images/error.png"
         alt="error"
         width={120}
         height={120}
-        className="w-auto h-auto"
+        className="object-cover"
       />
       <p>
         {t("sorry-no-reivew")} <br /> {t("be-the-first")}

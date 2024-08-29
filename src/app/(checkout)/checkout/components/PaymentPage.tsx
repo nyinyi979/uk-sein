@@ -1,23 +1,39 @@
-import PaymentMethods from "./Payment";
 import PaymentNumbers from "./PaymentNumbers";
 import PaymentImageUpload from "./PaymentImageUpload";
+import PaymentMethods from "./Payment";
+import axios, { MEDIA_URL } from "@/utils/axios";
+import React, { Dispatch, SetStateAction } from "react";
 import { motion } from "framer-motion";
-import { payment } from "@/types/type";
 import { useTranslations } from "next-intl";
+import { Order, paymentInOrder } from "@/types/order";
+import { payment_search } from "@/types/payment";
+import { showErrorAlert } from "@/components/Alert";
 
 export default function PaymentPage({
   payment,
   setPayment,
-  setFile,
-  currency,
-  setCurrency,
+  setImage, 
 }: {
-  payment: payment;
-  setPayment: (payment: payment) => void;
-  setFile: (file: File) => void;
-  currency: "MMK" | "USD";
-  setCurrency: (cur: "MMK" | "USD") => void;
+  payment: paymentInOrder;
+  setPayment: Dispatch<SetStateAction<paymentInOrder>>;
+  setImage: (f: File)=>void
 }) {
+  const [payments, setPayments] = React.useState<payment_search[]>([]);
+  const [selectedPayment, setSelectedPayment] = React.useState<null|number>(null);
+  const updateSelectedPayment = (p: number) => {
+    setSelectedPayment(p);
+    setPayment({
+      ...payment, payment_type: payments[selectedPayment||0].payment_name
+    })
+  }
+  React.useEffect(() => {
+    axios.get("payment-method/search/?query=").then((data) => {
+      setPayments(data.data);
+    })
+    .catch(()=>{
+      showErrorAlert({text:"Something went wrong!"})
+    })
+  }, []);
   const t = useTranslations("checkout");
   return (
     <motion.div
@@ -30,16 +46,10 @@ export default function PaymentPage({
       <div className="flex flex-col md:gap-6 gap-[18px]">
         <p className="font-sora font-semibold md:text-2xl text-xl">
           {t("payment-method")}
-        </p>
-        <PaymentMethods payment={payment} setPayment={setPayment} />
-        {payment !== "" && (
-          <PaymentNumbers
-            currency={currency}
-            payment={payment}
-            setCurrency={setCurrency}
-          />
-        )}
-        <PaymentImageUpload setFile={setFile} />
+        </p> 
+        <PaymentMethods payments={payments} selectedPayment={selectedPayment} updateSelectedPayment={updateSelectedPayment} />
+        {selectedPayment!==null&&<PaymentNumbers payment={payments[selectedPayment]} />}
+        <PaymentImageUpload setFile={(f) => setImage(f)} />
       </div>
     </motion.div>
   );

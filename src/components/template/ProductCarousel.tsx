@@ -1,14 +1,16 @@
 "use client";
 import React from "react";
-import Product from "./Product";
+import Product, { ProductLoading } from "./Product";
 import CarouselButtons from "./CarouselButtons";
+import axios from "@/utils/axios";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { product } from "@/types/type";
+import { variant } from "@/types/type";
 import { useTranslations } from "next-intl";
+import { showErrorAlert } from "../Alert";
 
 export default function ProductsCarousel({
   similarProduct,
@@ -19,53 +21,25 @@ export default function ProductsCarousel({
 }) {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const incrementIndex = () =>
-    activeIndex + 1 <= products.length - 3 && setActiveIndex(activeIndex + 1);
+    activeIndex + 1 <= variants.length - 3 && setActiveIndex(activeIndex + 1);
   const decrementIndex = () =>
     activeIndex - 1 >= 0 && setActiveIndex(activeIndex - 1);
-  // fetch(fetchURL).then((val) => {
 
-  // });
-  const [products, setProducts] = React.useState<product[]>([
-    {
-      id: "sample id",
-      category: "sample",
-      images: ["/sampleDiscount.png"],
-      name: "sample",
-      mm_name: "မြန်မာ",
-      rating: 4,
-      color: "red",
-      material: "aluminium",
-      size: "17 x 18",
-      price: 250000,
-      whiteListed: false,
-    },
-    {
-      id: "sample id2",
-      category: "sample",
-      images: ["/sampleDiscount.png"],
-      name: "sample",
-      mm_name: "မြန်မာ",
-      rating: 4,
-      color: "red",
-      material: "aluminium",
-      size: "17 x 18",
-      price: 250000,
-      whiteListed: false,
-    },
-    {
-      id: "sample id3",
-      category: "sample",
-      images: ["/sampleDiscount.png"],
-      name: "sample",
-      mm_name: "မြန်မာ",
-      rating: 4,
-      color: "red",
-      material: "aluminium",
-      size: "17 x 18",
-      price: 250000,
-      whiteListed: false,
-    },
-  ]);
+  const [loading, setLoading] = React.useState(true);
+  const [variants, setVariants] = React.useState<variant[]>([]);
+  React.useEffect(() => {
+    axios
+      .get("product/top-product/")
+      .then((data) => {
+        setVariants(data.data);
+        setLoading(false);
+      })
+      .catch(() => {
+        showErrorAlert({
+          text: "Something went wrong while fetching products!",
+        });
+      });
+  }, []);
   const t = useTranslations("product");
   return (
     <div className="relative md:px-0 px-5">
@@ -90,11 +64,17 @@ export default function ProductsCarousel({
         onRealIndexChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         modules={[Navigation]}
       >
-        {products.map((p) => (
-          <SwiperSlide key={p.id}>
-            <Product {...p} small={false} />
-          </SwiperSlide>
-        ))}
+        {loading
+          ? [1, 2, 3, 4].map((val) => (
+              <SwiperSlide key={val}>
+                <ProductLoading />
+              </SwiperSlide>
+            ))
+          : variants.map((v) => (
+              <SwiperSlide key={v.id}>
+                <Product {...v} small={false} variation={v} />
+              </SwiperSlide>
+            ))}
       </Swiper>
     </div>
   );

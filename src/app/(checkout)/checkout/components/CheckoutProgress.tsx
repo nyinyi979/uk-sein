@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 export default function CheckoutProgress({
   progress,
 }: {
-  progress: "Shipping" | "Payment" | "Confirmed";
+  progress: "Shipping" | "Payment" | "Confirmed"|"Loading";
 }) {
   const secondOn = progress === "Payment" || progress === "Confirmed";
   const thirdOn = progress === "Confirmed";

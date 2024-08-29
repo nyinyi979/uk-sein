@@ -1,15 +1,15 @@
-export default function WishList({
-  productID,
+export default function Wishlist({
+  id,
   whitelisted = false,
   small = false,
 }: {
   whitelisted?: boolean;
-  productID?: string;
+  id?: number;
   small?: boolean;
 }) {
   return (
     <button
-      className={`${whitelisted ? "heart-active" : "heart"} ${small ? "xl:size-[58px] size-[48px] xl:p-[18px] p-[12px]" : "md:size-[58px] size-[48px] md:p-[18px] p-[12px]"}`}
+      className={`${whitelisted ? "heart-active" : "heart"} ${small ? "xl:size-[58px] size-[48px] xl:p-[18px] p-[12px]" : "md:size-[58px] size-[48px] md:p-[18px] p-[12px]"} `}
     >
       <svg
         width="23"

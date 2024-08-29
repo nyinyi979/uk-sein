@@ -42,8 +42,9 @@ export default function ProductReviews({ reviews }: { reviews: review[] }) {
             </button>
           </>
         )}
-        {reviews.length === 0 && <ReviewError />}
       </div>
+
+      {reviews.length === 0 && <ReviewError />}
       <div className="flex flex-col gap-[18px]">
         {reviews.length > 3 ? (
           <>

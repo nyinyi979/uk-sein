@@ -2,24 +2,24 @@ import React from "react";
 import CartItem from "./CartItems";
 import { motion } from "framer-motion";
 import { CartSummaryHeader, CartFooter } from "./CartSummaryComponents";
-import { productInCart } from "@/types/type";
+import { cartItem } from "@/store/clientData";
 
 export default function CartSummary({
-  products,
+  cartItems,
   removeItem,
   closeCart,
 }: {
-  products: productInCart[];
+  cartItems: cartItem[];
   removeItem: (ind: number) => void;
   closeCart: () => void;
 }) {
   const totalPrice = React.useMemo(() => {
     let tot = 0;
-    for (let i = 0; i < products.length; i++) {
-      tot += products[i].price * products[i].quantity;
+    for (let i = 0; i < cartItems.length; i++) {
+      tot += cartItems[i].subtotal;
     }
     return tot;
-  }, [products.length, removeItem]);
+  }, [cartItems.length]);
   return (
     <motion.div
       onClick={closeCart}
@@ -58,12 +58,12 @@ export default function CartSummary({
         onClick={(ev) => ev.stopPropagation()}
         className="xl:w-[478px] md:w-[578px] sm:w-[360px] w-[96%] xl:max-h-max max-h-[500px] overflow-scroll xl:my-0 md:mt-[8%] mt-[20%] mx-auto flex flex-col gap-1.5 pt-2.5 rounded-[15px] bg-white origin-center"
       >
-        <CartSummaryHeader closeCart={closeCart} count={products.length} />
+        <CartSummaryHeader closeCart={closeCart} count={cartItems.length} />
         <div className="px-2.5 pb-6">
-          {products.map((p, ind) => (
+          {cartItems.map((c, ind) => (
             <CartItem
-              key={p.itemID}
-              product={p}
+              key={c.variation_product+ind+c.name}
+              cartItem={c}
               index={ind}
               removeItem={removeItem}
             />

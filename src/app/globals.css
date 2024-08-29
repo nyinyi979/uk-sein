@@ -146,7 +146,7 @@ span.swiper-pagination-bullet-active {
   @apply fill-red-500;
 }
 .heart-active {
-  @apply bg-white;
+  @apply bg-red-50;
 }
 .heart-active > svg > path {
   @apply fill-red-500;
@@ -288,4 +288,20 @@ input[type="range"]::-ms-thumb {
 }
 .opened-toast {
   @apply translate-y-0 opacity-100;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 30px;
+  margin: 0 auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid;
+  border-color: #9e6f46 #fff;
+  animation: l1 1s infinite;
+}
+@keyframes l1 {
+  to {
+    transform: rotate(0.5turn);
+  }
 }

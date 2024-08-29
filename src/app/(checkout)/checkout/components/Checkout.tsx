@@ -7,83 +7,40 @@ import OrderConfirmed from "./Confirmed";
 import CartSummary from "./CartSummary";
 import CheckoutButtons from "./CheckoutButtons";
 import CartHeader from "./CartHeader";
+import axios from "@/utils/axios";
 import useWindowSize from "@/components/hooks/useWindowSize";
 import { useRouter } from "next/navigation";
-import { checkOutData, payment, productInCart, state } from "@/types/type";
 import { AnimatePresence } from "framer-motion";
 import { useUserStore } from "@/store/clientData";
-import { isAuthenticated } from "@/store/auth";
+import { customer, Initial_Order, paymentInOrder } from "@/types/order";
+import { showErrorAlert } from "@/components/Alert";
+import dayjs from "dayjs";
 
 export default function Checkout() {
-  const router = useRouter();
-  const userToken = useUserStore((store) => store.userToken);
-  const [input, setInput] = React.useState<checkOutData>({
-    name: "Ko Khant",
-    phoneNo: "0964647576",
-    email: "kokhant123@gmail.com",
-    state: "Yangon",
-    township: "Insein (အင်းစိန်)",
-    address: "No 27, Myo Mya St",
-    payment: "",
-    image: null,
-    currency: "MMK",
-  });
-  const setName = (name: string) => {
-    setInput({ ...input, name: name });
-  };
-  const setPhone = (phone: string) => {
-    setInput({ ...input, phoneNo: phone });
-  };
-  const setEmail = (mail: string) => {
-    setInput({ ...input, email: mail });
-  };
-  const setState = (state: state) => {
-    setInput({ ...input, state: state });
-  };
-  const setTownship = (ts: string) => {
-    setInput({ ...input, township: ts });
-  };
-  const setAddress = (add: string) => {
-    setInput({ ...input, address: add });
-  };
-  const setPayment = (payment: payment) => {
-    setInput({ ...input, payment: payment });
-  };
-  const setImage = (img: File) => {
-    setInput({ ...input, image: img });
-  };
-  const setCurrency = (cur: "MMK" | "USD") => {
-    setInput({ ...input, currency: cur });
-  };
-  const [cartItem, setCartItem] = React.useState<productInCart[]>([
-    {
-      itemID: "1234",
-      name: "Sample item",
-      images: ["/sampleDiscount.png"],
-      price: 360000,
-      quantity: 2,
-      size: "16x17x18",
-    },
-    {
-      itemID: "1235",
-      name: "Sample item",
-      images: ["/sampleDiscount.png"],
-      price: 180000,
-      quantity: 2,
-      size: "16x17x18",
-    },
-  ]);
-  const removeItem = (ind: number) => {
-    let newCartItems = [...cartItem];
-    newCartItems[ind].itemID = "";
-    let newItems = newCartItems.filter((x) => x.itemID !== "");
-    setCartItem(newItems);
-  };
-  const [page, setPage] = React.useState<"Shipping" | "Payment" | "Confirmed">(
-    "Shipping",
+  const { token, cartItems, setCartItems } = useUserStore((state) => state);
+  const [order, setOrder] = React.useState(Initial_Order);
+  const [page, setPage] = React.useState<"Shipping" | "Payment" | "Confirmed" | "Loading">(
+    "Shipping"
   );
   const [hidden, setHidden] = React.useState(true);
+  const [image, setImage] = React.useState<File>();
+  const [payment, setPayment] = React.useState<paymentInOrder>({
+    payment_date: dayjs(new Date()),
+    payment_time: dayjs(`${new Date().getHours()}:${new Date().getMinutes()}`),
+    screenshot: "",
+    rejected_note: "",
+    payment_type: "",
+    amount: "0",
+    status: "",
+    order_id: 1,
+  });
   const size = useWindowSize();
+  const router = useRouter();
+  const removeItem = (ind: number) => {
+    let newCartItems = [...cartItems];
+    newCartItems.splice(ind, 1);
+    setCartItems(newCartItems);
+  };
   const openCart = () => {
     setHidden(false);
     if (size[0] < 1440) {
@@ -100,9 +57,47 @@ export default function Checkout() {
       document.body.style.overflowY = "hidden";
     }
   };
-  const updatePage = () => {
+  const updatePage = async () => {
+    const newOrder = { ...order };
+    newOrder.products = cartItems;
+    cartItems.map((c)=>{
+      newOrder.subtotal += Number(c.regular_price) * Number(c.quantity);
+    })
     if (page === "Shipping") setPage("Payment");
-    else if (page === "Payment") setPage("Confirmed");
+    else if (page === "Payment") {
+      if (image) {
+        setPage("Loading")
+        // create order
+        // upload image
+        // add payment
+        axios.post("order/", { data: newOrder }).then((data) => {
+          const newPayment = { ...payment };
+          newPayment.order_id = data.data.id;
+          if (image) {
+            const formData = new FormData();
+            formData.append("image0", image as Blob);
+            formData.append("length", "1");
+
+            axios
+              .post("file/", formData, {
+                headers: {
+                  "Content-Type": "multipart/form-data",
+                },
+              })
+              .then((response) => {
+                newPayment.screenshot = response.data[0].full_url;
+                axios.post(`/order/payment/`, {
+                  data: newPayment,
+                })
+                setPage("Confirmed");
+                setCartItems([])
+              });
+          }
+        });
+      } else {
+        showErrorAlert({ text: "Please upload an image!" });
+      }
+    }
   };
   const backPage = () => {
     if (page === "Shipping") router.back();
@@ -115,8 +110,26 @@ export default function Checkout() {
   }, [size]);
 
   React.useEffect(() => {
-    if (!isAuthenticated(userToken)) router.back();
-  }, []);
+    if (!token) return;
+    axios.get(`/customer/?customer_id=8`).then((data) => {
+      const d = data.data as customer;
+      setOrder({
+        ...order,
+        customer: d,
+        customer_email: d.email,
+        order_address: {
+          id: d.customer_addresses[0].id,
+          address: d.customer_addresses[0].address,
+          city: d.customer_addresses[0].city,
+          map: d.customer_addresses[0].map,
+          state: d.customer_addresses[0].state,
+        },
+        customer_name: d.name,
+        phone: d.phone,
+      });
+    });
+  }, [token]);
+
   return (
     <div className="xl:w-[1190px] flex flex-row gap-40 mx-auto py-20 xl:px-0 md:px-[51px] sm:px-0 px-2">
       <div className="md:w-[80%] sm:w-[343px] w-full mx-auto flex flex-col gap-[50px]">
@@ -125,40 +138,26 @@ export default function Checkout() {
           <CheckoutProgress progress={page} />
           <AnimatePresence>
             {page === "Shipping" && (
-              <FirstPage
-                name={input.name}
-                setName={setName}
-                phoneNo={input.phoneNo}
-                setPhoneNo={setPhone}
-                email={input.email}
-                setEmail={setEmail}
-                state={input.state}
-                setState={setState}
-                township={input.township}
-                setTownship={setTownship}
-                address={input.address}
-                setAddress={setAddress}
-              />
+              <FirstPage order={order} setOrder={setOrder} />
             )}
             {page === "Payment" && (
               <PaymentPage
-                payment={input.payment}
+                payment={payment}
                 setPayment={setPayment}
-                setFile={setImage}
-                currency={input.currency}
-                setCurrency={setCurrency}
+                setImage={(f) => setImage(f)}
               />
             )}
+            {page === "Loading" && <div className="flex flex-col  gap-4 py-20 text-center">Creating order...Please wait <p className="loader"></p></div>}
             {page === "Confirmed" && <OrderConfirmed />}
           </AnimatePresence>
           <CheckoutButtons page={page} updatePage={updatePage} />
         </div>
       </div>
       <AnimatePresence>
-        {!hidden && (
+        {!hidden&&page!=="Loading" && (
           <CartSummary
             closeCart={closeCart}
-            products={cartItem}
+            cartItems={cartItems}
             removeItem={removeItem}
           />
         )}

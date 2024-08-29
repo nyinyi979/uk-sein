@@ -26,7 +26,7 @@ export default function Banner({
           alt="UKSEIN1"
           fill
           sizes="100%"
-          className="size-full object-cover"
+          className="size-full object-contain"
         />
       </Link>
       <div className="w-fit xl:block hidden relative">
