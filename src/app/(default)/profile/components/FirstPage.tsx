@@ -86,11 +86,7 @@ export default function FirstPage({
         <p className="font-sora font-semibold text-2xl">Shopping Information</p>
         <div className="grid md:grid-cols-2 grid-cols-1 gap-[26px]">
           <StateInput state={state} setState={setState} />
-          <CityInput
-            state={state}
-            city={township}
-            setCity={setTownship}
-          />
+          <CityInput state={state} city={township} setCity={setTownship} />
         </div>
         <AddresssInput address={address} setAddress={setAddress} />
       </div>

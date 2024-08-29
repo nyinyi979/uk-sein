@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Product, { ProductLoading } from "./Product";
+import Variant, { ProductLoading } from "./Product";
 import CarouselButtons from "./CarouselButtons";
 import axios from "@/utils/axios";
 import "swiper/css";
@@ -72,7 +72,7 @@ export default function ProductsCarousel({
             ))
           : variants.map((v) => (
               <SwiperSlide key={v.id}>
-                <Product {...v} small={false} variation={v} />
+                <Variant small={false} variation={v} />
               </SwiperSlide>
             ))}
       </Swiper>

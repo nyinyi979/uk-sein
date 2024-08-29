@@ -12,7 +12,7 @@ export default function StateInput({
   setState,
   required = false,
 }: {
-  state: state|string;
+  state: state | string;
   setState: (s: state) => void;
   required?: boolean;
 }) {

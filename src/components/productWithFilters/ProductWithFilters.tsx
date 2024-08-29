@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Product, { ProductLoading } from "@/components/template/Product";
 import useWindowSize from "@/components/hooks/useWindowSize";
 import DiscountBanner from "@/components/banner/DiscountBanner";
 import Pagination from "@/components/template/Pagination";
@@ -9,7 +8,8 @@ import Filter from "./Filter";
 import FilterList from "./FilterList";
 import NotFoundError from "./NotFound";
 import axios from "@/utils/axios";
-import { product, variant } from "@/types/type";
+import Variant, { ProductLoading } from "@/components/template/Product";
+import { variant } from "@/types/type";
 import { AnimatePresence } from "framer-motion";
 import { useRouter, useSearchParams } from "next/navigation";
 import { showErrorAlert } from "../Alert";
@@ -40,7 +40,7 @@ export default function ProductWithFilters({
         `product/list/client/?color=${filters.color}&size=${filters.size}&material=${filters.material}&category=${filters.category}`,
       )
       .then((data) => {
-        console.log(data)
+        console.log(data);
         setVariations(data.data);
         setLoading(false);
       })
@@ -49,7 +49,7 @@ export default function ProductWithFilters({
         setLoading(false);
       });
   }, [filters]);
-  
+
   const router = useRouter();
   const page = Number(useSearchParams().get("p") || 1);
   const totalPages = 10;
@@ -141,9 +141,9 @@ export default function ProductWithFilters({
               <NotFoundError />
             ) : (
               <>
-                {variations.map((v) => 
-                 <Product key={v.id+v.gift} variation={v} small/>
-                )}
+                {variations.map((v) => (
+                  <Variant key={v.id + v.gift} variation={v} small />
+                ))}
               </>
             )}
           </div>

@@ -1,8 +1,8 @@
 import type { Metadata, ResolvingMetadata } from "next";
-import Product from "./components/Product";
+import ProductDetails from "./components/Product";
 
 export default function ({ params }: { params: { productID: string } }) {
-  return <Product params={params} />;
+  return <ProductDetails params={params} />;
 }
 
 type Props = {

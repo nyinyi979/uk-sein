@@ -36,11 +36,7 @@ export default function SecondPage({
     >
       <SecondPageHeading setFirstPage={setFirstPage} />
       <StateInput state={state} setState={setState} />
-      <TownshipInput
-        state={state}
-        city={city}
-        setCity={setCity}
-      />
+      <TownshipInput state={state} city={city} setCity={setCity} />
       <AddresssInput address={address} setAddress={setAddress} />
       <button
         disabled={!secondPageNotEmpty}

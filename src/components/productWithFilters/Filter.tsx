@@ -41,9 +41,9 @@ export default function Filter({
     const filt: possibleFilters = initialPossibleFilters;
     variations.map((v) => {
       v.categories.map((c) => filt.category.add(c));
-        filt.color.add(v.color);
-        filt.material.add(v.material);
-        filt.size.add(v.size);
+      filt.color.add(v.color);
+      filt.material.add(v.material);
+      filt.size.add(v.size);
     });
     return {
       category: Array.from(filt.category),

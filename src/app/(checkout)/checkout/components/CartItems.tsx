@@ -17,7 +17,7 @@ export default function CartItem({
       <div className="md:size-[100px] size-[72px] bg-white-400">
         <div className="xl:w-[71px] w-[51px] xl:h-[65px] h-[47px] relative mx-auto my-[21.5px]">
           <img
-            src={MEDIA_URL+image}
+            src={MEDIA_URL + image}
             alt={name}
             className="size-full object-cover shadow-product"
           />

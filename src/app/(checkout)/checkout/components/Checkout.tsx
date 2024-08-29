@@ -19,9 +19,9 @@ import dayjs from "dayjs";
 export default function Checkout() {
   const { token, cartItems, setCartItems } = useUserStore((state) => state);
   const [order, setOrder] = React.useState(Initial_Order);
-  const [page, setPage] = React.useState<"Shipping" | "Payment" | "Confirmed" | "Loading">(
-    "Shipping"
-  );
+  const [page, setPage] = React.useState<
+    "Shipping" | "Payment" | "Confirmed" | "Loading"
+  >("Shipping");
   const [hidden, setHidden] = React.useState(true);
   const [image, setImage] = React.useState<File>();
   const [payment, setPayment] = React.useState<paymentInOrder>({
@@ -60,13 +60,13 @@ export default function Checkout() {
   const updatePage = async () => {
     const newOrder = { ...order };
     newOrder.products = cartItems;
-    cartItems.map((c)=>{
+    cartItems.map((c) => {
       newOrder.subtotal += Number(c.regular_price) * Number(c.quantity);
-    })
+    });
     if (page === "Shipping") setPage("Payment");
     else if (page === "Payment") {
       if (image) {
-        setPage("Loading")
+        setPage("Loading");
         // create order
         // upload image
         // add payment
@@ -88,9 +88,9 @@ export default function Checkout() {
                 newPayment.screenshot = response.data[0].full_url;
                 axios.post(`/order/payment/`, {
                   data: newPayment,
-                })
+                });
                 setPage("Confirmed");
-                setCartItems([])
+                setCartItems([]);
               });
           }
         });
@@ -147,14 +147,18 @@ export default function Checkout() {
                 setImage={(f) => setImage(f)}
               />
             )}
-            {page === "Loading" && <div className="flex flex-col  gap-4 py-20 text-center">Creating order...Please wait <p className="loader"></p></div>}
+            {page === "Loading" && (
+              <div className="flex flex-col  gap-4 py-20 text-center">
+                Creating order...Please wait <p className="loader"></p>
+              </div>
+            )}
             {page === "Confirmed" && <OrderConfirmed />}
           </AnimatePresence>
           <CheckoutButtons page={page} updatePage={updatePage} />
         </div>
       </div>
       <AnimatePresence>
-        {!hidden&&page!=="Loading" && (
+        {!hidden && page !== "Loading" && (
           <CartSummary
             closeCart={closeCart}
             cartItems={cartItems}

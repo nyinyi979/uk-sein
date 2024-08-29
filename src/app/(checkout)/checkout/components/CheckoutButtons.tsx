@@ -4,7 +4,7 @@ export default function CheckoutButtons({
   page,
   updatePage,
 }: {
-  page: "Shipping" | "Payment" | "Confirmed"|"Loading";
+  page: "Shipping" | "Payment" | "Confirmed" | "Loading";
   updatePage: () => void;
 }) {
   const t = useTranslations("default");

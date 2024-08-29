@@ -62,7 +62,7 @@ export default function CartSummary({
         <div className="px-2.5 pb-6">
           {cartItems.map((c, ind) => (
             <CartItem
-              key={c.variation_product+ind+c.name}
+              key={c.variation_product + ind + c.name}
               cartItem={c}
               index={ind}
               removeItem={removeItem}

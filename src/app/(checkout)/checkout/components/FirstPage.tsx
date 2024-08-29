@@ -20,9 +20,9 @@ export default function FirstPage({
     email: order.customer_email,
     state: order.order_address.state,
     city: order.order_address.city,
-    address: order.order_address.address
+    address: order.order_address.address,
   });
-  
+
   const t = useTranslations();
   return (
     <motion.div

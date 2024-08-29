@@ -134,7 +134,7 @@ export interface customer {
   updated_at: string;
   total: number;
 }
-interface customerAddress{
+interface customerAddress {
   id: number;
   created_at: string;
   updated_at: string;
@@ -145,4 +145,3 @@ interface customerAddress{
   default: boolean;
   customer: number;
 }
-

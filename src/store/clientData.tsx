@@ -25,7 +25,7 @@ export const useUserStore = create<
       addCartItems: (item: cartItem) => {
         const curCartItems = get().cartItems;
         const index = curCartItems.findIndex(
-          (i) => i.variation_product === item.variation_product
+          (i) => i.variation_product === item.variation_product,
         );
         if (index !== -1) {
           if (
@@ -47,15 +47,15 @@ export const useUserStore = create<
       addRecentSearches: (rs: string) => {
         set(() => ({}));
       },
-      setToken: (token: string|null) => {
-        set(()=> ({token: token}))
+      setToken: (token: string | null) => {
+        set(() => ({ token: token }));
       },
     }),
     {
       name: "usr_storage", // name of the item in the storage (must be unique)
       storage: createJSONStorage(() => localStorage), // (optional) by default, 'localStorage' is used
-    }
-  )
+    },
+  ),
 );
 
 export interface cartItem {

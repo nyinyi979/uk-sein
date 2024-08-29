@@ -5,7 +5,7 @@ import { variant } from "@/types/type";
 import { useLocale } from "next-intl";
 import { MEDIA_URL } from "@/utils/axios";
 
-export default function Product({ small, variation }: smallLargeProduct) {
+export default function Variant({ small, variation }: smallLargeProduct) {
   const locale = useLocale();
   const {
     product,

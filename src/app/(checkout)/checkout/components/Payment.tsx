@@ -6,7 +6,7 @@ export default function PaymentMethods({
   updateSelectedPayment,
   payments,
 }: {
-  selectedPayment: number|null;
+  selectedPayment: number | null;
   payments: payment_search[];
   updateSelectedPayment: (payment: number) => void;
 }) {
@@ -14,16 +14,16 @@ export default function PaymentMethods({
     "md:size-20 size-[50px] md:rounded-[10px] rounded-[5px] border border-grey-50 disabled:border-grey-500 hover:bg-grey-50 duration-300";
   return (
     <div className="flex flex-row gap-[18px]">
-      {payments.map((payment,index) => (
+      {payments.map((payment, index) => (
         <button
-          key={payment.created_at+index}
+          key={payment.created_at + index}
           onClick={() => updateSelectedPayment(index)}
-          disabled={index===selectedPayment}
+          disabled={index === selectedPayment}
           className={btnClass}
         >
           <div className="md:size-[50px] size-7 mx-auto md:my-[15px] relative">
             <img
-              src={MEDIA_URL+payment.image}
+              src={MEDIA_URL + payment.image}
               alt={payment.payment_name}
               className="size-full object-cover"
             />

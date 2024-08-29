@@ -14,14 +14,16 @@ export default function CityInput({
 }: {
   city: string;
   setCity: (n: string) => void;
-  state: state|string;
+  state: state | string;
   required?: boolean;
 }) {
   const locale = useLocale();
   const t = useTranslations("input");
   const allTownships: string[] =
-    locale === "en" ? EngTownships[(state) as state]||EngTownships[""] : MyTownships[(state) as state]||MyTownships[""];
-  const valTownships = EngTownships[(state) as state];
+    locale === "en"
+      ? EngTownships[state as state] || EngTownships[""]
+      : MyTownships[state as state] || MyTownships[""];
+  const valTownships = EngTownships[state as state];
   return (
     <div className="flex flex-col gap-[14px] relative">
       <Label htmlFor="township">

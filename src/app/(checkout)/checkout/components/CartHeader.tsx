@@ -5,7 +5,7 @@ export default function CartHeader({
   page,
   backPage,
 }: {
-  page: "Shipping" | "Payment" | "Confirmed"|"Loading";
+  page: "Shipping" | "Payment" | "Confirmed" | "Loading";
   openCart: () => void;
   backPage: () => void;
 }) {
