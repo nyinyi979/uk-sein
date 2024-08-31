@@ -111,7 +111,7 @@ export interface paymentInOrder {
 export interface customer {
   id: number;
   name: string;
-  user: {
+  user?: {
     id: number;
     is_superuser: boolean;
     first_name: string;

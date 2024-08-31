@@ -24,7 +24,19 @@ export const useUserStore = create<
 >(
   persist(
     (set, get) => ({
-      customer: null,
+      customer: {
+        avatar: "",
+        created_at: "",
+        customer_addresses: [],
+        email: "",
+        gender: "",
+        id: 1,
+        name: "",
+        orders: [1],
+        phone: "",
+        total: 0,
+        updated_at: "",
+      },
       token: null,
       cartItems: [],
       recentSearches: [],
