@@ -9,6 +9,7 @@ export default function Categories() {
   const [categories, setCategories] = React.useState<category[]>([]);
   const [loading, setLoading] = React.useState(false);
   React.useEffect(() => {
+    setLoading(true);
     const filter = {
       page: 1,
       query: "",
@@ -24,7 +25,7 @@ export default function Categories() {
       })
       .catch((err) => {
         console.log(err);
-        setLoading(true);
+        setLoading(false);
         showErrorAlert({
           text: "Something went wrong while trying to display categories!",
         });
