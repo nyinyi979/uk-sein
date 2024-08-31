@@ -1,3 +1,4 @@
+import EachOrder from "./EachOrder";
 import {
   Table,
   TableBody,
@@ -5,9 +6,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/Table";
-import EachOrder from "./EachOrder";
 import { useTranslations } from "next-intl";
 import { order, orderStatus } from "@/types/order";
+import { useUserStore } from "@/store/clientData";
 
 export default function OrderTable({
   orders,
@@ -16,7 +17,7 @@ export default function OrderTable({
   orders: order[];
   status: orderStatus;
 }) {
-  console.log(orders)
+  const payments = useUserStore((state)=>state.payments);
   const t = useTranslations("orders");
   return (
     <div className="w-full mx-auto bg-white shadow-orderTable">
@@ -59,6 +60,7 @@ export default function OrderTable({
               key={order.id + order.created_at}
               order={order}
               orderStatus={status}
+              payments={payments}
             />
           ))}
         </TableBody>

@@ -1,4 +1,5 @@
 import { customer, customerAddress } from "@/types/order";
+import { payment_search } from "@/types/payment";
 import { variant } from "@/types/type";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
@@ -7,9 +8,11 @@ type UserData = {
   cartItems: cartItem[];
   recentSearches: variant[];
   token: string | null;
-  customer: customer | null;
+  payments: payment_search[],
+  customer: customer;
 };
 type Actions = {
+  setPayments: (pay: payment_search[])=>void;
   addRecentSearches: (rs: variant) => void;
   addCartItems: (item: cartItem) => void;
   setToken: (token: string | null) => void;
@@ -18,38 +21,41 @@ type Actions = {
   setCustomer: (customer: customer) => void;
 };
 
+export const init_customer:customer = {
+  avatar: "",
+  created_at: "",
+  customer_addresses: [{
+    address: "",
+    city: "",
+    created_at: "",
+    customer: 1,
+    default: true,
+    id: 1,
+    map: "",
+    state: "",
+    updated_at: ""
+  }],
+  email: "",
+  gender: "",
+  id: 1,
+  name: "",
+  orders: [1],
+  phone: "",
+  total: 0,
+  updated_at: "",
+}
+
 export const useUserStore = create<
   UserData & Actions,
   [["zustand/persist", unknown]]
 >(
   persist(
     (set, get) => ({
-      customer: {
-        avatar: "",
-        created_at: "",
-        customer_addresses: [{
-          address: "",
-          city: "",
-          created_at: "",
-          customer: 1,
-          default: true,
-          id: 1,
-          map: "",
-          state: "",
-          updated_at: ""
-        }],
-        email: "",
-        gender: "",
-        id: 1,
-        name: "",
-        orders: [1],
-        phone: "",
-        total: 0,
-        updated_at: "",
-      },
+      customer: init_customer,
       token: null,
       cartItems: [],
       recentSearches: [],
+      payments: [],
       addCartItems: (item: cartItem) => {
         const curCartItems = get().cartItems;
         const index = curCartItems.findIndex(
@@ -89,10 +95,14 @@ export const useUserStore = create<
       setCustomer: (customer: customer) => {
         set(() => ({ customer: customer }));
       },
+      setPayments: (payment_search: payment_search[]) => {
+        set(()=> ({payments: payment_search}))
+      }
     }),
     {
       name: "usr_storage", // name of the item in the storage (must be unique)
       storage: createJSONStorage(() => localStorage), // (optional) by default, 'localStorage' is used
+      merge: (persistedState, currentState) => ({...currentState, ...persistedState as UserData})
     },
   ),
 );

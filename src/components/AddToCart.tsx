@@ -23,14 +23,18 @@ export default function AddToCart({
     name: variation.name,
     product: variation.product,
     quantity: quantity,
-    regular_price: `${Number(parseInt(variation.regular_price)) - Number(parseInt(variation.discount))}`,
-    subtotal: `${(Number(parseInt(variation.regular_price)) - Number(parseInt(variation.discount))) * Number(quantity)}`,
+    regular_price: `${convertInt(variation.regular_price) - convertInt(variation.discount)}`,
+    subtotal: `${(convertInt(variation.regular_price) - convertInt(variation.discount)) * Number(quantity)}`,
     size: variation.size,
     updated_at: product.updated_at,
     variation_product: variation.id,
     number_of_stock: variation.number_of_stock,
   };
   addCartItems(newCartItem);
+}
+const convertInt = (n: string)=>{
+  const int = parseInt(n);
+  return isNaN(int) ? 0 : Number(int);
 }
 export const init_product: product = {
   categories: [],

@@ -7,14 +7,19 @@ import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { TableCell, TableRow } from "@/components/Table";
 import { order, orderStatus } from "@/types/order";
+import { payment_search } from "@/types/payment";
+import { MEDIA_URL } from "@/utils/axios";
 
 export default function EachOrder({
   order,
   orderStatus,
+  payments
 }: {
   order: order;
   orderStatus: orderStatus;
+  payments: payment_search[]
 }) {
+  const index = payments.findIndex((p)=> p.payment_name === order.payments[0]?.payment_type||"" );
   const count = React.useMemo(() => {
     let c = 0;
     order.products.map((p) => {
@@ -22,6 +27,7 @@ export default function EachOrder({
     });
     return c;
   }, []);
+  console.log(index, order)
   const checked = orderStatus === "" || orderStatus === status;
   const size = useWindowSize();
   const router = useRouter();
@@ -44,8 +50,14 @@ export default function EachOrder({
             {moment(order.created_at).format("DD/MM/YYYY")}
           </TableCell>
           <TableCell className="ssm:table-cell hidden">
-            <div className="text-center relative mx-auto">
-              {order.payments[0]?.payment_type || "Not paid"}
+            <div className="size-10 mx-auto relative">
+            {index!==-1&&
+              <img 
+                src={MEDIA_URL+payments[index].image}
+                alt="payment"
+                className="size-full object-cover"
+              />
+            }
             </div>
           </TableCell>
           <TableCell className="ssm:table-cell hidden text-center">

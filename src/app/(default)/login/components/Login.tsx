@@ -26,7 +26,7 @@ export default function Login() {
     setInput({ ...input, password: pw });
   };
   const router = useRouter();
-  const { setToken } = useUserStore((state) => state);
+  const { setToken, setCustomer } = useUserStore((state) => state);
   const handleSignIn = async () => {
     setLoading(true);
     try {
@@ -37,9 +37,9 @@ export default function Login() {
       axios.defaults.headers.common["Authorization"] =
         `Bearer ${response.data.access}`;
       setToken(response.data.access);
-      router.replace("/");
       setLoading(false);
       showSuccessAlert({ text: "Successfully login!" });
+      router.replace("/");
     } catch (err) {
       console.log(err);
       showErrorAlert({ text: "Unknown Error" });

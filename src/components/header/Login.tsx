@@ -10,7 +10,7 @@ import axios from "@/utils/axios";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { useUserStore } from "@/store/clientData";
+import { init_customer, useUserStore } from "@/store/clientData";
 
 export default function Login({
   hidden,
@@ -24,6 +24,7 @@ export default function Login({
   const logOut = () => {
     setToken(null);
     localStorage.removeItem("user");
+    setCustomer(init_customer);
     toggle();
     router.push("/");
   };
@@ -32,6 +33,11 @@ export default function Login({
     const getAuth = async () => {
       const response = await axios.get("auth/me/");
       localStorage.setItem("user", JSON.stringify(response.data));
+      axios
+        .get("customer/user/", { params: { uid: response.data.id } })
+        .then((data) => {
+          setCustomer(data.data);
+        });
     };
 
     if (token) {
