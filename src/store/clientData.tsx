@@ -27,7 +27,17 @@ export const useUserStore = create<
       customer: {
         avatar: "",
         created_at: "",
-        customer_addresses: [],
+        customer_addresses: [{
+          address: "",
+          city: "",
+          created_at: "",
+          customer: 1,
+          default: true,
+          id: 1,
+          map: "",
+          state: "",
+          updated_at: ""
+        }],
         email: "",
         gender: "",
         id: 1,
