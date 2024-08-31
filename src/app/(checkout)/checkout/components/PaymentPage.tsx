@@ -1,19 +1,22 @@
 import PaymentNumbers from "./PaymentNumbers";
 import PaymentImageUpload from "./PaymentImageUpload";
 import PaymentMethods from "./Payment";
-import axios, { MEDIA_URL } from "@/utils/axios";
+import axios from "@/utils/axios";
 import React, { Dispatch, SetStateAction } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { Order, paymentInOrder } from "@/types/order";
+import { paymentInOrder } from "@/types/order";
 import { payment_search } from "@/types/payment";
 import { showErrorAlert } from "@/components/Alert";
+import Input from "@/components/input/Input";
 
 export default function PaymentPage({
+  totalPrice,
   payment,
   setPayment,
   setImage,
 }: {
+  totalPrice: number;
   payment: paymentInOrder;
   setPayment: Dispatch<SetStateAction<paymentInOrder>>;
   setImage: (f: File) => void;
@@ -60,6 +63,21 @@ export default function PaymentPage({
         {selectedPayment !== null && (
           <PaymentNumbers payment={payments[selectedPayment]} />
         )}
+        <Input
+          id="amount"
+          setValue={(val) => {
+            if (Number(val) > totalPrice) {
+              setPayment({ ...payment, amount: `${totalPrice}` });
+            } else {
+              setPayment({ ...payment, amount: val });
+            }
+          }}
+          value={payment.amount}
+          label="Amount"
+          type="number"
+          placeholder="Amount"
+          required
+        />
         <PaymentImageUpload setFile={(f) => setImage(f)} />
       </div>
     </motion.div>

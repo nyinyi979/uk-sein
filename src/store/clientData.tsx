@@ -1,16 +1,21 @@
+import { customer, customerAddress } from "@/types/order";
+import { variant } from "@/types/type";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 type UserData = {
   cartItems: cartItem[];
-  recentSearches: string[];
+  recentSearches: variant[];
   token: string | null;
+  customer: customer | null;
 };
 type Actions = {
-  addRecentSearches: (rs: string) => void;
+  addRecentSearches: (rs: variant) => void;
   addCartItems: (item: cartItem) => void;
   setToken: (token: string | null) => void;
   setCartItems: (items: cartItem[]) => void;
+  clearRecentSearches: () => void;
+  setCustomer: (customer: customer) => void;
 };
 
 export const useUserStore = create<
@@ -19,9 +24,10 @@ export const useUserStore = create<
 >(
   persist(
     (set, get) => ({
+      customer: null,
       token: null,
       cartItems: [],
-      recentSearches: ["Sample", "Sample2"],
+      recentSearches: [],
       addCartItems: (item: cartItem) => {
         const curCartItems = get().cartItems;
         const index = curCartItems.findIndex(
@@ -29,12 +35,17 @@ export const useUserStore = create<
         );
         if (index !== -1) {
           if (
-            curCartItems[index].quantity + item.quantity <=
+            curCartItems[index].quantity + 1 <=
             curCartItems[index].number_of_stock
-          ) {
-            curCartItems[index].quantity += item.quantity;
-          }
-          set(() => ({ cartItems: curCartItems }));
+          )
+            return;
+          const newCartItems = [...curCartItems];
+          newCartItems[index].quantity += 1;
+          newCartItems[index].subtotal =
+            `${newCartItems[index].quantity * Number(newCartItems[index].regular_price)}`;
+
+          console.log(newCartItems);
+          set(() => ({ cartItems: newCartItems }));
         } else {
           const newCartItems = [...curCartItems];
           newCartItems.push(item);
@@ -44,11 +55,17 @@ export const useUserStore = create<
       setCartItems: (items: cartItem[]) => {
         set(() => ({ cartItems: items }));
       },
-      addRecentSearches: (rs: string) => {
+      addRecentSearches: (rs: variant) => {
         set(() => ({}));
+      },
+      clearRecentSearches: () => {
+        set(() => ({ recentSearches: [] }));
       },
       setToken: (token: string | null) => {
         set(() => ({ token: token }));
+      },
+      setCustomer: (customer: customer) => {
+        set(() => ({ customer: customer }));
       },
     }),
     {
@@ -62,8 +79,8 @@ export interface cartItem {
   created_at: string;
   updated_at: string;
   quantity: number;
-  regular_price: number;
-  subtotal: number;
+  regular_price: string;
+  subtotal: string;
   name: string;
   mm_name: string;
   image: string;

@@ -6,67 +6,63 @@ import FirstPage from "./FirstPage";
 import SecondPage from "./SecondPage";
 import Link from "next/link";
 import SignUpBack from "./SignupBack";
+import axios from "@/utils/axios";
 import { useRouter } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
-import { signUpInput, state } from "@/types/type";
 import { useTranslations } from "next-intl";
+import { CustomerCreate } from "@/types/customer";
+import { showErrorAlert, showSuccessAlert } from "@/components/Alert";
 
 export default function Signup() {
   const router = useRouter();
-  const [input, setInput] = React.useState<signUpInput>({
-    file: null,
+  const [image, setImage] = React.useState<File | null>(null);
+  const [customer, setCustomer] = React.useState<CustomerCreate>({
     name: "",
+    username: "",
     phone: "",
     email: "",
-    gender: "",
+    gender: "Other",
+    avatar: "",
+    orders: [],
     password: "",
-    rePassword: "",
-    state: "",
-    city: "",
-    address: "",
+    password_confirm: "",
+    customer_addresses: [
+      {
+        state: "",
+        address: "",
+        city: "",
+        map: "",
+        default: true,
+      },
+    ],
   });
-  const setFile = (f: File) => {
-    setInput({ ...input, file: f });
-  };
-  const setName = (n: string) => {
-    setInput({ ...input, name: n });
-  };
-  const setPhone = (phone: string) => {
-    setInput({ ...input, phone });
-  };
-  const setEmail = (email: string) => {
-    setInput({ ...input, email });
-  };
-  const setGender = (gender: string) => {
-    setInput({ ...input, gender });
-  };
-  const setPassword = (password: string) => {
-    setInput({ ...input, password });
-  };
-  const setRePassword = (rePassword: string) => {
-    setInput({ ...input, rePassword });
-  };
-  const setState = (state: state) => {
-    setInput({ ...input, state });
-  };
-  const setTownship = (city: string) => {
-    setInput({ ...input, city });
-  };
-  const setAddress = (add: string) => {
-    setInput({ ...input, address: add });
-  };
-  const firstPageNotEmpty =
-    input.name != "" &&
-    input.phone != "" &&
-    input.email != "" &&
-    input.gender != "" &&
-    input.password != "" &&
-    input.rePassword != "" &&
-    input.password == input.rePassword;
-  const secondPageNotEmpty =
-    input.state != "" && input.city != "" && input.address != "";
   const [firstPage, setFirstPage] = React.useState(true);
-  const validateInfo = () => {};
+  const validateInfo = () => {
+    const newCustomer = { ...customer };
+    const formData = new FormData();
+    formData.append("image0", image!);
+    formData.append("length", "1");
+
+    axios
+      .post("file/", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((data) => {
+        newCustomer.avatar = data.data[0].full_url;
+        axios
+          .post("customer/", { data: newCustomer })
+          .then(() => {
+            showSuccessAlert({ text: "Successfully created an account!" });
+            router.push("/login");
+          })
+          .catch(() => {
+            showErrorAlert({ text: "Something went wrong!" });
+            router.push("/");
+          });
+      });
+  };
   const backOnClick = () => {
     if (firstPage) router.replace("/");
     else setFirstPage(true);
@@ -79,32 +75,17 @@ export default function Signup() {
         <AnimatePresence>
           {firstPage ? (
             <FirstPage
-              setFile={setFile}
-              name={input.name}
-              setName={setName}
-              phoneNo={input.phone}
-              setPhoneNo={setPhone}
-              email={input.email}
-              setEmail={setEmail}
-              gender={input.gender}
-              setGender={setGender}
-              password={input.password}
-              setPassword={setPassword}
-              rePassword={input.rePassword}
-              setRePassword={setRePassword}
-              firstPageNotEmpty={firstPageNotEmpty}
+              customer={customer}
+              setCustomer={setCustomer}
+              setImage={setImage}
               setFirstPage={setFirstPage}
             />
           ) : (
             <SecondPage
+              customer={customer}
+              setCustomer={setCustomer}
               setFirstPage={setFirstPage}
-              state={input.state}
-              setState={setState}
-              city={input.city}
-              setCity={setTownship}
-              address={input.address}
-              setAddress={setAddress}
-              secondPageNotEmpty={secondPageNotEmpty}
+              validateInfo={validateInfo}
             />
           )}
         </AnimatePresence>

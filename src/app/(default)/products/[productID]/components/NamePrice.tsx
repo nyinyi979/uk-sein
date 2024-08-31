@@ -11,7 +11,7 @@ export default function ProductNamePrice({
   name: string;
   mm_name: string;
   rating: number;
-  price: string;
+  price: number;
 }) {
   return (
     <div className="flex flex-col xl:gap-6 md:gap-4 gap-[18px] pb-12 border-b border-dotted border-grey-100">

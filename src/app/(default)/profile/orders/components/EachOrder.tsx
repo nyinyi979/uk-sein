@@ -1,74 +1,64 @@
 import React from "react";
 import Order from "../[orderID]/components/Order";
-import Image from "next/image";
-import AyaPay from "../images/ayapay.png";
-import Kpay from "../images/kpay.png";
-import Wave from "../images/wavepay.png";
-import Credit from "../images/credit.png";
 import useWindowSize from "@/components/hooks/useWindowSize";
-import { order, orderStatus } from "@/types/type";
-import { AnimatePresence, motion } from "framer-motion";
+import moment from "moment";
+import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { TableCell, TableRow } from "@/components/Table";
+import { order, orderStatus } from "@/types/order";
 
 export default function EachOrder({
-  order: { amount, orderID, orderedDate, paymentMethod, productCount, status },
+  order,
   orderStatus,
 }: {
   order: order;
   orderStatus: orderStatus;
 }) {
-  const img =
-    paymentMethod == "AyaPay"
-      ? AyaPay
-      : paymentMethod === "Kpay"
-        ? Kpay
-        : paymentMethod === "Credit"
-          ? Credit
-          : Wave;
+  const count = React.useMemo(() => {
+    let c = 0;
+    order.products.map((p) => {
+      c += Number(p.quantity);
+    });
+    return c;
+  }, []);
   const checked = orderStatus === "" || orderStatus === status;
   const size = useWindowSize();
   const router = useRouter();
   const [hidden, setHidden] = React.useState(true);
   const onClick = () =>
     size[0] > 767
-      ? router.push(`/profile/orders/${orderID}`)
+      ? router.push(`/profile/orders/${order.id}`)
       : setHidden(false);
   const hide = () => {
     setHidden(true);
     router.replace("/profile/orders");
   };
-  React.useEffect(() => {
-    if (size[0] > 767) setHidden(true);
-  }, [size]);
   const t = useTranslations("orders");
   return (
     <>
       {checked && (
         <TableRow>
-          <TableCell>#{orderID}</TableCell>
-          <TableCell className="text-center">{orderedDate}</TableCell>
+          <TableCell>#{order.id}</TableCell>
+          <TableCell className="text-center">
+            {moment(order.created_at).format("DD/MM/YYYY")}
+          </TableCell>
           <TableCell className="ssm:table-cell hidden">
-            <div className="xl:size-10 size-6 relative mx-auto">
-              <Image
-                src={img}
-                alt={paymentMethod}
-                fill
-                sizes="100%"
-                className="size-full object-cover"
-              />
+            <div className="text-center relative mx-auto">
+              {order.payments[0]?.payment_type || "Not paid"}
             </div>
           </TableCell>
           <TableCell className="ssm:table-cell hidden text-center">
-            {amount.toLocaleString()} MMK
+            {order.total.toLocaleString()} MMK
           </TableCell>
           <TableCell className="md:table-cell hidden text-center">
-            ({productCount})
+            ({count})
           </TableCell>
           <TableCell className="md:table-cell hidden">
-            <p className={`${status}-order ml-auto xl:text-sm text-[8px]`}>
-              {status}
+            <p
+              className={`${order.status}-order ml-auto xl:text-sm text-[8px]`}
+            >
+              {order.status}
             </p>
           </TableCell>
           <TableCell>
@@ -133,7 +123,7 @@ export default function EachOrder({
         // </motion.div>
       )}
       <AnimatePresence>
-        {!hidden && <Order hide={hide} params={{ orderID: orderID }} />}
+        {!hidden && <Order hide={hide} order={order} />}
       </AnimatePresence>
     </>
   );

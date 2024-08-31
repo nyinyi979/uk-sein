@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import Thumnbail from "@/svg/img.svg";
-import { useTranslations } from "next-intl";
 import RedDot from "@/components/input/RedDot";
+import { useTranslations } from "next-intl";
 
 export default function PaymentImageUpload({
   setFile,

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import useWindowSize from "@/components/hooks/useWindowSize";
-import { orderStatus } from "@/types/type";
+import { orderStatus } from "@/types/order";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
@@ -15,15 +15,13 @@ export default function OrderHeader({
   const t = useTranslations("orders");
   const status_arr = React.useRef<orderStatus[]>([
     "",
-    "Confirmed",
+    "Completed",
     "Pending",
-    "Reject",
   ]);
   const status_txts = [
     t("all-orders"),
-    t("in-progress-orders"),
-    t("rejected-orders"),
     t("successful-orders"),
+    t("in-progress-orders"),
   ];
   const [hidden, setHidden] = React.useState(true);
   const size = useWindowSize();
@@ -77,7 +75,7 @@ export default function OrderHeader({
               mass: 1,
               damping: 6.67,
             }}
-            className="w-[180px] md:w-full md:relative absolute left-0 md:mt-0 mt-[10%] flex md:grid md:grid-cols-4 flex-col mx-auto bg-white md:rounded-none rounded-xl overflow-hidden md:z-[1] z-[20]"
+            className="w-[180px] md:w-full md:relative absolute left-0 md:mt-0 mt-[10%] flex md:grid md:grid-cols-3 flex-col mx-auto bg-white md:rounded-none rounded-xl overflow-hidden md:z-[1] z-[20]"
           >
             {status_arr.current.map((s, i) => (
               <button

@@ -12,7 +12,7 @@ export default function Input({
   value: string;
   setValue: (val: string) => void;
   placeholder?: string;
-  type?: "text" | "password" | "email";
+  type?: "text" | "password" | "email" | "number";
   id: string;
 }) {
   return (
@@ -30,6 +30,13 @@ export default function Input({
         type={type}
         placeholder={placeholder}
         className="input"
+        min={0}
+        onScroll={(ev) => {
+          ev.currentTarget.blur();
+        }}
+        onWheel={(ev) => {
+          ev.currentTarget.blur();
+        }}
       />
     </div>
   );

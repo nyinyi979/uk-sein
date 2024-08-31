@@ -5,70 +5,19 @@ import ProfileTabs from "./Tabs";
 import SecondPage from "./SecondPage";
 import FirstPage from "./FirstPage";
 import { AnimatePresence } from "framer-motion";
-import { signUpInputInProfile, state } from "@/types/type";
 import { useTranslations } from "next-intl";
+import { useUserStore } from "@/store/clientData";
 
-export default function Signup() {
-  const [input, setInput] = React.useState<signUpInputInProfile>({
-    file: null,
-    imgURL: "/sampleDiscount.png",
-    name: "Ko Khant",
-    phoneNo: "0964647576",
-    email: "kokhant123@gmail.com",
-    gender: "Male",
-    newPassword: "",
-    newRePassword: "",
-    currentPassword: "",
-    state: "",
-    township: "",
-    address: "",
+export default function Profile() {
+  const { customer } = useUserStore((state) => state);
+  const [input, setInput] = React.useState({ ...customer! });
+  const [password, setPassword] = React.useState({
+    phone: customer!.phone||"",
+    old_password: "",
+    password: "",
+    re_password: "",
   });
-  const setFile = (f: File) => {
-    setInput({ ...input, file: f, imgURL: undefined });
-  };
-  const setName = (n: string) => {
-    setInput({ ...input, name: n });
-  };
-  const setPhoneNo = (ph: string) => {
-    setInput({ ...input, phoneNo: ph });
-  };
-  const setEmail = (m: string) => {
-    setInput({ ...input, email: m });
-  };
-  const setGender = (g: string) => {
-    setInput({ ...input, gender: g });
-  };
-  const setCurrentPassword = (pw: string) => {
-    setInput({ ...input, currentPassword: pw });
-  };
-  const setNewPassword = (pw: string) => {
-    setInput({ ...input, newPassword: pw });
-  };
-  const setReNewPassword = (pw: string) => {
-    setInput({ ...input, newRePassword: pw });
-  };
-  const setState = (s: state) => {
-    setInput({ ...input, state: s });
-  };
-  const setTownship = (t: string) => {
-    setInput({ ...input, township: t });
-  };
-  const setAddress = (add: string) => {
-    setInput({ ...input, address: add });
-  };
-  const firstPageNotEmpty =
-    input.name != "" &&
-    input.phoneNo != "" &&
-    input.email != "" &&
-    input.gender != "" &&
-    input.state != "" &&
-    input.township != "" &&
-    input.address != "";
-  const secondPageNotEmpty =
-    input.currentPassword !== "" &&
-    input.newPassword !== "" &&
-    input.newRePassword !== "" &&
-    input.newPassword !== input.newRePassword;
+  const [image, setImage] = React.useState<File | null>(null);
   const [page, setPage] = React.useState(0);
   const updatePage = (p: number) => {
     setPage(p);
@@ -87,32 +36,12 @@ export default function Signup() {
         <AnimatePresence>
           {page === 0 ? (
             <FirstPage
-              imgURL={input.imgURL}
-              setFile={setFile}
-              name={input.name}
-              setName={setName}
-              phoneNo={input.phoneNo}
-              setPhoneNo={setPhoneNo}
-              email={input.email}
-              setEmail={setEmail}
-              gender={input.gender}
-              setGender={setGender}
-              state={input.state}
-              setState={setState}
-              township={input.township}
-              setTownship={setTownship}
-              address={input.address}
-              setAddress={setAddress}
+              customer={input}
+              setCustomer={setInput}
+              setImage={setImage}
             />
           ) : (
-            <SecondPage
-              currentPassword={input.currentPassword}
-              setCurrentPassword={setCurrentPassword}
-              newPassword={input.newPassword}
-              setNewPassword={setNewPassword}
-              reNewPassword={input.newRePassword}
-              setReNewPassword={setReNewPassword}
-            />
+            <SecondPage password={password} setPassword={setPassword} />
           )}
         </AnimatePresence>
         <button

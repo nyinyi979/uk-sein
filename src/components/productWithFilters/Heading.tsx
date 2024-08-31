@@ -5,13 +5,9 @@ import { useTranslations } from "next-intl";
 export default function CateogryHeading({
   category,
   show,
-  count,
-  searched = false,
 }: {
   category: string;
   show: () => void;
-  count: number;
-  searched?: boolean;
 }) {
   const t = useTranslations("category");
   return (
@@ -22,9 +18,9 @@ export default function CateogryHeading({
         </p>
         <p className="md:leading-8 leading-4">
           <span className="text-grey-100 md:text-base text-sm">
-            {searched ? t("results") : t("category")} -{" "}
+            t("category") -{" "}
           </span>
-          {searched ? count + " Results" : category}
+          {category}
         </p>
       </div>
       <div className="xl:hidden flex flex-row gap-2.5 ml-auto">

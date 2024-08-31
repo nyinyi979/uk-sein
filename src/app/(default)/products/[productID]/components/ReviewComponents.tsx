@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { review } from "@/types/type";
 import { useTranslations } from "next-intl";
+import { MEDIA_URL } from "@/utils/axios";
 
 export function EachReview({ rv }: { rv: review }) {
   return (
@@ -12,18 +13,18 @@ export function EachReview({ rv }: { rv: review }) {
       <div className="flex flex-row justify-between py-2.5">
         <div className="flex flex-row gap-3">
           <div className="md:size-[44px] size-[38px] rounded-full relative">
-            <Image
-              src={rv.user.imgURL}
+            <img
+              src={MEDIA_URL + rv.customer?.avatar || "Thumbnail.jpg"}
               alt="user image"
-              fill
-              sizes="100%"
               className="size-full object-cover"
             />
           </div>
           <div className="flex flex-col gap-0.5">
-            <p className="font-bold md:text-xl">{rv.user.username}</p>
+            <p className="font-bold md:text-xl">
+              {rv.customer?.name || "Unknown"}
+            </p>
             <p className="font-medium md:text-sm text-[10px] text-grey-200">
-              {} days ago
+              {getDaysAgo(rv?.created_at).toString()} days ago
             </p>
           </div>
         </div>
@@ -38,7 +39,7 @@ export function EachReview({ rv }: { rv: review }) {
             </svg>
           </div>
           <p className="text-sm xl:mt-4">
-            {rv.rating} <span className="text-grey-200">/ 5</span>
+            {rv.number_of_stars || 0} <span className="text-grey-200">/ 5</span>
           </p>
         </div>
       </div>
@@ -74,3 +75,8 @@ export function ReviewError() {
     </div>
   );
 }
+const getDaysAgo = (date: string) => {
+  const d = new Date(date);
+  const yesterday = d.getMilliseconds() - 1000 * 60 * 60 * 24 * 2;
+  return new Date(yesterday);
+};

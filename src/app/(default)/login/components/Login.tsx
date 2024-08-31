@@ -26,7 +26,7 @@ export default function Login() {
     setInput({ ...input, password: pw });
   };
   const router = useRouter();
-  const { token, setToken } = useUserStore((state) => state);
+  const { setToken } = useUserStore((state) => state);
   const handleSignIn = async () => {
     setLoading(true);
     try {

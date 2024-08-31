@@ -19,10 +19,11 @@ export default function Login({
   hidden: boolean;
   toggle: () => void;
 }) {
-  const { token, setToken } = useUserStore((state) => state);
+  const { token, setToken, setCustomer } = useUserStore((state) => state);
   const router = useRouter();
   const logOut = () => {
     setToken(null);
+    localStorage.removeItem("user");
     toggle();
     router.push("/");
   };
@@ -35,7 +36,6 @@ export default function Login({
 
     if (token) {
       axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-      console.log(axios.defaults.headers);
       const user = localStorage.getItem("user");
       if (user === null) {
         getAuth();

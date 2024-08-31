@@ -3,14 +3,14 @@ import Profile from "../images/calendar.svg";
 import Email from "../images/calendar.svg";
 import Phone from "../images/calendar.svg";
 import OrderDetailCard from "./OrderDetailCard";
-import { customerInOrder } from "@/types/type";
 import { useTranslations } from "next-intl";
+import { customer } from "@/types/order";
 
 export default function CustomerDetails({
-  email,
-  name,
-  phoneNo,
-}: customerInOrder) {
+  customer: { avatar, email, name, phone },
+}: {
+  customer: customer;
+}) {
   const t = useTranslations("input");
   return (
     <OrderDetailCard heading="Customer Details">
@@ -58,7 +58,7 @@ export default function CustomerDetails({
             </div>
             <p className="text-grey-100">{t("phone")}</p>
           </div>
-          <p>{phoneNo}</p>
+          <p>{phone}</p>
         </div>
       </div>
     </OrderDetailCard>

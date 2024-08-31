@@ -3,26 +3,18 @@ import StateInput from "@/components/input/StateInput";
 import Input from "@/components/input/Input";
 import CityInput from "@/components/input/TownshipInput";
 import React, { Dispatch, SetStateAction } from "react";
-import { Order } from "@/types/order";
+import { order } from "@/types/order";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { states } from "@/types/address";
 
 export default function FirstPage({
   order,
   setOrder,
 }: {
-  order: Order;
-  setOrder: Dispatch<SetStateAction<Order>>;
+  order: order;
+  setOrder: Dispatch<SetStateAction<order>>;
 }) {
-  const [data, setData] = React.useState({
-    customer_name: order.customer_name,
-    phone: order.phone,
-    email: order.customer_email,
-    state: order.order_address.state,
-    city: order.order_address.city,
-    address: order.order_address.address,
-  });
-
   const t = useTranslations();
   return (
     <motion.div
@@ -76,7 +68,7 @@ export default function FirstPage({
             required
           />
           <CityInput
-            state={order.order_address.state}
+            state={order.order_address.state as states}
             city={order.order_address.city}
             setCity={(city: string) => {
               const newOrder = { ...order };

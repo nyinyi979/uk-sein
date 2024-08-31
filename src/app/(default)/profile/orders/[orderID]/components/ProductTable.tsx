@@ -1,14 +1,8 @@
-import Image from "next/image";
-import { productInOrder } from "@/types/type";
 import { useLocale, useTranslations } from "next-intl";
+import { order } from "@/types/order";
+import { cartItem } from "@/store/clientData";
 
-export default function ProductTable({
-  products,
-  totalPrice,
-}: {
-  products: productInOrder[];
-  totalPrice: number;
-}) {
+export default function ProductTable({ order }: { order: order }) {
   const t = useTranslations("orders");
   return (
     <div className="flex flex-col md:py-6 px-[28px] md:bg-white md:shadow-dropdown">
@@ -26,8 +20,8 @@ export default function ProductTable({
           <p className="xl:w-[250px] w-[100px] text-right">{t("TOTAL")}</p>
         </div>
         <div>
-          {products.map((p) => (
-            <ProductRow key={p.id} {...p} />
+          {order.products.map((p) => (
+            <ProductRow key={p.variation_product + p.created_at} {...p} />
           ))}
         </div>
         <div className="md:block flex">
@@ -36,7 +30,7 @@ export default function ProductTable({
             {t("grand-total")}
           </p>
           <p className="ml-auto font-bold xl:text-xl text-lg text-right">
-            {totalPrice.toLocaleString()} MMK
+            {order.total.toLocaleString()} MMK
           </p>
         </div>
       </div>
@@ -44,28 +38,23 @@ export default function ProductTable({
   );
 }
 function ProductRow({
-  category,
+  categories,
+  image,
   name,
-  images,
   mm_name,
-  price,
-  id,
+  regular_price,
   quantity,
-}: productInOrder) {
+  subtotal,
+  code,
+}: cartItem) {
   const locale = useLocale();
   const t = useTranslations();
   return (
     <div className="flex md:flex-row flex-col md:gap-2.5 gap-4 md:py-6 pb-6 border-b border-grey-50 text-nowrap">
       <div className="xl:w-[350px] md:w-[180px] w-full flex flex-row md:gap-[18px] gap-1.5">
-        <div className="xl:size-[65px] size-12 bg-white-700">
-          <div className="xl:w-[54px] w-[40px] xl:h-[52px] h-[38px] relative mx-[5px] my-[7px]">
-            <Image
-              src={images[0]}
-              alt={name}
-              fill
-              sizes="100%"
-              className="size-full object-cover"
-            />
+        <div className="xl:size-[65px] size-12 ">
+          <div className="xl:w-[54px] w-[40px] xl:h-[52px] h-[38px] font-bold relative">
+            {code}
           </div>
         </div>
         <div className="flex flex-col xl:gap-2.5 gap-1.5 whitespace-nowrap overflow-hidden text-ellipsis">
@@ -82,7 +71,7 @@ function ProductRow({
           {t("category.category")}
         </span>
         <span className="ml-auto xl:text-base md:text-sm text-lg">
-          {category}
+          {categories[0]}
         </span>
       </p>
       <p className="xl:w-[130px] md:w-[80px] w-full md:block flex xl:text-left text-center">
@@ -98,7 +87,7 @@ function ProductRow({
           {t("orders.price")}
         </span>
         <span className="ml-auto md:font-bold font-semibold xl:text-base md:text-sm text-lg">
-          {price.toLocaleString()} MMK
+          {regular_price.toLocaleString()} MMK
         </span>
       </p>
       <p className="xl:w-[250px] md:w-[100px] w-full md:block flex">
@@ -106,7 +95,7 @@ function ProductRow({
           {t("orders.total")}
         </span>
         <span className="md:block ml-auto font-bold xl:text-base md:text-sm text-lg text-right md:text-grey-500 text-khaki-500">
-          {(price * quantity).toLocaleString()} MMK
+          {subtotal.toLocaleString()} MMK
         </span>
       </p>
     </div>

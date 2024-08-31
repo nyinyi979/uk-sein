@@ -9,15 +9,16 @@ import CheckoutButtons from "./CheckoutButtons";
 import CartHeader from "./CartHeader";
 import axios from "@/utils/axios";
 import useWindowSize from "@/components/hooks/useWindowSize";
+import dayjs from "dayjs";
 import { useRouter } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
 import { useUserStore } from "@/store/clientData";
 import { customer, Initial_Order, paymentInOrder } from "@/types/order";
 import { showErrorAlert } from "@/components/Alert";
-import dayjs from "dayjs";
 
 export default function Checkout() {
-  const { token, cartItems, setCartItems } = useUserStore((state) => state);
+  const { token, cartItems, setCartItems, customer, setCustomer } =
+    useUserStore((state) => state);
   const [order, setOrder] = React.useState(Initial_Order);
   const [page, setPage] = React.useState<
     "Shipping" | "Payment" | "Confirmed" | "Loading"
@@ -34,6 +35,14 @@ export default function Checkout() {
     status: "",
     order_id: 1,
   });
+
+  const totalPrice = React.useMemo(() => {
+    let tot = 0;
+    for (let i = 0; i < cartItems.length; i++) {
+      tot += Number(cartItems[i].subtotal);
+    }
+    return tot;
+  }, [cartItems.length]);
   const size = useWindowSize();
   const router = useRouter();
   const removeItem = (ind: number) => {
@@ -60,16 +69,25 @@ export default function Checkout() {
   const updatePage = async () => {
     const newOrder = { ...order };
     newOrder.products = cartItems;
-    cartItems.map((c) => {
-      newOrder.subtotal += Number(c.regular_price) * Number(c.quantity);
-    });
-    if (page === "Shipping") setPage("Payment");
-    else if (page === "Payment") {
+    newOrder.total = totalPrice;
+    newOrder.subtotal = `${totalPrice}`;
+    if (page === "Shipping") {
+      if (cartItems.length === 0) {
+        showErrorAlert({
+          text: "You don't have any product to make an order!",
+        });
+      } else setPage("Payment");
+    } else if (page === "Payment") {
+      if (payment.amount === "0" || payment.payment_type === "") {
+        showErrorAlert({ text: "Choose your payment type and input amount!" });
+        return;
+      }
       if (image) {
         setPage("Loading");
         // create order
         // upload image
         // add payment
+        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
         axios.post("order/", { data: newOrder }).then((data) => {
           const newPayment = { ...payment };
           newPayment.order_id = data.data.id;
@@ -110,26 +128,28 @@ export default function Checkout() {
   }, [size]);
 
   React.useEffect(() => {
-    if (!token) return;
-    axios.get(`/customer/?customer_id=8`).then((data) => {
-      const d = data.data as customer;
+    if (customer) {
       setOrder({
         ...order,
-        customer: d,
-        customer_email: d.email,
+        customer: customer,
+        customer_email: customer.email,
         order_address: {
-          id: d.customer_addresses[0].id,
-          address: d.customer_addresses[0].address,
-          city: d.customer_addresses[0].city,
-          map: d.customer_addresses[0].map,
-          state: d.customer_addresses[0].state,
+          id: customer.customer_addresses[0].id,
+          address: customer.customer_addresses[0].address,
+          city: customer.customer_addresses[0].city,
+          map: customer.customer_addresses[0].map,
+          state: customer.customer_addresses[0].state,
         },
-        customer_name: d.name,
-        phone: d.phone,
+        customer_name: customer.name,
+        phone: customer.phone,
       });
-    });
+    } else {
+      const cid = JSON.parse(localStorage.getItem("user")!);
+      axios.get("customer/user/", { params: { uid: cid.id } }).then((data) => {
+        setCustomer(data.data);
+      });
+    }
   }, [token]);
-
   return (
     <div className="xl:w-[1190px] flex flex-row gap-40 mx-auto py-20 xl:px-0 md:px-[51px] sm:px-0 px-2">
       <div className="md:w-[80%] sm:w-[343px] w-full mx-auto flex flex-col gap-[50px]">
@@ -144,6 +164,7 @@ export default function Checkout() {
               <PaymentPage
                 payment={payment}
                 setPayment={setPayment}
+                totalPrice={totalPrice}
                 setImage={(f) => setImage(f)}
               />
             )}
@@ -163,6 +184,7 @@ export default function Checkout() {
             closeCart={closeCart}
             cartItems={cartItems}
             removeItem={removeItem}
+            totalPrice={totalPrice}
           />
         )}
       </AnimatePresence>

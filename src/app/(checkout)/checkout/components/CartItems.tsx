@@ -1,5 +1,3 @@
-import Image from "next/image";
-import { productInCart } from "@/types/type";
 import { cartItem } from "@/store/clientData";
 import { MEDIA_URL } from "@/utils/axios";
 

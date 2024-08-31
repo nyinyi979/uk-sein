@@ -4,6 +4,7 @@ import RecentSearches from "./RecentSearches";
 import { useTranslations } from "next-intl";
 import { useUserStore } from "@/store/clientData";
 import { motion } from "framer-motion";
+import React from "react";
 
 export default function DefaultResults({ small = false }: { small?: boolean }) {
   const t = useTranslations("search-bar");

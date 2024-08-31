@@ -5,7 +5,15 @@ import { review } from "@/types/type";
 import { EachReview, ReviewError, ReviewTitle } from "./ReviewComponents";
 import { useTranslations } from "next-intl";
 
-export default function ProductReviews({ reviews }: { reviews: review[] }) {
+export default function ProductReviews({
+  reviews,
+  addReviews,
+  id,
+}: {
+  reviews: review[];
+  addReviews: (review: review) => void;
+  id: number;
+}) {
   const [open, setOpen] = React.useState(false);
   const closePopUp = () => {
     setOpen(false);
@@ -79,7 +87,7 @@ export default function ProductReviews({ reviews }: { reviews: review[] }) {
           </>
         }
       </div>
-      <WriteReview />
+      <WriteReview id={id} addReviews={addReviews} />
     </div>
   );
 }

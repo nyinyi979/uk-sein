@@ -32,6 +32,7 @@ export default function Filter({
   toggleColor,
   toggleMaterial,
   toggleSize,
+  categoryName,
 }: Filter) {
   const [price, setPrice] = React.useState({
     maximum: "",
@@ -54,9 +55,8 @@ export default function Filter({
       minimum: 0,
     };
   }, [variations]);
-
   const filterApplied =
-    filters.category !== "" ||
+    filters.category !== categoryName ||
     filters.color !== "" ||
     filters.material !== "" ||
     filters.size !== "";
@@ -174,8 +174,6 @@ export type filter = {
   size: string;
   material: string;
   category: string;
-  maximum: number;
-  minimum: number;
 };
 type possibleFilters = {
   color: Set<string>;
@@ -189,6 +187,7 @@ interface Filter {
   filters: filter;
   setFilters: Dispatch<SetStateAction<filter>>;
   variations: variant[];
+  categoryName: string;
   hide: () => void;
   toggleMaterial: (mat: string) => void;
   toggleSize: (size: string) => void;

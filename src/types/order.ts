@@ -1,7 +1,9 @@
 import { cartItem } from "@/store/clientData";
 import { Dayjs } from "dayjs";
+import { states } from "./address";
 
-export interface Order {
+export type orderStatus = "Pending" | "Completed" | "";
+export interface order {
   id: number;
   phone: string;
   email: string | null;
@@ -20,7 +22,7 @@ export interface Order {
   discount_reason: string;
   selected_payment_method: null;
   note: string;
-  payments: [];
+  payments: paymentInOrder[];
   payment_status: string;
   due_amount: string;
   paid_amount: string;
@@ -34,7 +36,7 @@ export interface Order {
   created_at: string;
   updated_at: string;
 }
-export const Initial_Order: Order = {
+export const Initial_Order: order = {
   id: 8,
   phone: "",
   email: null,
@@ -134,12 +136,12 @@ export interface customer {
   updated_at: string;
   total: number;
 }
-interface customerAddress {
+export interface customerAddress {
   id: number;
   created_at: string;
   updated_at: string;
   address: string;
-  state: string;
+  state: states;
   city: string;
   map: string;
   default: boolean;

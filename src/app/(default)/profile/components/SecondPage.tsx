@@ -1,22 +1,16 @@
 import PasswordInput from "@/components/input/PasswordInput";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import React, { Dispatch, SetStateAction } from "react";
 
 export default function SecondPage({
-  currentPassword,
-  setCurrentPassword,
-  newPassword,
-  setNewPassword,
-  reNewPassword,
-  setReNewPassword,
+  password,
+  setPassword,
 }: {
-  currentPassword: string;
-  setCurrentPassword: (pw: string) => void;
-  newPassword: string;
-  setNewPassword: (pw: string) => void;
-  reNewPassword: string;
-  setReNewPassword: (pw: string) => void;
+  password: password;
+  setPassword: Dispatch<SetStateAction<password>>;
 }) {
+  const [error, setError] = React.useState("");
   const t = useTranslations("input");
   return (
     <motion.div
@@ -31,22 +25,39 @@ export default function SecondPage({
         <PasswordInput
           displayedLabel={t("current-password")}
           id="c_password"
-          password={currentPassword}
-          setPassword={setCurrentPassword}
+          password={password.old_password}
+          setPassword={(old_password) =>
+            setPassword({ ...password, old_password })
+          }
         />
         <PasswordInput
           displayedLabel={t("new-password")}
           id="new_password"
-          password={newPassword}
-          setPassword={setNewPassword}
+          password={password.password}
+          setPassword={(password_) => {
+            setPassword({ ...password, password: password_ });
+            if (password_.length < 7)
+              setError("Password must be 8 letters and above!");
+          }}
         />
         <PasswordInput
           displayedLabel={t("renew-password")}
           id="re_new_password"
-          password={reNewPassword}
-          setPassword={setReNewPassword}
+          password={password.re_password}
+          setPassword={(re_password) => {
+            setPassword({ ...password, re_password });
+            if (re_password !== password.password)
+              setError("Passwords must be same!");
+          }}
         />
+        {error === "" && <p className="font-bold text-reject">{error}</p>}
       </div>
     </motion.div>
   );
+}
+interface password {
+  phone: string;
+  old_password: string;
+  password: string;
+  re_password: string;
 }

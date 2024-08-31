@@ -1,41 +1,26 @@
 import OrderDetailCard from "./OrderDetailCard";
 import Image from "next/image";
 import Calendar from "../images/calendar.svg";
-import Payment from "../images/calendar.svg";
 import Bookmark from "../images/calendar.svg";
-import AyaPay from "../../images/ayapay.png";
-import Kpay from "../../images/kpay.png";
-import Wave from "../../images/wavepay.png";
-import Credit from "../../images/credit.png";
 import CloseButton from "./PopUpCloseButton";
+import Payment from "../images/payment.svg";
+import moment from "moment";
 import { useTranslations } from "next-intl";
+import { order } from "@/types/order";
+import { MEDIA_URL } from "@/utils/axios";
 
 export default function OrderBasicInfo({
-  orderID,
-  orderedDate,
-  paymentMethod,
-  status,
+  order,
   hide,
 }: {
-  orderID: string;
-  orderedDate: string;
-  paymentMethod: "AyaPay" | "Kpay" | "Credit" | "WavePay";
-  status: "Pending" | "Confirmed" | "Reject";
+  order: order;
   hide: () => void;
 }) {
-  const img =
-    paymentMethod == "AyaPay"
-      ? AyaPay
-      : paymentMethod === "Kpay"
-        ? Kpay
-        : paymentMethod === "Credit"
-          ? Credit
-          : Wave;
   const t = useTranslations("orders");
   return (
     <div className="flex flex-row gap-8 h-full">
       <OrderDetailCard
-        heading={`Order ID - # ${orderID}`}
+        heading={`Order ID - # ${order.id}`}
         rightEle={<CloseButton hide={hide} />}
       >
         <div className="flex flex-col md:gap-[18px] gap-[14px] font-bold xl:text-lg text-sm">
@@ -52,27 +37,25 @@ export default function OrderBasicInfo({
               </div>
               <p className="text-grey-100">{t("date-added")}</p>
             </div>
-            <p>{orderedDate}</p>
+            <p>{moment(order.created_at).format("DD/MM/YYYY")}</p>
           </div>
           <div className="flex flex-row justify-between">
             <div className="flex flex-row gap-3">
               <div className="w-[18px] h-5 md:block hidden relative">
                 <Image
                   src={Payment}
-                  alt="payment"
                   fill
                   sizes="100%"
+                  alt="payment"
                   className="size-full object-cover"
                 />
               </div>
               <p className="text-grey-100">{t("payment-method")}</p>
             </div>
             <div className="xl:size-8 md:size-10 size-8 relative">
-              <Image
-                src={img}
+              <img
+                src={MEDIA_URL + order.payments[0]?.screenshot || ""}
                 alt="payment method"
-                fill
-                sizes="100%"
                 className="size-full object-cover"
               />
             </div>
@@ -90,7 +73,7 @@ export default function OrderBasicInfo({
               </div>
               <p className="text-grey-100">{t("status")}</p>
             </div>
-            <p className={`${status}-order ml-auto`}>{status}</p>
+            <p className={`${order.status}-order ml-auto`}>{order.status}</p>
           </div>
         </div>
       </OrderDetailCard>

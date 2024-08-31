@@ -1,48 +1,23 @@
-import TownshipInput from "@/components/input/TownshipInput";
+import Input from "@/components/input/Input";
 import AddresssInput from "@/components/input/AddressInput";
 import ImageUpload from "@/components/input/ImgUpload";
 import GenderInput from "@/components/input/GenderInput";
 import StateInput from "@/components/input/StateInput";
-import { state } from "@/types/type";
-import { motion } from "framer-motion";
-import Input from "@/components/input/Input";
-import { useTranslations } from "next-intl";
 import CityInput from "@/components/input/TownshipInput";
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { customer } from "@/types/order";
+import { Dispatch, SetStateAction } from "react";
+import { MEDIA_URL } from "@/utils/axios";
 
 export default function FirstPage({
-  imgURL,
-  setFile,
-  name,
-  setName,
-  phoneNo,
-  setPhoneNo,
-  email,
-  setEmail,
-  gender,
-  setGender,
-  state,
-  setState,
-  township,
-  setTownship,
-  address,
-  setAddress,
+  customer,
+  setCustomer,
+  setImage,
 }: {
-  imgURL: string | undefined;
-  setFile: (f: File) => void;
-  name: string;
-  setName: (name: string) => void;
-  phoneNo: string;
-  setPhoneNo: (ph: string) => void;
-  email: string;
-  setEmail: (mail: string) => void;
-  gender: string;
-  setGender: (gender: string) => void;
-  state: state;
-  setState: (s: state) => void;
-  township: string;
-  setTownship: (n: string) => void;
-  address: string;
-  setAddress: (add: string) => void;
+  customer: customer;
+  setCustomer: Dispatch<SetStateAction<customer>>;
+  setImage: Dispatch<SetStateAction<File | null>>;
 }) {
   const t = useTranslations("input");
   return (
@@ -55,40 +30,65 @@ export default function FirstPage({
     >
       <div className="flex flex-col gap-6 pb-[55px] border-b border-grey-100 border-dotted">
         <p className="font-sora font-semibold text-2xl">Personal Information</p>
-        <ImageUpload setFile={setFile} imgURL={imgURL} />
+        <ImageUpload setFile={setImage} imgURL={MEDIA_URL + customer.avatar} />
         <Input
-          value={name}
-          setValue={setName}
+          value={customer.name}
+          setValue={(name) => setCustomer({ ...customer, name })}
           id="name"
           label={t("name")}
           placeholder={t("name")}
           required
         />
         <Input
-          value={phoneNo}
-          setValue={setPhoneNo}
+          value={customer.phone}
+          setValue={(phone) => setCustomer({ ...customer, phone })}
           id="phone"
           label={t("phone")}
           placeholder={t("phone")}
           required
         />
         <Input
-          value={email}
-          setValue={setEmail}
+          value={customer.email}
+          setValue={(email) => setCustomer({ ...customer, email })}
           id="mail"
           label={t("email")}
           placeholder={t("email")}
           required
         />
-        <GenderInput gender={gender} setGender={setGender} />
+        <GenderInput
+          gender={customer.gender}
+          setGender={(gender) => setCustomer({ ...customer, gender })}
+        />
       </div>
       <div className="flex flex-col gap-6 pb-[55px]">
         <p className="font-sora font-semibold text-2xl">Shopping Information</p>
         <div className="grid md:grid-cols-2 grid-cols-1 gap-[26px]">
-          <StateInput state={state} setState={setState} />
-          <CityInput state={state} city={township} setCity={setTownship} />
+          <StateInput
+            state={customer.customer_addresses[0].state}
+            setState={(state) => {
+              const newCustomer = { ...customer };
+              newCustomer.customer_addresses[0].state = state;
+              setCustomer(newCustomer);
+            }}
+          />
+          <CityInput
+            state={customer.customer_addresses[0].state}
+            city={customer.customer_addresses[0].city}
+            setCity={(city) => {
+              const newCustomer = { ...customer };
+              newCustomer.customer_addresses[0].city = city;
+              setCustomer(newCustomer);
+            }}
+          />
         </div>
-        <AddresssInput address={address} setAddress={setAddress} />
+        <AddresssInput
+          address={customer.customer_addresses[0].address}
+          setAddress={(address) => {
+            const newCustomer = { ...customer };
+            newCustomer.customer_addresses[0].address = address;
+            setCustomer(newCustomer);
+          }}
+        />
       </div>
     </motion.div>
   );

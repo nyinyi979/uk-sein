@@ -5,27 +5,25 @@ import AddresssInput from "@/components/input/AddressInput";
 import { motion } from "framer-motion";
 import { Dispatch, SetStateAction } from "react";
 import { useTranslations } from "next-intl";
-import { state } from "@/types/type";
+import { CustomerCreate } from "@/types/customer";
+import { states } from "@/types/address";
 
 export default function SecondPage({
+  customer,
+  setCustomer,
+  validateInfo,
   setFirstPage,
-  state,
-  setState,
-  city,
-  setCity,
-  address,
-  setAddress,
-  secondPageNotEmpty,
 }: {
+  customer: CustomerCreate;
+  setCustomer: Dispatch<SetStateAction<CustomerCreate>>;
+  validateInfo: () => void;
   setFirstPage: Dispatch<SetStateAction<boolean>>;
-  state: state;
-  setState: (s: state) => void;
-  city: string;
-  setCity: (ts: string) => void;
-  address: string;
-  setAddress: (add: string) => void;
-  secondPageNotEmpty: boolean;
 }) {
+  const customer_addresses = customer.customer_addresses[0];
+  const secondPageNotEmpty =
+    customer_addresses.state !== "" &&
+    customer_addresses.city !== "" &&
+    customer_addresses.address !== "";
   const t = useTranslations("default");
   return (
     <motion.div
@@ -35,12 +33,34 @@ export default function SecondPage({
       className="flex flex-col xl:gap-[50px] gap-[18px]"
     >
       <SecondPageHeading setFirstPage={setFirstPage} />
-      <StateInput state={state} setState={setState} />
-      <TownshipInput state={state} city={city} setCity={setCity} />
-      <AddresssInput address={address} setAddress={setAddress} />
+      <StateInput
+        state={customer_addresses.state}
+        setState={(state) => {
+          const newCustomer = { ...customer };
+          newCustomer.customer_addresses[0].state = state as states;
+          setCustomer(newCustomer);
+        }}
+      />
+      <TownshipInput
+        state={customer_addresses.state}
+        city={customer_addresses.city}
+        setCity={(city) => {
+          const newCustomer = { ...customer };
+          newCustomer.customer_addresses[0].city = city;
+          setCustomer(newCustomer);
+        }}
+      />
+      <AddresssInput
+        address={customer_addresses.address}
+        setAddress={(address) => {
+          const newCustomer = { ...customer };
+          newCustomer.customer_addresses[0].address = address;
+          setCustomer(newCustomer);
+        }}
+      />
       <button
         disabled={!secondPageNotEmpty}
-        onClick={() => {}}
+        onClick={validateInfo}
         className={`w-full mt-5 py-[18px] xl:text-2xl font-semibold font-sora rounded-[18px] text-white bg-khaki-600 hover:bg-khaki-700 disabled:bg-white-700 duration-300`}
       >
         {t("continue")}

@@ -1,3 +1,5 @@
+import { customer } from "./order";
+
 export interface variant {
   id: number;
   categories: string[];
@@ -42,7 +44,6 @@ export interface product {
   variations: variant[];
   created_at: string;
   updated_at: string;
-  reviews: review[];
 }
 export interface clientWord {
   wordID: string;
@@ -144,25 +145,14 @@ export interface filter {
   tag: "Color" | "Size" | "Material";
 }
 export interface review {
-  id: string;
-  rating: number;
-  date: string;
+  product: 12;
+  customer: customer;
+  id: number;
   review: string;
-  user: {
-    username: string;
-    imgURL: string;
-  };
+  number_of_stars: string;
+  created_at: "2024-08-31T07:28:17.728750Z";
 }
 
-export interface order {
-  orderID: string;
-  orderedDate: string;
-  paymentMethod: "Kpay" | "WavePay" | "AyaPay" | "Credit";
-  amount: number;
-  productCount: number;
-  status: "Pending" | "Confirmed" | "Reject";
-}
-export type orderStatus = "Pending" | "Confirmed" | "Reject" | "";
 export type customerInOrder = {
   name: string;
   email: string;
@@ -184,12 +174,6 @@ export type productInOrder = {
   color: string;
   price: number;
 };
-export interface orderDetails extends order {
-  customer: customerInOrder;
-  address: addressInOrder;
-  products: productInOrder[];
-}
-
 export interface productInCart {
   itemID: string;
   images: string[];

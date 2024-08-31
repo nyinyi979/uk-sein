@@ -5,7 +5,10 @@ export default function CheckoutProgress({
 }: {
   progress: "Shipping" | "Payment" | "Confirmed" | "Loading";
 }) {
-  const secondOn = progress === "Payment" || progress === "Confirmed";
+  const secondOn =
+    progress === "Payment" ||
+    progress === "Confirmed" ||
+    progress === "Loading";
   const thirdOn = progress === "Confirmed";
   const t = useTranslations("common-phrases");
   return (

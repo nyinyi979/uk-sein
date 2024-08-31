@@ -208,14 +208,14 @@ input[type="range"]::-ms-thumb {
 
 /* Order status styling */
 .Pending-order,
-.Confirmed-order,
+.Completed-order,
 .Reject-order {
   @apply w-[100px] h-fit py-2 px-2.5 rounded-[10px] font-bold text-center;
 }
 .Pending-order {
   @apply bg-pendingLight text-pending;
 }
-.Confirmed-order {
+.Completed-order {
   @apply bg-successLight text-success;
 }
 .Reject-order {

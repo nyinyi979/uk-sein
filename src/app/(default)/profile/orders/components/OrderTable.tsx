@@ -6,8 +6,8 @@ import {
   TableRow,
 } from "@/components/Table";
 import EachOrder from "./EachOrder";
-import { order, orderStatus } from "@/types/type";
 import { useTranslations } from "next-intl";
+import { order, orderStatus } from "@/types/order";
 
 export default function OrderTable({
   orders,
@@ -16,6 +16,7 @@ export default function OrderTable({
   orders: order[];
   status: orderStatus;
 }) {
+  console.log(orders)
   const t = useTranslations("orders");
   return (
     <div className="w-full mx-auto bg-white shadow-orderTable">
@@ -54,7 +55,11 @@ export default function OrderTable({
       </div> */}
         <TableBody>
           {orders.map((order) => (
-            <EachOrder key={order.orderID} order={order} orderStatus={status} />
+            <EachOrder
+              key={order.id + order.created_at}
+              order={order}
+              orderStatus={status}
+            />
           ))}
         </TableBody>
       </Table>

@@ -3,8 +3,7 @@ import Arrow from "./images/arrow.svg";
 import Image from "next/image";
 import Label from "./Label";
 import { useLocale, useTranslations } from "next-intl";
-import { EngStates, MyStates } from "@/types/addresses";
-import { state } from "@/types/type";
+import { states } from "@/types/address";
 import RedDot from "./RedDot";
 
 export default function StateInput({
@@ -12,12 +11,10 @@ export default function StateInput({
   setState,
   required = false,
 }: {
-  state: state | string;
-  setState: (s: state) => void;
+  state: string;
+  setState: (s: states) => void;
   required?: boolean;
 }) {
-  const locale = useLocale();
-  const states = locale === "en" ? EngStates : MyStates;
   const t = useTranslations("input");
   return (
     <div className="w-full flex flex-col gap-[14px] relative">
@@ -29,15 +26,15 @@ export default function StateInput({
         name="state"
         id="state"
         className={`input ${state == "" && "text-grey-100"}`}
-        onChange={(e) => setState(e.target.value as state)}
-        defaultValue={state}
+        onChange={(e) => setState(e.target.value as states)}
+        value={state}
       >
         <option value={""} className="hidden">
           {t("select-state")}
         </option>
         {states.map((s, ind) => (
-          <option key={s} value={EngStates[ind]}>
-            {s}
+          <option key={s} value={states[ind]}>
+            {s.replace(/_/g, " ")}
           </option>
         ))}
       </select>

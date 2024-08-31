@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 
-export default function OrderTitle({ orderID }: { orderID: string }) {
+export default function OrderTitle({ id }: { id: string | number }) {
   const t = useTranslations();
   return (
     <div className="md:flex hidden flex-col xl:gap-2.5 gap-1.5">
@@ -22,8 +22,8 @@ export default function OrderTitle({ orderID }: { orderID: string }) {
         <span>{t("back-to.back-to-order-history")} </span>
       </Link>
       <p className="flex flex-row md:font-semibold font-bold xl:text-lg md:text-base text-lg">
-        <span className="md:text-grey-100">{t("orders.order-history")} </span> #
-        {orderID}
+        <span className="md:text-grey-100">{t("orders.order-history")} </span> -
+        #{id}
       </p>
     </div>
   );

@@ -1,32 +1,81 @@
-import { useTranslations } from "next-intl";
 import React from "react";
+import axios from "@/utils/axios";
+import { useUserStore } from "@/store/clientData";
+import { useTranslations } from "next-intl";
+import { review } from "@/types/type";
+import { showErrorAlert, showSuccessAlert } from "@/components/Alert";
 
-export default function WriteReview() {
-  const [count, setCount] = React.useState(0);
-  const updateCount = (c: number) => setCount(c);
-  const [review, setReview] = React.useState("");
+export default function WriteReview({
+  id,
+  addReviews,
+}: {
+  id: number;
+  addReviews: (review: review) => void;
+}) {
+  const { customer, token } = useUserStore();
+  const [loading, setLoading] = React.useState(false);
+  const [review, setReview] = React.useState({
+    review: "",
+    number_of_stars: "0",
+  });
   const t = useTranslations("product");
+  const onSubmit = () => {
+    setLoading(true);
+    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    axios
+      .post("product/review/", {
+        data: {
+          product: id,
+          customer: customer!.id,
+          ...review,
+        },
+      })
+      .then((data) => {
+        showSuccessAlert({ text: "Successfully written a review!" });
+        addReviews(data.data);
+        setReview({ number_of_stars: "0", review: "" });
+        setLoading(false);
+      })
+      .catch(() => {
+        showErrorAlert({ text: "Something went wrong!" });
+        setLoading(false);
+      });
+  };
   return (
     <div className="flex flex-col md:gap-6 gap-4">
       <div className="flex flex-col gap-3">
         <p className="font-semibold font-sora md:text-2xl text-lg">
           {t("write-your-review")}
         </p>
-        <Stars count={count} updateCount={updateCount} />
+        <Stars
+          count={Number(review.number_of_stars)}
+          updateCount={(c) =>
+            setReview({ ...review, number_of_stars: c.toString() })
+          }
+        />
         <textarea
-          value={review}
-          onChange={(e) => setReview(e.target.value)}
+          value={review.review}
+          onChange={(e) => setReview({ ...review, review: e.target.value })}
           name="review"
           id="review"
+          disabled={customer === null && token === null}
           placeholder="Write your thoughts..."
           className="w-full h-[150px] py-[28px] px-[32px] bg-white-400 rounded-[15px] resize-none"
         />
       </div>
-      <button
-        className={`ml-auto py-[18px] md:px-8 px-6 ${review == "" ? "bg-grey-50" : "bg-khaki-500"} rounded-[15px] font-semibold text-lg text-white duration-300`}
-      >
-        {t("write-review")}
-      </button>
+      {loading ? (
+        <div className="w-[100px] h-[50px] flex justify-center items-center rounded-[15px] bg-khaki-500 ml-auto">
+          <span className="loader"></span>
+        </div>
+      ) : (
+        <button
+          onClick={onSubmit}
+          disabled={review.number_of_stars === "0" && review.review === ""}
+          className={`ml-auto py-[18px] md:px-8 px-6 disabled:bg-grey-50 bg-khaki-500 rounded-[15px] font-semibold text-lg text-white duration-300`}
+        >
+          {t("write-review")}
+        </button>
+      )}
     </div>
   );
 }

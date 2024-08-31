@@ -13,35 +13,46 @@ import { variant } from "@/types/type";
 import { AnimatePresence } from "framer-motion";
 import { useRouter, useSearchParams } from "next/navigation";
 import { showErrorAlert } from "../Alert";
+const filter = {
+  query: "",
+  order_by: "-",
+  status: "",
+  cid: "",
+  page_size: 10,
+  page: 1,
+};
 
 export default function ProductWithFilters({
   params,
-  searched = false,
 }: {
   params: { categoryName: string };
-  searched?: boolean;
 }) {
   const { categoryName } = params;
   const [hidden, setHidden] = React.useState(true);
-  const [variations, setVariations] = React.useState<variant[]>([]);
+  const [result, setResult] = React.useState<result>({
+    count: 10,
+    current_page: 1,
+    next: null,
+    previous: null,
+    results: [],
+    total_pages: 1,
+  });
+  const page = Number(useSearchParams().get("p") || 1);
   const [loading, setLoading] = React.useState(true);
   const [filters, setFilters] = React.useState({
     color: "",
     size: "",
     material: "",
     category: categoryName,
-    maximum: 0,
-    minimum: 0,
   });
   React.useEffect(() => {
     setLoading(true);
     axios
-      .get(
-        `product/list/client/?color=${filters.color}&size=${filters.size}&material=${filters.material}&category=${filters.category}`,
-      )
+      .get(`product/list/client/`, {
+        params: { ...filter, ...filters, page: page },
+      })
       .then((data) => {
-        console.log(data);
-        setVariations(data.data);
+        setResult(data.data);
         setLoading(false);
       })
       .catch(() => {
@@ -51,11 +62,8 @@ export default function ProductWithFilters({
   }, [filters]);
 
   const router = useRouter();
-  const page = Number(useSearchParams().get("p") || 1);
-  const totalPages = 10;
   const updatePage = (ind: number) => {
-    if (searched) router.push(`/search?query=${categoryName}&p=${ind}`);
-    else router.push(`/category/${categoryName}?p=${ind}`);
+    router.push(`/category/${categoryName}?p=${ind}`);
   };
 
   const toggleColor = (color: string) => {
@@ -105,23 +113,19 @@ export default function ProductWithFilters({
   }, [size]);
   return (
     <div className="xl:w-[1190px] md:w-[85%] sm:w-[90%] w-full flex flex-col gap-10 xl:my-20 my-10 md:px-0 px-5 mx-auto">
-      <CateogryHeading
-        searched={searched}
-        count={variations.length}
-        category={filters.category}
-        show={showFilterDrawer}
-      />
+      <CateogryHeading category={categoryName} show={showFilterDrawer} />
       <div className="flex lg:flex-row flex-col xl:gap-20 gap-10">
         <AnimatePresence>
           {!hidden && (
             <Filter
               filters={filters}
               hide={hideFilterDrawer}
-              variations={variations}
+              variations={result.results}
               setFilters={setFilters}
               toggleColor={toggleColor}
               toggleMaterial={toggleMaterial}
               toggleSize={toggleSize}
+              categoryName={categoryName}
             />
           )}
         </AnimatePresence>
@@ -137,20 +141,20 @@ export default function ProductWithFilters({
           <div className="grid ssm:grid-cols-3 sm:grid-cols-2 xl:gap-10 md:gap-2.5 gap-5">
             {loading ? (
               [0, 1, 2, 3, 4].map((val) => <ProductLoading key={val} />)
-            ) : variations.length === 0 ? (
+            ) : result.results.length === 0 ? (
               <NotFoundError />
             ) : (
               <>
-                {variations.map((v) => (
+                {result.results.map((v) => (
                   <Variant key={v.id + v.gift} variation={v} small />
                 ))}
               </>
             )}
           </div>
-          {variations.length !== 0 && (
+          {result.results.length !== 0 && (
             <Pagination
               activeIndex={page}
-              totalIndex={totalPages}
+              totalIndex={result.total_pages}
               setIndex={updatePage}
             />
           )}
@@ -159,4 +163,13 @@ export default function ProductWithFilters({
       <DiscountBanner imgURL="/images/promotion3.png" percent="40" />
     </div>
   );
+}
+
+interface result {
+  next: null;
+  previous: null;
+  current_page: number;
+  count: number;
+  total_pages: number;
+  results: variant[];
 }

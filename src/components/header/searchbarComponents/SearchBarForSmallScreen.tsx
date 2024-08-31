@@ -4,16 +4,19 @@ import SearchIcon from "@/svg/search.svg";
 import CrossIcon from "@/svg/cross.svg";
 import DefaultResults from "./DefaultSearches";
 import SearchResults from "./SearchResults";
+import axios from "@/utils/axios";
 import useWindowSize from "@/components/hooks/useWindowSize";
 import { useTranslations } from "next-intl";
 import { AnimatePresence } from "framer-motion";
 import { useSearchParams } from "next/navigation";
+import { variant } from "@/types/type";
+import { showErrorAlert } from "@/components/Alert";
 
 export default function SearchBarForSmallScreen() {
   const [searchInput, setSearchInput] = React.useState("");
-  const [searchResult, setSearchResult] = React.useState<string[]>([]);
+  const [searchResult, setSearchResult] = React.useState<variant[]>([]);
+  const [loading, setLoading] = React.useState(false);
   const size = useWindowSize();
-
   const updateSearchValue = (val: string) => {
     setSearchInput(val);
   };
@@ -22,10 +25,19 @@ export default function SearchBarForSmallScreen() {
     size[0] > 1440 ? t("search-products") : t("search-products");
 
   React.useEffect(() => {
+    if (searchInput === "") return;
     let timer = setTimeout(() => {
       // fetch from api
-      setSearchResult(["Example", "Example2", "Example3", "Example4"]);
-    }, 2000);
+      axios
+        .get(`search/?color=&size=&material=&category=&query=${searchInput}`)
+        .then((data) => {
+          setSearchResult(data.data);
+          setLoading(false);
+        })
+        .catch(() => {
+          showErrorAlert({ text: "Something went wrong" });
+        });
+    }, 500);
     return () => clearInterval(timer);
   }, [searchInput]);
 
@@ -61,7 +73,10 @@ export default function SearchBarForSmallScreen() {
       {query === null && <DefaultResults small />}
       {query === null && searchInput !== "" && (
         <AnimatePresence>
-          <SearchResults searchResults={searchResult} />
+          <SearchResults
+            searchResults={searchResult}
+            onLinkClick={() => updateSearchValue("")}
+          />
         </AnimatePresence>
       )}
     </div>

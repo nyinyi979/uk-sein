@@ -1,17 +1,20 @@
-interface Customer {
-  id: string;
+import { cities, states } from "@/types/address";
+
+export interface CustomerCreate {
   name: string;
-  user: string;
-  avatar: string;
-  gender: string;
-  email: string;
+  username: string;
   phone: string;
-  customer_address: CustomerAddress;
-  created_at: string;
-  updated_at: string;
-}
-interface CustomerAddress {
-  state: string;
-  city: string;
-  address: string;
+  email: string;
+  gender: string;
+  avatar: string;
+  orders: [];
+  password: string;
+  password_confirm: string;
+  customer_addresses: {
+    state: states;
+    address: string;
+    city: string;
+    map: string;
+    default: boolean;
+  }[];
 }

@@ -9,8 +9,14 @@ export default function ({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { token } = useUserStore((state) => state);
+  const { token, setCustomer } = useUserStore((state) => state);
   const router = useRouter();
+  React.useEffect(() => {
+    const cid = JSON.parse(localStorage.getItem("user")!);
+    axios.get("customer/user/", { params: { uid: cid.id } }).then((data) => {
+      setCustomer(data.data);
+    });
+  }, []);
   if (!token) {
     router.push("/login");
   } else {

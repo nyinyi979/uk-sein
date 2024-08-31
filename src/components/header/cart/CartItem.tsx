@@ -25,9 +25,10 @@ export default function CartItem({
     if (value === 0) {
       newCartItems.splice(index, 1);
     } else {
-      newCartItems[index].quantity = value;
       newCartItems[index].subtotal =
-        value * Number(newCartItems[index].regular_price);
+        `${(Number(newCartItems[index].subtotal) / Number(newCartItems[index].quantity)) * value}`;
+      newCartItems[index].quantity = value;
+      console.log(newCartItems[index]);
     }
     setCartItems(newCartItems);
   };

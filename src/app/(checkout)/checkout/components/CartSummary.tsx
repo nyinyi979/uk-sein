@@ -8,18 +8,13 @@ export default function CartSummary({
   cartItems,
   removeItem,
   closeCart,
+  totalPrice,
 }: {
   cartItems: cartItem[];
+  totalPrice: number;
   removeItem: (ind: number) => void;
   closeCart: () => void;
 }) {
-  const totalPrice = React.useMemo(() => {
-    let tot = 0;
-    for (let i = 0; i < cartItems.length; i++) {
-      tot += cartItems[i].subtotal;
-    }
-    return tot;
-  }, [cartItems.length]);
   return (
     <motion.div
       onClick={closeCart}
