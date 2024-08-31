@@ -12,12 +12,14 @@ import ProductsCarousel from "@/components/template/ProductCarousel";
 import ProductAddToCart from "./AddToCart";
 import { product, review } from "@/types/type";
 import { showErrorAlert } from "@/components/Alert";
+import { useUserStore } from "@/store/clientData";
 
 export default function ProductDetails({
   params,
 }: {
   params: { productID: string };
 }) {
+  const { customer, setWishlists, token } = useUserStore();
   const [product, setProduct] = React.useState<product>({
     categories: [],
     code: "",
@@ -117,6 +119,15 @@ export default function ProductDetails({
         showErrorAlert({ text: "Something went wrong!" });
         setLoading(false);
       });
+    if(token === null) return;
+    axios
+      .get("customer/wishlist/", { params: { cid: customer.id } })
+      .then((data) => {
+        setWishlists(data.data);
+      })
+      .catch(() => {
+        showErrorAlert({ text: "Something went wrong fetching wishlists!" });
+      });
   }, []);
   return (
     <div className="xl:w-[1192px] md:w-[85%] sm:w-[90%] w-full mx-auto xl:py-20 py-10">
@@ -155,7 +166,6 @@ export default function ProductDetails({
               />
               <ProductAddToCart
                 product={product}
-                wishlisted
                 activeVariant={activeVariant}
                 quantity={quantity}
               />

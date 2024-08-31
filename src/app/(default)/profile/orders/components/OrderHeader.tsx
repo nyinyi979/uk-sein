@@ -13,11 +13,7 @@ export default function OrderHeader({
   updateStatus: (status: orderStatus) => void;
 }) {
   const t = useTranslations("orders");
-  const status_arr = React.useRef<orderStatus[]>([
-    "",
-    "Completed",
-    "Pending",
-  ]);
+  const status_arr = React.useRef<orderStatus[]>(["", "Completed", "Pending"]);
   const status_txts = [
     t("all-orders"),
     t("successful-orders"),

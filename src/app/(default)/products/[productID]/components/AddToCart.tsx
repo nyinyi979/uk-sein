@@ -3,23 +3,22 @@ import AddToCartSvg from "@/svg/addToCart.svg";
 import ShareSvg from "@/svg/share.svg";
 import WishList from "@/components/actions/Wishlist";
 import { useTranslations } from "next-intl";
-import { cartItem, useUserStore } from "@/store/clientData";
-import { product, variant } from "@/types/type";
+import { useUserStore } from "@/store/clientData";
+import { product } from "@/types/type";
 import AddToCart from "@/components/AddToCart";
 
 export default function ProductAddToCart({
   product,
-  wishlisted,
   activeVariant,
   quantity,
 }: {
-  wishlisted: boolean;
   product: product;
   activeVariant: number;
   quantity: number;
 }) {
   const t = useTranslations("product");
-  const addCartItems = useUserStore((store) => store.addCartItems);
+  const {addCartItems, wishlists} = useUserStore((store) => store);
+  const index = wishlists.findIndex((w)=>w.product.id === product.id)
   return (
     <div className="md:h-[58px] h-[48px] flex flex-row gap-[18px]">
       <button
@@ -37,7 +36,7 @@ export default function ProductAddToCart({
         <Image src={AddToCartSvg} alt="add to cart" width={22} height={22} />
         <p className="font-semibold">{t("add-to-cart")} </p>
       </button>
-      <WishList id={product.id} />
+      <WishList id={product.id} wishlisted={index !== -1 ? true : false}/>
       <button className="w-[58px] h-full py-[14px] px-[18px] bg-white-400 rounded-xl">
         <Image
           src={ShareSvg}

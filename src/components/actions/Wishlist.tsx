@@ -1,15 +1,54 @@
+import { useUserStore } from "@/store/clientData";
+import axios from "@/utils/axios"
+import { showErrorAlert } from "../Alert";
+import React from "react";
 export default function Wishlist({
   id,
-  whitelisted = false,
+  wishlisted = false,
   small = false,
 }: {
-  whitelisted?: boolean;
-  id?: number;
+  wishlisted?: boolean;
+  id: number;
   small?: boolean;
 }) {
+  const {customer} = useUserStore();
+  const [wishlist, setWishlist] = React.useState(wishlisted)
+  const [loading, setLoading] = React.useState(false);
+  const Wishlist = async() => {
+    setLoading(true);
+    if(customer.id){
+      if(wishlist){
+        axios.delete("customer/wishlist/",{params: {cid: customer.id, pid: id}}).then((data)=>{
+          console.log(data);
+          setWishlist(!wishlist);
+        }).catch((err)=>{
+          console.log(err)
+          showErrorAlert({text:"Something went wrong!"})
+        }).finally(()=>{
+          setLoading(false);
+        })
+      } else{
+        axios.post("customer/wishlist/",{cid: customer.id, id: id}).then((data)=>{
+          console.log(data);
+          setWishlist(!wishlist);
+        }).catch((err)=>{
+          console.log(err)
+          showErrorAlert({text:"Something went wrong!"})
+        }).finally(()=>{
+          setLoading(false);
+        })
+      }
+      
+    } else{
+      showErrorAlert({text:"Plase login first to wishlist!"})
+    }
+    
+  }
   return (
     <button
-      className={`${whitelisted ? "heart-active" : "heart"} ${small ? "xl:size-[58px] size-[48px] xl:p-[18px] p-[12px]" : "md:size-[58px] size-[48px] md:p-[18px] p-[12px]"} `}
+      onClick={Wishlist}
+      disabled={loading}
+      className={`${wishlist ? "heart-active" : "heart"} ${small ? "xl:size-[58px] size-[48px] xl:p-[18px] p-[12px]" : "md:size-[58px] size-[48px] md:p-[18px] p-[12px]"} disabled:bg-gray-200`}
     >
       <svg
         width="23"

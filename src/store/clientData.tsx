@@ -1,18 +1,20 @@
 import { customer, customerAddress } from "@/types/order";
 import { payment_search } from "@/types/payment";
-import { variant } from "@/types/type";
+import { product, variant } from "@/types/type";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 type UserData = {
   cartItems: cartItem[];
+  wishlists: wishlist[];
   recentSearches: variant[];
   token: string | null;
-  payments: payment_search[],
+  payments: payment_search[];
   customer: customer;
 };
 type Actions = {
-  setPayments: (pay: payment_search[])=>void;
+  setWishlists: (wish: wishlist[]) => void;
+  setPayments: (pay: payment_search[]) => void;
   addRecentSearches: (rs: variant) => void;
   addCartItems: (item: cartItem) => void;
   setToken: (token: string | null) => void;
@@ -21,20 +23,22 @@ type Actions = {
   setCustomer: (customer: customer) => void;
 };
 
-export const init_customer:customer = {
+export const init_customer: customer = {
   avatar: "",
   created_at: "",
-  customer_addresses: [{
-    address: "",
-    city: "",
-    created_at: "",
-    customer: 1,
-    default: true,
-    id: 1,
-    map: "",
-    state: "",
-    updated_at: ""
-  }],
+  customer_addresses: [
+    {
+      address: "",
+      city: "",
+      created_at: "",
+      customer: 1,
+      default: true,
+      id: 1,
+      map: "",
+      state: "",
+      updated_at: "",
+    },
+  ],
   email: "",
   gender: "",
   id: 1,
@@ -43,7 +47,7 @@ export const init_customer:customer = {
   phone: "",
   total: 0,
   updated_at: "",
-}
+};
 
 export const useUserStore = create<
   UserData & Actions,
@@ -51,6 +55,7 @@ export const useUserStore = create<
 >(
   persist(
     (set, get) => ({
+      wishlists: [],
       customer: init_customer,
       token: null,
       cartItems: [],
@@ -96,17 +101,27 @@ export const useUserStore = create<
         set(() => ({ customer: customer }));
       },
       setPayments: (payment_search: payment_search[]) => {
-        set(()=> ({payments: payment_search}))
-      }
+        set(() => ({ payments: payment_search }));
+      },
+      setWishlists: (wishlists: wishlist[]) => {
+        set(() => ({ wishlists: wishlists }));
+      },
     }),
     {
       name: "usr_storage", // name of the item in the storage (must be unique)
       storage: createJSONStorage(() => localStorage), // (optional) by default, 'localStorage' is used
-      merge: (persistedState, currentState) => ({...currentState, ...persistedState as UserData})
+      merge: (persistedState, currentState) => ({
+        ...currentState,
+        ...(persistedState as UserData),
+      }),
     },
   ),
 );
-
+export interface wishlist {
+  id: number;
+  created_at: string;
+  product: product;
+}
 export interface cartItem {
   created_at: string;
   updated_at: string;

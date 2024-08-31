@@ -27,16 +27,21 @@ export default function Profile() {
     setPage(p);
   };
   const updateCustomer = (c: customer) => {
-    axios.put("customer/", { data: input }).then((data) => {
-      setCustomer(data.data);
-      showSuccessAlert({ text: "Updated successfully!" });
-    }).finally(()=>{setLoading(false)})
-  }
+    axios
+      .put("customer/", { data: input })
+      .then((data) => {
+        setCustomer(data.data);
+        showSuccessAlert({ text: "Updated successfully!" });
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
   const validateInfo = () => {
     setLoading(true);
-    const newCustomer = {...input}
+    const newCustomer = { ...input };
     if (page === 0) {
-      if(image){
+      if (image) {
         const formData = new FormData();
         formData.append("image0", image as Blob);
         formData.append("length", "1");
@@ -47,11 +52,11 @@ export default function Profile() {
               "Content-Type": "multipart/form-data",
             },
           })
-          .then((response)=>{
-            newCustomer.avatar =  response.data[0].full_url;
+          .then((response) => {
+            newCustomer.avatar = response.data[0].full_url;
             updateCustomer(newCustomer);
-          })
-      } else updateCustomer(newCustomer)
+          });
+      } else updateCustomer(newCustomer);
     } else {
       if (
         password.phone === "" ||

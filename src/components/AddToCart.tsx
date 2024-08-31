@@ -32,10 +32,10 @@ export default function AddToCart({
   };
   addCartItems(newCartItem);
 }
-const convertInt = (n: string)=>{
+const convertInt = (n: string) => {
   const int = parseInt(n);
   return isNaN(int) ? 0 : Number(int);
-}
+};
 export const init_product: product = {
   categories: [],
   code: "",

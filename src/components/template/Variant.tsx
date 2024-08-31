@@ -1,16 +1,25 @@
 import Link from "next/link";
 import RatingStars from "./Rating";
 import ProductAddToCart from "./AddToCart";
-import { product, variant } from "@/types/type";
+import { variant } from "@/types/type";
 import { useLocale } from "next-intl";
 import { MEDIA_URL } from "@/utils/axios";
 
-export default function Product({ small, product }: smallLargeProduct) {
+export default function Variant({ small, variation }: smallLargeProduct) {
   const locale = useLocale();
-  const { images, name, categories, mm_name, id, variations } = product;
+  const {
+    product,
+    images,
+    name,
+    categories,
+    mm_name,
+    id,
+    regular_price,
+    discount,
+  } = variation;
   return (
     <div className="flex flex-col gap-2.5">
-      <Link href={`/products/${id}`}>
+      <Link href={`/products/${product}`}>
         <div className="w-fit flex flex-col gap-2.5 mx-auto relative rounded-3xl">
           <div
             className={`${small ? "xl:size-[274px] md:size-[209px] sm:w-[160px] w-full h-fit" : "xl:w-[376px] xl:h-[350px] md:size-[320px] ssm:size-[200px] sm:size-[160px] w-full h-fit"} flex align-middle justify-center bg-white-400 rounded-[15px] overflow-hidden ${small ? "sm:py-10 py-5" : "sm:py-8 py-4"}`}
@@ -46,15 +55,14 @@ export default function Product({ small, product }: smallLargeProduct) {
             <p
               className={`font-bold font-sora ${small ? "xl:text-[32px] md:text-2xl text-xl" : "xl:text-[42px] md:text-[32px] text-xl leading-10"}`}
             >
-              {(
-                Number(variations[0]?.regular_price || 0) -
-                Number(variations[0]?.discount || 0)
-              ).toLocaleString()}{" "}
-              Ks
+              {(Number(regular_price) - Number(discount)).toLocaleString()} Ks
             </p>
           </div>
         </div>
       </Link>
+      <div className="flex flex-row gap-[18px]">
+        <ProductAddToCart small={small} variation={variation} wishlisted />
+      </div>
     </div>
   );
 }
@@ -64,6 +72,6 @@ export function ProductLoading() {
   );
 }
 interface smallLargeProduct {
-  product: product;
+  variation: variant;
   small: boolean;
 }

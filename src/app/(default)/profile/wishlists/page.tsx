@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import WishList from "./components/wishlists";
+import WishList from "./components/Wishlists";
 
 export default WishList;
 

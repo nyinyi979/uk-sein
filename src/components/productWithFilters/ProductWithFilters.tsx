@@ -8,7 +8,7 @@ import Filter from "./Filter";
 import FilterList from "./FilterList";
 import NotFoundError from "./NotFound";
 import axios from "@/utils/axios";
-import Variant, { ProductLoading } from "@/components/template/Product";
+import Variant, { ProductLoading } from "@/components/template/Variant";
 import { variant } from "@/types/type";
 import { AnimatePresence } from "framer-motion";
 import { useRouter, useSearchParams } from "next/navigation";

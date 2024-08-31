@@ -17,8 +17,10 @@ export default function OrderBasicInfo({
   order: order;
   hide: () => void;
 }) {
-  const payments = useUserStore((store)=>store.payments);
-  const index = payments.findIndex((p)=> p.payment_name === order.payments[0]?.payment_type||"")
+  const payments = useUserStore((store) => store.payments);
+  const index = payments.findIndex(
+    (p) => p.payment_name === order.payments[0]?.payment_type || "",
+  );
   const t = useTranslations("orders");
   return (
     <div className="flex flex-row gap-8 h-full">
@@ -56,11 +58,13 @@ export default function OrderBasicInfo({
               <p className="text-grey-100">{t("payment-method")}</p>
             </div>
             <div className="xl:size-8 md:size-10 size-8 relative">
-              {index!==-1&&<img
-                src={MEDIA_URL + payments[index].image}
-                alt="payment method"
-                className="size-full object-cover"
-              />}
+              {index !== -1 && (
+                <img
+                  src={MEDIA_URL + payments[index].image}
+                  alt="payment method"
+                  className="size-full object-cover"
+                />
+              )}
             </div>
           </div>
           <div className="flex flex-row justify-between">

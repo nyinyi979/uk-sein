@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Variant, { ProductLoading } from "./Product";
+import Variant, { ProductLoading } from "./Variant";
 import CarouselButtons from "./CarouselButtons";
 import axios from "@/utils/axios";
 import "swiper/css";
