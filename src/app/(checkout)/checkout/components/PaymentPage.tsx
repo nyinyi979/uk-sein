@@ -2,13 +2,13 @@ import PaymentNumbers from "./PaymentNumbers";
 import PaymentImageUpload from "./PaymentImageUpload";
 import PaymentMethods from "./Payment";
 import axios from "@/utils/axios";
+import Input from "@/components/input/Input";
 import React, { Dispatch, SetStateAction } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { paymentInOrder } from "@/types/order";
 import { payment_search } from "@/types/payment";
 import { showErrorAlert } from "@/components/Alert";
-import Input from "@/components/input/Input";
 
 export default function PaymentPage({
   totalPrice,
@@ -21,7 +21,16 @@ export default function PaymentPage({
   setPayment: Dispatch<SetStateAction<paymentInOrder>>;
   setImage: (f: File) => void;
 }) {
-  const [payments, setPayments] = React.useState<payment_search[]>([]);
+  const [payments, setPayments] = React.useState<payment_search[]>([{
+    id: 0,
+    created_at: "2024 12 4 22:30",
+    image: "",
+    owner_name: "UK SEIN",
+    payment_name: "Visa",
+    payment_number: "1234556",
+    qr_code: [""],
+    updated_at: ""
+  }]);
   const [selectedPayment, setSelectedPayment] = React.useState<null | number>(
     null,
   );
@@ -36,7 +45,7 @@ export default function PaymentPage({
     axios
       .get("payment-method/search/?query=")
       .then((data) => {
-        setPayments(data.data);
+        // setPayments({...payment,...data.data});
       })
       .catch(() => {
         showErrorAlert({ text: "Something went wrong!" });

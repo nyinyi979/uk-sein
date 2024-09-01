@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export interface payment_search {
   id: number;
   created_at: string;

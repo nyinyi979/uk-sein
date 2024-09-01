@@ -1,5 +1,7 @@
 import { payment_search } from "@/types/payment";
 import { MEDIA_URL } from "@/utils/axios";
+import Visa from "../images/credit.png"
+import Image from "next/image";
 
 export default function PaymentMethods({
   selectedPayment,
@@ -22,11 +24,17 @@ export default function PaymentMethods({
           className={btnClass}
         >
           <div className="md:size-[50px] size-7 mx-auto md:my-[15px] relative">
+            {payment.payment_name==="Visa" ? 
+              <Image 
+                alt="visa"
+                src={Visa}
+              />
+            :
             <img
               src={MEDIA_URL + payment.image}
               alt={payment.payment_name}
               className="size-full object-cover"
-            />
+            />}
           </div>
         </button>
       ))}
