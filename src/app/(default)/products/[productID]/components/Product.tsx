@@ -13,6 +13,7 @@ import ProductAddToCart from "./AddToCart";
 import { product, review } from "@/types/type";
 import { showErrorAlert } from "@/components/Alert";
 import { useUserStore } from "@/store/clientData";
+import useRatings from "@/components/template/useRatings";
 
 export default function ProductDetails({
   params,
@@ -52,48 +53,7 @@ export default function ProductDetails({
   const updateQuantity = (quantity: number) => {
     setQuantity(quantity);
   };
-  const ratings = React.useMemo(() => {
-    const ratings = {
-      1: 0,
-      2: 0,
-      3: 0,
-      4: 0,
-      5: 0,
-    };
-    let overall = 0;
-    review.reviews.map((r) => {
-      const num = r.number_of_stars ? Math.floor(Number(r.number_of_stars)) : 1;
-      switch (num) {
-        case 1:
-          ratings[1] += 1;
-          break;
-        case 2:
-          ratings[2] += 1;
-          break;
-        case 3:
-          ratings[3] += 1;
-          break;
-        case 4:
-          ratings[4] += 1;
-          break;
-        case 5:
-          ratings[5] += 1;
-          break;
-        default:
-      }
-    });
-    overall =
-      (5 * ratings[5] +
-        4 * ratings[4] +
-        3 * ratings[3] +
-        2 * ratings[2] +
-        1 * ratings[1]) /
-      (ratings[1] + ratings[2] + ratings[3] + ratings[4] + ratings[5]);
-    return {
-      rating: Number(overall.toFixed(2)),
-      ratings: ratings,
-    };
-  }, [review]);
+  const { rating, ratings } = useRatings({ reviews: review.reviews });
   React.useEffect(() => {
     setLoading(true);
     const url = `product/?id=${params.productID}`;
@@ -119,6 +79,8 @@ export default function ProductDetails({
         showErrorAlert({ text: "Something went wrong!" });
         setLoading(false);
       });
+  }, []);
+  React.useEffect(() => {
     if (token === null) return;
     axios
       .get("customer/wishlist/", { params: { cid: customer.id } })
@@ -128,7 +90,7 @@ export default function ProductDetails({
       .catch(() => {
         showErrorAlert({ text: "Something went wrong fetching wishlists!" });
       });
-  }, []);
+  }, [token]);
   return (
     <div className="xl:w-[1192px] md:w-[85%] sm:w-[90%] w-full mx-auto xl:py-20 py-10">
       <ProductTitle category={product.categories[0] || ""} />
@@ -153,7 +115,7 @@ export default function ProductDetails({
                   Number(product.variations[activeVariant].regular_price) -
                   Number(product.variations[activeVariant].discount)
                 }
-                rating={ratings.rating}
+                rating={rating}
               />
               <ProductDetail
                 quantity={quantity}
@@ -175,7 +137,7 @@ export default function ProductDetails({
             <ReviewLoading />
           ) : (
             <>
-              <ProductRatings {...ratings} />
+              <ProductRatings ratings={ratings} rating={rating} />
               <ProductReviews
                 reviews={review.reviews}
                 id={product.id}

@@ -20,6 +20,7 @@ const initialFilters = {
   category: "",
   color: "",
   material: "",
+  cid: "",
   size: "",
   maximum: 0,
   minimum: 0,
@@ -56,7 +57,7 @@ export default function Filter({
     };
   }, [variations]);
   const filterApplied =
-    filters.category !== categoryName ||
+    filters.category !== decodeURI(categoryName) ||
     filters.color !== "" ||
     filters.material !== "" ||
     filters.size !== "";
@@ -174,6 +175,7 @@ export type filter = {
   size: string;
   material: string;
   category: string;
+  cid:string
 };
 type possibleFilters = {
   color: Set<string>;

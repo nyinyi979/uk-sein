@@ -1,9 +1,12 @@
+import React from "react";
 import Link from "next/link";
+import axios from "@/utils/axios";
 import RatingStars from "./Rating";
 import ProductAddToCart from "./AddToCart";
-import { variant } from "@/types/type";
+import { review, variant } from "@/types/type";
 import { useLocale } from "next-intl";
 import { MEDIA_URL } from "@/utils/axios";
+import { showErrorAlert } from "../Alert";
 
 export default function Variant({ small, variation }: smallLargeProduct) {
   const locale = useLocale();
@@ -17,6 +20,18 @@ export default function Variant({ small, variation }: smallLargeProduct) {
     regular_price,
     discount,
   } = variation;
+  const [reviews, setReviews] = React.useState<review[]>([]);
+  React.useEffect(() => {
+    axios
+      .get("product/review/", { params: { id: product } })
+      .then((data) => {
+        console.log(data);
+        setReviews(data.data);
+      })
+      .catch((err) => {
+        showErrorAlert({ text: "Something went wrong fetching reviews!" });
+      });
+  }, []);
   return (
     <div className="flex flex-col gap-2.5">
       <Link href={`/products/${product}`}>

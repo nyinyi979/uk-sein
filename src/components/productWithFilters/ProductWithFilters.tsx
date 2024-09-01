@@ -17,7 +17,6 @@ const filter = {
   query: "",
   order_by: "-",
   status: "",
-  cid: "",
   page_size: 10,
   page: 1,
 };
@@ -28,6 +27,8 @@ export default function ProductWithFilters({
   params: { categoryName: string };
 }) {
   const { categoryName } = params;
+  const para = useSearchParams();
+  console.log(para.get("id"))
   const [hidden, setHidden] = React.useState(true);
   const [result, setResult] = React.useState<result>({
     count: 10,
@@ -43,13 +44,14 @@ export default function ProductWithFilters({
     color: "",
     size: "",
     material: "",
-    category: categoryName,
+    category: decodeURI(categoryName),
+    cid: para.get("id")||"",
   });
   React.useEffect(() => {
     setLoading(true);
     axios
       .get(`product/list/client/`, {
-        params: { ...filter, ...filters, page: page },
+        params: { ...filter, ...filters, page: page, category: filters.category.replaceAll(" ","") },
       })
       .then((data) => {
         setResult(data.data);

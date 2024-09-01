@@ -12,7 +12,7 @@ export default function WriteReview({
   id: number;
   addReviews: (review: review) => void;
 }) {
-  const { customer, token } = useUserStore();
+  const { customer, token } = useUserStore((store)=>store);
   const [loading, setLoading] = React.useState(false);
   const [review, setReview] = React.useState({
     review: "",
@@ -22,11 +22,12 @@ export default function WriteReview({
   const onSubmit = () => {
     setLoading(true);
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    console.log(customer);
     axios
       .post("product/review/", {
         data: {
           product: id,
-          customer: customer!.id,
+          customer: customer.id,
           ...review,
         },
       })
