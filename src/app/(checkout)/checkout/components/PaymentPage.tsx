@@ -3,6 +3,9 @@ import PaymentImageUpload from "./PaymentImageUpload";
 import PaymentMethods from "./Payment";
 import axios from "@/utils/axios";
 import Input from "@/components/input/Input";
+import USD from "../images/usd.png";
+import MM from "../images/mm.png";
+import Image from "next/image";
 import React, { Dispatch, SetStateAction } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
@@ -21,19 +24,13 @@ export default function PaymentPage({
   setPayment: Dispatch<SetStateAction<paymentInOrder>>;
   setImage: (f: File) => void;
 }) {
-  const [payments, setPayments] = React.useState<payment_search[]>([{
-    id: 0,
-    created_at: "2024 12 4 22:30",
-    image: "",
-    owner_name: "UK SEIN",
-    payment_name: "Visa",
-    payment_number: "1234556",
-    qr_code: [""],
-    updated_at: ""
-  }]);
+  const [usd, setUsd] = React.useState(5500);
+  const [payments, setPayments] = React.useState<payment_search[]>([]);
+  console.log(payments)
   const [selectedPayment, setSelectedPayment] = React.useState<null | number>(
-    null,
+    null
   );
+  const [currency, setCurrency] = React.useState<"MMK"|"USD">("MMK");
   const updateSelectedPayment = (p: number) => {
     setSelectedPayment(p);
     setPayment({
@@ -45,7 +42,7 @@ export default function PaymentPage({
     axios
       .get("payment-method/search/?query=")
       .then((data) => {
-        // setPayments({...payment,...data.data});
+        setPayments(data.data);
       })
       .catch(() => {
         showErrorAlert({ text: "Something went wrong!" });
@@ -70,15 +67,57 @@ export default function PaymentPage({
           updateSelectedPayment={updateSelectedPayment}
         />
         {selectedPayment !== null && (
-          <PaymentNumbers payment={payments[selectedPayment]} />
+          <>
+            <PaymentNumbers payment={payments[selectedPayment]} />
+            {payments[selectedPayment].is_visa && (
+              <div className="flex flex-col gap-[18px] py-[18px]">
+                <p className="font-sora font-semibold text-xl">
+                  Choose Currency :{" "}
+                </p>
+                <div className="flex gap-6">
+                  <button
+                    disabled={currency === "MMK"}
+                    onClick={() => setCurrency("MMK")}
+                    className="flex gap-2.5 py-[18px] px-8 rounded-[15px] border border-grey-100 disabled:border-grey-300 duartion-300"
+                  >
+                    <Image
+                      src={MM}
+                      alt="mmk"
+                      width={28}
+                      height={28}
+                      className="rounded-full"
+                    />
+                    MMK
+                  </button>
+                  <button
+                    disabled={currency === "USD"}
+                    onClick={() => setCurrency("USD")}
+                    className="flex gap-2.5 py-[18px] px-8 rounded-[15px] border border-grey-100 disabled:border-grey-300 duartion-300"
+                  >
+                    <Image
+                      src={USD}
+                      alt="usd"
+                      width={28}
+                      height={28}
+                      className="rounded-full"
+                    />
+                    USD
+                  </button>
+                </div>
+              </div>
+            )}
+          </>
         )}
         <Input
           id="amount"
           setValue={(val) => {
-            if (Number(val) > totalPrice) {
-              setPayment({ ...payment, amount: `${totalPrice}` });
+            const amount = currency === "USD" ? Number(val) * usd : Number(val);
+            const tot = currency === "USD" ? (Number(totalPrice) / usd).toFixed(2) : totalPrice;
+  
+            if (amount > Number(totalPrice)) {
+              setPayment({ ...payment, amount: `${tot}` });
             } else {
-              setPayment({ ...payment, amount: val });
+              setPayment({ ...payment, amount: `${currency === "USD" ? val : amount}` });
             }
           }}
           value={payment.amount}

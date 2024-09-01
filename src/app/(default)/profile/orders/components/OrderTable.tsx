@@ -17,6 +17,7 @@ export default function OrderTable({
   orders: order[];
   status: orderStatus;
 }) {
+  console.log(orders)
   const payments = useUserStore((state) => state.payments);
   const t = useTranslations("orders");
   return (

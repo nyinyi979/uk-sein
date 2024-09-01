@@ -8,5 +8,6 @@ export interface payment_search {
   payment_number: string;
   owner_name: string;
   image: string;
+  is_visa: boolean;
   qr_code: string[];
 }

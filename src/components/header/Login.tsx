@@ -19,12 +19,13 @@ export default function Login({
   hidden: boolean;
   toggle: () => void;
 }) {
-  const { token, setToken, setCustomer } = useUserStore((state) => state);
+  const { token, setToken, setCustomer, setWishlists } = useUserStore((state) => state);
   const router = useRouter();
   const logOut = () => {
     setToken(null);
     localStorage.removeItem("user");
     setCustomer(init_customer);
+    setWishlists([])
     toggle();
     router.push("/");
   };
@@ -36,7 +37,7 @@ export default function Login({
       axios
         .get("customer/user/", { params: { uid: response.data.id } })
         .then((data) => {
-          setCustomer(data.data);
+          console.log(data.data);
         });
     };
 

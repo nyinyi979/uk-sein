@@ -29,8 +29,8 @@ export default function Orders() {
     setPage(p);
   };
   React.useEffect(() => {
-    setLoading(true);
     if (customer) {
+      setLoading(true);
       axios
         .get("order/list/customer/", {
           params: { cid: customer.id, status: status },

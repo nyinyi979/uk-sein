@@ -13,7 +13,7 @@ import dayjs from "dayjs";
 import { useRouter } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
 import { useUserStore } from "@/store/clientData";
-import { customer, Initial_Order, paymentInOrder } from "@/types/order";
+import { Initial_Order, paymentInOrder } from "@/types/order";
 import { showErrorAlert } from "@/components/Alert";
 
 export default function Checkout() {
@@ -144,10 +144,16 @@ export default function Checkout() {
         phone: customer.phone,
       });
     } else {
-      const cid = JSON.parse(localStorage.getItem("user")!);
-      axios.get("customer/user/", { params: { uid: cid.id } }).then((data) => {
-        setCustomer(data.data);
-      });
+      const user = JSON.parse(localStorage.getItem("user")!);
+      if (user === null) {
+        showErrorAlert({ text: "Please login first!" });
+      } else {
+        axios
+          .get("customer/user/", { params: { uid: user.id } })
+          .then((data) => {
+            setCustomer(data.data);
+          });
+      }
     }
   }, [token]);
   return (
