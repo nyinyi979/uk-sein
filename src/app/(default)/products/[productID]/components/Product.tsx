@@ -90,6 +90,11 @@ export default function ProductDetails({
         showErrorAlert({ text: "Something went wrong fetching wishlists!" });
       });
   }, [token]);
+  const images = React.useMemo(() => {
+    const imgs: images[] = [];
+    product.variations.map((v) => v.images.map((img) => imgs.push(img)));
+    return imgs;
+  }, [product]);
   return (
     <div className="xl:w-[1192px] md:w-[85%] sm:w-[90%] w-full mx-auto xl:py-20 py-10">
       <ProductTitle category={product.categories[0] || ""} />
@@ -101,7 +106,7 @@ export default function ProductDetails({
             <div className="flex flex-col md:gap-[62px] gap-8">
               <ProductImages
                 category={product.categories[0] || ""}
-                images={product.images}
+                images={images}
               />
               <ProductDescription description={product.description} />
             </div>
@@ -164,3 +169,11 @@ const ReviewLoading = () => {
     </>
   );
 };
+
+interface images {
+  id: number;
+  created_at: string;
+  updated_at: string;
+  image: string;
+  variant: number;
+}

@@ -21,9 +21,7 @@ export default function Wishlist({
     if (customer.id) {
       if (wishlist) {
         axios
-          .delete("customer/wishlist/", {
-            params: { id: wishlistID },
-          })
+          .post("customer/wishlist/remove", { data: [wishlistID] },)
           .then((data) => {
             setWishlist(!wishlist);
           })

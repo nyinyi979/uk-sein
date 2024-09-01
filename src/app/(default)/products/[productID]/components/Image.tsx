@@ -12,8 +12,7 @@ export default function ProductImages({
     created_at: string;
     updated_at: string;
     image: string;
-    product: number;
-  }[];
+    variant: number;}[];
 }) {
   const [activeImg, setActiveImg] = React.useState(0);
   return (
@@ -21,7 +20,7 @@ export default function ProductImages({
       <div className="xl:size-[580px] md:size-[322px] sm:w-[340px] sm:h-[280px] w-full h-fit mx-auto relative bg-white-400">
         <div className="xl:w-[507px] xl:h-[450px] md:w-[275px] md:h-[245px] sm:w-[247px] w-[80%] h-[220px] relative mx-auto xl:my-[65px] my-[40px] shadow-product">
           <img
-            src={MEDIA_URL + images[0]?.image || ""}
+            src={MEDIA_URL + images[activeImg]?.image || ""}
             alt="images"
             className="size-full object-cover"
           />
