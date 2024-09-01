@@ -38,8 +38,8 @@ export default function Login() {
         `Bearer ${response.data.access}`;
       setToken(response.data.access);
       setLoading(false);
+      router.push("/");
       showSuccessAlert({ text: "Successfully login!" });
-      router.replace("/");
     } catch (err) {
       console.log(err);
       showErrorAlert({ text: "Unknown Error" });

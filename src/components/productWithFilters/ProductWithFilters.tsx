@@ -113,7 +113,7 @@ export default function ProductWithFilters({
   }, [size]);
   return (
     <div className="xl:w-[1190px] md:w-[85%] sm:w-[90%] w-full flex flex-col gap-10 xl:my-20 my-10 md:px-0 px-5 mx-auto">
-      <CateogryHeading category={categoryName} show={showFilterDrawer} />
+      <CateogryHeading category={decodeURI(categoryName)} show={showFilterDrawer} />
       <div className="flex lg:flex-row flex-col xl:gap-20 gap-10">
         <AnimatePresence>
           {!hidden && (

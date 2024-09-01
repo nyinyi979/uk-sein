@@ -120,13 +120,13 @@ export default function Login({
               onClick={toggle}
               className="w-[200px] flex flex-row align-middle justify-items-center gap-3 py-3 px-2.5 rounded-[10px] hover:bg-grey-50 duration-300"
             >
-              <div className="size-[18px] relative">
+              <div className="size-[18px] mt-1 relative">
                 <Image
                   src={WishList}
                   alt="my wishlists"
                   fill
                   sizes="100%"
-                  className="size-full object-cover"
+                  className="size-full object-contain"
                 />
               </div>
               <p className="font-semibold">{t("wishlists")}</p>

@@ -1,5 +1,5 @@
 import { useUserStore } from "@/store/clientData";
-import axios from "@/utils/axios"
+import axios from "@/utils/axios";
 import { showErrorAlert } from "../Alert";
 import React from "react";
 export default function Wishlist({
@@ -11,39 +11,47 @@ export default function Wishlist({
   id: number;
   small?: boolean;
 }) {
-  const {customer} = useUserStore();
-  const [wishlist, setWishlist] = React.useState(wishlisted)
+  const { customer } = useUserStore();
+  const [wishlist, setWishlist] = React.useState(wishlisted);
   const [loading, setLoading] = React.useState(false);
-  const Wishlist = async() => {
+  const Wishlist = async () => {
     setLoading(true);
-    if(customer.id){
-      if(wishlist){
-        axios.delete("customer/wishlist/",{params: {cid: customer.id, pid: id}}).then((data)=>{
-          console.log(data);
-          setWishlist(!wishlist);
-        }).catch((err)=>{
-          console.log(err)
-          showErrorAlert({text:"Something went wrong!"})
-        }).finally(()=>{
-          setLoading(false);
-        })
-      } else{
-        axios.post("customer/wishlist/",{cid: customer.id, id: id}).then((data)=>{
-          console.log(data);
-          setWishlist(!wishlist);
-        }).catch((err)=>{
-          console.log(err)
-          showErrorAlert({text:"Something went wrong!"})
-        }).finally(()=>{
-          setLoading(false);
-        })
+    if (customer.id) {
+      if (wishlist) {
+        axios
+          .delete("customer/wishlist/", {
+            params: { cid: customer.id, pid: id },
+          })
+          .then((data) => {
+            console.log(data);
+            setWishlist(!wishlist);
+          })
+          .catch((err) => {
+            console.log(err);
+            showErrorAlert({ text: "Something went wrong!" });
+          })
+          .finally(() => {
+            setLoading(false);
+          });
+      } else {
+        axios
+          .post("customer/wishlist/", { cid: customer.id, id: id })
+          .then((data) => {
+            console.log(data);
+            setWishlist(!wishlist);
+          })
+          .catch((err) => {
+            console.log(err);
+            showErrorAlert({ text: "Something went wrong!" });
+          })
+          .finally(() => {
+            setLoading(false);
+          });
       }
-      
-    } else{
-      showErrorAlert({text:"Plase login first to wishlist!"})
+    } else {
+      showErrorAlert({ text: "Plase login first to wishlist!" });
     }
-    
-  }
+  };
   return (
     <button
       onClick={Wishlist}

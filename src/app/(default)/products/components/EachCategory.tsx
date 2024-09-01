@@ -7,7 +7,10 @@ import { MEDIA_URL } from "@/utils/axios";
 export default function EachCategory({ category }: { category: category }) {
   const t = useTranslations("product");
   return (
-    <div className="xl:w-[375px] sm:w-full w-fit mx-auto h-fit flex flex-row gap-4 md:py-5 md:px-[18px] p-[18px] bg-white-400 rounded-[18px] align-middle justify-center">
+    <Link
+      href={`/category/${category.name}`}
+      className="xl:w-[375px] sm:w-full w-fit mx-auto h-fit flex flex-row gap-4 md:py-5 md:px-[18px] p-[18px] bg-white-400 rounded-[18px] align-middle justify-center"
+    >
       <div className="xl:size-[110px] lg:size-20 md:size-[50px] size-10 my-5 rounded-md overflow-hidden relative">
         <img
           src={MEDIA_URL + category.image}
@@ -19,10 +22,7 @@ export default function EachCategory({ category }: { category: category }) {
         <p className="font-sora md:font-bold font-semibold xl:text-[32px] md:text-xl">
           {category.name}
         </p>
-        <Link
-          className="text-khaki-500 flex flex-row gap-2 xl:text-base md:text-xs text-[10px]"
-          href={`/category/${category.name}`}
-        >
+        <div className="text-khaki-500 flex flex-row gap-2 xl:text-base md:text-xs text-[10px]">
           <div className="xl:size-4 size-2.5 md:block hidden mt-1 relative">
             <Image
               src={Arrow}
@@ -42,9 +42,9 @@ export default function EachCategory({ category }: { category: category }) {
               className="size-full object-cover"
             />
           </div>
-        </Link>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }
 export interface category {

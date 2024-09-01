@@ -1,10 +1,12 @@
 "use client";
 import React from "react";
 import MessageInput from "./MessageInput";
-import { useTranslations } from "next-intl";
 import Input from "@/components/input/Input";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 
 export default function JoinOurCommunity() {
+  const router = useRouter();
   const [input, setInput] = React.useState({
     name: "",
     email: "",
@@ -19,8 +21,7 @@ export default function JoinOurCommunity() {
   const setMessage = (m: string) => {
     setInput({ ...input, message: m });
   };
-  const disabled =
-    input.name === "" || input.email === "" || input.message === "";
+  const disabled = input.name === "" || input.message === "";
   const t = useTranslations();
   return (
     <div className="flex flex-col xl:gap-[50px] gap-8">
@@ -44,17 +45,23 @@ export default function JoinOurCommunity() {
           placeholder={t("input.name")}
           required
         />
-        <Input
+        {/* <Input
           value={input.email}
           setValue={setEmail}
           id="email"
           label={t("input.email")}
           placeholder={t("input.email")}
           required
-        />
+        /> */}
         <MessageInput message={input.message} setMessage={setMessage} />
         <button
           disabled={disabled}
+          onClick={() => {
+            window.open(
+              `mailto:moonseng.dev@gmail.com?subject=${input.name}&body=${input.message}`,
+              "_blank",
+            );
+          }}
           className="w-fit h-[50px] block py-[12px] px-[28px] rounded-xl text-lg text-center ml-auto bg-khaki-500 font-semibold text-white hover:bg-khaki-700 disabled:bg-grey-50 duration-300"
         >
           {t("contact.submit-now")}

@@ -119,7 +119,7 @@ export default function ProductDetails({
         showErrorAlert({ text: "Something went wrong!" });
         setLoading(false);
       });
-    if(token === null) return;
+    if (token === null) return;
     axios
       .get("customer/wishlist/", { params: { cid: customer.id } })
       .then((data) => {

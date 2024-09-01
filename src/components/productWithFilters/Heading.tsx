@@ -18,7 +18,7 @@ export default function CateogryHeading({
         </p>
         <p className="md:leading-8 leading-4">
           <span className="text-grey-100 md:text-base text-sm">
-            t("category") -{" "}
+            {t("category")} -{" "}
           </span>
           {category}
         </p>

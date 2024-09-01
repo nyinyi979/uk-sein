@@ -14,18 +14,19 @@ export async function generateMetadata(
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   // read route params
-  const id = params.productID;
 
   // fetch data
-  // const product = await fetch(`https://.../${id}`).then((res) => res.json())
+  const data = await fetch(
+    `https://backend.uksein.com/api/product/?id=${params.productID}`,
+  ).then((data) => data.json());
 
   // optionally access and extend (rather than replace) parent metadata
-  const previousImages = (await parent).openGraph?.images || [];
+  const previousImages = data.images[0]?.image || "";
 
   return {
-    title: "Sample product",
+    title: data.name,
     openGraph: {
-      images: ["/sampleDiscount.png", ...previousImages],
+      images: previousImages,
     },
   };
 }

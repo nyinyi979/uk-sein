@@ -22,7 +22,7 @@ export function showSuccessAlert({ text }: { text: string }) {
   setTimeout(() => {
     pop_up.style.opacity = "0";
     pop_up.style.top = "-24rem";
-  }, 44000);
+  }, 4400);
 }
 export function showErrorAlert({ text }: { text: string }) {
   const pop_up = document.getElementById("e_popup")!;

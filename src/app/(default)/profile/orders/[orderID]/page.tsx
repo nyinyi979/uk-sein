@@ -7,7 +7,7 @@ import { Initial_Order } from "@/types/order";
 export default function ({ params }: { params: { orderID: string } }) {
   const [order, setOrder] = React.useState(Initial_Order);
   React.useEffect(() => {
-    axios.get("order/", { params: { id: order.id } }).then((data) => {
+    axios.get("order/", { params: { id: params.orderID } }).then((data) => {
       setOrder(data.data);
     });
   }, []);

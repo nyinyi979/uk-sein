@@ -98,7 +98,7 @@ export const useUserStore = create<
         set(() => ({ token: token }));
       },
       setCustomer: (customer: customer) => {
-        set(() => ({ customer: customer }));
+        set(() => ({ customer: {...customer} }));
       },
       setPayments: (payment_search: payment_search[]) => {
         set(() => ({ payments: payment_search }));

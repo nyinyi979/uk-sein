@@ -1,5 +1,5 @@
-import { Metadata } from "next";
 import Login from "./components/Login";
+import { Metadata } from "next";
 
 export default Login;
 

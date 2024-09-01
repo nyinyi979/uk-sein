@@ -14,7 +14,7 @@ import { customer } from "@/types/order";
 export default function Profile() {
   const { customer, token, setCustomer } = useUserStore((state) => state);
   const [loading, setLoading] = React.useState(true);
-  const [input, setInput] = React.useState({ ...customer });
+  const [input, setInput] = React.useState(customer);
   const [password, setPassword] = React.useState({
     phone: customer!.phone || "",
     old_password: "",
@@ -28,7 +28,7 @@ export default function Profile() {
   };
   const updateCustomer = (c: customer) => {
     axios
-      .put("customer/", { data: input })
+      .put("customer/", { data: c })
       .then((data) => {
         setCustomer(data.data);
         showSuccessAlert({ text: "Updated successfully!" });
@@ -64,9 +64,11 @@ export default function Profile() {
         password.password === ""
       ) {
         showErrorAlert({ text: "Please put all the required value" });
+        setLoading(false);
         return;
       } else if (password.password !== password.re_password) {
         showErrorAlert({ text: "Password must be same!" });
+        setLoading(false);
         return;
       }
       axios
@@ -96,6 +98,7 @@ export default function Profile() {
       const cid = JSON.parse(localStorage.getItem("user")!);
       axios.get("customer/user/", { params: { uid: cid.id } }).then((data) => {
         setCustomer(data.data);
+        setInput(data.data)
         setLoading(false);
       });
     }
