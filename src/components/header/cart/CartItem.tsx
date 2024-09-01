@@ -28,7 +28,6 @@ export default function CartItem({
       newCartItems[index].subtotal =
         `${(Number(newCartItems[index].subtotal) / Number(newCartItems[index].quantity)) * value}`;
       newCartItems[index].quantity = value;
-      console.log(newCartItems[index]);
     }
     setCartItems(newCartItems);
   };

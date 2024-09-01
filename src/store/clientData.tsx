@@ -68,16 +68,16 @@ export const useUserStore = create<
         );
         if (index !== -1) {
           if (
-            curCartItems[index].quantity + 1 <=
+            curCartItems[index].quantity + item.quantity >
             curCartItems[index].number_of_stock
           )
             return;
           const newCartItems = [...curCartItems];
-          newCartItems[index].quantity += 1;
+          newCartItems[index].quantity += item.quantity;
           newCartItems[index].subtotal =
             `${newCartItems[index].quantity * Number(newCartItems[index].regular_price)}`;
-
-          console.log(newCartItems);
+          console.log(curCartItems[index].quantity + item.quantity ,
+            curCartItems[index].number_of_stock)
           set(() => ({ cartItems: newCartItems }));
         } else {
           const newCartItems = [...curCartItems];

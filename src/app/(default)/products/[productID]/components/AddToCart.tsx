@@ -36,7 +36,7 @@ export default function ProductAddToCart({
         <Image src={AddToCartSvg} alt="add to cart" width={22} height={22} />
         <p className="font-semibold">{t("add-to-cart")} </p>
       </button>
-      <WishList id={product.id} wishlisted={index !== -1 ? true : false} />
+      <WishList id={product.id} wishlistID={wishlists[index]?.id||0} wishlisted={index !== -1 ? true : false} />
       <button className="w-[58px] h-full py-[14px] px-[18px] bg-white-400 rounded-xl">
         <Image
           src={ShareSvg}

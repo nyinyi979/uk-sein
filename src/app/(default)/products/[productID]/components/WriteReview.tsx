@@ -22,7 +22,6 @@ export default function WriteReview({
   const onSubmit = () => {
     setLoading(true);
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-    console.log(customer);
     axios
       .post("product/review/", {
         data: {

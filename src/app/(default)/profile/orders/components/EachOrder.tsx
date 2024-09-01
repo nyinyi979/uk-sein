@@ -29,7 +29,6 @@ export default function EachOrder({
     });
     return c;
   }, []);
-  console.log(index, order);
   const checked = orderStatus === "" || orderStatus === status;
   const size = useWindowSize();
   const router = useRouter();

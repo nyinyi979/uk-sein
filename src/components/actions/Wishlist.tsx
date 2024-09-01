@@ -1,12 +1,14 @@
 import { useUserStore } from "@/store/clientData";
-import axios from "@/utils/axios";
 import { showErrorAlert } from "../Alert";
+import axios from "@/utils/axios";
 import React from "react";
 export default function Wishlist({
   id,
   wishlisted = false,
   small = false,
+  wishlistID
 }: {
+  wishlistID: number;
   wishlisted?: boolean;
   id: number;
   small?: boolean;
@@ -20,10 +22,9 @@ export default function Wishlist({
       if (wishlist) {
         axios
           .delete("customer/wishlist/", {
-            params: { cid: customer.id, pid: id },
+            params: { id: wishlistID },
           })
           .then((data) => {
-            console.log(data);
             setWishlist(!wishlist);
           })
           .catch((err) => {
@@ -37,7 +38,6 @@ export default function Wishlist({
         axios
           .post("customer/wishlist/", { cid: customer.id, id: id })
           .then((data) => {
-            console.log(data);
             setWishlist(!wishlist);
           })
           .catch((err) => {

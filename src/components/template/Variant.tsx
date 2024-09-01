@@ -25,7 +25,6 @@ export default function Variant({ small, variation }: smallLargeProduct) {
     axios
       .get("product/review/", { params: { id: product } })
       .then((data) => {
-        console.log(data);
         setReviews(data.data);
       })
       .catch((err) => {

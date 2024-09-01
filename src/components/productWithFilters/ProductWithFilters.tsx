@@ -28,7 +28,6 @@ export default function ProductWithFilters({
 }) {
   const { categoryName } = params;
   const para = useSearchParams();
-  console.log(para.get("id"))
   const [hidden, setHidden] = React.useState(true);
   const [result, setResult] = React.useState<result>({
     count: 10,

@@ -65,7 +65,6 @@ export default function ProductDetails({
         axios
           .get("product/review/", { params: { id: data.data.id } })
           .then((data) => {
-            console.log(data);
             setReview({
               reviews: data.data,
               loading: false,

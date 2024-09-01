@@ -153,7 +153,6 @@ export default function ProductDetail({
       availSize,
     };
   }, [variantProps]);
-  console.log(activeVariant);
   const toggleSize = (size: string) => {
     if (variantProps.size === size)
       setVariantProps({ ...variantProps, size: "" });
