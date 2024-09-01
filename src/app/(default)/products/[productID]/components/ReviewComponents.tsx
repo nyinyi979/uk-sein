@@ -16,7 +16,7 @@ export function EachReview({ rv }: { rv: review }) {
             <img
               src={MEDIA_URL + rv.customer?.avatar || "Thumbnail.jpg"}
               alt="user image"
-              className="size-full object-cover"
+              className="size-full object-cover rounded-full"
             />
           </div>
           <div className="flex flex-col gap-0.5">
