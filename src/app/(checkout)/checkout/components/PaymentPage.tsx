@@ -18,19 +18,23 @@ export default function PaymentPage({
   payment,
   setPayment,
   setImage,
+  currency,
+  setCurrency,
+  usd
 }: {
   totalPrice: number;
   payment: paymentInOrder;
   setPayment: Dispatch<SetStateAction<paymentInOrder>>;
   setImage: (f: File) => void;
+  currency: "MMK"|"USD",
+  setCurrency: Dispatch<SetStateAction<"MMK"|"USD">>,
+  usd: number;
 }) {
-  const [usd, setUsd] = React.useState(5500);
   const [payments, setPayments] = React.useState<payment_search[]>([]);
   console.log(payments)
   const [selectedPayment, setSelectedPayment] = React.useState<null | number>(
     null
   );
-  const [currency, setCurrency] = React.useState<"MMK"|"USD">("MMK");
   const updateSelectedPayment = (p: number) => {
     setSelectedPayment(p);
     setPayment({
