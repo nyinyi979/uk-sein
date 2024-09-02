@@ -13,11 +13,13 @@ export default function SecondPage({
   setCustomer,
   validateInfo,
   setFirstPage,
+  loading,
 }: {
   customer: CustomerCreate;
   setCustomer: Dispatch<SetStateAction<CustomerCreate>>;
   validateInfo: () => void;
   setFirstPage: Dispatch<SetStateAction<boolean>>;
+  loading: boolean;
 }) {
   const customer_addresses = customer.customer_addresses[0];
   const secondPageNotEmpty =
@@ -58,13 +60,19 @@ export default function SecondPage({
           setCustomer(newCustomer);
         }}
       />
-      <button
-        disabled={!secondPageNotEmpty}
-        onClick={validateInfo}
-        className={`w-full mt-5 py-[18px] xl:text-2xl font-semibold font-sora rounded-[18px] text-white bg-khaki-600 hover:bg-khaki-700 disabled:bg-white-700 duration-300`}
-      >
-        {t("continue")}
-      </button>
+      {loading ? (
+        <div className="w-full flex items-center justify-center rounded-[18px] py-[18px] bg-khaki-500">
+          <span className="loader"></span>
+        </div>
+      ) : (
+        <button
+          disabled={!secondPageNotEmpty}
+          onClick={validateInfo}
+          className={`w-full mt-5 py-[18px] xl:text-2xl font-semibold font-sora rounded-[18px] text-white bg-khaki-600 hover:bg-khaki-700 disabled:bg-white-700 duration-300`}
+        >
+          {t("continue")}
+        </button>
+      )}
     </motion.div>
   );
 }

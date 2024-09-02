@@ -7,6 +7,7 @@ import SecondPage from "./SecondPage";
 import Link from "next/link";
 import SignUpBack from "./SignupBack";
 import axios from "@/utils/axios";
+import {generateUsername} from "unique-username-generator"
 import { useRouter } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
@@ -15,10 +16,11 @@ import { showErrorAlert, showSuccessAlert } from "@/components/Alert";
 
 export default function Signup() {
   const router = useRouter();
+  const [loading, setLoading] = React.useState(false);
   const [image, setImage] = React.useState<File | null>(null);
   const [customer, setCustomer] = React.useState<CustomerCreate>({
     name: "",
-    username: "",
+    username: generateUsername(),
     phone: "",
     email: "",
     gender: "Other",
@@ -42,7 +44,7 @@ export default function Signup() {
     const formData = new FormData();
     formData.append("image0", image!);
     formData.append("length", "1");
-
+    setLoading(true);
     axios
       .post("file/", formData, {
         headers: {
@@ -56,10 +58,12 @@ export default function Signup() {
           .then(() => {
             showSuccessAlert({ text: "Successfully created an account!" });
             router.push("/login");
+            setLoading(false);
           })
           .catch(() => {
             showErrorAlert({ text: "Something went wrong!" });
             router.push("/");
+            setLoading(false);
           });
       });
   };
@@ -86,6 +90,7 @@ export default function Signup() {
               setCustomer={setCustomer}
               setFirstPage={setFirstPage}
               validateInfo={validateInfo}
+              loading={loading}
             />
           )}
         </AnimatePresence>
