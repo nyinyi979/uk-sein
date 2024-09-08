@@ -75,7 +75,6 @@ export default function Checkout() {
     newOrder.subtotal = `${totalPrice}`;
     if(currency === "USD") {
       newOrder.total_usd = Number(totalPrice)/usd;
-      newOrder.total = 0;
     }
     if (page === "Shipping") {
       if (cartItems.length === 0) {
