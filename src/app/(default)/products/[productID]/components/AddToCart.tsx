@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { useUserStore } from "@/store/clientData";
 import { product } from "@/types/type";
 import AddToCart from "@/components/AddToCart";
+import { showSuccessAlert } from "@/components/Alert";
 
 export default function ProductAddToCart({
   product,
@@ -16,6 +17,11 @@ export default function ProductAddToCart({
   activeVariant: number;
   quantity: number;
 }) {
+  const copy = () =>{
+    console.log(window.location.href)
+    navigator.clipboard.writeText(window.location.href);
+    showSuccessAlert({text: "Product link copied!"})
+  }
   const t = useTranslations("product");
   const { addCartItems, wishlists } = useUserStore((store) => store);
   const index = wishlists.findIndex((w) => w.product.id === product.id);
@@ -41,7 +47,7 @@ export default function ProductAddToCart({
         wishlistID={wishlists[index]?.id || 0}
         wishlisted={index !== -1 ? true : false}
       />
-      <button className="w-[58px] h-full py-[14px] px-[18px] bg-white-400 rounded-xl">
+      <button onClick={copy} className="w-[58px] h-full py-[14px] px-[18px] bg-white-400 rounded-xl">
         <Image
           src={ShareSvg}
           alt="share icon"
