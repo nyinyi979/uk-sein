@@ -41,6 +41,7 @@ export default function EachOrder({
     router.replace("/profile/orders");
   };
   const t = useTranslations("orders");
+  const isUSD = Number(order.total_usd) > 0;
   return (
     <>
       <TableRow>
@@ -60,7 +61,7 @@ export default function EachOrder({
           </div>
         </TableCell>
         <TableCell className="ssm:table-cell hidden text-center">
-          {order.total.toLocaleString()} MMK
+          {isUSD? Number(order.total_usd).toLocaleString() : Number(order.total).toLocaleString()} {isUSD? "$" : "MMK"}
         </TableCell>
         <TableCell className="md:table-cell hidden text-center">
           ({count})

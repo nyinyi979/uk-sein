@@ -73,6 +73,10 @@ export default function Checkout() {
     newOrder.products = cartItems;
     newOrder.total = totalPrice;
     newOrder.subtotal = `${totalPrice}`;
+    if(currency === "USD") {
+      newOrder.total_usd = Number(totalPrice)/usd;
+      newOrder.total = 0;
+    }
     if (page === "Shipping") {
       if (cartItems.length === 0) {
         showErrorAlert({
@@ -198,6 +202,8 @@ export default function Checkout() {
             cartItems={cartItems}
             removeItem={removeItem}
             totalPrice={totalPrice}
+            usd={usd}
+            currency={currency}
           />
         )}
       </AnimatePresence>

@@ -37,12 +37,12 @@ export function CartSummaryHeader({
     </div>
   );
 }
-export function CartFooter({ totalPrice }: { totalPrice: number }) {
+export function CartFooter({ totalPrice, isUSD }: { totalPrice: number, isUSD: boolean }) {
   const t = useTranslations("checkout");
   return (
     <div className="flex flex-row pt-4 pb-[22px] px-8 font-bold">
       <p className="xl:text-xl text-lg">{t("total")}</p>
-      <p className="ml-auto text-2xl">{totalPrice.toLocaleString()} Ks</p>
+      <p className="ml-auto text-2xl">{totalPrice.toLocaleString()} {isUSD ? "$" : "Ks"}</p>
     </div>
   );
 }

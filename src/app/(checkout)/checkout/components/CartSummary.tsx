@@ -9,11 +9,15 @@ export default function CartSummary({
   removeItem,
   closeCart,
   totalPrice,
+  currency,
+  usd
 }: {
   cartItems: cartItem[];
   totalPrice: number;
   removeItem: (ind: number) => void;
   closeCart: () => void;
+  usd: number;
+  currency: "MMK"|"USD"
 }) {
   return (
     <motion.div
@@ -64,7 +68,7 @@ export default function CartSummary({
             />
           ))}
         </div>
-        <CartFooter totalPrice={totalPrice} />
+        <CartFooter totalPrice={currency === "MMK" ? totalPrice : totalPrice/usd} isUSD={currency==="MMK"? false: true} />
       </motion.div>
     </motion.div>
   );

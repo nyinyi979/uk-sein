@@ -33,6 +33,7 @@ export interface order {
     map: string;
     state: string;
   };
+  total_usd: number;
   created_at: string;
   updated_at: string;
 }
@@ -76,6 +77,7 @@ export const Initial_Order: order = {
   order_no: 0,
   subtotal: "",
   total: 0,
+  total_usd: 0,
   discount: "0",
   screenshot: "",
   delivery_company: "",

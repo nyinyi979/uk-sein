@@ -3,6 +3,7 @@ import { order } from "@/types/order";
 import { cartItem } from "@/store/clientData";
 
 export default function ProductTable({ order }: { order: order }) {
+  const isUSD = Number(order.total_usd) > 0;
   const t = useTranslations("orders");
   return (
     <div className="flex flex-col md:py-6 px-[28px] md:bg-white md:shadow-dropdown">
@@ -21,7 +22,7 @@ export default function ProductTable({ order }: { order: order }) {
         </div>
         <div>
           {order.products.map((p) => (
-            <ProductRow key={p.variation_product + p.created_at} {...p} />
+            <ProductRow key={p.variation_product + p.created_at} {...p} isUSD={isUSD}/>
           ))}
         </div>
         <div className="md:block flex">
@@ -30,7 +31,7 @@ export default function ProductTable({ order }: { order: order }) {
             {t("grand-total")}
           </p>
           <p className="ml-auto font-bold xl:text-xl text-lg text-right">
-            {order.total.toLocaleString()} MMK
+            {isUSD ? Number(order.total_usd).toLocaleString() : Number(order.total).toLocaleString()} {isUSD ? "$" : "MMK"}
           </p>
         </div>
       </div>
@@ -46,7 +47,8 @@ function ProductRow({
   quantity,
   subtotal,
   code,
-}: cartItem) {
+  isUSD,
+}: productRow) {
   const locale = useLocale();
   const t = useTranslations();
   return (
@@ -100,4 +102,8 @@ function ProductRow({
       </p>
     </div>
   );
+}
+
+interface productRow extends cartItem{
+  isUSD: boolean
 }
