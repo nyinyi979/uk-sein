@@ -14,6 +14,7 @@ import ProductsCarousel from "@/components/template/ProductCarousel";
 import { product, review } from "@/types/type";
 import { showErrorAlert } from "@/components/Alert";
 import { useUserStore } from "@/store/clientData";
+import { useReviewStore } from "@/store/review";
 
 export default function ProductDetails({
   params,
@@ -35,12 +36,13 @@ export default function ProductDetails({
     updated_at: "2024",
     variations: [],
   });
+  const { reviewsData, getReviews } = useReviewStore();
   const [review, setReview] = React.useState<{
     reviews: review[];
     loading: boolean;
   }>({
-    loading: true,
-    reviews: [],
+    loading: reviewsData[params.productID] ? false : true,
+    reviews: reviewsData[params.productID]||[],
   });
   const [loading, setLoading] = React.useState(true);
   const [variantProps, setVariantProps] = React.useState({
@@ -62,18 +64,9 @@ export default function ProductDetails({
       .then((data) => {
         setProduct(data.data);
         setLoading(false);
-
-        axios
-          .get("product/review/", { params: { id: data.data.id } })
-          .then((data) => {
-            setReview({
-              reviews: data.data,
-              loading: false,
-            });
-          })
-          .catch((err) => {
-            showErrorAlert({ text: "Something went wrong fetching reviews!" });
-          });
+        getReviews(params.productID).then((val) => {
+          setReview({loading: false, reviews: val });
+        });
       })
       .catch(() => {
         showErrorAlert({ text: "Something went wrong!" });
@@ -102,7 +95,7 @@ export default function ProductDetails({
     else imgs.push(product.variations[activeVariant].images[0]);
     return imgs;
   }, [product, variantProps]);
-  
+
   return (
     <div className="xl:w-[1192px] md:w-[85%] sm:w-[90%] w-full mx-auto xl:py-20 py-10">
       <ProductTitle category={product.categories[0] || ""} />
