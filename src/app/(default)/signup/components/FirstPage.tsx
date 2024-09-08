@@ -22,7 +22,6 @@ export default function FirstPage({
   const firstPageNotEmpty =
     customer.name != "" &&
     customer.phone != "" &&
-    customer.email != "" &&
     customer.gender != "" &&
     customer.password != "" &&
     customer.password_confirm != "" &&
@@ -67,7 +66,6 @@ export default function FirstPage({
         id="mail"
         label={t("input.email")}
         placeholder={t("input.email")}
-        required
       />
       <GenderInput
         gender={customer.gender}

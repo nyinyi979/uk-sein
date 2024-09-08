@@ -6,7 +6,7 @@ import { useUserStore } from "@/store/clientData";
 import { useTranslations } from "next-intl";
 
 export default function Drawer({ hide }: { hide: () => void }) {
-  const token = useUserStore((state) => state.token);
+  const { token } = useUserStore();
   const t = useTranslations("product");
   return (
     <motion.div
@@ -24,7 +24,7 @@ export default function Drawer({ hide }: { hide: () => void }) {
         mass: 1,
         damping: 6.67,
       }}
-      className="fixed size-full xl:hidden block top-0 left-0 z-[300]"
+      className="fixed size-full xl:hidden block top-0 left-0 z-[300] bg-popup-bg"
       onClick={hide}
     >
       <motion.div
@@ -42,18 +42,13 @@ export default function Drawer({ hide }: { hide: () => void }) {
           mass: 1,
           damping: 6.67,
         }}
-        drag={"x"}
-        dragConstraints={{ left: -200, right: 0 }}
-        onDrag={(ev, info) => {
-          if (info.point.x < 250) hide();
-        }}
         onClick={(ev) => ev.stopPropagation()}
-        className="md:w-[350px] sm:w-[276px] w-fit h-full md:pt-[83px] pt-10 md:pl-[50px] sm:pl-5 pl-2 pb-10 bg-white shadow-drawer overflow-y-auto"
+        className="md:w-[350px] sm:w-[276px] w-fit h-full pt-10 md:pl-[50px] sm:pl-5 pl-2 pb-10 bg-white shadow-drawer overflow-y-auto"
       >
         <div className="w-fit flex flex-col gap-6">
           <p className="font-semibold text-2xl">{t("explore-now")}</p>
           <NavigationLinks hide={hide} />
-          {token !== "" && <ProfileLinks hide={hide} />}
+          {token !== null && <ProfileLinks hide={hide} />}
           <SignOutIn hide={hide} />
         </div>
       </motion.div>

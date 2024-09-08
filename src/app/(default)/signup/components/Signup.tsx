@@ -7,7 +7,7 @@ import SecondPage from "./SecondPage";
 import Link from "next/link";
 import SignUpBack from "./SignupBack";
 import axios from "@/utils/axios";
-import {generateUsername} from "unique-username-generator"
+import { generateUsername } from "unique-username-generator";
 import { useRouter } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";

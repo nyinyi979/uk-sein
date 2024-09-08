@@ -29,7 +29,7 @@ export default function CartFooter({
         onClick={onClick}
         className="xl:w-[500px] md:w-[420px] sm:w-[340px] mx-auto md:py-6 py-4 px-2.5 rounded-[18px] bg-khaki-500 font-semibold font-sora xl:text-2xl md:text-xl text-center text-white hover:bg-khaki-700 duration-300"
       >
-        {t("check-out-now")}
+        {t("make-payment")}
       </button>
     </div>
   );

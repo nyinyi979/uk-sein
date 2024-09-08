@@ -4,9 +4,10 @@ import axios from "@/utils/axios";
 import { useTranslations } from "next-intl";
 import EachCategory, { category, CategoryLoading } from "./EachCategory";
 import { showErrorAlert } from "@/components/Alert";
+import { useCategoryStore } from "@/store/category";
 
 export default function Categories() {
-  const [categories, setCategories] = React.useState<category[]>([]);
+  const { categories, setCategories } = useCategoryStore();
   const [loading, setLoading] = React.useState(false);
   React.useEffect(() => {
     setLoading(true);

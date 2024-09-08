@@ -8,6 +8,7 @@ import { useTranslations } from "next-intl";
 import Toggle from "@/components/actions/Toggle";
 import React, { Dispatch, SetStateAction } from "react";
 import { variant } from "@/types/type";
+import { category } from "@/app/(default)/products/components/EachCategory";
 const initialPossibleFilters: possibleFilters = {
   category: new Set(),
   color: new Set(),
@@ -15,6 +16,7 @@ const initialPossibleFilters: possibleFilters = {
   size: new Set(),
   maxium: 0,
   minimum: 0,
+  categories: [],
 };
 const initialFilters = {
   category: "",
@@ -24,6 +26,7 @@ const initialFilters = {
   size: "",
   maximum: 0,
   minimum: 0,
+  page: 1,
 };
 export default function Filter({
   filters,
@@ -34,6 +37,7 @@ export default function Filter({
   toggleMaterial,
   toggleSize,
   categoryName,
+  categories,
 }: Filter) {
   const [price, setPrice] = React.useState({
     maximum: "",
@@ -42,7 +46,6 @@ export default function Filter({
   const possibleFilters = React.useMemo(() => {
     const filt: possibleFilters = initialPossibleFilters;
     variations.map((v) => {
-      v.categories.map((c) => filt.category.add(c));
       filt.color.add(v.color);
       filt.material.add(v.material);
       filt.size.add(v.size);
@@ -54,6 +57,7 @@ export default function Filter({
       material: Array.from(filt.material),
       maximum: 0,
       minimum: 0,
+      categories: categories,
     };
   }, [variations]);
   const filterApplied =
@@ -122,10 +126,10 @@ export default function Filter({
           </div>
           <Toggle name={t("category")}>
             <CategoryFilter
-              categories={possibleFilters.category}
-              category={filters.category}
+              categories={possibleFilters.categories}
+              category={filters.cid}
               updateCategory={(category) =>
-                setFilters({ ...filters, category })
+                setFilters({ ...filters, cid: category.id })
               }
             />
           </Toggle>
@@ -175,13 +179,15 @@ export type filter = {
   size: string;
   material: string;
   category: string;
-  cid:string
+  page: number;
+  cid: string;
 };
 type possibleFilters = {
   color: Set<string>;
   size: Set<string>;
   material: Set<string>;
   category: Set<string>;
+  categories: category[];
   maxium: number;
   minimum: number;
 };
@@ -191,6 +197,7 @@ interface Filter {
   variations: variant[];
   categoryName: string;
   hide: () => void;
+  categories: category[];
   toggleMaterial: (mat: string) => void;
   toggleSize: (size: string) => void;
   toggleColor: (clr: string) => void;

@@ -19,13 +19,15 @@ export default function Login({
   hidden: boolean;
   toggle: () => void;
 }) {
-  const { token, setToken, setCustomer, setWishlists } = useUserStore((state) => state);
+  const { token, setToken, setCustomer, setWishlists } = useUserStore(
+    (state) => state,
+  );
   const router = useRouter();
   const logOut = () => {
     setToken(null);
     localStorage.removeItem("user");
     setCustomer(init_customer);
-    setWishlists([])
+    setWishlists([]);
     toggle();
     router.push("/");
   };

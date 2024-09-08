@@ -98,7 +98,7 @@ export default function Profile() {
       const cid = JSON.parse(localStorage.getItem("user")!);
       axios.get("customer/user/", { params: { uid: cid.id } }).then((data) => {
         setCustomer(data.data);
-        setInput(data.data)
+        setInput(data.data);
         setLoading(false);
       });
     }

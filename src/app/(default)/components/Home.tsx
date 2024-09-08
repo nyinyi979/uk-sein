@@ -14,7 +14,10 @@ export default function Home() {
       <ProductShowCase />
       <QualityAssureRow className="md:hidden" />
       <DiscountBanner imgURL="/images/promotion1.png" percent="40" />
-      <ProductsCarousel similarProduct={false} fetchURL="" />
+      <ProductsCarousel
+        similarProduct={false}
+        fetchURL="product/top-product/"
+      />
       <PromotionBanner />
       <ClientWorkdsCarousel />
     </div>

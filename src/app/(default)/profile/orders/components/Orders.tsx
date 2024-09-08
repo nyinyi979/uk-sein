@@ -36,8 +36,8 @@ export default function Orders() {
           params: { cid: customer.id, status: status },
         })
         .then((data) => {
-          const newData = structuredClone(data.data)
-          setResult(newData)
+          const newData = structuredClone(data.data);
+          setResult(newData);
         })
         .catch(() => showErrorAlert({ text: "Something went wrong!" }))
         .finally(() => setLoading(false));

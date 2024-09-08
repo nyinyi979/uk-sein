@@ -8,12 +8,12 @@ import ProductDescription from "./Description";
 import ProductNamePrice from "./NamePrice";
 import ProductRatings from "./Ratings";
 import ProductReviews from "./Reviews";
-import ProductsCarousel from "@/components/template/ProductCarousel";
 import ProductAddToCart from "./AddToCart";
+import useRatings from "@/components/template/useRatings";
+import ProductsCarousel from "@/components/template/ProductCarousel";
 import { product, review } from "@/types/type";
 import { showErrorAlert } from "@/components/Alert";
 import { useUserStore } from "@/store/clientData";
-import useRatings from "@/components/template/useRatings";
 
 export default function ProductDetails({
   params,
@@ -62,6 +62,7 @@ export default function ProductDetails({
       .then((data) => {
         setProduct(data.data);
         setLoading(false);
+
         axios
           .get("product/review/", { params: { id: data.data.id } })
           .then((data) => {
@@ -92,9 +93,16 @@ export default function ProductDetails({
   }, [token]);
   const images = React.useMemo(() => {
     const imgs: images[] = [];
-    product.variations.map((v) => v.images.map((img) => imgs.push(img)));
+    if (
+      variantProps.color === "" &&
+      variantProps.material === "" &&
+      variantProps.size === ""
+    )
+      product.variations.map((v) => v.images.map((img) => imgs.push(img)));
+    else imgs.push(product.variations[activeVariant].images[0]);
     return imgs;
-  }, [product]);
+  }, [product, variantProps]);
+  
   return (
     <div className="xl:w-[1192px] md:w-[85%] sm:w-[90%] w-full mx-auto xl:py-20 py-10">
       <ProductTitle category={product.categories[0] || ""} />
@@ -153,7 +161,7 @@ export default function ProductDetails({
               />
             </>
           )}
-          <ProductsCarousel fetchURL="" similarProduct />
+          <ProductsCarousel fetchURL="product/top-product/" similarProduct />
         </div>
       )}
     </div>

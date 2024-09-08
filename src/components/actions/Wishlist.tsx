@@ -6,7 +6,7 @@ export default function Wishlist({
   id,
   wishlisted = false,
   small = false,
-  wishlistID
+  wishlistID,
 }: {
   wishlistID: number;
   wishlisted?: boolean;
@@ -21,7 +21,7 @@ export default function Wishlist({
     if (customer.id) {
       if (wishlist) {
         axios
-          .post("customer/wishlist/remove/", { data: [wishlistID] },)
+          .post("customer/wishlist/remove/", { data: [wishlistID] })
           .then((data) => {
             setWishlist(!wishlist);
           })

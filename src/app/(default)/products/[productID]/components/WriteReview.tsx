@@ -12,7 +12,7 @@ export default function WriteReview({
   id: number;
   addReviews: (review: review) => void;
 }) {
-  const { customer, token } = useUserStore((store)=>store);
+  const { customer, token } = useUserStore((store) => store);
   const [loading, setLoading] = React.useState(false);
   const [review, setReview] = React.useState({
     review: "",

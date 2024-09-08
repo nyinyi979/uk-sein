@@ -17,21 +17,24 @@ export async function generateMetadata(
   // read route params
 
   // fetch data
-  let data = {images: [{image: "/sampleProduct.png"}], name: "Product"};
-  try{
+  let data = { images: [{ image: "/sampleProduct.png" }], name: "Product" };
+  try {
     data = await fetch(
       `https://backend.uksein.com/api/product/?id=${params.productID}`,
     ).then((data) => data.json());
-  } catch(err){
-    console.log(err)
+  } catch (err) {
+    console.log(err);
   }
   // optionally access and extend (rather than replace) parent metadata
-  const previousImages = data.images[0]?.image||"";
+  const previousImages = data.images[0]?.image || "";
 
   return {
     title: data.name,
     openGraph: {
-      images: previousImages==="/sampleProduct.png" ? previousImages : MEDIA_URL+previousImages,
+      images:
+        previousImages === "/sampleProduct.png"
+          ? previousImages
+          : MEDIA_URL + previousImages,
     },
   };
 }

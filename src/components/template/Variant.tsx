@@ -7,6 +7,7 @@ import { review, variant } from "@/types/type";
 import { useLocale } from "next-intl";
 import { MEDIA_URL } from "@/utils/axios";
 import { showErrorAlert } from "../Alert";
+import useRatings from "./useRatings";
 
 export default function Variant({ small, variation }: smallLargeProduct) {
   const locale = useLocale();
@@ -21,6 +22,7 @@ export default function Variant({ small, variation }: smallLargeProduct) {
     discount,
   } = variation;
   const [reviews, setReviews] = React.useState<review[]>([]);
+  const { rating, ratings } = useRatings({ reviews });
   React.useEffect(() => {
     axios
       .get("product/review/", { params: { id: product } })
@@ -65,7 +67,7 @@ export default function Variant({ small, variation }: smallLargeProduct) {
                 <span className="px-2 text-grey-200">({id})</span>
               </p>
             </div>
-            <RatingStars count={5} />
+            <RatingStars count={rating} />
             <p
               className={`font-bold font-sora ${small ? "xl:text-[32px] md:text-2xl text-xl" : "xl:text-[42px] md:text-[32px] text-xl leading-10"}`}
             >

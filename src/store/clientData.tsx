@@ -76,8 +76,6 @@ export const useUserStore = create<
           newCartItems[index].quantity += item.quantity;
           newCartItems[index].subtotal =
             `${newCartItems[index].quantity * Number(newCartItems[index].regular_price)}`;
-          console.log(curCartItems[index].quantity + item.quantity ,
-            curCartItems[index].number_of_stock)
           set(() => ({ cartItems: newCartItems }));
         } else {
           const newCartItems = [...curCartItems];
@@ -98,7 +96,7 @@ export const useUserStore = create<
         set(() => ({ token: token }));
       },
       setCustomer: (customer: customer) => {
-        set(() => ({ customer: {...customer} }));
+        set(() => ({ customer: { ...customer } }));
       },
       setPayments: (payment_search: payment_search[]) => {
         set(() => ({ payments: payment_search }));

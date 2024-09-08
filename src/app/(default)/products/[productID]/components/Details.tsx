@@ -36,9 +36,9 @@ export default function ProductDetail({
     const colors: Set<string> = new Set();
     const materials: Set<string> = new Set();
     variations.map((val, index) => {
-      sizes.add(val.size.toLowerCase());
-      colors.add(val.color.toLowerCase());
-      materials.add(val.material.toLowerCase());
+      sizes.add(decodeURI(val.size.toLowerCase()));
+      colors.add(decodeURI(val.color.toLowerCase()));
+      materials.add(decodeURI(val.material.toLowerCase()));
     });
     return {
       sizes: Array.from(sizes),

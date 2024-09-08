@@ -12,7 +12,8 @@ export default function ProductImages({
     created_at: string;
     updated_at: string;
     image: string;
-    variant: number;}[];
+    variant: number;
+  }[];
 }) {
   const [activeImg, setActiveImg] = React.useState(0);
   return (

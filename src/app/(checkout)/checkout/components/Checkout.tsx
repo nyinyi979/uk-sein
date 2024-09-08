@@ -18,7 +18,7 @@ import { showErrorAlert } from "@/components/Alert";
 
 export default function Checkout() {
   const [usd, setUsd] = React.useState(5500);
-  const [currency, setCurrency] = React.useState<"MMK"|"USD">("MMK");
+  const [currency, setCurrency] = React.useState<"MMK" | "USD">("MMK");
   const { token, cartItems, setCartItems, customer, setCustomer } =
     useUserStore((state) => state);
   const [order, setOrder] = React.useState(Initial_Order);
@@ -93,7 +93,8 @@ export default function Checkout() {
         axios.post("order/", { data: newOrder }).then((data) => {
           const newPayment = { ...payment };
           newPayment.order_id = data.data.id;
-          if(currency==="USD") newPayment.amount = `${Number(newPayment.amount) * usd}`;
+          if (currency === "USD")
+            newPayment.amount = `${Number(newPayment.amount) * usd}`;
           if (image) {
             const formData = new FormData();
             formData.append("image0", image as Blob);
