@@ -3,7 +3,7 @@ import CategoryDropdown from "./CategoryDropdown";
 import { AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Toggle from "@/components/actions/Toggle";
-import CategoryFilter from "@/components/actions/CategoryFilter";
+import CategoryFilter from "./CategoryFilter";
 
 export default function WhitelistCateogry({
   categories,

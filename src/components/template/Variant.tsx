@@ -22,15 +22,17 @@ export default function Variant({ small, variation }: smallLargeProduct) {
     regular_price,
     discount,
   } = variation;
-  const {getReviews, reviewsData} = useReviewStore();
-  const [reviews, setReviews] = React.useState<review[]>(reviewsData[product]||[]);
-  React.useEffect(()=>{
-    getReviews(product).then((val)=>{
+  const { getReviews, reviewsData } = useReviewStore();
+  const [reviews, setReviews] = React.useState<review[]>(
+    reviewsData[product] || [],
+  );
+  React.useEffect(() => {
+    getReviews(product).then((val) => {
       setReviews(val);
-    })
-  },[])
+    });
+  }, []);
   const { rating, ratings } = useRatings({ reviews });
-  
+
   return (
     <div className="flex flex-col gap-2.5">
       <Link href={`/products/${product}`}>

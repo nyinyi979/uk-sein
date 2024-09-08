@@ -42,7 +42,7 @@ export default function ProductDetails({
     loading: boolean;
   }>({
     loading: reviewsData[params.productID] ? false : true,
-    reviews: reviewsData[params.productID]||[],
+    reviews: reviewsData[params.productID] || [],
   });
   const [loading, setLoading] = React.useState(true);
   const [variantProps, setVariantProps] = React.useState({
@@ -65,7 +65,7 @@ export default function ProductDetails({
         setProduct(data.data);
         setLoading(false);
         getReviews(params.productID).then((val) => {
-          setReview({loading: false, reviews: val });
+          setReview({ loading: false, reviews: val });
         });
       })
       .catch(() => {

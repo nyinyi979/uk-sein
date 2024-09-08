@@ -1,5 +1,5 @@
-import CategoryFilter from "@/components/actions/CategoryFilter";
 import { motion } from "framer-motion";
+import CategoryFilter from "./CategoryFilter";
 
 export default function CategoryDropdown({
   categories,
