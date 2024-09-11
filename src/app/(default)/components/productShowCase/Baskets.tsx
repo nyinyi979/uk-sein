@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import MediumCard from "./MediumCard";
-import BasketsImage from "./images/baskets.png";
+import BasketsImage from "./images/baskets.jpg";
 import { useTranslations } from "next-intl";
 
 export default function Baskets() {
@@ -10,13 +10,13 @@ export default function Baskets() {
     <MediumCard
       heading={t("baskets")}
       image={
-        <div className="xl:w-[423px] w-full xl:h-[200px] h-full absolute xl:bottom-0 bottom-4 xl:-right-20 md:-right-32 -right-48">
+        <div className="w-full h-full absolute xl:bottom-0 bottom-4 xl:-right-20 md:-right-32 -right-48">
           <Image
             src={BasketsImage}
             alt="baskets"
             fill
             sizes="100%"
-            className="size-full object-cover"
+            className="size-full object-contain"
           />
         </div>
       }

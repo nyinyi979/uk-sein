@@ -1,11 +1,18 @@
+import React from "react";
+import useRatings from "./useRatings";
 import Link from "next/link";
 import RatingStars from "./Rating";
-import ProductAddToCart from "./AddToCart";
-import { product, variant } from "@/types/type";
+import { product } from "@/types/type";
 import { useLocale } from "next-intl";
 import { MEDIA_URL } from "@/utils/axios";
+import { useReviewStore } from "@/store/review";
 
 export default function Product({ small, product }: smallLargeProduct) {
+  const { getReviews, reviewsData } = useReviewStore();
+  const { rating } = useRatings({ reviews: reviewsData[product.id] || [] });
+  React.useEffect(() => {
+    getReviews(product.id);
+  }, []);
   const locale = useLocale();
   const { images, name, categories, mm_name, id, variations } = product;
   return (
@@ -42,7 +49,7 @@ export default function Product({ small, product }: smallLargeProduct) {
                 <span className="px-2 text-grey-200">({id})</span>
               </p>
             </div>
-            <RatingStars count={5} />
+            <RatingStars count={rating} />
             <p
               className={`font-bold font-sora ${small ? "xl:text-[32px] md:text-2xl text-xl" : "xl:text-[42px] md:text-[32px] text-xl leading-10"}`}
             >

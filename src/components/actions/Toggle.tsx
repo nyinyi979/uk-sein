@@ -41,12 +41,12 @@ export default function Toggle({
             initial={{ maxHeight: 0 }}
             animate={{ maxHeight: 500 }}
             // cause lags just a bit when adding the following line
-            // exit={{ maxHeight: 0 }}
+            exit={{ maxHeight: 0 }}
             transition={{
               duration: 0.2,
               type: "just",
             }}
-            className="h-fit overflow-y-hidden"
+            className="h-fit overflow-y-auto"
           >
             {children}
           </motion.div>

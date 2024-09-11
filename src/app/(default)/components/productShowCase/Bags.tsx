@@ -1,4 +1,4 @@
-import BagsImage from "./images/bags.png";
+import BagsImage from "./images/bags.jpg";
 import Image from "next/image";
 import SmallCard from "./SmallCard";
 import { useTranslations } from "next-intl";
@@ -14,7 +14,7 @@ export default function Bags() {
       pathClass="fill-grey-500"
       content={t("bags-tag")}
     >
-      <div className="xl:w-[255px] xl:h-[290px] w-[142px] h-[164px] absolute top-0 right-0">
+      <div className="w-full h-full absolute top-0 right-0">
         <Image
           src={BagsImage}
           alt="bags"

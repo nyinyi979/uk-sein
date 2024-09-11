@@ -1,6 +1,6 @@
 import { category } from "@/app/(default)/products/components/EachCategory";
 import { MEDIA_URL } from "@/utils/axios";
-import Image from "next/image";
+import React from "react";
 
 export default function CategoryFilter({
   categories,
@@ -15,10 +15,9 @@ export default function CategoryFilter({
     <div className="flex flex-col gap-3">
       {categories.map((c) => (
         <button
-          disabled={category == c.id}
           onClick={() => updateCategory(c)}
           key={c.id}
-          className={`flex flex-row gap-3 px-2 py-2.5 rounded-[10px] disabled:bg-white-700 hover:bg-white-500 duration-300`}
+          className={`flex flex-row gap-3 px-2 py-2.5 rounded-[10px] ${Number(category)===Number(c.id)&&'bg-white-700'} hover:bg-white-500 duration-300`}
         >
           <div className="size-8 relative">
             <img

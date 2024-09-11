@@ -1,12 +1,10 @@
 import React from "react";
 import Link from "next/link";
-import axios from "@/utils/axios";
 import RatingStars from "./Rating";
 import ProductAddToCart from "./AddToCart";
 import { review, variant } from "@/types/type";
 import { useLocale } from "next-intl";
 import { MEDIA_URL } from "@/utils/axios";
-import { showErrorAlert } from "../Alert";
 import useRatings from "./useRatings";
 import { useReviewStore } from "@/store/review";
 

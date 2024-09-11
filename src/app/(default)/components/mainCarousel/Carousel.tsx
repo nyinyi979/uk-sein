@@ -3,9 +3,9 @@ import React from "react";
 import Image from "next/image";
 import CarouselButtons from "./MainCarouselButtons";
 import CarouselText from "./CarouselText";
-import Image1 from "./images/01.png";
-import Image2 from "./images/02.png";
-import Image3 from "./images/03.png";
+import Image1 from "./images/01.jpg";
+import Image2 from "./images/02.jpg";
+import Image3 from "./images/03.jpg";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -32,7 +32,7 @@ export default function MainProductsCarousel() {
           alt="Product"
           fill
           sizes="100%"
-          className="w-auto h-auto relative z-[2]"
+          className="w-full h-full object-cover relative z-[2]"
         />
       </SwiperSlide>
       <SwiperSlide className="z-[1]">
@@ -41,7 +41,7 @@ export default function MainProductsCarousel() {
           alt="Product"
           fill
           sizes="100%"
-          className="w-auto h-auto relative z-[2]"
+          className="w-full h-full object-cover relative z-[2]"
         />
       </SwiperSlide>
       <SwiperSlide className="z-[1]">
@@ -50,7 +50,7 @@ export default function MainProductsCarousel() {
           alt="Product"
           fill
           sizes="100%"
-          className="w-auto h-auto relative z-[2]"
+          className="w-full h-full object-cover relative z-[2]"
         />
       </SwiperSlide>
       <CarouselButtons />

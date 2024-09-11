@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import FloorMatImage from "./images/floorMat.png";
+import FloorMatImage from "./images/floorMat.jpg";
 import { useTranslations } from "next-intl";
 
 export default function FloorMat() {
@@ -12,9 +12,9 @@ export default function FloorMat() {
           <p className="font-bold font-sora xl:text-[56px] md:text-[32px] text-lg xl:leading-[70.56px] md:leading-[40.32px] leading-[22.68px]">
             {t("floor-mat")}
           </p>
-          <p className="xl:font-medium font-normal md:text-sm text-xs md:leading-auto leading-[15px]">
+          {/* <p className="xl:font-medium font-normal md:text-sm text-xs md:leading-auto leading-[15px]">
             {t("floor-mat-tag")}
-          </p>
+          </p> */}
         </div>
         <Link
           href={"/products"}

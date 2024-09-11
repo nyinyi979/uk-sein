@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import MediumCard from "./MediumCard";
-import ChairsImage from "./images/chairs.png";
+import ChairsImage from "./images/chairs.jpg";
 import { useTranslations } from "next-intl";
 
 export default function Chairs() {
@@ -10,13 +10,13 @@ export default function Chairs() {
     <MediumCard
       heading={t("chairs")}
       image={
-        <div className="xl:w-[289px] md:w-[60%] w-[180px] xl:h-[270px] h-full absolute bottom-0 md:-right-2 right-0">
+        <div className="w-full h-full absolute bottom-0 md:-right-2 right-0">
           <Image
             src={ChairsImage}
             alt="chairs"
             fill
             sizes="100%"
-            className="size-full object-cover"
+            className="size-full object-cover object-left-bottom"
           />
         </div>
       }

@@ -15,7 +15,7 @@ export const useCategoryStore = create<
       categories: [],
       setCategories: (categories: category[]) =>
         set({
-          categories,
+          categories
         }),
     }),
     {

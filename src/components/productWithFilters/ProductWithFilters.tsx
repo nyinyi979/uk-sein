@@ -9,16 +9,17 @@ import FilterList from "./FilterList";
 import NotFoundError from "./NotFound";
 import axios from "@/utils/axios";
 import Variant, { ProductLoading } from "@/components/template/Variant";
-import { variant } from "@/types/type";
+import { product, variant } from "@/types/type";
 import { AnimatePresence } from "framer-motion";
 import { useRouter, useSearchParams } from "next/navigation";
 import { showErrorAlert } from "../Alert";
 import { useCategoryStore } from "@/store/category";
+import Product from "../template/Product";
 const filter = {
   query: "",
   order_by: "-",
   status: "",
-  page_size: 10,
+  page_size: 12,
 };
 
 export default function ProductWithFilters({
@@ -48,6 +49,13 @@ export default function ProductWithFilters({
     cid: para.get("id") || "",
     page: page,
   });
+  const variations = React.useMemo(()=>{
+    const variations:variant[] = [];
+    result.results.map((p)=>
+      p.variations.map((v)=>variations.push(v))
+    )
+    return variations;
+  },[filters])
   React.useEffect(() => {
     setLoading(true);
     axios
@@ -150,7 +158,7 @@ export default function ProductWithFilters({
             <Filter
               filters={filters}
               hide={hideFilterDrawer}
-              variations={result.results}
+              variations={variations}
               setFilters={setFilters}
               toggleColor={toggleColor}
               toggleMaterial={toggleMaterial}
@@ -176,8 +184,8 @@ export default function ProductWithFilters({
               <NotFoundError />
             ) : (
               <>
-                {result.results.map((v) => (
-                  <Variant key={v.id + v.gift} variation={v} small />
+                {result.results.map((p) => (
+                  <Product key={p.id+p?.created_at} product={p} small />
                 ))}
               </>
             )}
@@ -202,5 +210,5 @@ interface result {
   current_page: number;
   count: number;
   total_pages: number;
-  results: variant[];
+  results: product[];
 }

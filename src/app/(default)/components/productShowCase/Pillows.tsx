@@ -1,6 +1,6 @@
 import Image from "next/image";
 import SmallCard from "./SmallCard";
-import PillowImage from "./images/pillows.png";
+import PillowImage from "./images/pillows.jpg";
 import { useTranslations } from "next-intl";
 
 export default function Pillows() {

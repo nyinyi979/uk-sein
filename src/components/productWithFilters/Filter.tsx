@@ -59,6 +59,9 @@ export default function Filter({
       minimum: 0,
       categories: categories,
     };
+  }, [variations, filters]);
+  React.useEffect(() => {
+    // console.log("Variations have changed!")
   }, [variations]);
   const filterApplied =
     filters.category !== decodeURI(categoryName) ||
@@ -128,9 +131,11 @@ export default function Filter({
             <CategoryFilter
               categories={possibleFilters.categories}
               category={filters.cid}
-              updateCategory={(category) =>
-                setFilters({ ...filters, cid: category.id })
-              }
+              updateCategory={(category) => {
+                const isSet = category.id === filters.cid;
+                if (isSet) setFilters({ ...filters, cid: "" });
+                else setFilters({ ...filters, cid: category.id });
+              }}
             />
           </Toggle>
           <Toggle name={t("color")}>
