@@ -10,7 +10,7 @@ export default function Baskets() {
     <MediumCard
       heading={t("baskets")}
       image={
-        <div className="w-full h-full absolute xl:bottom-0 bottom-4 xl:-right-20 md:-right-32 -right-48">
+        <div className="w-full h-full absolute xl:bottom-0 bottom-4 xl:-right-20">
           <Image
             src={BasketsImage}
             alt="baskets"

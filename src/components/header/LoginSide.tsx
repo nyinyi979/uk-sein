@@ -27,8 +27,8 @@ export default function LoginSide() {
   };
   return (
     <div className="flex flex-row xl:gap-[18px] md:gap-3 gap-0 align-middle justify-center py-5">
-      <Link href={"/search"} className="size-[46px] xl:hidden block">
-        <div className="size-[18px] relative md:mt-4 mt-3">
+      <Link href={"/search"} className="flex items-center justify-center size-[46px] bg-white-400 md:rounded-xl rounded-full hover:bg-grey-50 duration-300 xl:hidden">
+        <div className="size-[18px] relative">
           <Image
             src={SearchIcon}
             alt="search icon"

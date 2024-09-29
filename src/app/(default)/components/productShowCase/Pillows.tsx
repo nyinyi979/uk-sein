@@ -15,7 +15,7 @@ export default function Pillows() {
       pathClass="fill-khaki-500"
       content={t("pillows-tag")}
     >
-      <div className="size-full absolute top-0 xl:right-0 -right-32">
+      <div className="size-full absolute top-0 left-0">
         <Image
           src={PillowImage}
           alt="pillows"
