@@ -13,7 +13,7 @@ export default function Portfolio() {
       <OurRecentProjects />
       <PortfolioCards />
       <SeasonalPromotions />
-      <FounderCard />
+      {/* <FounderCard /> */}
     </div>
   );
 }
