@@ -17,7 +17,14 @@ import { Initial_Order, paymentInOrder } from "@/types/order";
 import { showErrorAlert } from "@/components/Alert";
 
 export default function Checkout() {
-  const [usd, setUsd] = React.useState(5500);
+  const [usd, setUsd] = React.useState({
+    fetched: false,
+    id: 1,
+    created_at: "2024-10-05T10:33:48.618132Z",
+    updated_at: "2024-10-05T10:33:48.618152Z",
+    rate: "2800",
+    currency: "USD",
+  });
   const [currency, setCurrency] = React.useState<"MMK" | "USD">("MMK");
   const { token, cartItems, setCartItems, customer, setCustomer } =
     useUserStore((state) => state);
@@ -73,8 +80,8 @@ export default function Checkout() {
     newOrder.products = cartItems;
     newOrder.total = totalPrice;
     newOrder.subtotal = `${totalPrice}`;
-    if(currency === "USD") {
-      newOrder.total_usd = Number(totalPrice)/usd;
+    if (currency === "USD") {
+      newOrder.total_usd = Number(totalPrice) / Number(usd.rate);
     }
     if (page === "Shipping") {
       if (cartItems.length === 0) {
@@ -97,7 +104,7 @@ export default function Checkout() {
           const newPayment = { ...payment };
           newPayment.order_id = data.data.id;
           if (currency === "USD")
-            newPayment.amount = `${Number(newPayment.amount) * usd}`;
+            newPayment.amount = `${Number(newPayment.amount) * Number(usd.rate)}`;
           if (image) {
             const formData = new FormData();
             formData.append("image0", image as Blob);
@@ -163,6 +170,12 @@ export default function Checkout() {
       }
     }
   }, [token]);
+
+  React.useEffect(() => {
+    axios.get("order/exchange-rate/").then((data) => {
+      setUsd(data.data);
+    });
+  }, []);
   return (
     <div className="xl:w-[1190px] flex flex-row gap-40 mx-auto py-20 xl:px-0 md:px-[51px] sm:px-0 px-2">
       <div className="md:w-[80%] sm:w-[343px] w-full mx-auto flex flex-col gap-[50px]">
@@ -181,7 +194,7 @@ export default function Checkout() {
                 setImage={(f) => setImage(f)}
                 currency={currency}
                 setCurrency={setCurrency}
-                usd={usd}
+                usd={Number(usd.rate)}
               />
             )}
             {page === "Loading" && (
@@ -201,7 +214,7 @@ export default function Checkout() {
             cartItems={cartItems}
             removeItem={removeItem}
             totalPrice={totalPrice}
-            usd={usd}
+            usd={Number(usd.rate)}
             currency={currency}
           />
         )}
