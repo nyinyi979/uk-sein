@@ -27,9 +27,9 @@ export default function ProductNamePrice({
       <p className="xl:text-5xl text-[32px] font-bold font-sora">
         {price.toLocaleString()} Ks
       </p>
-      <p className="w-fit p-[18px] font-semibold bg-white-700 xl:text-base text-xs text-grey-400">
+      {/* <p className="w-fit p-[18px] font-semibold bg-white-700 xl:text-base text-xs text-grey-400">
         🔔 This product will be arrived in 1st June, 2024.
-      </p>
+      </p> */}
     </div>
   );
 }
