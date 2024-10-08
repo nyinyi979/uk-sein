@@ -1,5 +1,6 @@
 import { cartItem } from "@/store/clientData";
 import { product, variant } from "@/types/type";
+import { showSuccessAlert } from "./Alert";
 
 export default function AddToCart({
   product,
@@ -31,6 +32,7 @@ export default function AddToCart({
     number_of_stock: variation.number_of_stock,
   };
   addCartItems(newCartItem);
+  showSuccessAlert({text:"Successfully added to cart!"})
 }
 const convertInt = (n: string) => {
   const int = parseInt(n);
