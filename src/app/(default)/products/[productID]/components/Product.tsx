@@ -55,6 +55,7 @@ export default function ProductDetails({
   const updateQuantity = (quantity: number) => {
     setQuantity(quantity);
   };
+  const [activeImage, setActiveImage] = React.useState(0);
   const { rating, ratings } = useRatings({ reviews: review.reviews });
   React.useEffect(() => {
     setLoading(true);
@@ -95,7 +96,10 @@ export default function ProductDetails({
     else imgs.push(product.variations[activeVariant].images[0]);
     return imgs;
   }, [product, variantProps]);
-
+  const updateActiveImage = (index: number) =>{
+    setActiveImage(index);
+    setActiveVariant(index);
+  }
   return (
     <div className="xl:w-[1192px] md:w-[85%] sm:w-[90%] w-full mx-auto xl:py-20 py-10">
       <ProductTitle category={product.categories[0] || ""} />
@@ -108,6 +112,8 @@ export default function ProductDetails({
               <ProductImages
                 category={product.categories[0] || ""}
                 images={images}
+                activeImage={activeImage}
+                updateImage={updateActiveImage}
               />
               <ProductDescription description={product.description} />
             </div>
