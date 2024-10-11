@@ -1,6 +1,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { order } from "@/types/order";
 import { cartItem } from "@/store/clientData";
+import { MEDIA_URL } from "@/utils/axios";
 
 export default function ProductTable({ order }: { order: order }) {
   const isUSD = Number(order.total_usd) > 0;
@@ -53,12 +54,17 @@ function ProductRow({
   const t = useTranslations();
   return (
     <div className="flex md:flex-row flex-col md:gap-2.5 gap-4 md:py-6 pb-6 border-b border-grey-50 text-nowrap">
-      <div className="xl:w-[350px] md:w-[180px] w-full flex flex-row md:gap-[18px] gap-1.5">
-        <div className="xl:size-[65px] size-12 ">
+      <div className="xl:w-[350px] md:w-[180px] w-full flex flex-row md:gap-2 gap-1.5">
+        <div className="xl:size-[65px] size-12">
           <div className="xl:w-[54px] w-[40px] xl:h-[52px] h-[38px] font-bold relative">
             {code}
           </div>
         </div>
+        <img 
+          src={MEDIA_URL+image}
+          alt="img"
+          className="w-16 h-16 object-cover rounded-md"
+        />
         <div className="flex flex-col xl:gap-2.5 gap-1.5 whitespace-nowrap overflow-hidden text-ellipsis">
           <p className="font-bold xl:text-lg md:text-sm text-lg">
             {locale === "en" ? name : mm_name}
