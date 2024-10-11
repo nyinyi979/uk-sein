@@ -46,7 +46,7 @@ export default function Product({ small, product }: smallLargeProduct) {
                 className={`${small ? "md:text-xs text-[8px]" : "md:text-sm text-[8px]"} text-grey-300`}
               >
                 {locale === "en" ? mm_name : name}{" "}
-                <span className="px-2 text-grey-200">({id})</span>
+                {/* <span className="px-2 text-grey-200">({id})</span> */}
               </p>
             </div>
             <RatingStars count={rating} />
