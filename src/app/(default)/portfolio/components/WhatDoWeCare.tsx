@@ -21,8 +21,8 @@ export default function WhatDoWeCare() {
     },
     {
       id: "wdwc3",
-      name: t("what-do-we-care2.name"),
-      description: t("what-do-we-care2.description"),
+      name: t("what-do-we-care3.name"),
+      description: t("what-do-we-care3.description"),
       img: Portfolio4,
     },
   ];

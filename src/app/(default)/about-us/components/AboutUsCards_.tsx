@@ -1,25 +1,26 @@
 import Image from "next/image";
 import AboutUsCard from "./AboutUsCard";
-import AboutUs1 from "../images/about-us-1.png";
-import AboutUs2 from "../images/about-us-2.png";
-import AboutUs3 from "../images/about-us-3.png";
-import AboutUs4 from "../images/about-us-4.png";
-import AboutUs5 from "../images/about-us-5.png";
-import AboutUs6 from "../images/about-us-6.png";
-import AboutUs7 from "../images/about-us-7.png";
+
+import PantaNaw from '../images/pantanaw.jpg'
+import Yangon from '../images/yangonuksein.jpg'
+import Online1 from '../images/fb1.jpg'
+import Online2 from '../images/fb2.jpg'
+import Online3 from '../images/fb3.jpg'
+
 import { useTranslations } from "next-intl";
 
 export function AboutUsCard1() {
   const t = useTranslations("about-us");
   return (
     <AboutUsCard
-      year="2018"
-      title="The Visionary Founder"
+      year="2004"
+      title="Pantanaw UK SEIN"
       description={t("card1")}
+      link={false}
     >
       <div className="w-full xl:h-[450px] lg:h-[350px] md:h-[240px] h-[150px] relative rounded-[10px]">
         <Image
-          src={AboutUs1}
+          src={PantaNaw}
           alt="About us 1"
           fill
           sizes="100%"
@@ -33,89 +34,64 @@ export function AboutUsCard2() {
   const t = useTranslations("about-us");
   return (
     <AboutUsCard
-      year="2020"
-      title="The Smart Furniture Revolution"
+      year="2019"
+      title="UK SEIN Online Shop"
       description={t("card2")}
-    >
-      <div className="w-[full] xl:h-[450px] lg:h-[350px] md:h-[180px] h-[130px] relative flex flex-row justify-between">
-        <div className="w-[49%] h-full relative">
-          <Image
-            src={AboutUs2}
-            alt="About us 2"
-            fill
-            sizes="100%"
-            className="size-full rounded-[10px] object-cover"
-          />
-        </div>
-        <div className="w-[49%] h-full relative">
-          <Image
-            src={AboutUs3}
-            alt="About us 3"
-            fill
-            sizes="100%"
-            className="size-full rounded-[10px] object-cover"
-          />
-        </div>
-      </div>
-    </AboutUsCard>
-  );
-}
-export function AboutUsCard3() {
-  const t = useTranslations("about-us");
-  return (
-    <AboutUsCard
-      year="2022"
-      title="Opening Flagship Stores"
-      description={t("card3")}
+      link={true}
     >
       <div className="w-[full] xl:h-[450px] lg:h-[350px] md:h-[150px] h-[60px] relative flex flex-row justify-between">
         <div className="w-[32%] h-full relative">
           <Image
-            src={AboutUs4}
+            src={Online1}
             alt="About us 2"
             fill
             sizes="100%"
-            className="size-full rounded-[10px] object-cover"
+            className="size-full rounded-[10px] object-contain"
           />
         </div>
         <div className="w-[32%] h-full relative">
           <Image
-            src={AboutUs5}
+            src={Online2}
             alt="About us 3"
             fill
             sizes="100%"
-            className="size-full rounded-[10px] object-cover"
+            className="size-full rounded-[10px] object-contain"
           />
         </div>
         <div className="w-[32%] h-full relative">
           <Image
-            src={AboutUs6}
+            src={Online3}
             alt="About us 3"
             fill
             sizes="100%"
-            className="size-full rounded-[10px] object-cover"
+            className="size-full rounded-[10px] object-contain"
           />
         </div>
       </div>
     </AboutUsCard>
   );
 }
-export function AboutUsCard4() {
+
+
+export function AboutUsCard3() {
   const t = useTranslations("about-us");
   return (
     <AboutUsCard
-      year="2024"
-      title="Building Local Ties"
-      description={t("card4")}
+      year="2021"
+      title="Yangon Shop"
+      description={t("card3")}
+      link={false}
     >
-      <div className="w-full xl:h-[450px] md:h-[240px] h-[150px] relative rounded-[10px]">
+      <div className="w-[full] xl:h-[450px] lg:h-[350px] md:h-[180px] h-[130px] relative flex flex-row justify-between">
+      <div className="w-full xl:h-[450px] lg:h-[350px] md:h-[240px] h-[150px] relative rounded-[10px]">
         <Image
-          src={AboutUs7}
+          src={Yangon}
           alt="About us 1"
           fill
           sizes="100%"
           className="size-full rounded-[10px] object-cover"
         />
+      </div>
       </div>
     </AboutUsCard>
   );

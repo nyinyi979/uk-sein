@@ -1,10 +1,8 @@
 import ProductShowCase from "./ProductShowCase";
 import MainProductsCarousel from "./mainCarousel/Carousel";
-import ClientWorkdsCarousel from "./clientWords/ClientWordsCarousel";
+// import ClientWorkdsCarousel from "./clientWords/ClientWordsCarousel";
 import ProductsCarousel from "@/components/template/ProductCarousel";
 import QualityAssureRow from "@/components/QualityAssurance";
-import DiscountBanner from "@/components/banner/DiscountBanner";
-import PromotionBanner from "@/components/banner/PromotionBanner";
 
 export default function Home() {
   return (
@@ -13,13 +11,11 @@ export default function Home() {
       <QualityAssureRow className="md:block hidden" />
       <ProductShowCase />
       <QualityAssureRow className="md:hidden" />
-      <DiscountBanner imgURL="/images/promotion1.png" percent="40" />
       <ProductsCarousel
         similarProduct={false}
         fetchURL="product/top-product/"
       />
-      <PromotionBanner />
-      <ClientWorkdsCarousel />
+      {/* <ClientWorkdsCarousel /> */}
     </div>
   );
 }

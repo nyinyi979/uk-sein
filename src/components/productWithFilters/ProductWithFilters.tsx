@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import useWindowSize from "@/components/hooks/useWindowSize";
-import DiscountBanner from "@/components/banner/DiscountBanner";
 import Pagination from "@/components/template/Pagination";
 import CateogryHeading from "./Heading";
 import Filter from "./Filter";
@@ -199,7 +198,6 @@ export default function ProductWithFilters({
           )}
         </div>
       </div>
-      <DiscountBanner imgURL="/images/promotion3.png" percent="40" />
     </div>
   );
 }

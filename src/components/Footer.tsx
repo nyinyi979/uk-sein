@@ -25,7 +25,7 @@ export default function Footer() {
         <SocialLinks />
       </div>
       <p className="font-lex text-center text-grey-200 xl:text-base md:text-sm text-xs">
-        © 2024 UK Sein Furniture & Local Crafts. All rights reserved.
+        © UK SEIN Myanamr Local Crafts & Furniture. All rights reserved.
       </p>
     </div>
   );

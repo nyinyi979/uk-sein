@@ -1,6 +1,6 @@
 import Image from "next/image";
 import SmallCard from "./SmallCard";
-import TableImage from "./images/table.png";
+import TableImage from "./images/table.jpg";
 import { useTranslations } from "next-intl";
 
 export default function Table() {
@@ -10,7 +10,7 @@ export default function Table() {
       bgClass="bg-[#F3F3F3]"
       heading={t("table")}
       href="/products"
-      linkText={t("get-20-promo")}
+      linkText={t("EXPLORE-NOW")}
       textClass="text-white xl:text-grey-500"
       linkClass="text-white xl:text-grey-500"
       pathClass="fill-white"

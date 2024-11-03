@@ -1,4 +1,3 @@
-import SeasonalPromotions from "@/components/SeasonalPromotions";
 import HowWeWorks from "./HowWeWork";
 import OurRecentProjects from "./OurRecentProjects";
 import WhatDoWeCare from "./WhatDoWeCare";
@@ -12,7 +11,6 @@ export default function Portfolio() {
       <WhatDoWeCare />
       <OurRecentProjects />
       <PortfolioCards />
-      <SeasonalPromotions />
       {/* <FounderCard /> */}
     </div>
   );

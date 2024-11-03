@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import WhiteListCateogry from "./ToggleCategory";
-import DiscountBanner from "@/components/banner/DiscountBanner";
 import Pagination from "@/components/template/Pagination";
 import axios from "@/utils/axios";
 import Product from "@/components/template/Product";
@@ -55,7 +54,6 @@ export default function WishList() {
           </div>
         </div>
       </div>
-      <DiscountBanner imgURL="/images/promotion4.png" percent="40" />
     </div>
   );
 }

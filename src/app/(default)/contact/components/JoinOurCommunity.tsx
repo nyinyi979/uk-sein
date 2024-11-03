@@ -58,7 +58,7 @@ export default function JoinOurCommunity() {
           disabled={disabled}
           onClick={() => {
             window.open(
-              `mailto:moonseng.dev@gmail.com?subject=${input.name}&body=${input.message}`,
+              `mailto:uksein4@4gmail.com?subject=${input.name}&body=${input.message}`,
               "_blank",
             );
           }}

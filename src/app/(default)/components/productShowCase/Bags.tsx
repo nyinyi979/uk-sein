@@ -10,7 +10,7 @@ export default function Bags() {
       bgClass="bg-khaki-200"
       heading={t("bags")}
       href="/products"
-      linkText={t("get-20-promo")}
+      linkText={t("EXPLORE-NOW")}
       pathClass="fill-grey-500"
       content={t("bags-tag")}
     >

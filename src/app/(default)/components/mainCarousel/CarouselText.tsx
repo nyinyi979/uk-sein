@@ -4,7 +4,7 @@ import { useLocale, useTranslations } from "next-intl";
 
 export default function CarouselText({ slide }: { slide: number }) {
   const locale = useLocale();
-  const textClass = `w-full absolute font-bold ${locale === "en" ? "xl:leading-[120px] md:leading-[58px] leading-8 xl:text-[80px] md:text-[56px] text-[32px]" : "xl:leading-[120px] md:leading-[70px] leading-10 xl:text-[76px] md:text-[46px] text-[28px]"} text-center text-white z-[2]`;
+  const textClass = `w-full absolute font-bold ${locale === "en" ? "xl:leading-[120px] md:leading-[58px] leading-8 xl:text-[80px] md:text-[56px] text-[32px]" : "xl:leading-[120px] md:leading-[70px] leading-10 xl:text-[76px] md:text-[46px] text-[28px]"} text-left text-white z-[2]`;
   const btnClass =
     "w-fit mx-auto md:py-[18px] py-3 md:px-[28px] px-4 rounded-[15px] bg-khaki-500 font-semibold text-white text-base hover:bg-khaki-700 duration-300";
   const t = useTranslations();
@@ -30,7 +30,7 @@ export default function CarouselText({ slide }: { slide: number }) {
               damping: 6.67,
               delay: 0.3,
             }}
-            className={`whitespace-pre xl:top-[10%] top-[20%] ${textClass} text-white`}
+            className={`xl:w-[70%] ssm:w-[60%] md:w-[77%] w-[80%] xl:left-[15%] md:left-[13%] ssm:left-[20%] left-[0%] whitespace-pre xl:top-[10%] top-[20%] ${textClass} text-white`}
           >
             {t("home.main-carousel.carousel-text1")}
           </motion.p>

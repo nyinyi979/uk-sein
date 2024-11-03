@@ -43,14 +43,14 @@ export default function OurRecentProjects() {
                 className="size-full object-cover"
               />
             </div>
-            <div className="flex flex-col gap-6">
+            {/* <div className="flex flex-col gap-6">
               <p className="w-[278px] h-[60px] font-sora font-bold text-2xl">
                 {a.name}
               </p>
               <p className="font-normal leading-[22.5px] text-justify text-lg">
                 {a.description}
               </p>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>

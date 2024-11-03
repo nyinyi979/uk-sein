@@ -66,15 +66,6 @@ export default function SocialLinks() {
           </div>
           <div className="xl:size-[50px] size-8 relative">
             <Image
-              src={WavePay}
-              alt="wave"
-              fill
-              sizes="100%"
-              className="size-full object-cover"
-            />
-          </div>
-          <div className="xl:size-[50px] size-8 relative">
-            <Image
               src={AyaPay}
               alt="aya"
               fill

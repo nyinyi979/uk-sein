@@ -5,15 +5,15 @@ export default function WhatDoWeServe() {
   const whatdoWeServe = [
     {
       heading: t("highlights.quality-assure"),
-      description: t("highlights.sample"),
+      description: t("highlights.quality-assure-description"),
     },
     {
-      heading: t("highlights.customer-support"),
-      description: t("highlights.sample"),
+      heading: t("highlights.best-quality"),
+      description: t("highlights.best-quality-description"),
     },
     {
       heading: t("highlights.secure-payment"),
-      description: t("highlights.sample"),
+      description: t("highlights.secure-payment-description"),
     },
   ];
   return (

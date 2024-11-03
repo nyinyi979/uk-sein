@@ -54,21 +54,22 @@
         "logout": "Logout"
     },
     "highlights":{
-        "quality-assure": "Quality Assure",
-        "best-quality": "Best quality in local",
+        "quality-assure": "Customer Satisfaction",
+        "best-quality": "Quality Assurance",
         "customer-support": "Customer Support",
         "we-care-your-exp": "We care your experience",
-        "secure-payment": "Secure Payment",
-        "100-secure-payment": "100% Secure Payment Method",
-        "sample": "No mixed tour, private driver/guide , transportation & transfer"
+        "secure-payment": "Trust",
+        "secure-payment-description": "We guarantee precise timing, design, and quality for every customized order, fostering trust and reliability with our clients.",
+        "quality-assure-description": "We are committed to delivering exceptional service and good quality to ensure complete customer satisfaction.",
+        "best-quality-description" : "Each product undergoes thorough inspection prior to delivery, ensuring it meets our high standards with zero defects.",
+        "100-secure-payment": "100% Secure Payment"
     },
     "about-us":{
         "story": "Story of UK SEIN",
         "over-the-year": "OVER THE YEARS",
-        "card1": "In a small, sunlit workshop, Alex Thompson sketched the blueprint for the \"Eclipse Chair.\" Combining ergonomic curves with sustainable materials, this first piece embodied a perfect blend of comfort and style. Alex's dedication to quality and innovation quickly became evident as the Eclipse Chair garnered attention and praise. The chair's success was a testament to the brand's philosophy: creating furniture that was both beautiful and environmentally responsible. This initial triumph laid a solid foundation for the brand's future, setting high expectations and promising a new standard in furniture design.",
-        "card2": "As technology advanced, the brand embraced the opportunity to integrate smart features into their designs. The launch of the \"SmartLiving Series\" marked a significant milestone, introducing furniture with built-in charging ports, wireless speakers, and adjustable lighting. The flagship product, the \"IntelliSofa,\" became an instant favorite among tech-savvy customers, offering a seamless blend of comfort and modern convenience. This innovative approach not only enhanced the functionality of the furniture but also positioned the brand as a leader in the smart furniture market, attracting a new, younger audience eager for contemporary solutions.",
-        "card3": "To expand its presence and offer customers an immersive shopping experience, the brand opened flagship stores in major cities. These stores showcased the entire range of products, allowing customers to see and feel the quality and craftsmanship firsthand. The flagship stores became destinations in themselves, beautifully designed to reflect the brand's aesthetic and values. This expansion not only boosted sales but also strengthened the brand’s reputation, making it a household name in the furniture industry. By bringing their vision directly to consumers, the brand solidified its position as a market leader and continued to grow its loyal customer base.",
-        "card4": "In its fourth year, the brand launched a community-driven initiative called \"Furniture for All.\" This program focused on giving back to local communities through furniture donations and workshops on sustainable living. Partnering with non-profits, the brand provided comfortable, stylish furniture to shelters and community centers. Additionally, they hosted events where artisans and designers taught locals how to upcycle old furniture and make eco-friendly choices in their homes. The initiative not only helped those in need but also fostered a sense of community and environmental awareness. This commitment to social responsibility resonated deeply with customers, strengthening their loyalty and enhancing the brand's image as a socially conscious and caring company.",
+        "card1": "Founded by U Thein Zaw and Daw Wai Wai Myint in 2004, Pantanaw UK SEIN began its journey with a deep commitment to preserving and promoting the art of traditional mat craftsmanship of Myanmar. Starting with mat production, the business has been dedicated to supporting local artisans and establishing a mat craftsmanship factory, innovating the traditional mat linning by hand to the machine. Building on this foundation, Pantanaw UK SEIN expanded its offerings to include a wide range of high-quality rattan items. Our dedication to craftsmanship and sustainability has positioned Pantanaw UK SEIN in the handcrafted goods industry of Pantanaw.",
+        "card2": "The UK SEIN Online Shop was established during the COVID-19 pandemic as a response to the boredom experienced during lockdowns. Initially, the business began by casually posting photos of handmade rattan mats online. The positive response and increasing sales from these posts prompted a shift towards a more serious business start. As the demand for these products grew, the shop expanded its operations, focusing on creating a structured and sustainable business model.",
+        "card3": "With the significant increase in sales through the online shop, the decision was made to open a physical store to further expand the UK SEIN. In addition to the existing product offerings, the store began selling rattan items and mats, which helped diversify the product range. To cater to specific customer needs, the business also introduced customised items, allowing for a more personalised shopping experience. Furthermore, the decision to market and sell furniture, particularly fiber furniture, opened new opportunities for growth. Eventually, the business started stocking and selling rattan chairs and tables, further enhancing its market presence. Currently, UK SEIN operates four physical stores in Yangon and has one additional store, along with a mat factory, located in Pantanaw.",
         "what-do-we-serve": "What Do We Serve?"
     },
     "founder":{
@@ -145,22 +146,22 @@
     },
     "portfolio":{
         "how-we-work": "How We Work",
-        "discover-our-elegance": "Discover elegance and comfort with our innovative furniture collections. Crafted with care, each piece combines style and sustainability to enhance your living space. Visit our stores or shop online to experience quality like never before. Transform your home with our timeless designs today.",
+        "discover-our-elegance": "Our products combine elegance and eco-friendliness, with each piece thoughtfully crafted using high-quality raw materials to ensure exceptional customer satisfaction. Visit our physical stores or shop online for a truly excellent shopping experience.",
         "to-expand": "To expand its presence and offer customers an immersive shopping experience.",
         "our-recent-projects": "Our Recent Projects",
         "portfolio-card": "Introducing our latest furniture project, the \"EcoHarmony Collection,\" where modern design meets sustainability. This groundbreaking line features an array of stylish, eco-friendly furniture crafted from sustainable materials like reclaimed wood and recycled metals. Each piece is meticulously designed to offer exceptional durability and comfort, ensuring that your home not only looks beautiful but also supports a healthier planet. From elegant dining sets to cozy sofas, the EcoHarmony Collection embodies a perfect balance of form and function. Our commitment to green practices means that every item in this collection is created with minimal environmental impact, using energy-efficient processes and eco-friendly finishes.",
         "what-do-we-care": "What do we care?",
         "what-do-we-care1":{
             "name": "Customer Focus",
-            "description": "Delivering an exceptional customer experience drives everything we do."
+            "description": "Our priority is to ensure customer satisfaction through meticulously crafted, high-quality handmade products."
         },
         "what-do-we-care2":{
-            "name": "Collaborate Effectively",
-            "description": "We invest in cross-functional global partnerships that maximize impact."
+            "name": "Collaboration",
+            "description": ": We work collaboratively, optimizing our team’s expertise and efforts to achieve the greatest possible impact."
         },
         "what-do-we-care3":{
-            "name": "Innovate & Improve",
-            "description": "We are not limited by precedent. We boldly challenge the norm."
+            "name": "Quality Commitment",
+            "description": "We are dedicated to upholding the highest standards to deliver exceptional quality in every product we offer."
         }
     },
     "product":{

@@ -174,7 +174,7 @@ export default function ProductDetail({
         <p className="font-sora font-semibold xl:text-base md:text-sm text-xs">
           {t("size")}
         </p>
-        <div className="flex flex-row xl:gap-[23px] gap-4">
+        <div className="flex flex-row xl:gap-[23px] gap-4 flex-wrap">
           {sizes.map((size, index) => (
             <button
               key={size}
@@ -190,7 +190,7 @@ export default function ProductDetail({
         <p className="font-sora font-semibold xl:text-base md:text-sm text-xs">
           {t("color")}
         </p>
-        <div className="flex flex-row xl:gap-[23px] gap-4">
+        <div className="flex flex-row xl:gap-[23px] gap-4 flex-wrap">
           {colors.map((color, index) => (
             <button
               key={color}
@@ -206,7 +206,7 @@ export default function ProductDetail({
         <p className="font-sora font-semibold xl:text-base md:text-sm text-xs">
           {t("material")}
         </p>
-        <div className="flex flex-row xl:gap-[23px] gap-4">
+        <div className="flex flex-row xl:gap-[23px] gap-4 flex-wrap ">
           {materials.map((material, index) => (
             <div
               key={material}

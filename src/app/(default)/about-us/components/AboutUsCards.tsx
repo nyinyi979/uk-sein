@@ -3,7 +3,6 @@ import {
   AboutUsCard1,
   AboutUsCard2,
   AboutUsCard3,
-  AboutUsCard4,
 } from "./AboutUsCards_";
 
 export default function AboutUsCards() {
@@ -20,7 +19,6 @@ export default function AboutUsCards() {
         <AboutUsCard1 />
         <AboutUsCard2 />
         <AboutUsCard3 />
-        <AboutUsCard4 />
       </div>
     </div>
   );

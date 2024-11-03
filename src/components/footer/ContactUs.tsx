@@ -14,7 +14,7 @@ export default function ContactUs() {
         </p>
         <p>
           <span className="text-grey-200">{t("input.email")} : </span>
-          <span className="pl-3">uksein@gmail.com</span>
+          <span className="pl-3">uksein4@4gmail.com</span>
         </p>
         <p>
           <span className="text-grey-200">{t("input.address")} :</span>

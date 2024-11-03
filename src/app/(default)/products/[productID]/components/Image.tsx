@@ -33,7 +33,7 @@ export default function ProductImages({
           {category}
         </span>
       </div>
-      <div className="flex flex-row gap-[22px]">
+      <div className="flex flex-row gap-[22px] flex-wrap ">
         {images.map((img, index) => (
           <img
             onClick={() => updateImage(index)}
