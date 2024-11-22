@@ -64,7 +64,7 @@ export default function FirstPage({
         <p className="font-sora font-semibold text-2xl">Shopping Information</p>
         <div className="grid md:grid-cols-2 grid-cols-1 gap-[26px]">
           <StateInput
-            state={customer.customer_addresses[0].state}
+            state={customer.customer_addresses[0].state || ""}
             setState={(state) => {
               const newCustomer = { ...customer };
               newCustomer.customer_addresses[0].state = state;
@@ -72,8 +72,8 @@ export default function FirstPage({
             }}
           />
           <CityInput
-            state={customer.customer_addresses[0].state}
-            city={customer.customer_addresses[0].city}
+            state={customer.customer_addresses[0].state || ""}
+            city={customer.customer_addresses[0].city || ""}
             setCity={(city) => {
               const newCustomer = { ...customer };
               newCustomer.customer_addresses[0].city = city;
@@ -82,7 +82,7 @@ export default function FirstPage({
           />
         </div>
         <AddresssInput
-          address={customer.customer_addresses[0].address}
+          address={customer.customer_addresses[0].address || ""}
           setAddress={(address) => {
             const newCustomer = { ...customer };
             newCustomer.customer_addresses[0].address = address;
