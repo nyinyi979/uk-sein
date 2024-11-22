@@ -17,7 +17,7 @@ export default function FloorMat() {
           </p> */}
         </div>
         <Link
-          href={"/products"}
+          href={"/category/Mat?id=20"}
           className="showcase-button xl:bg-khaki-500 xl:text-white text-black xl:text-sm md:text-lg xl:hover:bg-khaki-700"
         >
           {t("EXPLORE-NOW")}

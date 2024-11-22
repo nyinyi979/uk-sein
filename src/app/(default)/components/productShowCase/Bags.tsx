@@ -9,7 +9,7 @@ export default function Bags() {
     <SmallCard
       bgClass="bg-khaki-200"
       heading={t("bags")}
-      href="/products"
+      href="/category/Bag?id=7"
       linkText={t("EXPLORE-NOW")}
       pathClass="fill-grey-500"
       content={t("bags-tag")}

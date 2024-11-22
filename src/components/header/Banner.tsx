@@ -30,7 +30,6 @@ export default function Banner({
     update(latest, prevScroll);
     setPrevScroll(latest);
   });
-  console.log(hidden)
   return (
     <motion.div
       animate={{top: hidden ? "-100px" : "0px"}}
@@ -52,8 +51,8 @@ export default function Banner({
           className="size-full object-contain"
         />
       </Link>
-      <div className="w-fit xl:block hidden relative">
-        <SearchBarInBanner />
+      <div className="w-[650px] xl:block hidden relative">
+        {/* <SearchBarInBanner /> */}
       </div>
       <LoginSide />
     </motion.div>

@@ -24,8 +24,9 @@ export default function PaymentMethods({
           className={btnClass}
         >
           <div className="md:size-[50px] size-7 mx-auto md:my-[15px] relative">
+            
             {payment.is_visa ? (
-              <Image alt="visa" src={Visa} />
+              <img className="size-full object-cover" alt="visa" src={MEDIA_URL + payment.image} />
             ) : (
               <img
                 src={MEDIA_URL + payment.image}

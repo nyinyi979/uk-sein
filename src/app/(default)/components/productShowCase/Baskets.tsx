@@ -22,7 +22,7 @@ export default function Baskets() {
       }
       content={t("baskets-tag")}
     >
-      <Link href={"/products"} className="baskets-link">
+      <Link href={"/category/Basket?id=40"} className="baskets-link">
         {t("EXPLORE-NOW")}
         <svg
           className="xl:hidden mt-1"

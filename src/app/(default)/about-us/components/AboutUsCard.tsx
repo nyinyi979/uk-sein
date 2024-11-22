@@ -49,7 +49,7 @@ export default function AboutUsCard({
                   />
                 </svg>
               </div>
-              <p className="font-sora font-bold md:text-xl">UK SEIN Local Craft</p>
+              <p className="font-sora font-bold md:text-xl">ယူကေစိန် ,UK SEIN, Myanmar Local Crafts</p>
             </div>
             <div
               onClick={() => {
@@ -99,7 +99,7 @@ export default function AboutUsCard({
                   />
                 </svg>
               </div>
-              <p className="font-sora font-bold md:text-xl">UK SEIN North Dagon</p>
+              <p className="font-sora font-bold md:text-xl">ယူကေစိန်-မြောက်ဒဂုံ , UKSEIN-NorthDagon</p>
             </div>
           </div>
         )}

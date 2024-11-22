@@ -9,7 +9,7 @@ export default function Pillows() {
     <SmallCard
       bgClass="bg-white-700"
       heading={t("pillows")}
-      href="/products"
+      href="/category/Pillow?id=23"
       linkText={t("EXPLORE-NOW")}
       linkClass="text-khaki-500"
       pathClass="fill-khaki-500"

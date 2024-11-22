@@ -9,7 +9,7 @@ export default function Table() {
     <SmallCard
       bgClass="bg-[#F3F3F3]"
       heading={t("table")}
-      href="/products"
+      href="/category/Table?id=47"
       linkText={t("EXPLORE-NOW")}
       textClass="text-white xl:text-grey-500"
       linkClass="text-white xl:text-grey-500"

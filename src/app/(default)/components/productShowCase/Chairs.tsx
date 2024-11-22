@@ -22,7 +22,7 @@ export default function Chairs() {
       }
       content={t("chairs-tag")}
     >
-      <Link href={"/products"} className="chair-link">
+      <Link href={"/category/Chair?id=5"} className="chair-link">
         <svg
           className="mt-1 xl:block hidden"
           width="17"

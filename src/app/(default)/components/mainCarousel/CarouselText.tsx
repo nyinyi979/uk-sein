@@ -30,7 +30,7 @@ export default function CarouselText({ slide }: { slide: number }) {
               damping: 6.67,
               delay: 0.3,
             }}
-            className={`xl:w-[70%] ssm:w-[60%] md:w-[77%] w-[80%] xl:left-[15%] md:left-[13%] ssm:left-[20%] left-[0%] whitespace-pre xl:top-[10%] top-[20%] ${textClass} text-white`}
+            className={`xl:w-[70%] ssm:w-[60%] md:w-[77%] w-[80%] xl:left-[15%] md:left-[13%] ssm:left-[20%] left-[0%] whitespace-pre xl:top-[10%] top-[20%] ${textClass} text-white  drop-shadow-[0_0px_2px_rgba(0,0,0,0.7)]`}
           >
             {t("home.main-carousel.carousel-text1")}
           </motion.p>
@@ -56,7 +56,7 @@ export default function CarouselText({ slide }: { slide: number }) {
               damping: 6.67,
               delay: 0.5,
             }}
-            className={`xl:w-[70%] ssm:w-[60%] md:w-[77%] w-[80%] xl:left-[15%] md:left-[13%] ssm:left-[20%] left-[0%] ${locale === "en" ? "xl:top-[15%] md:top-[20%]" : "xl:top-[5%] md:top-[10%]"} top-[25%] flex flex-col md:gap-8 gap-3 ${textClass} text-white`}
+            className={`xl:w-[70%] ssm:w-[60%] md:w-[77%] w-[80%] xl:left-[15%] md:left-[13%] ssm:left-[20%] left-[0%] ${locale === "en" ? "xl:top-[15%] md:top-[20%]" : "xl:top-[5%] md:top-[10%]"} top-[25%] flex flex-col md:gap-8 gap-3 ${textClass} text-white drop-shadow-[0_0px_2px_rgba(0,0,0,0.7)]`}
           >
             {t("home.main-carousel.carousel-text2")}
             <Link href={"/products"} className={btnClass}>
@@ -88,7 +88,7 @@ export default function CarouselText({ slide }: { slide: number }) {
               damping: 6.67,
               delay: 0.6,
             }}
-            className={`xl:w-[70%] ssm:w-[60%] md:w-[77%] w-[80%] xl:left-[15%] md:left-[13%] ssm:left-[20%] left-[0%] ${locale === "en" ? "xl:top-[15%] md:top-[20%]" : "xl:top-[5%] md:top-[10%]"} top-[25%] flex flex-col xl:gap-8 gap-3 ${textClass} `}
+            className={`xl:w-[70%] ssm:w-[60%] md:w-[77%] w-[80%] xl:left-[15%] md:left-[13%] ssm:left-[20%] left-[0%] ${locale === "en" ? "xl:top-[15%] md:top-[20%]" : "xl:top-[5%] md:top-[10%]"} top-[25%] flex flex-col xl:gap-8 gap-3 ${textClass}  drop-shadow-[0_0px_2px_rgba(0,0,0,0.7)]`}
           >
             {t("home.main-carousel.carousel-text3")}
             <Link href={"/products"} className={btnClass}>

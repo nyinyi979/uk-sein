@@ -9,16 +9,16 @@ export default function EachCategory({ category }: { category: category }) {
   return (
     <Link
       href={`/category/${category.name}?id=${category.id}`}
-      className="xl:w-[375px] sm:w-full w-fit mx-auto h-fit flex flex-row gap-4 md:py-5 md:px-[18px] p-[18px] bg-white-400 rounded-[18px] align-middle justify-center"
+      className="xl:w-[375px] sm:w-full w-fit mx-auto h-fit flex flex-row gap-4 md:py-5 md:px-[18px] p-[18px] bg-white-400 rounded-[18px] align-middle justify-between"
     >
-      <div className="xl:size-[110px] lg:size-20 md:size-[50px] size-10 my-5 rounded-md overflow-hidden relative">
+      <div className="xl:size-[110px] lg:size-20 md:size-[50px] w-[40%] size-10 my-5 rounded-md overflow-hidden relative">
         <img
           src={MEDIA_URL + category.image}
           alt="img"
           className="size-full object-cover object-center"
         />
       </div>
-      <div className="flex flex-col gap-2 align-middle justify-center">
+      <div className="flex flex-col w-[60%] gap-2 align-start justify-center">
         <p className="font-sora md:font-bold font-semibold xl:text-[32px] md:text-xl">
           {category.name}
         </p>
