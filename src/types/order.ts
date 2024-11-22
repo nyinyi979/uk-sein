@@ -133,7 +133,7 @@ export interface customer {
   orders: number[];
   email: string;
   phone: string;
-  customer_addresses: customerAddress[];
+  customer_addresses: Partial<customerAddress>[];
   created_at: string;
   updated_at: string;
   total: number;

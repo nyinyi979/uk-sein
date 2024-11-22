@@ -15,6 +15,7 @@ import { AnimatePresence } from "framer-motion";
 import { useUserStore } from "@/store/clientData";
 import { Initial_Order, paymentInOrder } from "@/types/order";
 import { showErrorAlert } from "@/components/Alert";
+import { states } from "@/types/address";
 
 export default function Checkout() {
   const [usd, setUsd] = React.useState({
@@ -88,7 +89,21 @@ export default function Checkout() {
         showErrorAlert({
           text: "You don't have any product to make an order!",
         });
-      } else setPage("Payment");
+      } else {
+        if (newOrder.customer_name === "" || newOrder.phone === "") {
+          showErrorAlert({ text: "Customer name and phone are required!" });
+          return;
+        }
+        if (
+          newOrder.order_address.city === "" ||
+          newOrder.order_address.state === "" ||
+          newOrder.order_address.address === ""
+        ) {
+          showErrorAlert({ text: "Addresses fields are required!" });
+          return;
+        }
+        setPage("Payment");
+      }
     } else if (page === "Payment") {
       if (payment.amount === "0" || payment.payment_type === "") {
         showErrorAlert({ text: "Choose your payment type and input amount!" });
@@ -99,6 +114,16 @@ export default function Checkout() {
         // create order
         // upload image
         // add payment
+        newOrder.customer.name = newOrder.customer_name;
+        newOrder.customer.email = newOrder.customer_email;
+        newOrder.customer.phone = newOrder.phone;
+        newOrder.customer.customer_addresses[0] = {
+          address: newOrder.order_address.address,
+          city: newOrder.order_address.city,
+          state: newOrder.order_address.state as states,
+          created_at: "",
+          customer: 0,
+        };
         axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
         axios.post("order/", { data: newOrder }).then((data) => {
           const newPayment = { ...payment };
@@ -148,11 +173,11 @@ export default function Checkout() {
         customer: customer,
         customer_email: customer.email,
         order_address: {
-          id: customer.customer_addresses[0].id,
-          address: customer.customer_addresses[0].address,
-          city: customer.customer_addresses[0].city,
-          map: customer.customer_addresses[0].map,
-          state: customer.customer_addresses[0].state,
+          id: customer.customer_addresses[0].id || 0,
+          address: customer.customer_addresses[0].address || "",
+          city: customer.customer_addresses[0].city || "",
+          map: customer.customer_addresses[0].map || "",
+          state: customer.customer_addresses[0].state || "",
         },
         customer_name: customer.name,
         phone: customer.phone,
@@ -170,7 +195,7 @@ export default function Checkout() {
       }
     }
   }, [token]);
-
+  console.log(order);
   React.useEffect(() => {
     axios.get("order/exchange-rate/").then((data) => {
       setUsd(data.data);
