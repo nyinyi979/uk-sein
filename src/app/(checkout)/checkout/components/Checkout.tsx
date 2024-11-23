@@ -167,6 +167,11 @@ export default function Checkout() {
   }, [size]);
 
   React.useEffect(() => {
+    if (!token) {
+      showErrorAlert({ text: "You have to login first to make order!" });
+      setTimeout(() => router.push("login"), 300);
+      return;
+    }
     if (customer) {
       setOrder({
         ...order,
