@@ -20,7 +20,7 @@ export default function Login({
   toggle: () => void;
 }) {
   const { token, setToken, setCustomer, setWishlists } = useUserStore(
-    (state) => state,
+    (state) => state
   );
   const router = useRouter();
   const logOut = () => {
@@ -36,19 +36,16 @@ export default function Login({
     const getAuth = async () => {
       const response = await axios.get("auth/me/");
       localStorage.setItem("user", JSON.stringify(response.data));
-      axios
-        .get("customer/user/", { params: { uid: response.data.id } })
-        .then((data) => {
-          console.log(data.data);
-        });
+      return response.data.id;
     };
-
     if (token) {
       axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-      const user = localStorage.getItem("user");
-      if (user === null) {
-        getAuth();
-      }
+      const user: any = localStorage.getItem("user");
+      getAuth().then((id) => {
+        axios.get("customer/user/", { params: { uid: id } }).then((data) => {
+          setCustomer(data.data);
+        });
+      });
     } else {
       delete axios.defaults.headers.common["Authorization"];
     }

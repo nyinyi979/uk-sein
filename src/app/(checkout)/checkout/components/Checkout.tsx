@@ -172,7 +172,8 @@ export default function Checkout() {
       setTimeout(() => router.push("login"), 300);
       return;
     }
-    if (customer) {
+    console.log(customer);
+    if (customer && customer.name !== "" && customer.phone !== "") {
       setOrder({
         ...order,
         customer: customer,
@@ -189,18 +190,19 @@ export default function Checkout() {
       });
     } else {
       const user = JSON.parse(localStorage.getItem("user")!);
+      console.log(user);
       if (user === null) {
         showErrorAlert({ text: "Please login first!" });
       } else {
         axios
           .get("customer/user/", { params: { uid: user.id } })
           .then((data) => {
+            console.log(data.data);
             setCustomer(data.data);
           });
       }
     }
   }, [token]);
-  console.log(order);
   React.useEffect(() => {
     axios.get("order/exchange-rate/").then((data) => {
       setUsd(data.data);

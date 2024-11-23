@@ -2,6 +2,8 @@
 import React from "react";
 import axios from "@/utils/axios";
 import { useUserStore } from "@/store/clientData";
+import { showErrorAlert } from "@/components/Alert";
+import { useRouter } from "next/navigation";
 
 export default function ({
   children,
@@ -9,11 +11,18 @@ export default function ({
   children: React.ReactNode;
 }>) {
   const { token, setCustomer } = useUserStore((state) => state);
+  const router = useRouter();
   React.useEffect(() => {
-    const cid = JSON.parse(localStorage.getItem("user")!);
-    axios.get("customer/user/", { params: { uid: cid.id } }).then((data) => {
-      setCustomer(data.data);
-    });
-  }, []);
+    if (!token) {
+      showErrorAlert({ text: "You have to login first!" });
+      router.push("/");
+      return;
+    } else {
+      const user = JSON.parse(localStorage.getItem("user")!);
+      axios.get("customer/user/", { params: { uid: user.id } }).then((data) => {
+        setCustomer(data.data);
+      });
+    }
+  }, [token]);
   return <>{children}</>;
 }
