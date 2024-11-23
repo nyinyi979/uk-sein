@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { useUserStore } from "@/store/clientData";
 import { useRouter } from "next/navigation";
+import { showErrorAlert } from "@/components/Alert";
 
 export default function CartFooter({
   totalPrice,
@@ -13,8 +14,10 @@ export default function CartFooter({
   const token = useUserStore((store) => store.token);
   const router = useRouter();
   const onClick = () => {
-    if (token === "") {
-      alert("You need to login first!");
+    if (!token) {
+      showErrorAlert({ text: "You need to login first" });
+      toggle();
+      setTimeout(() => router.push("/login"), 200);
       return;
     } else router.push("/checkout");
     toggle();
