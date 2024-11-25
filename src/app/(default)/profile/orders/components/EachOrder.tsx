@@ -41,7 +41,8 @@ export default function EachOrder({
     router.replace("/profile/orders");
   };
   const t = useTranslations("orders");
-  const isUSD = Number(order.total_usd) > 0;
+  // const isUSD = Number(order?.total_usd) > 0;
+  const isUSD = false;
   return (
     <>
       <TableRow>

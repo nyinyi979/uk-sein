@@ -72,7 +72,7 @@ export default function PaymentPage({
         {selectedPayment !== null && (
           <>
             <PaymentNumbers payment={payments[selectedPayment]} />
-            {payments[selectedPayment].is_visa && (
+            {/* {payments[selectedPayment].is_visa && (
               <div className="flex flex-col gap-[18px] py-[18px]">
                 <p className="font-sora font-semibold text-xl">
                   Choose Currency :{" "}
@@ -108,7 +108,7 @@ export default function PaymentPage({
                   </button>
                 </div>
               </div>
-            )}
+            )} */}
           </>
         )}
         <Input

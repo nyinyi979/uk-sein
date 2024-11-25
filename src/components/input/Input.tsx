@@ -6,6 +6,7 @@ export default function Input({
   placeholder,
   required,
   type = "text",
+  onKeyDown = ()=>{}
 }: {
   label?: string;
   required?: boolean;
@@ -14,6 +15,7 @@ export default function Input({
   placeholder?: string;
   type?: "text" | "password" | "email" | "number";
   id: string;
+  onKeyDown?: (event: any)=>void
 }) {
   return (
     <div className="flex flex-col gap-[14px]">
@@ -37,6 +39,7 @@ export default function Input({
         onWheel={(ev) => {
           ev.currentTarget.blur();
         }}
+        onKeyDown={onKeyDown}
       />
     </div>
   );

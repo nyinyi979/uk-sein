@@ -7,6 +7,7 @@ import { showErrorAlert } from "@/components/Alert";
 import { useCategoryStore } from "@/store/category";
 import SearchIcon from "@/svg/search.svg";
 import Image from "next/image";
+import Input from "@/components/input/Input";
 
 export default function Categories() {
   const { categories, setCategories } = useCategoryStore();
@@ -54,11 +55,12 @@ export default function Categories() {
       </p>
       {search.open && (
         <div className="relative">
-          <input
+          <Input
+            id="search"
             value={searchValue}
-            className="w-full p-3 outline-none rounded-md border border-grey-50 focus:border-grey-200"
-            onChange={(event) => {
-              setSearchValue(event.target.value);
+            // className="w-full p-3 outline-none rounded-md border border-grey-50 focus:border-grey-200"
+            setValue={(value) => {
+              setSearchValue(value);
             }}
             onKeyDown={(event) => {
               if (event.key === "Enter")

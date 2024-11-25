@@ -4,7 +4,8 @@ import { cartItem } from "@/store/clientData";
 import { MEDIA_URL } from "@/utils/axios";
 
 export default function ProductTable({ order }: { order: order }) {
-  const isUSD = Number(order.total_usd) > 0;
+  // const isUSD = Number(order.total_usd) > 0;
+  const isUSD = false
   const t = useTranslations("orders");
   return (
     <div className="flex flex-col md:py-6 px-[28px] md:bg-white md:shadow-dropdown">
