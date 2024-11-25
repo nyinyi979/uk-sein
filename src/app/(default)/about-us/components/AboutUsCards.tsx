@@ -8,7 +8,7 @@ import {
 export default function AboutUsCards() {
   const t = useTranslations("about-us");
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex mt-8 flex-col gap-10">
       <div className="flex flex-col gap-2.5 font-sora">
         <p className="font-normal xl:text-2xl text-grey-400">{t("story")}</p>
         <p className="font-bold xl:text-5xl text-2xl text-grey-500">

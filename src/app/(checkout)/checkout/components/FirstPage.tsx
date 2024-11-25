@@ -50,7 +50,6 @@ export default function FirstPage({
           id="email"
           label={t("input.email")}
           placeholder={t("input.email")}
-          required
         />
       </div>
       <div className="flex flex-col gap-6 pb-[55px]">

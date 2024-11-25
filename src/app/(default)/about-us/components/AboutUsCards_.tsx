@@ -3,8 +3,6 @@ import AboutUsCard from "./AboutUsCard";
 
 import PantaNaw from '../images/pantanaw.jpg'
 import Yangon from '../images/yangonuksein.jpg'
-import Online1 from '../images/fb1.jpg'
-import Online2 from '../images/fb2.jpg'
 import Online3 from '../images/fb3.jpg'
 
 import { useTranslations } from "next-intl";
@@ -24,7 +22,7 @@ export function AboutUsCard1() {
           alt="About us 1"
           fill
           sizes="100%"
-          className="size-full rounded-[10px] object-cover"
+          className="size-full rounded-[10px] object-contain"
         />
       </div>
     </AboutUsCard>
@@ -40,25 +38,6 @@ export function AboutUsCard2() {
       link={true}
     >
       <div className="w-[full] xl:h-[450px] lg:h-[350px] md:h-[150px] h-[60px] relative flex flex-row justify-between">
-        <div className="w-[32%] h-full relative">
-          <Image
-            src={Online1}
-            alt="About us 2"
-            fill
-            sizes="100%"
-            className="size-full rounded-[10px] object-contain"
-          />
-        </div>
-        <div className="w-[32%] h-full relative">
-          <Image
-            src={Online2}
-            alt="About us 3"
-            fill
-            sizes="100%"
-            className="size-full rounded-[10px] object-contain"
-          />
-        </div>
-        <div className="w-[32%] h-full relative">
           <Image
             src={Online3}
             alt="About us 3"
@@ -66,7 +45,6 @@ export function AboutUsCard2() {
             sizes="100%"
             className="size-full rounded-[10px] object-contain"
           />
-        </div>
       </div>
     </AboutUsCard>
   );
@@ -89,7 +67,7 @@ export function AboutUsCard3() {
           alt="About us 1"
           fill
           sizes="100%"
-          className="size-full rounded-[10px] object-cover"
+          className="size-full rounded-[10px] object-contain"
         />
       </div>
       </div>
