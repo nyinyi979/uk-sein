@@ -7,13 +7,16 @@ import Filter from "./Filter";
 import FilterList from "./FilterList";
 import NotFoundError from "./NotFound";
 import axios from "@/utils/axios";
-import Variant, { ProductLoading } from "@/components/template/Variant";
+import { ProductLoading } from "@/components/template/Variant";
 import { product, variant } from "@/types/type";
 import { AnimatePresence } from "framer-motion";
 import { useRouter, useSearchParams } from "next/navigation";
 import { showErrorAlert } from "../Alert";
 import { useCategoryStore } from "@/store/category";
+import BackArrow from "@/svg/backArrow.svg";
 import Product from "../template/Product";
+import Link from "next/link";
+import Image from "next/image";
 const filter = {
   query: "",
   order_by: "-",
@@ -48,13 +51,11 @@ export default function ProductWithFilters({
     cid: para.get("id") || "",
     page: page,
   });
-  const variations = React.useMemo(()=>{
-    const variations:variant[] = [];
-    result.results.map((p)=>
-      p.variations.map((v)=>variations.push(v))
-    )
+  const variations = React.useMemo(() => {
+    const variations: variant[] = [];
+    result.results.map((p) => p.variations.map((v) => variations.push(v)));
     return variations;
-  },[filters])
+  }, [filters]);
   React.useEffect(() => {
     setLoading(true);
     axios
@@ -151,6 +152,26 @@ export default function ProductWithFilters({
         category={decodeURI(categoryName)}
         show={showFilterDrawer}
       />
+      <Link
+        href={"/products"}
+        className="flex gap-3 items-center font-medium group text-khaki-500 hover:text-khaki-700 duration-300"
+      >
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 25 21"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M25.0012 10.5014C25.0012 10.8992 24.8431 11.2807 24.5618 11.562C24.2805 11.8433 23.899 12.0014 23.5012 12.0014H5.12618L11.5662 18.4401C11.848 18.7219 12.0063 19.1041 12.0063 19.5026C12.0063 19.9011 11.848 20.2833 11.5662 20.5651C11.2844 20.8469 10.9022 21.0052 10.5037 21.0052C10.1052 21.0052 9.72297 20.8469 9.44118 20.5651L0.441183 11.5651C0.301343 11.4257 0.190387 11.2602 0.114679 11.0778C0.0389713 10.8955 0 10.7 0 10.5026C0 10.3052 0.0389713 10.1097 0.114679 9.92737C0.190387 9.74505 0.301343 9.57946 0.441183 9.4401L9.44118 0.440102C9.58071 0.300572 9.74636 0.189891 9.92866 0.114378C10.111 0.0388656 10.3064 0 10.5037 0C10.701 0 10.8964 0.0388656 11.0787 0.114378C11.261 0.189891 11.4267 0.300572 11.5662 0.440102C11.7057 0.579631 11.8164 0.745277 11.8919 0.927581C11.9674 1.10988 12.0063 1.30528 12.0063 1.5026C12.0063 1.69993 11.9674 1.89532 11.8919 2.07762C11.8164 2.25993 11.7057 2.42557 11.5662 2.5651L5.12618 9.00135H23.5012C23.899 9.00135 24.2805 9.15939 24.5618 9.44069C24.8431 9.722 25.0012 10.1035 25.0012 10.5014Z"
+            className="size-4 fill-[#DE9D62] group-hover:fill-[#9e6f46] duration-300"
+          />
+        </svg>
+        <span className="group-hover:text-khaki-700 duration-300">
+          Back to Products
+        </span>
+      </Link>
       <div className="flex lg:flex-row flex-col xl:gap-20 gap-10">
         <AnimatePresence>
           {!hidden && (
@@ -184,7 +205,7 @@ export default function ProductWithFilters({
             ) : (
               <>
                 {result.results.map((p) => (
-                  <Product key={p.id+p?.created_at} product={p} small />
+                  <Product key={p.id + p?.created_at} product={p} small />
                 ))}
               </>
             )}
