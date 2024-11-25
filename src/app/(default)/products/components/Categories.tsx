@@ -42,7 +42,7 @@ export default function Categories() {
   const t = useTranslations("product");
   return (
     <div className="flex flex-col xl:gap-[50px] md:gap-8 gap-6">
-      <p className="flex flex-wrap gap-3 items-center">
+      <p className="flex flex-wrap gap-3 items-center justify-between">
         <span className="font-sora font-bold xl:text-5xl md:text-2xl text-lg">
           {t("product-categories")}
         </span>
@@ -68,7 +68,7 @@ export default function Categories() {
             }}
             placeholder="Enter something to search!"
           />
-          <span className="absolute right-4 top-3 text-grey-400">
+          <span className="absolute right-4 top-1/2 -translate-y-1/2 text-grey-400">
             Press Enter
           </span>
         </div>
