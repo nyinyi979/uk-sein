@@ -170,54 +170,60 @@ export default function ProductDetail({
   };
   return (
     <div className="flex flex-col xl:gap-[38px] gap-6 xl:pb-8 pb-6">
-      <div className="flex flex-col xl:gap-[18px] md:gap-[14px] gap-3">
-        <p className="font-sora font-semibold xl:text-base md:text-sm text-xs">
-          {t("size")}
-        </p>
-        <div className="flex flex-row xl:gap-[23px] gap-4 flex-wrap">
-          {sizes.map((size, index) => (
-            <button
-              key={size}
-              onClick={() => toggleSize(size)}
-              className={`w-fit py-4 md:px-6 px-4 rounded-[15px] border ${size === variantProps.size ? "bg-grey-500 text-white border-transparent" : availSize.has(size) ? "border-grey-200" : "hidden"} xl:text-base text-xs cursor-pointer duration-300`}
-            >
-              {FirstLetterCapitalize(size)}
-            </button>
-          ))}
+      {sizes.length > 0 && (
+        <div className="flex flex-col xl:gap-[18px] md:gap-[14px] gap-3">
+          <p className="font-sora font-semibold xl:text-base md:text-sm text-xs">
+            {t("size")}
+          </p>
+          <div className="flex flex-row xl:gap-[23px] gap-4 flex-wrap">
+            {sizes.map((size, index) => (
+              <button
+                key={size}
+                onClick={() => toggleSize(size)}
+                className={`w-fit py-4 md:px-6 px-4 rounded-[15px] border ${size === variantProps.size ? "bg-grey-500 text-white border-transparent" : availSize.has(size) ? "border-grey-200" : "hidden"} xl:text-base text-xs cursor-pointer duration-300`}
+              >
+                {FirstLetterCapitalize(size)}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="flex flex-col xl:gap-[18px] md:gap-[14px] gap-3">
-        <p className="font-sora font-semibold xl:text-base md:text-sm text-xs">
-          {t("color")}
-        </p>
-        <div className="flex flex-row xl:gap-[23px] gap-4 flex-wrap">
-          {colors.map((color, index) => (
-            <button
-              key={color}
-              onClick={() => toggleColor(color)}
-              className={`w-fit py-4 md:px-6 px-4 rounded-[15px] border ${color === variantProps.color ? "bg-grey-500 text-white border-transparent" : availColor.has(color) ? " border-grey-200" : "hidden"} xl:text-base text-xs cursor-pointer duration-300`}
-            >
-              {FirstLetterCapitalize(color)}
-            </button>
-          ))}
+      )}
+      {colors.length > 0 && (
+        <div className="flex flex-col xl:gap-[18px] md:gap-[14px] gap-3">
+          <p className="font-sora font-semibold xl:text-base md:text-sm text-xs">
+            {t("color")}
+          </p>
+          <div className="flex flex-row xl:gap-[23px] gap-4 flex-wrap">
+            {colors.map((color, index) => (
+              <button
+                key={color}
+                onClick={() => toggleColor(color)}
+                className={`w-fit py-4 md:px-6 px-4 rounded-[15px] border ${color === variantProps.color ? "bg-grey-500 text-white border-transparent" : availColor.has(color) ? " border-grey-200" : "hidden"} xl:text-base text-xs cursor-pointer duration-300`}
+              >
+                {FirstLetterCapitalize(color)}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="flex flex-col xl:gap-[18px] md:gap-[14px] gap-3">
-        <p className="font-sora font-semibold xl:text-base md:text-sm text-xs">
-          {t("material")}
-        </p>
-        <div className="flex flex-row xl:gap-[23px] gap-4 flex-wrap ">
-          {materials.map((material, index) => (
-            <div
-              key={material}
-              onClick={() => toggleMaterial(material)}
-              className={`w-fit py-4 md:px-6 px-4 rounded-[15px] border ${material === variantProps.material ? "bg-grey-500 text-white border-transparent" : availMaterial.has(material) ? "border-grey-200" : "hidden"} xl:text-base text-xs cursor-pointer duration-300`}
-            >
-              {FirstLetterCapitalize(material)}
-            </div>
-          ))}
+      )}
+      {materials.length > 0 && (
+        <div className="flex flex-col xl:gap-[18px] md:gap-[14px] gap-3">
+          <p className="font-sora font-semibold xl:text-base md:text-sm text-xs">
+            {t("material")}
+          </p>
+          <div className="flex flex-row xl:gap-[23px] gap-4 flex-wrap ">
+            {materials.map((material, index) => (
+              <div
+                key={material}
+                onClick={() => toggleMaterial(material)}
+                className={`w-fit py-4 md:px-6 px-4 rounded-[15px] border ${material === variantProps.material ? "bg-grey-500 text-white border-transparent" : availMaterial.has(material) ? "border-grey-200" : "hidden"} xl:text-base text-xs cursor-pointer duration-300`}
+              >
+                {FirstLetterCapitalize(material)}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
       <ProductQuantity
         setQuantity={setQuantity}
         quantity={quantity}

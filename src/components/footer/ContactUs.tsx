@@ -10,11 +10,11 @@ export default function ContactUs() {
       <div className="flex flex-col xl:w-[355px] w-[212px] xl:gap-3 gap-[15px] xl:text-base text-xs">
         <div className="flex items-start justify-between">
           <p className="text-grey-200 w-[120px]">{t("input.phone")} :</p>
-          <p className="pl-3 w-[200px]">09-791797411</p>
+          <a href="tel:555-123-4567" className="pl-3 w-[200px]">09-791797411</a>
         </div>
         <div className="flex items-start justify-between">
           <p className="text-grey-200 w-[120px]">{t("input.email")} :</p>
-          <p className="pl-3 w-[200px]">uksein4@4gmail.com</p>
+          <a href="mailto:uksein4@gmail.com" className="pl-3 w-[200px]">uksein4@4gmail.com</a>
         </div>
         <div className="flex items-start justify-between">
           <p className="text-grey-200 w-[120px]">{t("input.address")} :</p>

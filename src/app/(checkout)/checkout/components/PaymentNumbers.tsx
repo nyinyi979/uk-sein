@@ -25,6 +25,7 @@ export default function PaymentNumbers({
         </div>
       </div>
       {/* {!payment.is_visa && ( */}
+      {payment.qr_code.length !== 0 && (
         <div className="md:size-[120px] size-[100px] relative">
           {payment.qr_code.map((qr, index) => (
             <img
@@ -35,6 +36,7 @@ export default function PaymentNumbers({
             />
           ))}
         </div>
+      )}
       {/* )} */}
       <p className="w-fit py-3 md:p-[18px] px-2 rounded-[10px] bg-red-50 font-semibold xl:text-base md:text-sm text-xs text-red-500">
         *{t("drop-the-ss")}

@@ -5,7 +5,7 @@ import { MEDIA_URL } from "@/utils/axios";
 
 export default function ProductTable({ order }: { order: order }) {
   // const isUSD = Number(order.total_usd) > 0;
-  const isUSD = false
+  const isUSD = false;
   const t = useTranslations("orders");
   return (
     <div className="flex flex-col md:py-6 px-[28px] md:bg-white md:shadow-dropdown">
@@ -24,16 +24,33 @@ export default function ProductTable({ order }: { order: order }) {
         </div>
         <div>
           {order.products.map((p) => (
-            <ProductRow key={p.variation_product + p.created_at} {...p} isUSD={isUSD}/>
+            <ProductRow
+              key={p.variation_product + p.created_at}
+              {...p}
+              isUSD={isUSD}
+            />
           ))}
         </div>
+        {order.discount !== "0" && <div className="md:block flex">
+          <p className="xl:w-[680px] md:w-[280px] md:block hidden"></p>
+          <p className="font-semibold xl:text-lg text-right">
+            Discount
+          </p>
+          <p className="ml-auto font-bold xl:text-xl text-lg text-right">
+            {order.discount}
+          </p>
+        </div>}
         <div className="md:block flex">
           <p className="xl:w-[680px] md:w-[280px] md:block hidden"></p>
           <p className="font-semibold xl:text-lg text-right">
             {t("grand-total")}
+            {Number(order.discount) !== 0 && "Discount(" + order.discount + ")"}
           </p>
           <p className="ml-auto font-bold xl:text-xl text-lg text-right">
-            {isUSD ? Number(order.total_usd).toLocaleString() : Number(order.total).toLocaleString()} {isUSD ? "$" : "MMK"}
+            {isUSD
+              ? Number(order.total_usd).toLocaleString()
+              : Number(order.total).toLocaleString()}{" "}
+            {isUSD ? "$" : "MMK"}
           </p>
         </div>
       </div>
@@ -61,8 +78,8 @@ function ProductRow({
             {code}
           </div>
         </div>
-        <img 
-          src={MEDIA_URL+image}
+        <img
+          src={MEDIA_URL + image}
           alt="img"
           className="w-16 h-16 object-cover rounded-md"
         />
@@ -111,6 +128,6 @@ function ProductRow({
   );
 }
 
-interface productRow extends cartItem{
-  isUSD: boolean
+interface productRow extends cartItem {
+  isUSD: boolean;
 }

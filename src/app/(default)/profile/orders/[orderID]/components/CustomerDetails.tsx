@@ -30,21 +30,23 @@ export default function CustomerDetails({
           </div>
           <p>{name}</p>
         </div>
-        <div className="flex flex-row justify-between">
-          <div className="flex flex-row gap-3">
-            <div className="w-[18px] h-5 md:block hidden relative">
-              <Image
-                src={Email}
-                alt="profile"
-                fill
-                sizes="100%"
-                className="size-full object-cover"
-              />
+        {email !== "" && (
+          <div className="flex flex-row justify-between">
+            <div className="flex flex-row gap-3">
+              <div className="w-[18px] h-5 md:block hidden relative">
+                <Image
+                  src={Email}
+                  alt="profile"
+                  fill
+                  sizes="100%"
+                  className="size-full object-cover"
+                />
+              </div>
+              <p className="text-grey-100">{t("email")}</p>
             </div>
-            <p className="text-grey-100">{t("email")}</p>
+            <p>{email}</p>
           </div>
-          <p>{email}</p>
-        </div>
+        )}
         <div className="flex flex-row justify-between">
           <div className="flex flex-row gap-3">
             <div className="w-[18px] h-5 md:block hidden relative">

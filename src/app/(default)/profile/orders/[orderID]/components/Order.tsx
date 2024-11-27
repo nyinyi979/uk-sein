@@ -16,6 +16,7 @@ export default function Order({
   order: order;
   hide?: () => void;
 }) {
+  console.log(order)
   const size = useWindowSize();
   return (
     <motion.div
