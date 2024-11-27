@@ -27,7 +27,7 @@ export default function ProductDetail({
   >;
   quantity: number;
   activeVariant: number;
-  setActiveVariant: Dispatch<SetStateAction<number>>;
+  setActiveVariant: (num: number)=>void;
   setQuantity: (num: number) => void;
 }) {
   const t = useTranslations("category");
@@ -41,9 +41,9 @@ export default function ProductDetail({
       materials.add(decodeURI(val.material.toLowerCase()));
     });
     return {
-      sizes: Array.from(sizes),
-      colors: Array.from(colors),
-      materials: Array.from(materials),
+      sizes: Array.from(sizes).filter((val) => val !== ""),
+      colors: Array.from(colors).filter((val) => val !== ""),
+      materials: Array.from(materials).filter((val) => val !== ""),
     };
   }, []);
   const { availColor, availMaterial, availSize } = React.useMemo(() => {
@@ -176,15 +176,18 @@ export default function ProductDetail({
             {t("size")}
           </p>
           <div className="flex flex-row xl:gap-[23px] gap-4 flex-wrap">
-            {sizes.map((size, index) => (
-              <button
-                key={size}
-                onClick={() => toggleSize(size)}
-                className={`w-fit py-4 md:px-6 px-4 rounded-[15px] border ${size === variantProps.size ? "bg-grey-500 text-white border-transparent" : availSize.has(size) ? "border-grey-200" : "hidden"} xl:text-base text-xs cursor-pointer duration-300`}
-              >
-                {FirstLetterCapitalize(size)}
-              </button>
-            ))}
+            {sizes.map(
+              (size, index) =>
+                size !== "" && (
+                  <button
+                    key={size}
+                    onClick={() => toggleSize(size)}
+                    className={`w-fit py-4 md:px-6 px-4 rounded-[15px] border ${size === variantProps.size ? "bg-grey-500 text-white border-transparent" : availSize.has(size) ? "border-grey-200" : "hidden"} xl:text-base text-xs cursor-pointer duration-300`}
+                  >
+                    {FirstLetterCapitalize(size)}
+                  </button>
+                )
+            )}
           </div>
         </div>
       )}
@@ -194,15 +197,18 @@ export default function ProductDetail({
             {t("color")}
           </p>
           <div className="flex flex-row xl:gap-[23px] gap-4 flex-wrap">
-            {colors.map((color, index) => (
-              <button
-                key={color}
-                onClick={() => toggleColor(color)}
-                className={`w-fit py-4 md:px-6 px-4 rounded-[15px] border ${color === variantProps.color ? "bg-grey-500 text-white border-transparent" : availColor.has(color) ? " border-grey-200" : "hidden"} xl:text-base text-xs cursor-pointer duration-300`}
-              >
-                {FirstLetterCapitalize(color)}
-              </button>
-            ))}
+            {colors.map(
+              (color, index) =>
+                color !== "" && (
+                  <button
+                    key={color}
+                    onClick={() => toggleColor(color)}
+                    className={`w-fit py-4 md:px-6 px-4 rounded-[15px] border ${color === variantProps.color ? "bg-grey-500 text-white border-transparent" : availColor.has(color) ? " border-grey-200" : "hidden"} xl:text-base text-xs cursor-pointer duration-300`}
+                  >
+                    {FirstLetterCapitalize(color)}
+                  </button>
+                )
+            )}
           </div>
         </div>
       )}
@@ -212,15 +218,18 @@ export default function ProductDetail({
             {t("material")}
           </p>
           <div className="flex flex-row xl:gap-[23px] gap-4 flex-wrap ">
-            {materials.map((material, index) => (
-              <div
-                key={material}
-                onClick={() => toggleMaterial(material)}
-                className={`w-fit py-4 md:px-6 px-4 rounded-[15px] border ${material === variantProps.material ? "bg-grey-500 text-white border-transparent" : availMaterial.has(material) ? "border-grey-200" : "hidden"} xl:text-base text-xs cursor-pointer duration-300`}
-              >
-                {FirstLetterCapitalize(material)}
-              </div>
-            ))}
+            {materials.map(
+              (material, index) =>
+                material !== "" && (
+                  <div
+                    key={material}
+                    onClick={() => toggleMaterial(material)}
+                    className={`w-fit py-4 md:px-6 px-4 rounded-[15px] border ${material === variantProps.material ? "bg-grey-500 text-white border-transparent" : availMaterial.has(material) ? "border-grey-200" : "hidden"} xl:text-base text-xs cursor-pointer duration-300`}
+                  >
+                    {FirstLetterCapitalize(material)}
+                  </div>
+                )
+            )}
           </div>
         </div>
       )}

@@ -55,6 +55,7 @@ export default function ProductDetails({
   const updateQuantity = (quantity: number) => {
     setQuantity(quantity);
   };
+  const [gift, setGift] = React.useState("");
   const [activeImage, setActiveImage] = React.useState(0);
   const { rating, ratings } = useRatings({ reviews: review.reviews });
   React.useEffect(() => {
@@ -99,6 +100,11 @@ export default function ProductDetails({
   const updateActiveImage = (index: number) =>{
     setActiveImage(index);
     setActiveVariant(index);
+    setGift(product.variations[index].gift);
+  }
+  const updateActiveVariant = (index: number) => {
+    setActiveVariant(index);
+    setGift(product.variations[index].gift);
   }
   return (
     <div className="xl:w-[1192px] md:w-[85%] sm:w-[90%] w-full mx-auto xl:py-20 py-10">
@@ -127,6 +133,7 @@ export default function ProductDetails({
                   Number(product.variations[activeVariant].discount)
                 }
                 rating={rating}
+                gift={gift}
               />
               <ProductDetail
                 quantity={quantity}
@@ -135,7 +142,7 @@ export default function ProductDetails({
                 variantProps={variantProps}
                 variations={product.variations}
                 activeVariant={activeVariant}
-                setActiveVariant={setActiveVariant}
+                setActiveVariant={updateActiveVariant}
               />
               <ProductAddToCart
                 product={product}
