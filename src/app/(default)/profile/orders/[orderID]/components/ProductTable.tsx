@@ -11,7 +11,7 @@ export default function ProductTable({ order }: { order: order }) {
     <div className="flex flex-col md:py-6 px-[28px] md:bg-white md:shadow-dropdown">
       <p className="py-2 font-sora font-semibold text-2xl">{t("products")}</p>
       <div className="md:py-5 py-4">
-        <div className="md:flex hidden flex-row gap-2.5 font-bold text-grey-200 border-b border-white-700 xl:text-base text-xs">
+        <div className="md:flex hidden flex-row gap-2.5 font-bold text-grey-200 xl:text-base text-xs">
           <p className="xl:w-[350px] w-[180px]">{t("product")} </p>
           <p className="xl:w-[200px] w-[150px] xl:text-left text-center">
             {t("CATEGORY")}
@@ -30,27 +30,40 @@ export default function ProductTable({ order }: { order: order }) {
               isUSD={isUSD}
             />
           ))}
-        </div>
-        {order.discount !== "0" && <div className="md:block flex">
+        </div> 
+        <hr />
+
+        <div className="">
+            <div className="py-4 flex flex-row items-center justify-between">
+              {/* <p className="xl:w-[680px] md:w-[280px] md:block hidden"></p> */}
+              <p className="font-semibold xl:text-lg ">Sub Total</p>
+              <p className="ml-auto font-bold xl:text-xl text-lg ">
+                {order.total} MMK
+              </p>
+            </div>
+            <hr />
+          </div>
+
+        {order.discount !== "0" && (
+          <div className="">
+            <div className="py-4 flex flex-row items-center justify-between">
+              {/* <p className="xl:w-[680px] md:w-[280px] md:block hidden"></p> */}
+              <p className="font-semibold xl:text-lg ">Discount</p>
+              <p className="ml-auto font-bold xl:text-xl text-lg ">
+                - {order.discount} MMK
+              </p>
+            </div>
+            <hr />
+          </div>
+        )}
+        <div className="flex py-4">
           <p className="xl:w-[680px] md:w-[280px] md:block hidden"></p>
-          <p className="font-semibold xl:text-lg text-right">
-            Discount
-          </p>
-          <p className="ml-auto font-bold xl:text-xl text-lg text-right">
-            {order.discount}
-          </p>
-        </div>}
-        <div className="md:block flex">
-          <p className="xl:w-[680px] md:w-[280px] md:block hidden"></p>
-          <p className="font-semibold xl:text-lg text-right">
+          <p className="font-semibold xl:text-lg ">
             {t("grand-total")}
-            {Number(order.discount) !== 0 && "Discount(" + order.discount + ")"}
+            {/* {Number(order.discount) !== 0 && "Discount(" + order.discount + ")"} */}
           </p>
           <p className="ml-auto font-bold xl:text-xl text-lg text-right">
-            {isUSD
-              ? Number(order.total_usd).toLocaleString()
-              : Number(order.total).toLocaleString()}{" "}
-            {isUSD ? "$" : "MMK"}
+            {(Number(order.total) - Number(order.discount) ).toLocaleString()} MMK
           </p>
         </div>
       </div>

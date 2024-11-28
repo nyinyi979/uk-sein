@@ -22,6 +22,7 @@ export interface order {
   discount_reason: string;
   selected_payment_method: null;
   note: string;
+  gift_list: string[];
   payments: paymentInOrder[];
   payment_status: string;
   due_amount: string;
@@ -84,6 +85,7 @@ export const Initial_Order: order = {
   discount_reason: "",
   selected_payment_method: null,
   note: "",
+  gift_list: [],
   payments: [],
   payment_status: "Unpaid",
   due_amount: "",

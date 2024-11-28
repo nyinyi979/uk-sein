@@ -8,6 +8,7 @@ import ProductTable from "./ProductTable";
 import useWindowSize from "@/components/hooks/useWindowSize";
 import { motion } from "framer-motion";
 import { order } from "@/types/order";
+import GiftList from "./GiftList";
 
 export default function Order({
   order,
@@ -37,6 +38,11 @@ export default function Order({
             <ShippingAddress order={order} />
           </div>
           <ProductTable order={order} />
+          {
+            order.gift_list.length > 0 && (
+              <GiftList order={order} />
+            )
+          }
         </div>
       </motion.div>
     </motion.div>
