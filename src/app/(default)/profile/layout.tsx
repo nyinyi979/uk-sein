@@ -13,7 +13,8 @@ export default function ({
   const { token, setCustomer } = useUserStore((state) => state);
   const router = useRouter();
   React.useEffect(() => {
-    if (!token) {
+    const user = JSON.parse(localStorage.getItem("usr_storage") as any).state;
+    if (!user.token) {
       showErrorAlert({ text: "You have to login first!" });
       router.push("/");
       return;
@@ -23,6 +24,6 @@ export default function ({
         setCustomer(data.data);
       });
     }
-  }, [token]);
+  }, [JSON.parse(localStorage.getItem("usr_storage") as any).state]);
   return <>{children}</>;
 }

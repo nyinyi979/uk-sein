@@ -13,10 +13,10 @@ import { AnimatePresence } from "framer-motion";
 import { useRouter, useSearchParams } from "next/navigation";
 import { showErrorAlert } from "../Alert";
 import { useCategoryStore } from "@/store/category";
-import BackArrow from "@/svg/backArrow.svg";
 import Product from "../template/Product";
 import Link from "next/link";
-import Image from "next/image";
+import Input from "../input/Input";
+
 const filter = {
   query: "",
   order_by: "-",
@@ -42,7 +42,8 @@ export default function ProductWithFilters({
     total_pages: 1,
   });
   const page = Number(para.get("p") || 1);
-  const [loading, setLoading] = React.useState(true);
+  const [pLoading, setPLoading] = React.useState(true);
+  const [cLoading, setCLoading] = React.useState(true);
   const [filters, setFilters] = React.useState({
     color: "",
     size: "",
@@ -50,14 +51,48 @@ export default function ProductWithFilters({
     category: decodeURI(categoryName),
     cid: para.get("id") || "",
     page: page,
+    query: "",
   });
-  const variations = React.useMemo(() => {
-    const variations: variant[] = [];
-    result.results.map((p) => p.variations.map((v) => variations.push(v)));
-    return variations;
-  }, [filters]);
+  // const variations = React.useMemo(() => {
+  //   const variations: variant[] = [];
+  //   result.results.map((p) => p.variations.map((v) => variations.push(v)));
+  //   return variations;
+  // }, [filters, result]);
+  const [variations, setVariations] = React.useState<variant[]>([])
+  React.useEffect(()=>{
+    const variants: variant[] = [];
+    result.results.map((p) => p.variations.map((v) => variants.push(v)));
+    setVariations(variants)
+  },[result])
+  console.log("before passing" ,variations)
+  const [searchValue, setSearchValue] = React.useState("");
+
+  const size = useWindowSize();
+  const showFilterDrawer = () => {
+    setHidden(false);
+    if (size[0] < 1200) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "auto";
+    }
+  };
+  const hideFilterDrawer = () => {
+    setHidden(true);
+    if (size[0] <= 1200) {
+      document.body.style.overflowY = "auto";
+    } else {
+      document.body.style.overflowY = "hidden";
+    }
+  };
   React.useEffect(() => {
-    setLoading(true);
+    if (size[0] >= 1200) {
+      showFilterDrawer();
+    } else {
+      hideFilterDrawer();
+    }
+  }, [size]);
+  React.useEffect(() => {
+    setPLoading(true);
     axios
       .get(`product/list/client/`, {
         params: {
@@ -69,12 +104,15 @@ export default function ProductWithFilters({
       })
       .then((data) => {
         setResult(data.data);
-        setLoading(false);
+        setPLoading(false);
       })
       .catch(() => {
         showErrorAlert({ text: "Something went wrong!" });
-        setLoading(false);
+        setPLoading(false);
       });
+  }, [filters]);
+  React.useEffect(() => {
+    setCLoading(true);
     const catFilter = {
       page: 1,
       query: "",
@@ -86,16 +124,15 @@ export default function ProductWithFilters({
       .get(url)
       .then((data) => {
         setCategories(data.data);
-        setLoading(false);
+        setCLoading(false);
       })
       .catch((err) => {
-        console.log(err);
-        setLoading(false);
         showErrorAlert({
           text: "Something went wrong while trying to display categories!",
         });
+        setCLoading(false);
       });
-  }, [filters, para.get("p")]);
+  }, []);
   const router = useRouter();
   const updatePage = (ind: number) => {
     router.push(`/category/${categoryName}?p=${ind}&id=${para.get("id")}`);
@@ -122,30 +159,6 @@ export default function ProductWithFilters({
       setFilters({ ...filters, size });
     }
   };
-  const size = useWindowSize();
-  const showFilterDrawer = () => {
-    setHidden(false);
-    if (size[0] < 1200) {
-      document.body.style.overflowY = "hidden";
-    } else {
-      document.body.style.overflowY = "auto";
-    }
-  };
-  const hideFilterDrawer = () => {
-    setHidden(true);
-    if (size[0] <= 1200) {
-      document.body.style.overflowY = "auto";
-    } else {
-      document.body.style.overflowY = "hidden";
-    }
-  };
-  React.useEffect(() => {
-    if (size[0] >= 1200) {
-      showFilterDrawer();
-    } else {
-      hideFilterDrawer();
-    }
-  }, [size]);
   return (
     <div className="xl:w-[1190px] md:w-[85%] sm:w-[90%] w-full flex flex-col gap-10 xl:my-20 my-10 md:px-0 px-5 mx-auto">
       <CateogryHeading
@@ -172,6 +185,7 @@ export default function ProductWithFilters({
           Back to Products
         </span>
       </Link>
+
       <div className="flex lg:flex-row flex-col xl:gap-20 gap-10">
         <AnimatePresence>
           {!hidden && (
@@ -188,35 +202,56 @@ export default function ProductWithFilters({
             />
           )}
         </AnimatePresence>
-        <div className="lg:w-[886px] w-full flex flex-col gap-10">
-          <AnimatePresence>
-            <FilterList
-              filters={filters}
-              toggleColor={toggleColor}
-              toggleMaterial={toggleMaterial}
-              toggleSize={toggleSize}
+
+        <div>
+          <div className="relative">
+            <Input
+              id="search"
+              value={searchValue}
+              // className="w-full p-3 outline-none rounded-md border border-grey-50 focus:border-grey-200"
+              setValue={(value) => {
+                setSearchValue(value);
+              }}
+              onKeyDown={(event) => {
+                if (event.key === "Enter")
+                  setFilters({ ...filters, query: searchValue });
+              }}
+              placeholder="Enter something to search!"
             />
-          </AnimatePresence>
-          <div className="grid ssm:grid-cols-3 sm:grid-cols-2 xl:gap-10 md:gap-2.5 gap-5">
-            {loading ? (
-              [0, 1, 2, 3, 4].map((val) => <ProductLoading key={val} />)
-            ) : result.results.length === 0 ? (
-              <NotFoundError />
-            ) : (
-              <>
-                {result.results.map((p) => (
-                  <Product key={p.id + p?.created_at} product={p} small />
-                ))}
-              </>
+            <span className="absolute right-4 top-1/2 -translate-y-1/2 text-grey-400">
+              Press Enter
+            </span>
+          </div>
+          <div className="lg:w-[886px] w-full flex flex-col gap-10">
+            <AnimatePresence>
+              <FilterList
+                filters={filters}
+                toggleColor={toggleColor}
+                toggleMaterial={toggleMaterial}
+                toggleSize={toggleSize}
+              />
+            </AnimatePresence>
+            <div className="grid ssm:grid-cols-3 sm:grid-cols-2 xl:gap-10 md:gap-2.5 gap-5">
+              {pLoading ? (
+                [0, 1, 2, 3, 4].map((val) => <ProductLoading key={val} />)
+              ) : result.results.length === 0 ? (
+                <NotFoundError />
+              ) : (
+                <>
+                  {result.results.map((p) => (
+                    <Product key={p.id + p?.created_at} product={p} small />
+                  ))}
+                </>
+              )}
+            </div>
+            {result.results.length !== 0 && (
+              <Pagination
+                activeIndex={page}
+                totalIndex={result.total_pages}
+                setIndex={updatePage}
+              />
             )}
           </div>
-          {result.results.length !== 0 && (
-            <Pagination
-              activeIndex={page}
-              totalIndex={result.total_pages}
-              setIndex={updatePage}
-            />
-          )}
         </div>
       </div>
     </div>

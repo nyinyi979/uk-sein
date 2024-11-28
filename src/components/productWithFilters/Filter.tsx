@@ -39,18 +39,24 @@ export default function Filter({
   categoryName,
   categories,
 }: Filter) {
-  const [price, setPrice] = React.useState({
-    maximum: "",
-    minimum: "",
-  });
-  const possibleFilters = React.useMemo(() => {
-    const filt: possibleFilters = initialPossibleFilters;
+  const [possibleFilters, setPossibleFilters] = React.useState<any>({
+    category: [],
+    color: [],
+    size: [],
+    material: [],
+    maximum: 0,
+    minimum: 0,
+    categories: [],
+  })
+  React.useEffect(()=>{
+    console.log("VARIATION CHANGED", variations);
+    const filt: possibleFilters = {...initialPossibleFilters};
     variations.map((v) => {
       filt.color.add(v.color);
       filt.material.add(v.material);
       filt.size.add(v.size);
     });
-    return {
+    setPossibleFilters({
       category: Array.from(filt.category),
       color: Array.from(filt.color),
       size: Array.from(filt.size),
@@ -58,18 +64,16 @@ export default function Filter({
       maximum: 0,
       minimum: 0,
       categories: categories,
-    };
-  }, [variations, filters]);
-  React.useEffect(() => {
-    // console.log("Variations have changed!")
-  }, [variations]);
+    })
+  },[variations,filters])
+  console.log(possibleFilters)
   const filterApplied =
     filters.category !== decodeURI(categoryName) ||
     filters.color !== "" ||
     filters.material !== "" ||
     filters.size !== "";
   const resetFilter = () => {
-    setFilters(initialFilters);
+    setFilters({...filters, ...initialFilters});
   };
   const t = useTranslations("category");
   return (
@@ -186,6 +190,7 @@ export type filter = {
   category: string;
   page: number;
   cid: string;
+  query: string;
 };
 type possibleFilters = {
   color: Set<string>;
