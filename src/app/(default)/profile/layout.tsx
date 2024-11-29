@@ -24,6 +24,6 @@ export default function ({
         setCustomer(data.data);
       });
     }
-  }, [JSON.parse(localStorage.getItem("usr_storage") as any).state]);
+  }, []);
   return <>{children}</>;
 }
