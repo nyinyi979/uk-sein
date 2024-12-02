@@ -70,7 +70,7 @@ export default function WriteReview({
       ) : (
         <button
           onClick={onSubmit}
-          disabled={review.number_of_stars === "0" && review.review === ""}
+          disabled={review.number_of_stars === "0" || review.review === ''}
           className={`ml-auto py-[18px] md:px-8 px-6 disabled:bg-grey-50 bg-khaki-500 rounded-[15px] font-semibold text-lg text-white duration-300`}
         >
           {t("write-review")}
