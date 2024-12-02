@@ -3,6 +3,7 @@ import React from "react";
 import { review } from "@/types/type";
 import { useTranslations } from "next-intl";
 import { MEDIA_URL } from "@/utils/axios";
+import moment from "moment";
 
 export function EachReview({ rv }: { rv: review }) {
   return (
@@ -24,7 +25,7 @@ export function EachReview({ rv }: { rv: review }) {
               {rv.customer?.name || "Unknown"}
             </p>
             <p className="font-medium md:text-sm text-[10px] text-grey-200">
-              {getDaysAgo(rv?.created_at).toString()} days ago
+              {moment(rv.created_at).fromNow()}
             </p>
           </div>
         </div>

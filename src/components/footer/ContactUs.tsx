@@ -14,7 +14,7 @@ export default function ContactUs() {
         </div>
         <div className="flex items-start justify-between">
           <p className="text-grey-200 w-[120px]">{t("input.email")} :</p>
-          <a href="mailto:uksein4@4gmail.com" className="pl-3 w-[200px]">uksein4@4gmail.com</a>
+          <a href="mailto:uksein44@gmail.com" className="pl-3 w-[200px]">uksein44@gmail.com</a>
         </div>
         <div className="flex items-start justify-between">
           <p className="text-grey-200 w-[120px]">{t("input.address")} :</p>
