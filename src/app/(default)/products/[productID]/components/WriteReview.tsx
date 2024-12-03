@@ -37,7 +37,7 @@ export default function WriteReview({
         setLoading(false);
       })
       .catch(() => {
-        showErrorAlert({ text: "Something went wrong!" });
+        showErrorAlert({ text: "To write the review! You need to login first" });
         setLoading(false);
       });
   };
