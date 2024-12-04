@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import ProductTitle from "./Title";
 import ProductImages from "./Image";
@@ -45,6 +45,7 @@ export default function ProductDetails({
     reviews: reviewsData[params.productID] || [],
   });
   const [loading, setLoading] = React.useState(true);
+  const [variantPropsChange, setVariantPropsChange] = React.useState(false);
   const [variantProps, setVariantProps] = React.useState({
     size: "",
     material: "",
@@ -86,7 +87,8 @@ export default function ProductDetails({
         showErrorAlert({ text: "Something went wrong fetching wishlists!" });
       });
   }, [token]);
-  const [images, setImages] = React.useState<images[]>([])
+  const [images, setImages] = React.useState<images[]>([]);
+
   React.useEffect(() => {
     const imgs: images[] = [];
     if (
@@ -96,14 +98,28 @@ export default function ProductDetails({
     )
       product.variations.map((v) => v.images.map((img) => imgs.push(img)));
     else imgs.push(product.variations[activeVariant].images[0]);
-    setImages(imgs)
+    setImages(imgs);
   }, [product, variantProps]);
-  const updateActiveImage = (index: number) =>{
+
+  React.useEffect(() => {
+    if (
+      variantProps.color === "" &&
+      variantProps.material === "" &&
+      variantProps.size === ""
+    ) {
+      setVariantPropsChange(false);
+    } else {
+      setVariantPropsChange(true);
+    }
+  }, [variantProps]);
+
+
+  const updateActiveImage = (index: number) => {
     setActiveImage(index);
     setActiveVariant(index);
     setGift(product.variations[index].gift);
-  }
-  console.log(activeVariant)
+  };
+
   return (
     <div className="xl:w-[1192px] md:w-[85%] sm:w-[90%] w-full mx-auto xl:py-20 py-10">
       <ProductTitle category={product.categories[0] || ""} />
@@ -115,7 +131,7 @@ export default function ProductDetails({
             <div className="flex flex-col md:gap-[62px] gap-8">
               <ProductImages
                 category={product.categories[0] || ""}
-                images={images}
+                images={variantPropsChange ? product.variations[activeVariant].images : images}
                 activeImage={images.length === 1 ? 0 : activeImage}
                 updateImage={updateActiveImage}
               />

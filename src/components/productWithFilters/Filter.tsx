@@ -49,7 +49,6 @@ export default function Filter({
     categories: [],
   })
   React.useEffect(()=>{
-    console.log("VARIATION CHANGED", variations);
     const filt: possibleFilters = {...initialPossibleFilters};
     variations.map((v) => {
       filt.color.add(v.color);
@@ -66,7 +65,6 @@ export default function Filter({
       categories: categories,
     })
   },[variations,filters])
-  console.log(possibleFilters)
   const filterApplied =
     filters.category !== decodeURI(categoryName) ||
     filters.color !== "" ||

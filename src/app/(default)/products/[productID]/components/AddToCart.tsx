@@ -19,7 +19,6 @@ export default function ProductAddToCart({
   quantity: number;
 }) {
   const copy = () => {
-    // console.log(window.location.href);
     navigator.clipboard.writeText(window.location.href);
     showSuccessAlert({ text: "Product link copied!" });
   };

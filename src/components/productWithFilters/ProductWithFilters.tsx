@@ -67,7 +67,6 @@ export default function ProductWithFilters({
     result.results.map((p) => p.variations.map((v) => variants.push(v)));
     setVariations(variants)
   },[result])
-  console.log("before passing" ,variations)
 
   const showFilterDrawer = () => {
     setHidden(false);
@@ -204,7 +203,7 @@ export default function ProductWithFilters({
         </AnimatePresence>
 
         <div>
-          <div className="relative">
+          <div className="relative w-[100%]">
             <Input
               id="search"
               value={searchValue}

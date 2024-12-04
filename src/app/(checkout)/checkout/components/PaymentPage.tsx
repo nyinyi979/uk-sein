@@ -34,10 +34,6 @@ export default function PaymentPage({
   const [selectedPayment, setSelectedPayment] = React.useState<null | number>(
     null,
   );
-  console.log('This is Selelcted Payment')
-  console.log(selectedPayment)
-  console.log('This is Payment')
-  console.log(payment.payment_type)
   const updateSelectedPayment = (p: number) => {
     setSelectedPayment(p);
     setPayment({

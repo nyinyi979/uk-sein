@@ -8,7 +8,6 @@ export default function MessageInput({
   setMessage: (message: string) => void;
 }) {
   const t = useTranslations("contact");
-  console.log(message)
   return (
     <div className="flex flex-col gap-[15px]">
       <label htmlFor="message" className="font-sora font-semibold">

@@ -19,7 +19,6 @@ export default function ProductImages({
   activeImage: number;
   updateImage: (index: number) => void;
 }) {
-  console.log(images[0])
   return (
     <div className="flex flex-col gap-5">
       <div className="xl:size-[580px] md:size-[322px] sm:w-[340px] sm:h-[280px] w-full h-fit mx-auto relative bg-white-400">
