@@ -116,7 +116,7 @@ export default function SocialLinks() {
           <div className="flex flex-row flex-wrap xl:gap-[20px] gap-3">
             {payments.map((data, index) => {
               return (
-                <div className="xl:size-[50px] size-8 relative">
+                <div key={data.image+data.payment_name} className="xl:size-[50px] size-8 relative">
                   <img
                     src={MEDIA_URL + data.image}
                     className="size-full object-contain"

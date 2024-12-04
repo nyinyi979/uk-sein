@@ -86,7 +86,8 @@ export default function ProductDetails({
         showErrorAlert({ text: "Something went wrong fetching wishlists!" });
       });
   }, [token]);
-  const images = React.useMemo(() => {
+  const [images, setImages] = React.useState<images[]>([])
+  React.useEffect(() => {
     const imgs: images[] = [];
     if (
       variantProps.color === "" &&
@@ -95,17 +96,14 @@ export default function ProductDetails({
     )
       product.variations.map((v) => v.images.map((img) => imgs.push(img)));
     else imgs.push(product.variations[activeVariant].images[0]);
-    return imgs;
+    setImages(imgs)
   }, [product, variantProps]);
   const updateActiveImage = (index: number) =>{
     setActiveImage(index);
     setActiveVariant(index);
     setGift(product.variations[index].gift);
   }
-  const updateActiveVariant = (index: number) => {
-    setActiveVariant(index);
-    setGift(product.variations[index].gift);
-  }
+  console.log(activeVariant)
   return (
     <div className="xl:w-[1192px] md:w-[85%] sm:w-[90%] w-full mx-auto xl:py-20 py-10">
       <ProductTitle category={product.categories[0] || ""} />
@@ -118,7 +116,7 @@ export default function ProductDetails({
               <ProductImages
                 category={product.categories[0] || ""}
                 images={images}
-                activeImage={activeImage}
+                activeImage={images.length === 1 ? 0 : activeImage}
                 updateImage={updateActiveImage}
               />
               <ProductDescription description={product.description} />
@@ -142,7 +140,7 @@ export default function ProductDetails({
                 variantProps={variantProps}
                 variations={product.variations}
                 activeVariant={activeVariant}
-                setActiveVariant={updateActiveVariant}
+                setActiveVariant={updateActiveImage}
               />
               <ProductAddToCart
                 product={product}

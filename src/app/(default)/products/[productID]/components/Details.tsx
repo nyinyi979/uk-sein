@@ -146,6 +146,7 @@ export default function ProductDetail({
         }
       });
     }
+    console.log(active)
     setActiveVariant(active);
     return {
       availColor,

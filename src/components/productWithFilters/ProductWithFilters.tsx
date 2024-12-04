@@ -42,6 +42,7 @@ export default function ProductWithFilters({
     total_pages: 1,
   });
   const page = Number(para.get("p") || 1);
+  const router = useRouter();
   const [pLoading, setPLoading] = React.useState(true);
   const [cLoading, setCLoading] = React.useState(true);
   const [filters, setFilters] = React.useState({
@@ -53,21 +54,21 @@ export default function ProductWithFilters({
     page: page,
     query: "",
   });
+  const [variations, setVariations] = React.useState<variant[]>([])
+  const [searchValue, setSearchValue] = React.useState("");
+  const size = useWindowSize();
   // const variations = React.useMemo(() => {
   //   const variations: variant[] = [];
   //   result.results.map((p) => p.variations.map((v) => variations.push(v)));
   //   return variations;
   // }, [filters, result]);
-  const [variations, setVariations] = React.useState<variant[]>([])
   React.useEffect(()=>{
     const variants: variant[] = [];
     result.results.map((p) => p.variations.map((v) => variants.push(v)));
     setVariations(variants)
   },[result])
   console.log("before passing" ,variations)
-  const [searchValue, setSearchValue] = React.useState("");
 
-  const size = useWindowSize();
   const showFilterDrawer = () => {
     setHidden(false);
     if (size[0] < 1200) {
@@ -133,7 +134,6 @@ export default function ProductWithFilters({
         setCLoading(false);
       });
   }, []);
-  const router = useRouter();
   const updatePage = (ind: number) => {
     router.push(`/category/${categoryName}?p=${ind}&id=${para.get("id")}`);
   };
