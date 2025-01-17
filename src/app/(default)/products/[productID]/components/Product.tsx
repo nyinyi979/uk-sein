@@ -65,7 +65,11 @@ export default function ProductDetails({
     axios
       .get(url)
       .then((data) => {
-        setProduct(data.data);
+        let productData = data.data
+        let variantionList = data.data.variations
+        let filteredVariationList = variantionList.filter((product: product) => product.status === "In Stock")
+        productData.variations = filteredVariationList
+        setProduct(productData);
         setLoading(false);
         getReviews(params.productID).then((val) => {
           setReview({ loading: false, reviews: val });
